@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 1: Foundations of AI – AI for Urban Health</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-185884c8c6106d4d5e21bb702d36b605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">AI for Urban Health</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./day1.html" aria-current="page"> 
+<span class="menu-text">Day 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day2.html"> 
+<span class="menu-text">Day 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day3.html"> 
+<span class="menu-text">Day 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day4.html"> 
+<span class="menu-text">Day 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day5.html"> 
+<span class="menu-text">Day 5</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./readings.html"> 
+<span class="menu-text">Readings</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./challenges.html"> 
+<span class="menu-text">Bonus Challenges</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:daq26@drexel.edu"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#day-1-foundations-of-ai" id="toc-day-1-foundations-of-ai" class="nav-link active" data-scroll-target="#day-1-foundations-of-ai">Day 1: Foundations of AI</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#lecture-ai-concepts-and-history" id="toc-lecture-ai-concepts-and-history" class="nav-link" data-scroll-target="#lecture-ai-concepts-and-history">Lecture: AI Concepts and History</a>
+  <ul class="collapse">
+  <li><a href="#what-is-artificial-intelligence" id="toc-what-is-artificial-intelligence" class="nav-link" data-scroll-target="#what-is-artificial-intelligence">What Is Artificial Intelligence?</a></li>
+  <li><a href="#the-transformer-revolution" id="toc-the-transformer-revolution" class="nav-link" data-scroll-target="#the-transformer-revolution">The Transformer Revolution</a></li>
+  <li><a href="#why-urban-health-needs-ai" id="toc-why-urban-health-needs-ai" class="nav-link" data-scroll-target="#why-urban-health-needs-ai">Why Urban Health Needs AI</a></li>
+  <li><a href="#philadelphia-ai-policy-discussion" id="toc-philadelphia-ai-policy-discussion" class="nav-link" data-scroll-target="#philadelphia-ai-policy-discussion">Philadelphia AI Policy Discussion</a></li>
+  </ul></li>
+  <li><a href="#activity-1-explore-generative-ai-platforms" id="toc-activity-1-explore-generative-ai-platforms" class="nav-link" data-scroll-target="#activity-1-explore-generative-ai-platforms">Activity 1: Explore Generative AI Platforms</a>
+  <ul class="collapse">
+  <li><a href="#activity-1-explore-generative-ai-platforms-1" id="toc-activity-1-explore-generative-ai-platforms-1" class="nav-link" data-scroll-target="#activity-1-explore-generative-ai-platforms-1">Activity 1: Explore Generative AI Platforms</a></li>
+  </ul></li>
+  <li><a href="#activity-2-prompt-engineering-practice" id="toc-activity-2-prompt-engineering-practice" class="nav-link" data-scroll-target="#activity-2-prompt-engineering-practice">Activity 2: Prompt Engineering Practice</a>
+  <ul class="collapse">
+  <li><a href="#activity-2-prompt-engineering-practice-1" id="toc-activity-2-prompt-engineering-practice-1" class="nav-link" data-scroll-target="#activity-2-prompt-engineering-practice-1">Activity 2: Prompt Engineering Practice</a></li>
+  </ul></li>
+  <li><a href="#activity-3-ai-for-professional-writing" id="toc-activity-3-ai-for-professional-writing" class="nav-link" data-scroll-target="#activity-3-ai-for-professional-writing">Activity 3: AI for Professional Writing</a>
+  <ul class="collapse">
+  <li><a href="#activity-3-ai-for-professional-writing-1" id="toc-activity-3-ai-for-professional-writing-1" class="nav-link" data-scroll-target="#activity-3-ai-for-professional-writing-1">Activity 3: AI for Professional Writing</a></li>
+  </ul></li>
+  <li><a href="#bonus-challenge-exercises" id="toc-bonus-challenge-exercises" class="nav-link" data-scroll-target="#bonus-challenge-exercises">Bonus Challenge Exercises</a></li>
+  <li><a href="#todays-readings" id="toc-todays-readings" class="nav-link" data-scroll-target="#todays-readings">Today’s Readings</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Day 1: Foundations of AI</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="day-1-foundations-of-ai" class="level1 day-header">
+<h1>Day 1: Foundations of AI</h1>
+<div class="day-subtitle">
+<p>AI concepts, generative AI platforms, and prompt engineering for public health</p>
+</div>
+<div class="day-time">
+<p>1:00–4:00 PM EST</p>
+</div>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of today, you will be able to:</p>
+<ol type="1">
+<li>Define key AI terms (machine learning, deep learning, foundation models, large language models) and explain how they relate to each other</li>
+<li>Describe the transformer architecture at a conceptual level and why it enabled the current AI revolution</li>
+<li>Navigate and compare major generative AI platforms (ChatGPT, Claude, Gemini, Perplexity)</li>
+<li>Apply the PTCF prompt engineering framework to get better outputs from AI tools</li>
+<li>Use AI to assist with professional writing tasks relevant to public health practice</li>
+</ol>
+<hr>
+</section>
+<section id="lecture-ai-concepts-and-history" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-ai-concepts-and-history">Lecture: AI Concepts and History</h2>
+<section id="what-is-artificial-intelligence" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-artificial-intelligence">What Is Artificial Intelligence?</h3>
+<p>AI is a broad field encompassing any system that can perform tasks typically requiring human intelligence. We will walk through the key layers:</p>
+<ul>
+<li><strong>Artificial Intelligence (AI):</strong> The broadest category—machines that can sense, reason, act, and adapt</li>
+<li><strong>Machine Learning (ML):</strong> Systems that learn patterns from data rather than following explicit rules
+<ul>
+<li><em>Supervised learning:</em> Learning from labeled examples (e.g., classifying chest X-rays)</li>
+<li><em>Unsupervised learning:</em> Finding patterns without labels (e.g., clustering neighborhoods by health outcomes)</li>
+<li><em>Reinforcement learning:</em> Learning through trial and reward (e.g., optimizing treatment protocols)</li>
+</ul></li>
+<li><strong>Deep Learning:</strong> ML using neural networks with many layers, enabling learning from raw data (images, text, audio)</li>
+<li><strong>Foundation Models / Large Language Models (LLMs):</strong> Models trained on massive datasets that can be adapted to many tasks</li>
+</ul>
+</section>
+<section id="the-transformer-revolution" class="level3">
+<h3 class="anchored" data-anchor-id="the-transformer-revolution">The Transformer Revolution</h3>
+<p>In 2017, the paper “Attention Is All You Need” introduced the <strong>transformer architecture</strong>, which enabled:</p>
+<ul>
+<li>Processing entire sequences in parallel (not word by word)</li>
+<li>The “attention mechanism”—allowing models to focus on relevant parts of the input</li>
+<li>Scaling to billions of parameters, creating increasingly capable models</li>
+</ul>
+<p>This architecture underlies ChatGPT, Claude, Gemini, and essentially all modern LLMs.</p>
+</section>
+<section id="why-urban-health-needs-ai" class="level3">
+<h3 class="anchored" data-anchor-id="why-urban-health-needs-ai">Why Urban Health Needs AI</h3>
+<p>Urban public health generates enormous amounts of data—surveillance records, community surveys, environmental monitoring, clinical data, policy documents—yet many departments are resource-constrained. AI can help with:</p>
+<ul>
+<li>Rapid literature synthesis and evidence review</li>
+<li>Data analysis and visualization with limited statistical staff</li>
+<li>Drafting reports, communications, and policy briefs</li>
+<li>Identifying patterns in large datasets</li>
+<li>Translating materials for diverse communities</li>
+<li>Streamlining routine administrative tasks</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Key Concept: AI as a Tool, Not a Replacement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI is most effective when it augments human expertise rather than replacing it. Throughout this course, we will focus on <strong>human-in-the-loop</strong> approaches where AI assists with tasks but humans make the final decisions.</p>
+</div>
+</div>
+</section>
+<section id="philadelphia-ai-policy-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="philadelphia-ai-policy-discussion">Philadelphia AI Policy Discussion</h3>
+<p>The Commonwealth of Pennsylvania has issued <a href="https://www.governor.pa.gov/newsroom/governor-shapiro-signs-executive-order-establishing-governance-guardrails-for-commonwealth-use-of-artificial-intelligence/">executive guidance on AI use in state agencies</a>. We will review:</p>
+<ul>
+<li>Current state-level AI governance frameworks</li>
+<li>How Philadelphia city agencies are approaching AI adoption</li>
+<li>Implications for your daily work and data handling</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="activity-1-explore-generative-ai-platforms" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-1-explore-generative-ai-platforms">Activity 1: Explore Generative AI Platforms</h2>
+<section id="activity-1-explore-generative-ai-platforms-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-1-explore-generative-ai-platforms-1">Activity 1: Explore Generative AI Platforms</h3>
+<div class="activity-meta">
+<p>Duration: ~40 minutes | Format: Individual exploration + group discussion</p>
+</div>
+<p><strong>Goal:</strong> Get hands-on experience with multiple AI platforms and understand their strengths and differences.</p>
+<section id="instructions" class="level4">
+<h4 class="anchored" data-anchor-id="instructions">Instructions</h4>
+<ol type="1">
+<li>Open each of the following platforms (you should have created accounts before today):
+<ul>
+<li><a href="https://chat.openai.com">ChatGPT</a> (OpenAI)</li>
+<li><a href="https://claude.ai">Claude</a> (Anthropic)</li>
+<li><a href="https://gemini.google.com">Gemini</a> (Google)</li>
+<li><a href="https://perplexity.ai">Perplexity</a></li>
+</ul></li>
+<li>Ask each platform the <strong>same prompt</strong> and compare responses:</li>
+</ol>
+<p><strong>Prompt 1 (Factual):</strong></p>
+<blockquote class="blockquote">
+<p>What are the leading causes of premature mortality in Philadelphia, and how do they differ by neighborhood?</p>
+</blockquote>
+<p><strong>Prompt 2 (Analytical):</strong></p>
+<blockquote class="blockquote">
+<p>I work at a city health department. Summarize the evidence on heat-related illness prevention strategies that have been effective in urban areas similar to Philadelphia.</p>
+</blockquote>
+<p><strong>Prompt 3 (Creative):</strong></p>
+<blockquote class="blockquote">
+<p>Draft three social media posts (for X/Twitter) promoting free lead testing for children in North Philadelphia. The tone should be warm, urgent but not alarming, and culturally appropriate.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><strong>Compare and document</strong> your findings using this table:</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>ChatGPT</th>
+<th>Claude</th>
+<th>Gemini</th>
+<th>Perplexity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Response quality</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Citations/sources</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Length/detail</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Tone/style</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Factual accuracy</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Unique strengths</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="discussion-questions" class="level4">
+<h4 class="anchored" data-anchor-id="discussion-questions">Discussion Questions</h4>
+<ul>
+<li>Which platform gave the most accurate response? How did you verify?</li>
+<li>Which platform cited its sources most clearly?</li>
+<li>Did any platform refuse to answer or add caveats? Why might that be?</li>
+<li>Which would you reach for first for different types of tasks?</li>
+</ul>
+</section>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Platform Differences to Watch For
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>ChatGPT</strong> has a large ecosystem of plugins and custom GPTs; strong at creative and conversational tasks</li>
+<li><strong>Claude</strong> tends toward longer, more nuanced responses with explicit reasoning; strong safety guardrails</li>
+<li><strong>Gemini</strong> integrates with Google Workspace and has strong multimodal capabilities</li>
+<li><strong>Perplexity</strong> is purpose-built for research with inline citations from web sources</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="activity-2-prompt-engineering-practice" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-2-prompt-engineering-practice">Activity 2: Prompt Engineering Practice</h2>
+<section id="activity-2-prompt-engineering-practice-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-2-prompt-engineering-practice-1">Activity 2: Prompt Engineering Practice</h3>
+<div class="activity-meta">
+<p>Duration: ~40 minutes | Format: Guided practice with partner discussion</p>
+</div>
+<p><strong>Goal:</strong> Learn and practice the PTCF framework for writing effective prompts.</p>
+<section id="the-ptcf-framework" class="level4">
+<h4 class="anchored" data-anchor-id="the-ptcf-framework">The PTCF Framework</h4>
+<p>Good prompts have four components:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 39%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P</strong>ersona</td>
+<td>Who should the AI act as?</td>
+<td>“You are a public health epidemiologist…”</td>
+</tr>
+<tr class="even">
+<td><strong>T</strong>ask</td>
+<td>What specifically should it do?</td>
+<td>“Write a 500-word executive summary…”</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong>ontext</td>
+<td>What background information is needed?</td>
+<td>“This is for the city council health committee…”</td>
+</tr>
+<tr class="even">
+<td><strong>F</strong>ormat</td>
+<td>How should the output be structured?</td>
+<td>“Use bullet points with headers, include a recommendation section…”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="practice-prompts" class="level4">
+<h4 class="anchored" data-anchor-id="practice-prompts">Practice Prompts</h4>
+<p>Try these prompts using the PTCF framework. Start with the “basic” version, then improve it:</p>
+<p><strong>Scenario 1: Herd Immunity Explanation</strong></p>
+<p><em>Basic prompt:</em> “Explain herd immunity.”</p>
+<p><em>Improved prompt (try writing your own first, then compare):</em></p>
+<blockquote class="blockquote">
+<p><strong>Persona:</strong> You are a community health educator working in a diverse urban neighborhood in Philadelphia.</p>
+<p><strong>Task:</strong> Explain the concept of herd immunity to a group of parents at a community health fair.</p>
+<p><strong>Context:</strong> Many parents in this community have questions about childhood vaccinations. Reading levels vary widely. Some community members have expressed vaccine hesitancy based on misinformation on social media.</p>
+<p><strong>Format:</strong> Write a 200-word explanation at an 8th-grade reading level. Use an analogy. End with one clear call to action. Avoid medical jargon.</p>
+</blockquote>
+<p><strong>Scenario 2: Vaccination Social Media Campaign</strong></p>
+<p><em>Basic prompt:</em> “Write a social media post about flu shots.”</p>
+<p><em>Your improved PTCF version:</em> Write a prompt that specifies the audience (e.g., elderly residents in South Philadelphia), the platform (e.g., Facebook), the tone, and the desired call to action.</p>
+<p><strong>Scenario 3: Air Quality Executive Summary</strong></p>
+<p><em>Basic prompt:</em> “Summarize air quality data.”</p>
+<p><em>Your improved PTCF version:</em> Specify who you are (e.g., environmental health analyst), what data you are summarizing (e.g., PM2.5 readings from 2024-2025 across Philadelphia neighborhoods), who the audience is (e.g., City Council), and what format the summary should take (e.g., 1-page brief with key findings, a table, and policy recommendations).</p>
+</section>
+<section id="advanced-techniques" class="level4">
+<h4 class="anchored" data-anchor-id="advanced-techniques">Advanced Techniques</h4>
+<p>After practicing the basics, try these:</p>
+<ul>
+<li><strong>Chain-of-thought prompting:</strong> Add “Think through this step by step” to complex analytical questions</li>
+<li><strong>Few-shot prompting:</strong> Give 1–2 examples of the output you want before asking for a new one</li>
+<li><strong>Structured output:</strong> Ask for JSON, CSV, or specific table formats</li>
+<li><strong>Iterative refinement:</strong> Start with a draft prompt, review the output, and revise the prompt</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Reproducibility Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI outputs are not perfectly reproducible—the same prompt can generate different responses each time. For work that requires consistency, save your prompts, document which model and version you used, and note the date. Some platforms offer a “temperature” setting that affects randomness.</p>
+</div>
+</div>
+</section>
+</section>
+<hr>
+</section>
+<section id="activity-3-ai-for-professional-writing" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-3-ai-for-professional-writing">Activity 3: AI for Professional Writing</h2>
+<section id="activity-3-ai-for-professional-writing-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-3-ai-for-professional-writing-1">Activity 3: AI for Professional Writing</h3>
+<div class="activity-meta">
+<p>Duration: ~30 minutes | Format: Individual work + pair sharing</p>
+</div>
+<p><strong>Goal:</strong> Practice using AI as a writing assistant for real public health work products.</p>
+<section id="instructions-1" class="level4">
+<h4 class="anchored" data-anchor-id="instructions-1">Instructions</h4>
+<p>Choose one of the following tasks (or bring your own de-identified writing task):</p>
+<p><strong>Option A: Draft a Public Health Report Section</strong></p>
+<p>Ask AI to help you draft a section of a report on a topic relevant to your work. For example:</p>
+<blockquote class="blockquote">
+<p>You are a public health analyst at the Philadelphia Department of Public Health. Draft the “Background” section (300–400 words) for a report on childhood asthma rates in Philadelphia. Include relevant national and local statistics, known risk factors in urban environments, and health equity considerations. Cite sources where possible and flag any statistics that should be verified.</p>
+</blockquote>
+<p><strong>Option B: Edit and Improve Existing Writing</strong></p>
+<p>Paste a paragraph from a real (de-identified) work document and ask the AI to:</p>
+<ul>
+<li>Improve clarity and readability</li>
+<li>Adjust the tone for a specific audience</li>
+<li>Identify gaps in the argument</li>
+<li>Suggest stronger transitions</li>
+</ul>
+<p><strong>Option C: Write a Policy Brief</strong></p>
+<blockquote class="blockquote">
+<p>Draft a 1-page policy brief recommending that Philadelphia expand its network of cooling centers based on heat vulnerability data. Include: an executive summary (2–3 sentences), the problem statement, key evidence, and 3 specific recommendations. The audience is City Council members who are not public health experts.</p>
+</blockquote>
+</section>
+<section id="pair-discussion" class="level4">
+<h4 class="anchored" data-anchor-id="pair-discussion">Pair Discussion</h4>
+<p>After completing your writing task, share with a partner:</p>
+<ol type="1">
+<li>What prompt did you use? How did you refine it?</li>
+<li>What did the AI do well? What needed human editing?</li>
+<li>Would you use this approach in your actual work? Why or why not?</li>
+</ol>
+</section>
+</section>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Reminder: De-Identify Your Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you bring a real work document to this activity, make sure it contains no protected health information (PHI), personally identifiable information (PII), or confidential agency data. When in doubt, create a fictional scenario based on your real work.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="bonus-challenge-exercises" class="level2 bonus-challenges-section">
+<h2 class="anchored" data-anchor-id="bonus-challenge-exercises">Bonus Challenge Exercises</h2>
+<p>These optional exercises are for students who finish the core activities early or want to go deeper. See the full <a href="./challenges.html">Bonus Challenges page</a> for complete instructions and all 12 exercises across the course.</p>
+<section id="challenge-1-cross-platform-ai-benchmark" class="level4 challenge-card">
+<h4 class="anchored" data-anchor-id="challenge-1-cross-platform-ai-benchmark">Challenge 1: Cross-Platform AI Benchmark</h4>
+<div class="challenge-meta">
+<p><strong>Difficulty:</strong> Intermediate | <strong>Time:</strong> 45 min | <strong>Tools:</strong> Claude, ChatGPT, Gemini, Perplexity</p>
+</div>
+<p>Design a scoring rubric (accuracy, completeness, actionability, uncertainty handling, source quality, public health framing), then submit an identical outbreak investigation scenario to all four platforms. Score each response, build a comparison table, and write a 1-page report on which platform excels at what.</p>
+<p><a href="./challenges.html#exercise-1">Full instructions →</a></p>
+</section>
+<section id="challenge-2-structured-output-engineering" class="level4 challenge-card">
+<h4 class="anchored" data-anchor-id="challenge-2-structured-output-engineering">Challenge 2: Structured Output Engineering</h4>
+<div class="challenge-meta">
+<p><strong>Difficulty:</strong> Advanced | <strong>Time:</strong> 60 min | <strong>Tools:</strong> Claude, ChatGPT, any text editor</p>
+</div>
+<p>Design a JSON schema for extracting structured data from unstructured public health reports. Build a three-step prompt chain (extraction → enrichment → report generation) and stress-test it with a second report to assess robustness.</p>
+<p><a href="./challenges.html#exercise-2">Full instructions →</a></p>
+</section>
+</section>
+<hr>
+<section id="todays-readings" class="level2">
+<h2 class="anchored" data-anchor-id="todays-readings">Today’s Readings</h2>
+<p>See the <a href="./readings.html#day-1-readings">Readings page</a> for today’s assigned and recommended readings.</p>
+<p><strong>Key reading for today:</strong></p>
+<ul>
+<li>Mollick, E. (2024). <em>Co-Intelligence: Living and Working with AI.</em> Chapters 1–2.</li>
+</ul>
+<hr>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>Tomorrow we will explore <strong>multimodal AI</strong>—working with images, data, and documents. Come prepared to analyze data and images using AI tools. If you have a dataset from your work (de-identified), bring it along.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>AI for Urban Health | Drexel University | UHC Summer Institute 2026</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

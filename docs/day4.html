@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 4: AI for Urban Health Workflows – AI for Urban Health</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-185884c8c6106d4d5e21bb702d36b605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">AI for Urban Health</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day1.html"> 
+<span class="menu-text">Day 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day2.html"> 
+<span class="menu-text">Day 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day3.html"> 
+<span class="menu-text">Day 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./day4.html" aria-current="page"> 
+<span class="menu-text">Day 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./day5.html"> 
+<span class="menu-text">Day 5</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./readings.html"> 
+<span class="menu-text">Readings</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./challenges.html"> 
+<span class="menu-text">Bonus Challenges</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:daq26@drexel.edu"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#day-4-ai-for-urban-health-workflows" id="toc-day-4-ai-for-urban-health-workflows" class="nav-link active" data-scroll-target="#day-4-ai-for-urban-health-workflows">Day 4: AI for Urban Health Workflows</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#lecture-co-intelligence-and-workflow-design" id="toc-lecture-co-intelligence-and-workflow-design" class="nav-link" data-scroll-target="#lecture-co-intelligence-and-workflow-design">Lecture: Co-Intelligence and Workflow Design</a>
+  <ul class="collapse">
+  <li><a href="#mollicks-four-rules-of-co-intelligence" id="toc-mollicks-four-rules-of-co-intelligence" class="nav-link" data-scroll-target="#mollicks-four-rules-of-co-intelligence">Mollick’s Four Rules of Co-Intelligence</a></li>
+  <li><a href="#what-to-automate-vs.-what-to-keep-human" id="toc-what-to-automate-vs.-what-to-keep-human" class="nav-link" data-scroll-target="#what-to-automate-vs.-what-to-keep-human">What to Automate vs.&nbsp;What to Keep Human</a></li>
+  </ul></li>
+  <li><a href="#activity-1-workflow-self-assessment" id="toc-activity-1-workflow-self-assessment" class="nav-link" data-scroll-target="#activity-1-workflow-self-assessment">Activity 1: Workflow Self-Assessment</a>
+  <ul class="collapse">
+  <li><a href="#activity-1-workflow-self-assessment-1" id="toc-activity-1-workflow-self-assessment-1" class="nav-link" data-scroll-target="#activity-1-workflow-self-assessment-1">Activity 1: Workflow Self-Assessment</a></li>
+  </ul></li>
+  <li><a href="#activity-2-scenario-based-small-group-work" id="toc-activity-2-scenario-based-small-group-work" class="nav-link" data-scroll-target="#activity-2-scenario-based-small-group-work">Activity 2: Scenario-Based Small Group Work</a></li>
+  <li><a href="#activity-3-group-presentations-discussion" id="toc-activity-3-group-presentations-discussion" class="nav-link" data-scroll-target="#activity-3-group-presentations-discussion">Activity 3: Group Presentations &amp; Discussion</a>
+  <ul class="collapse">
+  <li><a href="#activity-3-group-presentations-discussion-1" id="toc-activity-3-group-presentations-discussion-1" class="nav-link" data-scroll-target="#activity-3-group-presentations-discussion-1">Activity 3: Group Presentations &amp; Discussion</a></li>
+  </ul></li>
+  <li><a href="#bonus-challenge-exercises" id="toc-bonus-challenge-exercises" class="nav-link" data-scroll-target="#bonus-challenge-exercises">Bonus Challenge Exercises</a></li>
+  <li><a href="#todays-readings" id="toc-todays-readings" class="nav-link" data-scroll-target="#todays-readings">Today’s Readings</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Day 4: AI for Urban Health Workflows</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="day-4-ai-for-urban-health-workflows" class="level1 day-header">
+<h1>Day 4: AI for Urban Health Workflows</h1>
+<div class="day-subtitle">
+<p>Workflow integration, scenario-based group work, and Mollick’s rules of co-intelligence</p>
+</div>
+<div class="day-time">
+<p>1:00–4:00 PM EST</p>
+</div>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of today, you will be able to:</p>
+<ol type="1">
+<li>Apply Mollick’s Four Rules of Co-Intelligence to evaluate AI integration opportunities</li>
+<li>Assess your own professional workflows for AI augmentation potential</li>
+<li>Design AI-assisted approaches to realistic urban health challenges</li>
+<li>Identify which parts of a workflow should be automated vs.&nbsp;kept human</li>
+<li>Present and defend an AI integration strategy to peers</li>
+</ol>
+<hr>
+</section>
+<section id="lecture-co-intelligence-and-workflow-design" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-co-intelligence-and-workflow-design">Lecture: Co-Intelligence and Workflow Design</h2>
+<section id="mollicks-four-rules-of-co-intelligence" class="level3">
+<h3 class="anchored" data-anchor-id="mollicks-four-rules-of-co-intelligence">Mollick’s Four Rules of Co-Intelligence</h3>
+<p>Ethan Mollick (Wharton, University of Pennsylvania) proposes four principles for working with AI effectively. These form a practical framework for deciding how to integrate AI into your work:</p>
+<p><strong>Rule 1: Always invite AI to the table.</strong> Try AI for any task—you will be surprised how often it helps. The cost of trying is low; the cost of missing a useful application is high.</p>
+<p><strong>Rule 2: Be the human in the loop.</strong> AI makes mistakes, hallucinates, and lacks judgment. You provide the expertise, context, and ethical reasoning. Use AI as a first draft, a thought partner, or an accelerator—never as the final word.</p>
+<p><strong>Rule 3: Treat AI like a person (but a person who is sometimes confidently wrong).</strong> AI works best when you interact with it conversationally: provide context, ask follow-up questions, give feedback, and iterate. But never forget it can produce plausible-sounding nonsense.</p>
+<p><strong>Rule 4: Assume this is the worst AI you will ever use.</strong> Today’s tools are the floor, not the ceiling. Build workflows that take advantage of current capabilities while remaining adaptable as tools improve rapidly.</p>
+</section>
+<section id="what-to-automate-vs.-what-to-keep-human" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-automate-vs.-what-to-keep-human">What to Automate vs.&nbsp;What to Keep Human</h3>
+<p>Not every task benefits from AI. A useful framework:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 58%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Automate with AI</th>
+<th>Keep Human</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First drafts of reports and memos</td>
+<td>Final review and approval</td>
+</tr>
+<tr class="even">
+<td>Literature search and synthesis</td>
+<td>Critical interpretation</td>
+</tr>
+<tr class="odd">
+<td>Data cleaning and exploratory analysis</td>
+<td>Study design and causal inference</td>
+</tr>
+<tr class="even">
+<td>Scheduling and routine communications</td>
+<td>Sensitive stakeholder conversations</td>
+</tr>
+<tr class="odd">
+<td>Translation and plain-language summaries</td>
+<td>Community engagement strategy</td>
+</tr>
+<tr class="even">
+<td>Template generation</td>
+<td>Policy decisions</td>
+</tr>
+<tr class="odd">
+<td>Formatting and copy editing</td>
+<td>Ethical judgment calls</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Accountability Principle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If something goes wrong with an AI-assisted output—a factual error in a report, a biased recommendation, an inappropriate communication—the human who approved and published it is responsible. <strong>AI does not bear accountability.</strong> This is why human oversight is non-negotiable.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="activity-1-workflow-self-assessment" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-1-workflow-self-assessment">Activity 1: Workflow Self-Assessment</h2>
+<section id="activity-1-workflow-self-assessment-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-1-workflow-self-assessment-1">Activity 1: Workflow Self-Assessment</h3>
+<div class="activity-meta">
+<p>Duration: ~20 minutes | Format: Individual reflection + pair discussion</p>
+</div>
+<p><strong>Goal:</strong> Identify your biggest time sinks and assess which could benefit from AI assistance.</p>
+<section id="instructions" class="level4">
+<h4 class="anchored" data-anchor-id="instructions">Instructions</h4>
+<ol type="1">
+<li><strong>List your top 5 most time-consuming recurring work tasks.</strong> Be specific. Examples:
+<ul>
+<li>“Writing weekly surveillance reports”</li>
+<li>“Reviewing and summarizing community health assessments from partner organizations”</li>
+<li>“Cleaning and formatting data exports from our EHR system”</li>
+<li>“Drafting communications for community outreach events”</li>
+<li>“Responding to data requests from program staff”</li>
+</ul></li>
+<li><strong>Rate each task</strong> on the following dimensions (1–5 scale):</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 16%">
+<col style="width: 29%">
+<col style="width: 23%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Time Spent (hrs/week)</th>
+<th>Repetitiveness (1=unique, 5=routine)</th>
+<th>AI Potential (1=low, 5=high)</th>
+<th>Risk if AI Errors (1=low, 5=high)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p><strong>Identify your top candidate:</strong> Which task has the best combination of high time, high repetitiveness, high AI potential, and low risk?</p></li>
+<li><p><strong>Pair discussion:</strong> Share your assessment with a partner. Do they agree with your ratings? What did they prioritize differently?</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Sweet Spot for AI Integration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The best candidates for AI integration are tasks that are <strong>time-consuming, repetitive, and low-risk if errors occur</strong>. Save human attention for tasks that are <strong>high-stakes, novel, or require nuanced judgment</strong>.</p>
+</div>
+</div>
+</section>
+</section>
+<hr>
+</section>
+<section id="activity-2-scenario-based-small-group-work" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-2-scenario-based-small-group-work">Activity 2: Scenario-Based Small Group Work</h2>
+<div class="activity">
+<section id="activity-2-scenario-based-small-group-work-1" class="level3">
+<h3 class="anchored" data-anchor-id="activity-2-scenario-based-small-group-work-1">Activity 2: Scenario-Based Small Group Work</h3>
+<div class="activity-meta">
+<p>Duration: ~75 minutes | Format: Groups of 3–5 people</p>
+</div>
+<p><strong>Goal:</strong> Develop a comprehensive AI-assisted approach to a realistic urban health challenge.</p>
+<section id="instructions-1" class="level4">
+<h4 class="anchored" data-anchor-id="instructions-1">Instructions</h4>
+<p>Each group will be assigned one of the five scenarios below (or may choose the qualitative option). Your group should:</p>
+<ol type="1">
+<li><strong>Read</strong> your scenario carefully (5 min)</li>
+<li><strong>Discuss</strong> the challenges and brainstorm AI applications (15 min)</li>
+<li><strong>Build and test</strong> at least 2–3 AI-assisted solutions using the tools you have learned (35 min)</li>
+<li><strong>Prepare</strong> a 3-minute presentation for the class (10 min)</li>
+<li><strong>Present</strong> (see Activity 3)</li>
+</ol>
+<p>For your presentation, address:</p>
+<ul>
+<li>What AI tools did you use and why?</li>
+<li>Show one concrete example of something you built/generated</li>
+<li>What worked well? What did not?</li>
+<li>What human oversight is essential?</li>
+<li>What ethical concerns arose?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="scenario-1-childhood-vaccination-outreach" class="level3 scenario-card">
+<h3 class="scenario-card anchored" data-anchor-id="scenario-1-childhood-vaccination-outreach">Scenario 1: Childhood Vaccination Outreach</h3>
+<section id="scenario-1-childhood-vaccination-outreach-1" class="level4 scenario-card">
+<h4 class="anchored" data-anchor-id="scenario-1-childhood-vaccination-outreach-1">Scenario 1: Childhood Vaccination Outreach</h4>
+<p><strong>Setting:</strong> You are a team at the Philadelphia Department of Public Health working on childhood immunization. Philadelphia’s childhood vaccination rates for the DTaP and MMR series have fallen below the Healthy People 2030 targets in several ZIP codes, particularly in North and West Philadelphia.</p>
+<p><strong>Key Challenges:</strong></p>
+<ul>
+<li>Identifying under-vaccinated communities using available data</li>
+<li>Combating vaccine misinformation circulating on social media</li>
+<li>Creating culturally appropriate outreach materials in English, Spanish, and Haitian Creole</li>
+<li>Coordinating with schools, clinics, and community organizations</li>
+<li>Tracking outreach effectiveness</li>
+</ul>
+<p><strong>Suggested AI Applications:</strong></p>
+<ul>
+<li>Analyze vaccination coverage data by ZIP code to prioritize outreach areas</li>
+<li>Generate multilingual outreach materials (flyers, social media, text messages)</li>
+<li>Create a FAQ document addressing common vaccine concerns with evidence-based responses</li>
+<li>Draft talking points for community health workers</li>
+<li>Design a data dashboard to track outreach metrics</li>
+</ul>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>How would you verify the accuracy of AI-generated health information in multiple languages?</li>
+<li>What community voices need to be centered in this work that AI cannot replace?</li>
+<li>How do you balance urgency with cultural sensitivity?</li>
+</ul>
+<p><strong>Suggested Tools:</strong> ChatGPT, Claude, Google AI Studio, Perplexity for research</p>
+</section>
+<hr>
+</section>
+<section id="scenario-2-type-2-diabetes-prevention" class="level3 scenario-card">
+<h3 class="scenario-card anchored" data-anchor-id="scenario-2-type-2-diabetes-prevention">Scenario 2: Type 2 Diabetes Prevention</h3>
+<section id="scenario-2-type-2-diabetes-prevention-1" class="level4 scenario-card">
+<h4 class="anchored" data-anchor-id="scenario-2-type-2-diabetes-prevention-1">Scenario 2: Type 2 Diabetes Prevention</h4>
+<p><strong>Setting:</strong> You are developing a neighborhood-level diabetes prevention strategy for the Philadelphia Department of Public Health. Type 2 diabetes rates are significantly higher in low-income neighborhoods with limited access to healthy food and safe spaces for physical activity.</p>
+<p><strong>Key Challenges:</strong></p>
+<ul>
+<li>Identifying neighborhoods with the highest diabetes burden and fewest prevention resources</li>
+<li>Understanding the intersection of food access, built environment, and health outcomes</li>
+<li>Developing targeted interventions that account for community-specific barriers</li>
+<li>Creating educational materials that resonate with diverse populations</li>
+<li>Evaluating program effectiveness</li>
+</ul>
+<p><strong>Suggested AI Applications:</strong></p>
+<ul>
+<li>Analyze census tract-level diabetes prevalence alongside food access and built environment data</li>
+<li>Generate community-specific intervention recommendations based on evidence reviews</li>
+<li>Create a risk assessment tool that community health workers can use during home visits</li>
+<li>Draft a grant proposal for a community-based diabetes prevention program</li>
+<li>Develop culturally tailored nutrition education content</li>
+</ul>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>How would you ensure AI-generated recommendations account for structural determinants of health?</li>
+<li>What data would you need to make this work, and what are the privacy considerations?</li>
+<li>How do you involve community members in validating AI-suggested interventions?</li>
+</ul>
+<p><strong>Suggested Tools:</strong> Claude (data analysis), ChatGPT (content generation), Perplexity (evidence review)</p>
+</section>
+<hr>
+</section>
+<section id="scenario-3-heat-vulnerability-during-heatwaves" class="level3 scenario-card">
+<h3 class="scenario-card anchored" data-anchor-id="scenario-3-heat-vulnerability-during-heatwaves">Scenario 3: Heat Vulnerability During Heatwaves</h3>
+<section id="scenario-3-heat-vulnerability-during-heatwaves-1" class="level4 scenario-card">
+<h4 class="anchored" data-anchor-id="scenario-3-heat-vulnerability-during-heatwaves-1">Scenario 3: Heat Vulnerability During Heatwaves</h4>
+<p><strong>Setting:</strong> You are part of Philadelphia’s climate and health team preparing for the summer heat season. Philadelphia has experienced increasingly severe heat waves, and heat-related illness and death disproportionately affect low-income communities, elderly residents, and people with chronic conditions.</p>
+<p><strong>Key Challenges:</strong></p>
+<ul>
+<li>Using the Heat Vulnerability Index to target cooling interventions</li>
+<li>Communicating heat risk to vulnerable populations</li>
+<li>Coordinating cooling center operations across the city</li>
+<li>Monitoring heat-related emergency department visits in real time</li>
+<li>Evaluating the effectiveness of heat response strategies</li>
+</ul>
+<p><strong>Suggested AI Applications:</strong></p>
+<ul>
+<li>Analyze the <a href="https://opendataphilly.org/datasets/heat-vulnerability-index/">Philadelphia HVI data</a> to identify priority neighborhoods</li>
+<li>Generate targeted messaging for different vulnerable populations (elderly, outdoor workers, people experiencing homelessness)</li>
+<li>Create a decision support tool for when to activate heat emergency protocols</li>
+<li>Draft a heat action plan with specific triggers and responses</li>
+<li>Build a monitoring dashboard that integrates weather forecasts with health data</li>
+</ul>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>How accurate does AI-generated risk communication need to be when lives are at stake?</li>
+<li>What real-time data feeds would make an AI-powered heat response system most effective?</li>
+<li>How do you reach people who are most vulnerable but least connected to digital communications?</li>
+</ul>
+<p><strong>Suggested Tools:</strong> Claude (data analysis of HVI dataset), ChatGPT (communications), Google AI Studio (agent building)</p>
+</section>
+<hr>
+</section>
+<section id="scenario-4-pedestrian-injury-prevention" class="level3 scenario-card">
+<h3 class="scenario-card anchored" data-anchor-id="scenario-4-pedestrian-injury-prevention">Scenario 4: Pedestrian Injury Prevention</h3>
+<section id="scenario-4-pedestrian-injury-prevention-1" class="level4 scenario-card">
+<h4 class="anchored" data-anchor-id="scenario-4-pedestrian-injury-prevention-1">Scenario 4: Pedestrian Injury Prevention</h4>
+<p><strong>Setting:</strong> You work on injury prevention at the Philadelphia Department of Public Health. Pedestrian fatalities have been increasing, with disproportionate impact on older adults and communities of color. The city is developing a Vision Zero strategy.</p>
+<p><strong>Key Challenges:</strong></p>
+<ul>
+<li>Identifying high-risk corridors and intersections using crash data</li>
+<li>Understanding the built environment factors that contribute to pedestrian injuries</li>
+<li>Engaging communities in identifying dangerous locations (crowdsourced data)</li>
+<li>Developing evidence-based infrastructure and policy recommendations</li>
+<li>Creating public awareness campaigns</li>
+</ul>
+<p><strong>Suggested AI Applications:</strong></p>
+<ul>
+<li>Analyze crash data to identify spatial and temporal patterns</li>
+<li>Use image analysis to assess street-level safety features (crosswalks, lighting, traffic signals)</li>
+<li>Generate community survey instruments for pedestrian safety assessments</li>
+<li>Draft policy briefs recommending specific infrastructure improvements</li>
+<li>Create multilingual safety campaign materials targeting high-risk areas</li>
+</ul>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>How could AI analysis of crash data complement traditional epidemiological approaches?</li>
+<li>What are the risks of using AI to prioritize infrastructure investments (potential for bias)?</li>
+<li>How do you incorporate community knowledge that may not be captured in official data?</li>
+</ul>
+<p><strong>Suggested Tools:</strong> Claude (data analysis), Google AI Studio (image analysis), ChatGPT (content generation)</p>
+</section>
+<hr>
+</section>
+<section id="scenario-5-foodborne-illness-detection" class="level3 scenario-card">
+<h3 class="scenario-card anchored" data-anchor-id="scenario-5-foodborne-illness-detection">Scenario 5: Foodborne Illness Detection</h3>
+<section id="scenario-5-foodborne-illness-detection-1" class="level4 scenario-card">
+<h4 class="anchored" data-anchor-id="scenario-5-foodborne-illness-detection-1">Scenario 5: Foodborne Illness Detection</h4>
+<p><strong>Setting:</strong> You are on the foodborne illness investigation team at the Philadelphia Department of Public Health. The team investigates reports of food poisoning, inspects food establishments, and monitors for outbreaks. The current process involves manual review of complaint reports, which is time-consuming and sometimes delays response.</p>
+<p><strong>Key Challenges:</strong></p>
+<ul>
+<li>Processing and triaging large volumes of consumer complaints quickly</li>
+<li>Identifying potential outbreak clusters from individual reports</li>
+<li>Prioritizing restaurant inspections based on risk indicators</li>
+<li>Communicating with the public about food safety during outbreaks</li>
+<li>Documenting investigations for regulatory purposes</li>
+</ul>
+<p><strong>Suggested AI Applications:</strong></p>
+<ul>
+<li>Build a complaint triage system that categorizes and prioritizes reports</li>
+<li>Analyze patterns in complaint data to detect potential clusters</li>
+<li>Generate investigation checklists based on reported symptoms and food types</li>
+<li>Draft public health advisories when outbreaks are confirmed</li>
+<li>Create standardized investigation reports from field notes</li>
+</ul>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>What level of AI autonomy is appropriate for public health surveillance?</li>
+<li>How do you balance speed (AI triage) with accuracy (human review)?</li>
+<li>What happens if the AI system misses a cluster or generates a false alarm?</li>
+</ul>
+<p><strong>Suggested Tools:</strong> Claude (text analysis of complaints), ChatGPT (document generation), Google AI Studio (classification agent)</p>
+</section>
+<hr>
+</section>
+<section id="qualitative-option-community-health-assessment-interviews" class="level3 scenario-card">
+<h3 class="scenario-card anchored" data-anchor-id="qualitative-option-community-health-assessment-interviews">Qualitative Option: Community Health Assessment Interviews</h3>
+<section id="qualitative-option-analyzing-community-health-assessment-interview-data" class="level4 scenario-card">
+<h4 class="anchored" data-anchor-id="qualitative-option-analyzing-community-health-assessment-interview-data">Qualitative Option: Analyzing Community Health Assessment Interview Data</h4>
+<p><strong>For groups with qualitative research interest.</strong> Replace one of the above scenarios with this option.</p>
+<p><strong>Setting:</strong> Your team has conducted 30 semi-structured interviews with residents of a Philadelphia neighborhood as part of a Community Health Needs Assessment. You need to analyze the data and produce a report for community stakeholders and the health department.</p>
+<p><strong>Key Challenges:</strong></p>
+<ul>
+<li>Coding 30 interviews efficiently with limited qualitative research staff</li>
+<li>Ensuring rigor and trustworthiness of the analysis</li>
+<li>Identifying themes that reflect community priorities (not just researcher assumptions)</li>
+<li>Translating findings into actionable recommendations</li>
+<li>Presenting findings back to the community in accessible formats</li>
+</ul>
+<p><strong>Suggested AI Applications:</strong></p>
+<ul>
+<li>Use AI for initial deductive coding based on interview guides</li>
+<li>Generate preliminary theme summaries for researcher review</li>
+<li>Identify illustrative quotes for each theme</li>
+<li>Draft the findings section of the community report</li>
+<li>Create plain-language summary documents for community partners</li>
+</ul>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>What role should AI play in interpreting community members’ experiences?</li>
+<li>How do you maintain the rigor expected of qualitative research when using AI tools?</li>
+<li>What would you need to disclose in a methods section about AI-assisted analysis?</li>
+</ul>
+</section>
+</section>
+</div>
+<hr>
+</section>
+<section id="activity-3-group-presentations-discussion" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-3-group-presentations-discussion">Activity 3: Group Presentations &amp; Discussion</h2>
+<section id="activity-3-group-presentations-discussion-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-3-group-presentations-discussion-1">Activity 3: Group Presentations &amp; Discussion</h3>
+<div class="activity-meta">
+<p>Duration: ~15 minutes per group + discussion | Format: Whole class</p>
+</div>
+<p><strong>Goal:</strong> Share what you built, what worked, and what you learned.</p>
+<p>Each group presents for 3 minutes:</p>
+<ol type="1">
+<li><strong>The challenge:</strong> Brief overview of your scenario</li>
+<li><strong>Your approach:</strong> Which AI tools did you use and how?</li>
+<li><strong>Show and tell:</strong> Demonstrate one concrete output (report draft, analysis, dashboard design, communication material)</li>
+<li><strong>Lessons learned:</strong> What surprised you? What limitations did you encounter?</li>
+<li><strong>Human oversight:</strong> Where is human judgment essential in your workflow?</li>
+</ol>
+<p><strong>Class Discussion (after all presentations):</strong></p>
+<ul>
+<li>What patterns emerged across groups?</li>
+<li>Which scenarios seemed best suited to AI assistance? Least suited?</li>
+<li>What ethical guardrails would you recommend for AI use in each scenario?</li>
+<li>How would you implement these ideas in your actual workplace?</li>
+</ul>
+</section>
+<hr>
+</section>
+<section id="bonus-challenge-exercises" class="level2 bonus-challenges-section">
+<h2 class="anchored" data-anchor-id="bonus-challenge-exercises">Bonus Challenge Exercises</h2>
+<p>These optional exercises are for students who finish the core activities early or want to go deeper. See the full <a href="./challenges.html">Bonus Challenges page</a> for complete instructions and all 12 exercises across the course.</p>
+<section id="challenge-10-build-an-interactive-public-health-dashboard" class="level4 challenge-card">
+<h4 class="anchored" data-anchor-id="challenge-10-build-an-interactive-public-health-dashboard">Challenge 10: Build an Interactive Public Health Dashboard</h4>
+<div class="challenge-meta">
+<p><strong>Difficulty:</strong> Advanced | <strong>Time:</strong> 90 min | <strong>Tools:</strong> Claude Code or ChatGPT, Philadelphia HVI data, web browser</p>
+</div>
+<p>Write a design brief, then use AI to generate a self-contained HTML dashboard with KPI cards, three interactive charts (distribution, scatterplot, comparison), dropdown filters, and explanatory narrative—all built from Philadelphia Heat Vulnerability Index data.</p>
+<p><a href="./challenges.html#exercise-10">Full instructions →</a></p>
+</section>
+<section id="challenge-12-personal-ai-workflow-automation" class="level4 challenge-card">
+<h4 class="anchored" data-anchor-id="challenge-12-personal-ai-workflow-automation">Challenge 12: Personal AI Workflow Automation</h4>
+<div class="challenge-meta">
+<p><strong>Difficulty:</strong> Intermediate | <strong>Time:</strong> 60 min | <strong>Tools:</strong> Claude or ChatGPT, tools from your daily work</p>
+</div>
+<p>Identify a recurring work task, then build a complete reusable workflow package: a PTCF-structured prompt template with variable placeholders, a pre-processing checklist, a quality verification checklist, and three tested examples with timing comparisons to estimate annual time savings.</p>
+<p><a href="./challenges.html#exercise-12">Full instructions →</a></p>
+</section>
+</section>
+<hr>
+<section id="todays-readings" class="level2">
+<h2 class="anchored" data-anchor-id="todays-readings">Today’s Readings</h2>
+<p>See the <a href="./readings.html#day-4-readings">Readings page</a> for today’s assigned and recommended readings.</p>
+<hr>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>Tomorrow is our final day. We will focus on <strong>responsible AI</strong>—ethics, bias, privacy, and accountability—and you will develop a personal AI integration plan to take back to your workplace. Come prepared to think critically about the tools you have been using all week.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>AI for Urban Health | Drexel University | UHC Summer Institute 2026</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

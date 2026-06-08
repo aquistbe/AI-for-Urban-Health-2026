@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "AI for Urban Health"
+  navbar:
+    background: "#003366"
+    foreground: white
+    left:
+      - href: index.qmd
+        text: Home
+      - href: day1.qmd
+        text: Day 1
+      - href: day2.qmd
+        text: Day 2
+      - href: day3.qmd
+        text: Day 3
+      - href: day4.qmd
+        text: Day 4
+      - href: day5.qmd
+        text: Day 5
+      - href: readings.qmd
+        text: Readings
+      - href: resources.qmd
+        text: Resources
+      - href: challenges.qmd
+        text: Bonus Challenges
+    right:
+      - icon: envelope
+        href: mailto:daq26@drexel.edu
+  page-footer:
+    center: "AI for Urban Health | Drexel University | UHC Summer Institute 2026"
+    background: "#003366"
+
+format:
+  html:
+    theme:
+      light: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3

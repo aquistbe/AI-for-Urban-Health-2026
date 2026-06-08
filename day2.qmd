@@ -1,0 +1,375 @@
+---
+title: "Day 2: Multimodal AI & Data Analysis"
+---
+
+::: {.day-header}
+# Day 2: Multimodal AI & Data Analysis
+::: {.day-subtitle}
+Image analysis, data analysis with AI, qualitative methods, and document analysis
+:::
+::: {.day-time}
+1:00--4:00 PM EST
+:::
+:::
+
+## Learning Objectives
+
+By the end of today, you will be able to:
+
+1. Use AI tools for image annotation, generation, and analysis in public health contexts
+2. Conduct data analysis using AI-assisted tools with real Philadelphia health data
+3. Generate code (R, Python, or Stata) using AI to perform statistical analyses
+4. Apply AI to qualitative data analysis tasks (thematic coding, memo generation)
+5. Use AI to analyze and synthesize long policy documents at scale
+6. Evaluate the accuracy and limitations of AI-generated analyses
+
+---
+
+## Lecture: Multimodal AI Capabilities
+
+### Beyond Text: AI That Sees, Hears, and Analyzes
+
+Modern AI systems are increasingly **multimodal**---they can process and generate not just text, but images, audio, video, and structured data. For public health, this opens up capabilities including:
+
+- **Image analysis:** Classifying housing conditions from street-level imagery, identifying environmental hazards, analyzing medical images
+- **Computer vision for urban health:** Satellite imagery for environmental monitoring, pedestrian safety audits from video, identifying food desert locations
+- **Audio/video:** Transcription of community meetings, analysis of public health messaging
+- **Tabular data analysis:** Exploratory data analysis, statistical modeling, visualization---all through natural language
+- **Deep Research tools:** AI-powered research assistants that can search, synthesize, and cite (e.g., Perplexity, ChatGPT Deep Research, Gemini Deep Research)
+
+:::{.callout-tip}
+## Today's Approach
+We will work with real Philadelphia data and realistic public health scenarios. The goal is not to replace your statistical training, but to show how AI can accelerate your workflow---and where you still need human judgment.
+:::
+
+---
+
+## Activity 1: Image Annotation {.activity}
+
+::: {.activity}
+
+### Activity 1: Image Annotation
+::: {.activity-meta}
+Duration: ~30 minutes | Format: Hands-on comparison exercise
+:::
+
+**Goal:** Compare manual and AI-assisted image annotation approaches relevant to urban health research.
+
+#### Part A: Manual Annotation with MakeSense.ai (~15 min)
+
+1. Go to [MakeSense.ai](https://www.makesense.ai/) --- a free, browser-based image annotation tool
+2. Upload the provided sample images (urban streetscapes, housing conditions, or environmental features)
+3. Practice creating:
+   - **Bounding boxes** around objects of interest (e.g., crosswalks, trash accumulation, green space)
+   - **Labels** for each annotation
+4. Export your annotations
+
+#### Part B: AI-Assisted Annotation with Google AI Studio (~15 min)
+
+1. Go to [Google AI Studio](https://aistudio.google.com)
+2. Upload the same images
+3. Use Gemini's **Spatial Understanding** capabilities. Try prompts like:
+
+> Analyze this street-level image and identify all features relevant to pedestrian safety. For each feature, provide its approximate location in the image and classify it as either a "safety asset" (e.g., crosswalk, traffic signal) or a "safety concern" (e.g., obstructed sidewalk, missing curb cut).
+
+4. Compare the AI-generated annotations with your manual ones
+
+#### Discussion
+
+- How accurate were the AI annotations compared to your manual ones?
+- What did the AI miss? What did it incorrectly identify?
+- In what scenarios might each approach be more appropriate?
+- What are the implications of annotation errors in public health research?
+
+:::
+
+---
+
+## Activity 2: Image Generation {.activity}
+
+::: {.activity}
+
+### Activity 2: Image Generation
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Individual exploration with group reflection
+:::
+
+**Goal:** Explore AI image generation for public health communications and understand its ethical dimensions.
+
+#### Instructions
+
+1. Use an image-generation-capable platform (ChatGPT with DALL-E, Gemini, or another tool) to create images for a public health campaign. Try prompts like:
+
+> Create a warm, inviting illustration for a flyer promoting free blood pressure screenings at a community health fair in a diverse urban neighborhood. The image should show people of different ages and backgrounds in a welcoming community setting. Do not include any text in the image.
+
+2. **Iterate and refine:** Modify your prompt to improve the result. Try specifying:
+   - Art style (illustration vs. photograph-like)
+   - Specific demographic representation
+   - Setting details
+   - What to exclude
+
+3. **Critical evaluation:** For each generated image, ask:
+   - Does it accurately represent the community it is intended for?
+   - Are there stereotypes or biases in the representation?
+   - Would you feel comfortable using this in an official health department communication?
+   - What are the ethical considerations of using AI-generated images in public health materials?
+
+:::{.callout-warning}
+## Ethical Considerations
+AI-generated images can perpetuate stereotypes and may not accurately represent specific communities. Always review generated images critically, seek community input when possible, and consider whether stock photos or real community photos might be more appropriate. Disclose AI-generated imagery when used in official materials.
+:::
+
+:::
+
+---
+
+## Activity 3: Data Analysis with AI {.activity}
+
+::: {.activity}
+
+### Activity 3: Data Analysis with AI
+::: {.activity-meta}
+Duration: ~50 minutes | Format: Guided hands-on analysis
+:::
+
+**Goal:** Use AI to analyze a real Philadelphia dataset through progressive prompting, from exploration to code generation.
+
+#### The Dataset: Philadelphia Heat Vulnerability Index
+
+We will work with the **Heat Vulnerability Index (HVI)** from OpenDataPhilly:
+
+**Download link:** [Heat Vulnerability Index --- OpenDataPhilly](https://opendataphilly.org/datasets/heat-vulnerability-index/)
+
+This dataset measures heat vulnerability across Philadelphia census tracts, incorporating factors like surface temperature, impervious surfaces, tree canopy, poverty, age, and health conditions.
+
+#### Step-by-Step Progressive Prompting
+
+Upload the dataset to your preferred AI platform (Claude and ChatGPT both handle CSV/Excel uploads well) and work through these prompts sequentially:
+
+**Step 1: Explore**
+
+> I have uploaded a dataset on heat vulnerability in Philadelphia. Please examine the data and tell me: How many records are there? What variables are included? What is the unit of analysis? Are there any missing values or data quality issues?
+
+**Step 2: Describe**
+
+> Provide descriptive statistics for all numeric variables. Which census tracts have the highest and lowest heat vulnerability scores? What is the distribution of the overall HVI score?
+
+**Step 3: Analyze**
+
+> What variables are most strongly correlated with the overall heat vulnerability index score? Are there spatial patterns (e.g., do certain parts of the city have consistently higher vulnerability)?
+
+**Step 4: Visualize**
+
+> Create the following visualizations:
+>
+> 1. A histogram of the HVI score distribution
+> 2. A scatter plot showing the relationship between tree canopy coverage and HVI score
+> 3. A correlation heatmap of the key variables
+
+**Step 5: Generate Code**
+
+> Write code in [R / Python / Stata] that would:
+>
+> 1. Load this dataset
+> 2. Clean any missing values
+> 3. Calculate summary statistics by quintile of the HVI score
+> 4. Run a linear regression predicting HVI score from tree canopy, impervious surface, and poverty rate
+> 5. Generate a publication-quality figure showing the relationship between poverty and heat vulnerability
+
+::: {.panel-tabset}
+
+##### R Users
+
+Ask the AI to generate code using `tidyverse`, `ggplot2`, and `sf` (for spatial data).
+
+##### Python Users
+
+Ask for code using `pandas`, `matplotlib`/`seaborn`, and `geopandas`.
+
+##### Stata Users
+
+Ask for Stata `.do` file syntax with appropriate labels and output formatting.
+
+:::
+
+#### Verification Checklist
+
+After each step, check:
+
+- [ ] Do the numbers make sense given what you know about Philadelphia?
+- [ ] Are the variable interpretations correct?
+- [ ] Is the statistical approach appropriate?
+- [ ] Would you trust this analysis enough to present it to your supervisor?
+
+:::{.callout-important}
+## Always Verify AI-Generated Analysis
+AI can produce plausible-looking but incorrect analyses. Common issues include: misinterpreting variable names, applying inappropriate statistical tests, generating code with subtle errors, and presenting fabricated statistics. Always verify key findings independently.
+:::
+
+:::
+
+---
+
+## Activity 4: Qualitative Data Analysis (Optional Track) {.activity}
+
+::: {.activity}
+
+### Activity 4: Qualitative Data Analysis (Optional Track)
+::: {.activity-meta}
+Duration: ~40 minutes | Format: Hands-on practice with critical discussion
+:::
+
+**Goal:** Explore how AI can assist with qualitative data analysis while understanding its significant limitations.
+
+:::{.callout-note}
+This activity is an optional deeper dive for participants interested in qualitative research methods. Others may continue with Activity 5.
+:::
+
+#### Instructions
+
+1. **Upload a transcript excerpt** to Claude or ChatGPT. You may use:
+   - A provided sample transcript (excerpts from community health interviews---fictional)
+   - Your own de-identified qualitative data
+
+2. **Initial thematic coding:** Ask the AI to identify preliminary themes:
+
+> I am going to share excerpts from community health interviews about barriers to accessing primary care in North Philadelphia. Please read through these excerpts and identify the major themes that emerge. For each theme, provide: (1) a theme name, (2) a brief description, (3) two to three supporting quotes from the text.
+
+3. **Code refinement:** After reviewing the initial themes, ask the AI to:
+
+> Review the themes you identified. Are there any that overlap and should be combined? Are there any that are too broad and should be split? Reorganize the coding framework and provide a revised codebook with definitions for each code.
+
+4. **Compare with manual coding:** If you have experience with qualitative coding, compare:
+   - What themes did the AI identify that you would have missed (or vice versa)?
+   - How do the AI-generated code definitions compare to what you would write?
+   - Where does the AI's interpretation seem superficial or inaccurate?
+
+5. **Memo generation:** Ask the AI to draft an analytic memo:
+
+> Based on the themes identified, draft an analytic memo (300 words) discussing the relationships between themes and how they connect to existing literature on healthcare access in under-resourced urban communities.
+
+#### Critical Discussion
+
+:::{.callout-warning}
+## Limitations of AI for Qualitative Analysis
+Jowsey et al. (2024) found that while AI can assist with initial coding, it often lacks the contextual understanding, cultural sensitivity, and interpretive depth that experienced qualitative researchers bring. AI-generated codes tend to be more descriptive than interpretive and may miss nuance, power dynamics, and embodied meaning.
+
+AI should be viewed as a **starting point or sounding board**, not a replacement for rigorous qualitative methodology.
+:::
+
+- How comfortable are you with AI-generated qualitative analysis?
+- In what ways could AI assist (not replace) a qualitative researcher?
+- What are the ethical implications of using AI to analyze participants' words?
+
+:::
+
+---
+
+## Activity 5: Document Analysis at Scale {.activity}
+
+::: {.activity}
+
+### Activity 5: Document Analysis at Scale
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Guided demonstration with hands-on practice
+:::
+
+**Goal:** Use AI to efficiently analyze, summarize, and extract information from lengthy policy documents.
+
+#### Instructions
+
+1. Choose a long public health document (50+ pages). Suggestions:
+   - A Healthy People 2030 objectives document
+   - Philadelphia's Community Health Assessment
+   - A CDC guidance document
+   - A state or local health department strategic plan
+
+2. Upload the document to Claude or ChatGPT (or use a tool like NotebookLM) and try these tasks:
+
+**Summarization:**
+
+> Summarize this document in 500 words, organized by major sections. Highlight the top 3 priorities and any specific targets or timelines mentioned.
+
+**Extraction:**
+
+> Extract all specific numeric targets, deadlines, or measurable objectives from this document. Present them in a table with columns for: Objective, Target, Baseline, Timeline, and Responsible Party.
+
+**Comparison:**
+
+> Compare the priorities in this document with the CDC's current leading health indicators. Where does this document align with national priorities? Where does it diverge?
+
+**Gap analysis:**
+
+> Based on this strategic plan, what populations or health issues appear underrepresented? What emerging threats (e.g., climate change, AI itself, new infectious diseases) are not addressed?
+
+#### Discussion
+
+- How much time would this analysis take without AI?
+- What errors or omissions did you find in the AI's analysis?
+- How could document analysis at scale change your agency's workflow?
+
+:::
+
+---
+
+::: {.bonus-challenges-section}
+
+## Bonus Challenge Exercises
+
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+
+::: {.challenge-card}
+
+#### Challenge 3: Multi-Source Data Integration with AI
+
+::: {.challenge-meta}
+**Difficulty:** Advanced | **Time:** 90 min | **Tools:** Claude or ChatGPT, OpenDataPhilly, R/Python/Stata
+:::
+
+Download the Philadelphia HVI, 311 service requests, and one additional dataset from OpenDataPhilly. Use AI to design the join strategy, harmonize geographic identifiers, and generate cross-dataset analysis code. Produce at least two visualizations (one map, one statistical chart) and a reproducible analysis document.
+
+[Full instructions →](challenges.qmd#exercise-3)
+
+:::
+
+::: {.challenge-card}
+
+#### Challenge 4: Reproducing a Published Epidemiologic Analysis
+
+::: {.challenge-meta}
+**Difficulty:** Expert | **Time:** 90 min | **Tools:** Claude or ChatGPT, Perplexity, R/Python/Stata
+:::
+
+Find a published epidemiologic study using public data (BRFSS, NHANES, CDC WONDER, Census), share the methods section with AI, generate analysis code, and attempt to reproduce the results. Document every discrepancy and write a report on reproducibility lessons learned.
+
+[Full instructions →](challenges.qmd#exercise-4)
+
+:::
+
+::: {.challenge-card}
+
+#### Challenge 5: Advanced Qualitative Coding
+
+::: {.challenge-meta}
+**Difficulty:** Advanced | **Time:** 60 min | **Tools:** Claude (Opus 4), ChatGPT (GPT-4o), spreadsheet app
+:::
+
+Develop a complete codebook from focus group excerpts about heat safety barriers in Philadelphia. Apply AI-generated codes alongside your own independent coding, calculate inter-rater reliability (Cohen's kappa), and write a methods paragraph suitable for a research paper.
+
+[Full instructions →](challenges.qmd#exercise-5)
+
+:::
+
+:::
+
+---
+
+## Today's Readings
+
+See the [Readings page](readings.qmd#day-2-readings) for today's assigned and recommended readings.
+
+---
+
+## Looking Ahead
+
+Tomorrow we will move from using AI tools to **building with them**. We will explore agentic AI, command-line interfaces, and how to create custom AI agents for specific public health tasks. If you are able to install software on your computer, you may want to review the [Ollama installation instructions](resources.qmd#ollama) ahead of time.

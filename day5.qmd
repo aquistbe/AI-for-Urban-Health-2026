@@ -1,0 +1,446 @@
+---
+title: "Day 5: Responsible AI & Future Directions"
+---
+
+::: {.day-header}
+# Day 5: Responsible AI & Future Directions
+::: {.day-subtitle}
+Ethics, bias, privacy, accountability, and your personal AI integration plan
+:::
+::: {.day-time}
+1:00--4:00 PM EST
+:::
+:::
+
+## Learning Objectives
+
+By the end of today, you will be able to:
+
+1. Describe the FAIR principles for data and how they apply to AI in public health
+2. Explain how model cards and datasheets for datasets support transparency
+3. Identify sources of bias in AI systems and their potential impact on health equity
+4. Assess privacy risks when using AI with public health data, including HIPAA and GDPR considerations
+5. Evaluate the trade-offs between AI capability and interpretability (the "black box" problem)
+6. Discuss accountability frameworks for AI-assisted decisions in public health
+7. Develop a personal plan for responsible AI integration in your work
+
+---
+
+## Lecture: Responsible AI for Public Health
+
+### FAIR Data Principles and AI
+
+The **FAIR** principles---Findable, Accessible, Interoperable, Reusable---originally developed for research data management, have direct relevance for AI in public health:
+
+- **Findable:** AI models and training data should be documented and discoverable
+- **Accessible:** Clear terms of use and access protocols
+- **Interoperable:** Models should work with standard data formats and tools
+- **Reusable:** Models and their outputs should be usable for new purposes with clear licensing
+
+#### Model Cards and Datasheets
+
+Two tools for AI transparency:
+
+- **Model Cards** (Mitchell et al., 2019): Standardized documentation for AI models that includes intended use, limitations, performance across demographic groups, and ethical considerations
+- **Datasheets for Datasets** (Gebru et al., 2021): Documentation for training datasets that describes how data was collected, from whom, for what purpose, and with what limitations
+
+:::{.callout-note}
+## Why This Matters for Public Health
+If you are using an AI model to inform a health decision---whether it is triaging patient complaints, prioritizing neighborhood interventions, or drafting public communications---you should be able to answer: What data was this model trained on? Does it perform equally well for all populations we serve? What are its known failure modes?
+:::
+
+### Sources of Bias in AI Systems
+
+Bias can enter AI systems at every stage:
+
+1. **Historical bias:** Training data reflects past inequities (e.g., health records from a system that underserved Black patients)
+2. **Representation bias:** Some populations are overrepresented or underrepresented in training data
+3. **Measurement bias:** Proxies used for outcomes may not mean the same thing across groups (e.g., healthcare costs as a proxy for health need)
+4. **Aggregation bias:** Models that work well on average may fail for specific subgroups
+5. **Deployment bias:** Models used in contexts different from what they were designed for
+6. **Feedback loops:** Biased outputs influence future data collection, reinforcing the bias
+
+### Privacy: HIPAA, GDPR, and LLM-Specific Risks
+
+Key privacy considerations when using AI in public health:
+
+- **HIPAA:** Protected Health Information (PHI) should never be entered into consumer AI tools without a Business Associate Agreement (BAA). Most free-tier AI tools explicitly state they may use your inputs for training.
+- **GDPR:** European data protection standards apply if you work with data from EU residents.
+- **LLM-specific risks:**
+  - **Training data inclusion:** Your prompts may be used to train future models (check each platform's data usage policy)
+  - **Memorization:** LLMs can sometimes reproduce training data, including potentially sensitive information
+  - **Inference attacks:** Seemingly anonymous prompts can reveal sensitive information in aggregate
+  - **Prompt injection:** Malicious content can manipulate AI behavior
+
+### The Black Box Problem
+
+Many AI systems---especially deep learning models---are difficult or impossible to fully explain. This creates challenges for:
+
+- **Clinical decision support:** Can you trust a recommendation you cannot explain?
+- **Policy decisions:** How do you justify an AI-informed policy to the public?
+- **Legal accountability:** Who is responsible when an opaque AI system makes an error?
+- **Public trust:** Will communities trust AI-informed health interventions?
+
+### Accountability
+
+When AI assists with public health decisions, clear accountability is essential:
+
+- **The human who acts on AI output bears responsibility** for the consequences
+- Organizations need **AI governance frameworks** that define who can use AI, for what purposes, with what oversight
+- **Documentation** of AI use in decision-making processes should become standard practice
+- **Audit mechanisms** should be built in to review AI-assisted decisions
+
+### Environmental Costs
+
+AI has significant environmental costs that are often overlooked:
+
+- Training large language models requires enormous computational resources
+- A single ChatGPT query uses significantly more energy than a Google search
+- Data centers require cooling and consume large amounts of water
+- These costs are disproportionately borne by communities near data centers
+
+### Community Co-Design
+
+Responsible AI in public health requires engaging the communities being studied or served:
+
+- **Nothing about us without us:** Communities should be involved in designing AI systems that affect them
+- **Participatory design:** Include community members in defining problems, selecting data, and evaluating outputs
+- **Transparency:** Be clear with communities about when and how AI is being used
+- **Benefit sharing:** Ensure that the benefits of AI-assisted public health reach the communities that contributed their data
+
+---
+
+## Activity 1: Ethical Dilemma Scenarios {.activity}
+
+::: {.activity}
+
+### Activity 1: Ethical Dilemma Scenarios
+::: {.activity-meta}
+Duration: ~45 minutes | Format: Small group discussion (15 min per dilemma, rotate through 2--3)
+:::
+
+**Goal:** Grapple with realistic ethical challenges in AI-assisted public health.
+
+Your group will discuss 2--3 of the following scenarios. For each:
+
+1. Identify the core ethical tensions
+2. Discuss what you would do and why
+3. Consider what policies or guardrails could prevent the problem
+4. Note areas of disagreement within your group
+
+---
+
+::: {.dilemma-card}
+
+#### Dilemma 1: Hospital AI Chatbot Error
+
+A Philadelphia hospital deploys an AI chatbot on its patient-facing website to help patients assess symptoms and determine whether they need emergency care. The chatbot correctly handles most cases, but tells a patient experiencing atypical heart attack symptoms (which are more common in women) to "rest and take over-the-counter pain medication." The patient delays seeking care and suffers significant cardiac damage.
+
+**Discussion Questions:**
+
+- Who is responsible---the hospital, the chatbot vendor, the physician who approved the system?
+- Should AI chatbots be used for symptom assessment at all? Under what conditions?
+- How should the system have handled uncertainty?
+- What testing should have been done before deployment?
+
+:::
+
+::: {.dilemma-card}
+
+#### Dilemma 2: Public Health Dashboard Failure
+
+Your health department builds an AI-powered dashboard that predicts COVID-19 outbreaks by neighborhood, integrating wastewater surveillance, emergency department data, and social media activity. The model works well in wealthy neighborhoods with extensive data infrastructure but performs poorly in low-income communities with limited data sources, effectively creating a two-tiered surveillance system. Resources are allocated based on the dashboard's predictions.
+
+**Discussion Questions:**
+
+- Is it better to deploy an imperfect system that helps some neighborhoods, or wait for one that works equally well everywhere?
+- How does this scenario reflect broader patterns in health equity?
+- What data sources could improve performance in under-monitored neighborhoods?
+- How should you communicate the system's limitations to decision-makers?
+
+:::
+
+::: {.dilemma-card}
+
+#### Dilemma 3: Mobile Location Data for Outbreak Tracking
+
+During a syphilis outbreak concentrated in specific Philadelphia neighborhoods, an analyst proposes purchasing anonymized mobile phone location data to identify social networks and gathering places that might be linked to transmission. The data could help target testing and outreach. However, the neighborhoods most affected are predominantly communities of color with historical reasons to distrust public health surveillance.
+
+**Discussion Questions:**
+
+- Does the public health benefit justify the surveillance implications?
+- What is the difference between "anonymized" and truly anonymous data?
+- How does the historical context (Tuskegee, other abuses) shape the ethical calculus?
+- What community engagement would be needed before proceeding?
+- What alternative approaches might achieve similar goals with less risk?
+
+:::
+
+::: {.dilemma-card}
+
+#### Dilemma 4: Optum Healthcare Algorithm Bias (Real Case)
+
+A widely reported study (Obermeyer et al., 2019, *Science*) found that an algorithm used by Optum and many US health systems to identify patients who would benefit from "high-risk care management" programs was systematically biased against Black patients. The algorithm used healthcare costs as a proxy for healthcare needs. Because Black patients had historically received less healthcare spending (due to access barriers and systemic racism), the algorithm concluded they were healthier than equally sick White patients. At a given risk score, Black patients were significantly sicker than White patients.
+
+**Discussion Questions:**
+
+- Why was using healthcare costs as a proxy for need problematic? What alternatives might work better?
+- How could this bias have been detected before deployment?
+- What does this case teach us about using historical data to train AI systems?
+- How should organizations audit AI systems for bias?
+
+:::
+
+:::
+
+---
+
+## Activity 2: Bias Detection Exercise {.activity}
+
+::: {.activity}
+
+### Activity 2: Bias Detection Exercise
+::: {.activity-meta}
+Duration: ~25 minutes | Format: Individual exploration with group discussion
+:::
+
+**Goal:** Experience AI bias firsthand through image generation prompts.
+
+#### Instructions
+
+1. Use an image generation tool (ChatGPT/DALL-E, Gemini, etc.) with the following prompts:
+
+**Prompt Set 1: Professional Roles**
+
+- "A public health doctor"
+- "A community health worker"
+- "A health department director"
+- "A nurse"
+- "An epidemiologist"
+
+**Prompt Set 2: Community Scenes**
+
+- "A healthy family eating dinner"
+- "A person struggling with addiction"
+- "A low-income neighborhood"
+- "A thriving community"
+
+2. **Analyze the results:**
+
+For each generated image, note:
+
+| Prompt | Race/Ethnicity | Gender | Age | Setting | Stereotypes Present? |
+|--------|---------------|--------|-----|---------|---------------------|
+| | | | | | |
+
+3. **Discussion:**
+
+- What patterns do you notice in how the AI depicts different roles, communities, and scenarios?
+- How do these patterns reflect (or amplify) societal biases?
+- What would be the impact of using biased AI-generated images in public health materials?
+- How can you mitigate this in practice?
+
+:::{.callout-important}
+## Key Takeaway
+AI image generation reflects the biases present in its training data, which is largely sourced from the internet. These biases can reinforce stereotypes about who belongs in professional roles, what communities "look like," and whose health matters. Critical evaluation of AI outputs is essential.
+:::
+
+:::
+
+---
+
+## Activity 3: Privacy Quick Assessment {.activity}
+
+::: {.activity}
+
+### Activity 3: Privacy Quick Assessment
+::: {.activity-meta}
+Duration: ~15 minutes | Format: Individual assessment
+:::
+
+**Goal:** Develop practical skills for assessing privacy risks when using AI tools.
+
+#### Data Inventory
+
+Think about the data you work with regularly. For each type, assess the risk of entering it into an AI tool:
+
+| Data Type | Example | Risk Level | Can Use AI? | Mitigation |
+|-----------|---------|------------|-------------|------------|
+| Aggregate statistics | "Philadelphia has X rate of..." | Low | Yes, freely | None needed |
+| De-identified data | Census tract-level health data | Low--Medium | Yes, with caution | Verify de-identification |
+| Identified but public | Restaurant inspection records | Medium | Context-dependent | Check data use agreements |
+| PII without PHI | Employee email addresses | Medium--High | Generally no | De-identify first |
+| PHI | Patient records | High | No (unless BAA in place) | Use local models only |
+| Pre-publication research | Unpublished study results | Medium | Caution | Check funder/IRB policies |
+
+#### Re-identification Risk Assessment
+
+Even "de-identified" data can sometimes be re-identified. Consider:
+
+- Small cell sizes (e.g., "1 case of rare disease in ZIP code 19104 in adults over 85")
+- Unusual combinations of variables
+- Geographic specificity combined with demographic details
+
+#### LLM-Specific Privacy Risks Checklist
+
+Before using any AI tool with work data, verify:
+
+- [ ] What is the platform's data retention policy?
+- [ ] Can the platform use your inputs for model training? Can you opt out?
+- [ ] Does your organization have a data use agreement or BAA with this platform?
+- [ ] Have you de-identified all sensitive information?
+- [ ] Would you be comfortable if this prompt were made public?
+
+:::
+
+---
+
+## Activity 4: Personal AI Integration Plan {.activity}
+
+::: {.activity}
+
+### Activity 4: Personal AI Integration Plan
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Individual work + pair sharing
+:::
+
+**Goal:** Leave this course with a concrete, actionable plan for integrating AI into your professional work.
+
+#### Part 1: Three AI Integration Opportunities (10 min)
+
+Based on everything you have learned this week, identify **three specific tasks or workflows** in your current role where you will start using AI. For each, answer:
+
+**Opportunity 1:**
+
+- **Task:** (be specific)
+- **AI tool(s) I will use:**
+- **How I will start:** (first concrete step)
+- **Expected time savings:**
+- **Quality checks I will implement:**
+- **Privacy considerations:**
+- **Timeline to try it:** (this week? this month?)
+
+**Opportunity 2:**
+
+- **Task:**
+- **AI tool(s) I will use:**
+- **How I will start:**
+- **Expected time savings:**
+- **Quality checks I will implement:**
+- **Privacy considerations:**
+- **Timeline to try it:**
+
+**Opportunity 3:**
+
+- **Task:**
+- **AI tool(s) I will use:**
+- **How I will start:**
+- **Expected time savings:**
+- **Quality checks I will implement:**
+- **Privacy considerations:**
+- **Timeline to try it:**
+
+#### Part 2: One Key Ethical Guardrail (5 min)
+
+Write one personal rule or guideline that you will follow when using AI in your work. This should be specific and actionable. Examples:
+
+- "I will never submit an AI-drafted communication without reading it aloud first"
+- "I will always disclose AI assistance in reports that go to external stakeholders"
+- "I will verify every statistic that AI generates before including it in any document"
+
+**My guardrail:**
+
+> _______________________________________________
+
+#### Part 3: Pair Share (5 min)
+
+Share your plan with a partner. Give each other feedback:
+
+- Is the plan realistic and specific enough to actually implement?
+- Are there risks or considerations the other person missed?
+- What additional support or resources would help?
+
+:::
+
+---
+
+## Philadelphia AI Policy Recap
+
+Throughout this week, we have discussed AI governance in the context of Philadelphia and Pennsylvania:
+
+- **Pennsylvania Executive Order:** The state has established AI governance guidelines for state agencies
+- **Philadelphia city policy:** Currently in development; monitor for updates through the city's Office of Innovation and Technology
+- **Your role:** As public health professionals, you can help shape responsible AI policy by:
+  - Participating in policy development processes
+  - Sharing your hands-on experience with AI tools
+  - Advocating for health equity in AI governance
+  - Building internal capacity and guidelines within your teams
+
+---
+
+## Course Wrap-Up
+
+### What We Covered This Week
+
+| Day | Topic | Key Takeaway |
+|-----|-------|-------------|
+| Day 1 | Foundations | AI is a tool---powerful but requiring human judgment |
+| Day 2 | Multimodal AI | AI can work with images, data, and text---but always verify |
+| Day 3 | Agentic AI | AI is moving from chatbots to agents that use tools |
+| Day 4 | Workflows | The best AI integration is task-specific, human-supervised |
+| Day 5 | Responsible AI | Ethics, equity, and accountability are non-negotiable |
+
+### Continued Learning Resources
+
+- **Stay current:** AI changes rapidly. Follow developments through:
+  - Ethan Mollick's Substack: [One Useful Thing](https://www.oneusefulthing.org/)
+  - Anthropic's blog: [anthropic.com/news](https://www.anthropic.com/news)
+  - OpenAI's blog: [openai.com/blog](https://openai.com/blog)
+- **Deepen your skills:** See the [Resources page](resources.qmd) for courses, tutorials, and tools
+- **Connect with peers:** Consider forming an AI study group with your classmates to continue learning together
+- **Share what you learn:** Teach your colleagues---the best way to learn is to explain
+
+### Course Evaluation
+
+Please complete the course evaluation survey (link TBD). Your feedback is essential for improving this course.
+
+### Contact
+
+The instructor is available for follow-up questions:
+
+- **D. Alex Quistberg, PhD, MPH** --- [daq26@drexel.edu](mailto:daq26@drexel.edu)
+
+:::{.callout-tip}
+## Remember Mollick's Rule 4
+"Assume this is the worst AI you will ever use." The tools you learned this week will be significantly more capable in six months. Build habits of experimentation, verification, and responsible use that will serve you no matter how the technology evolves.
+:::
+
+---
+
+::: {.bonus-challenges-section}
+
+## Bonus Challenge Exercises
+
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+
+::: {.challenge-card}
+
+#### Challenge 11: Adversarial AI Testing for Public Health Safety
+
+::: {.challenge-meta}
+**Difficulty:** Advanced | **Time:** 60 min | **Tools:** Claude (Sonnet 4), ChatGPT (GPT-4o), Gemini 2.5 Pro
+:::
+
+Design 10 test prompts across five failure categories (inappropriate health advice, biased recommendations, statistical hallucination, privacy violations, overconfidence). Run each on at least two platforms, score severity, and compile a 1-page safety assessment with a risk matrix and deployment recommendation.
+
+[Full instructions →](challenges.qmd#exercise-11)
+
+:::
+
+:::
+
+---
+
+## Today's Readings
+
+See the [Readings page](readings.qmd#day-5-readings) for today's assigned and recommended readings.

@@ -1,0 +1,434 @@
+---
+title: "Day 4: AI for Urban Health Workflows"
+---
+
+::: {.day-header}
+# Day 4: AI for Urban Health Workflows
+::: {.day-subtitle}
+Workflow integration, scenario-based group work, and Mollick's rules of co-intelligence
+:::
+::: {.day-time}
+1:00--4:00 PM EST
+:::
+:::
+
+## Learning Objectives
+
+By the end of today, you will be able to:
+
+1. Apply Mollick's Four Rules of Co-Intelligence to evaluate AI integration opportunities
+2. Assess your own professional workflows for AI augmentation potential
+3. Design AI-assisted approaches to realistic urban health challenges
+4. Identify which parts of a workflow should be automated vs. kept human
+5. Present and defend an AI integration strategy to peers
+
+---
+
+## Lecture: Co-Intelligence and Workflow Design
+
+### Mollick's Four Rules of Co-Intelligence
+
+Ethan Mollick (Wharton, University of Pennsylvania) proposes four principles for working with AI effectively. These form a practical framework for deciding how to integrate AI into your work:
+
+**Rule 1: Always invite AI to the table.**
+Try AI for any task---you will be surprised how often it helps. The cost of trying is low; the cost of missing a useful application is high.
+
+**Rule 2: Be the human in the loop.**
+AI makes mistakes, hallucinates, and lacks judgment. You provide the expertise, context, and ethical reasoning. Use AI as a first draft, a thought partner, or an accelerator---never as the final word.
+
+**Rule 3: Treat AI like a person (but a person who is sometimes confidently wrong).**
+AI works best when you interact with it conversationally: provide context, ask follow-up questions, give feedback, and iterate. But never forget it can produce plausible-sounding nonsense.
+
+**Rule 4: Assume this is the worst AI you will ever use.**
+Today's tools are the floor, not the ceiling. Build workflows that take advantage of current capabilities while remaining adaptable as tools improve rapidly.
+
+### What to Automate vs. What to Keep Human
+
+Not every task benefits from AI. A useful framework:
+
+| Automate with AI | Keep Human |
+|-----------------|------------|
+| First drafts of reports and memos | Final review and approval |
+| Literature search and synthesis | Critical interpretation |
+| Data cleaning and exploratory analysis | Study design and causal inference |
+| Scheduling and routine communications | Sensitive stakeholder conversations |
+| Translation and plain-language summaries | Community engagement strategy |
+| Template generation | Policy decisions |
+| Formatting and copy editing | Ethical judgment calls |
+
+:::{.callout-important}
+## The Accountability Principle
+If something goes wrong with an AI-assisted output---a factual error in a report, a biased recommendation, an inappropriate communication---the human who approved and published it is responsible. **AI does not bear accountability.** This is why human oversight is non-negotiable.
+:::
+
+---
+
+## Activity 1: Workflow Self-Assessment {.activity}
+
+::: {.activity}
+
+### Activity 1: Workflow Self-Assessment
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Individual reflection + pair discussion
+:::
+
+**Goal:** Identify your biggest time sinks and assess which could benefit from AI assistance.
+
+#### Instructions
+
+1. **List your top 5 most time-consuming recurring work tasks.** Be specific. Examples:
+   - "Writing weekly surveillance reports"
+   - "Reviewing and summarizing community health assessments from partner organizations"
+   - "Cleaning and formatting data exports from our EHR system"
+   - "Drafting communications for community outreach events"
+   - "Responding to data requests from program staff"
+
+2. **Rate each task** on the following dimensions (1--5 scale):
+
+| Task | Time Spent (hrs/week) | Repetitiveness (1=unique, 5=routine) | AI Potential (1=low, 5=high) | Risk if AI Errors (1=low, 5=high) |
+|------|----------------------|--------------------------------------|------------------------------|----------------------------------|
+| 1. | | | | |
+| 2. | | | | |
+| 3. | | | | |
+| 4. | | | | |
+| 5. | | | | |
+
+3. **Identify your top candidate:** Which task has the best combination of high time, high repetitiveness, high AI potential, and low risk?
+
+4. **Pair discussion:** Share your assessment with a partner. Do they agree with your ratings? What did they prioritize differently?
+
+:::{.callout-tip}
+## Sweet Spot for AI Integration
+The best candidates for AI integration are tasks that are **time-consuming, repetitive, and low-risk if errors occur**. Save human attention for tasks that are **high-stakes, novel, or require nuanced judgment**.
+:::
+
+:::
+
+---
+
+## Activity 2: Scenario-Based Small Group Work {.activity}
+
+::: {.activity}
+
+### Activity 2: Scenario-Based Small Group Work
+::: {.activity-meta}
+Duration: ~75 minutes | Format: Groups of 3--5 people
+:::
+
+**Goal:** Develop a comprehensive AI-assisted approach to a realistic urban health challenge.
+
+#### Instructions
+
+Each group will be assigned one of the five scenarios below (or may choose the qualitative option). Your group should:
+
+1. **Read** your scenario carefully (5 min)
+2. **Discuss** the challenges and brainstorm AI applications (15 min)
+3. **Build and test** at least 2--3 AI-assisted solutions using the tools you have learned (35 min)
+4. **Prepare** a 3-minute presentation for the class (10 min)
+5. **Present** (see Activity 3)
+
+For your presentation, address:
+
+- What AI tools did you use and why?
+- Show one concrete example of something you built/generated
+- What worked well? What did not?
+- What human oversight is essential?
+- What ethical concerns arose?
+
+---
+
+### Scenario 1: Childhood Vaccination Outreach {.scenario-card}
+
+::: {.scenario-card}
+
+#### Scenario 1: Childhood Vaccination Outreach
+
+**Setting:** You are a team at the Philadelphia Department of Public Health working on childhood immunization. Philadelphia's childhood vaccination rates for the DTaP and MMR series have fallen below the Healthy People 2030 targets in several ZIP codes, particularly in North and West Philadelphia.
+
+**Key Challenges:**
+
+- Identifying under-vaccinated communities using available data
+- Combating vaccine misinformation circulating on social media
+- Creating culturally appropriate outreach materials in English, Spanish, and Haitian Creole
+- Coordinating with schools, clinics, and community organizations
+- Tracking outreach effectiveness
+
+**Suggested AI Applications:**
+
+- Analyze vaccination coverage data by ZIP code to prioritize outreach areas
+- Generate multilingual outreach materials (flyers, social media, text messages)
+- Create a FAQ document addressing common vaccine concerns with evidence-based responses
+- Draft talking points for community health workers
+- Design a data dashboard to track outreach metrics
+
+**Guiding Questions:**
+
+- How would you verify the accuracy of AI-generated health information in multiple languages?
+- What community voices need to be centered in this work that AI cannot replace?
+- How do you balance urgency with cultural sensitivity?
+
+**Suggested Tools:** ChatGPT, Claude, Google AI Studio, Perplexity for research
+
+:::
+
+---
+
+### Scenario 2: Type 2 Diabetes Prevention {.scenario-card}
+
+::: {.scenario-card}
+
+#### Scenario 2: Type 2 Diabetes Prevention
+
+**Setting:** You are developing a neighborhood-level diabetes prevention strategy for the Philadelphia Department of Public Health. Type 2 diabetes rates are significantly higher in low-income neighborhoods with limited access to healthy food and safe spaces for physical activity.
+
+**Key Challenges:**
+
+- Identifying neighborhoods with the highest diabetes burden and fewest prevention resources
+- Understanding the intersection of food access, built environment, and health outcomes
+- Developing targeted interventions that account for community-specific barriers
+- Creating educational materials that resonate with diverse populations
+- Evaluating program effectiveness
+
+**Suggested AI Applications:**
+
+- Analyze census tract-level diabetes prevalence alongside food access and built environment data
+- Generate community-specific intervention recommendations based on evidence reviews
+- Create a risk assessment tool that community health workers can use during home visits
+- Draft a grant proposal for a community-based diabetes prevention program
+- Develop culturally tailored nutrition education content
+
+**Guiding Questions:**
+
+- How would you ensure AI-generated recommendations account for structural determinants of health?
+- What data would you need to make this work, and what are the privacy considerations?
+- How do you involve community members in validating AI-suggested interventions?
+
+**Suggested Tools:** Claude (data analysis), ChatGPT (content generation), Perplexity (evidence review)
+
+:::
+
+---
+
+### Scenario 3: Heat Vulnerability During Heatwaves {.scenario-card}
+
+::: {.scenario-card}
+
+#### Scenario 3: Heat Vulnerability During Heatwaves
+
+**Setting:** You are part of Philadelphia's climate and health team preparing for the summer heat season. Philadelphia has experienced increasingly severe heat waves, and heat-related illness and death disproportionately affect low-income communities, elderly residents, and people with chronic conditions.
+
+**Key Challenges:**
+
+- Using the Heat Vulnerability Index to target cooling interventions
+- Communicating heat risk to vulnerable populations
+- Coordinating cooling center operations across the city
+- Monitoring heat-related emergency department visits in real time
+- Evaluating the effectiveness of heat response strategies
+
+**Suggested AI Applications:**
+
+- Analyze the [Philadelphia HVI data](https://opendataphilly.org/datasets/heat-vulnerability-index/) to identify priority neighborhoods
+- Generate targeted messaging for different vulnerable populations (elderly, outdoor workers, people experiencing homelessness)
+- Create a decision support tool for when to activate heat emergency protocols
+- Draft a heat action plan with specific triggers and responses
+- Build a monitoring dashboard that integrates weather forecasts with health data
+
+**Guiding Questions:**
+
+- How accurate does AI-generated risk communication need to be when lives are at stake?
+- What real-time data feeds would make an AI-powered heat response system most effective?
+- How do you reach people who are most vulnerable but least connected to digital communications?
+
+**Suggested Tools:** Claude (data analysis of HVI dataset), ChatGPT (communications), Google AI Studio (agent building)
+
+:::
+
+---
+
+### Scenario 4: Pedestrian Injury Prevention {.scenario-card}
+
+::: {.scenario-card}
+
+#### Scenario 4: Pedestrian Injury Prevention
+
+**Setting:** You work on injury prevention at the Philadelphia Department of Public Health. Pedestrian fatalities have been increasing, with disproportionate impact on older adults and communities of color. The city is developing a Vision Zero strategy.
+
+**Key Challenges:**
+
+- Identifying high-risk corridors and intersections using crash data
+- Understanding the built environment factors that contribute to pedestrian injuries
+- Engaging communities in identifying dangerous locations (crowdsourced data)
+- Developing evidence-based infrastructure and policy recommendations
+- Creating public awareness campaigns
+
+**Suggested AI Applications:**
+
+- Analyze crash data to identify spatial and temporal patterns
+- Use image analysis to assess street-level safety features (crosswalks, lighting, traffic signals)
+- Generate community survey instruments for pedestrian safety assessments
+- Draft policy briefs recommending specific infrastructure improvements
+- Create multilingual safety campaign materials targeting high-risk areas
+
+**Guiding Questions:**
+
+- How could AI analysis of crash data complement traditional epidemiological approaches?
+- What are the risks of using AI to prioritize infrastructure investments (potential for bias)?
+- How do you incorporate community knowledge that may not be captured in official data?
+
+**Suggested Tools:** Claude (data analysis), Google AI Studio (image analysis), ChatGPT (content generation)
+
+:::
+
+---
+
+### Scenario 5: Foodborne Illness Detection {.scenario-card}
+
+::: {.scenario-card}
+
+#### Scenario 5: Foodborne Illness Detection
+
+**Setting:** You are on the foodborne illness investigation team at the Philadelphia Department of Public Health. The team investigates reports of food poisoning, inspects food establishments, and monitors for outbreaks. The current process involves manual review of complaint reports, which is time-consuming and sometimes delays response.
+
+**Key Challenges:**
+
+- Processing and triaging large volumes of consumer complaints quickly
+- Identifying potential outbreak clusters from individual reports
+- Prioritizing restaurant inspections based on risk indicators
+- Communicating with the public about food safety during outbreaks
+- Documenting investigations for regulatory purposes
+
+**Suggested AI Applications:**
+
+- Build a complaint triage system that categorizes and prioritizes reports
+- Analyze patterns in complaint data to detect potential clusters
+- Generate investigation checklists based on reported symptoms and food types
+- Draft public health advisories when outbreaks are confirmed
+- Create standardized investigation reports from field notes
+
+**Guiding Questions:**
+
+- What level of AI autonomy is appropriate for public health surveillance?
+- How do you balance speed (AI triage) with accuracy (human review)?
+- What happens if the AI system misses a cluster or generates a false alarm?
+
+**Suggested Tools:** Claude (text analysis of complaints), ChatGPT (document generation), Google AI Studio (classification agent)
+
+:::
+
+---
+
+### Qualitative Option: Community Health Assessment Interviews {.scenario-card}
+
+::: {.scenario-card}
+
+#### Qualitative Option: Analyzing Community Health Assessment Interview Data
+
+**For groups with qualitative research interest.** Replace one of the above scenarios with this option.
+
+**Setting:** Your team has conducted 30 semi-structured interviews with residents of a Philadelphia neighborhood as part of a Community Health Needs Assessment. You need to analyze the data and produce a report for community stakeholders and the health department.
+
+**Key Challenges:**
+
+- Coding 30 interviews efficiently with limited qualitative research staff
+- Ensuring rigor and trustworthiness of the analysis
+- Identifying themes that reflect community priorities (not just researcher assumptions)
+- Translating findings into actionable recommendations
+- Presenting findings back to the community in accessible formats
+
+**Suggested AI Applications:**
+
+- Use AI for initial deductive coding based on interview guides
+- Generate preliminary theme summaries for researcher review
+- Identify illustrative quotes for each theme
+- Draft the findings section of the community report
+- Create plain-language summary documents for community partners
+
+**Guiding Questions:**
+
+- What role should AI play in interpreting community members' experiences?
+- How do you maintain the rigor expected of qualitative research when using AI tools?
+- What would you need to disclose in a methods section about AI-assisted analysis?
+
+:::
+
+:::
+
+---
+
+## Activity 3: Group Presentations & Discussion {.activity}
+
+::: {.activity}
+
+### Activity 3: Group Presentations & Discussion
+::: {.activity-meta}
+Duration: ~15 minutes per group + discussion | Format: Whole class
+:::
+
+**Goal:** Share what you built, what worked, and what you learned.
+
+Each group presents for 3 minutes:
+
+1. **The challenge:** Brief overview of your scenario
+2. **Your approach:** Which AI tools did you use and how?
+3. **Show and tell:** Demonstrate one concrete output (report draft, analysis, dashboard design, communication material)
+4. **Lessons learned:** What surprised you? What limitations did you encounter?
+5. **Human oversight:** Where is human judgment essential in your workflow?
+
+**Class Discussion (after all presentations):**
+
+- What patterns emerged across groups?
+- Which scenarios seemed best suited to AI assistance? Least suited?
+- What ethical guardrails would you recommend for AI use in each scenario?
+- How would you implement these ideas in your actual workplace?
+
+:::
+
+---
+
+::: {.bonus-challenges-section}
+
+## Bonus Challenge Exercises
+
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+
+::: {.challenge-card}
+
+#### Challenge 10: Build an Interactive Public Health Dashboard
+
+::: {.challenge-meta}
+**Difficulty:** Advanced | **Time:** 90 min | **Tools:** Claude Code or ChatGPT, Philadelphia HVI data, web browser
+:::
+
+Write a design brief, then use AI to generate a self-contained HTML dashboard with KPI cards, three interactive charts (distribution, scatterplot, comparison), dropdown filters, and explanatory narrative---all built from Philadelphia Heat Vulnerability Index data.
+
+[Full instructions →](challenges.qmd#exercise-10)
+
+:::
+
+::: {.challenge-card}
+
+#### Challenge 12: Personal AI Workflow Automation
+
+::: {.challenge-meta}
+**Difficulty:** Intermediate | **Time:** 60 min | **Tools:** Claude or ChatGPT, tools from your daily work
+:::
+
+Identify a recurring work task, then build a complete reusable workflow package: a PTCF-structured prompt template with variable placeholders, a pre-processing checklist, a quality verification checklist, and three tested examples with timing comparisons to estimate annual time savings.
+
+[Full instructions →](challenges.qmd#exercise-12)
+
+:::
+
+:::
+
+---
+
+## Today's Readings
+
+See the [Readings page](readings.qmd#day-4-readings) for today's assigned and recommended readings.
+
+---
+
+## Looking Ahead
+
+Tomorrow is our final day. We will focus on **responsible AI**---ethics, bias, privacy, and accountability---and you will develop a personal AI integration plan to take back to your workplace. Come prepared to think critically about the tools you have been using all week.

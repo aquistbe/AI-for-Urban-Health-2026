@@ -1,0 +1,14 @@
+# Quarto internal cache
+/.quarto/
+
+# Preview output (not the published 'docs' folder)
+/_site/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+.Rproj.user/
+.Rhistory
+
+**/*.quarto_ipynb

@@ -1,0 +1,482 @@
+---
+title: "Day 3: Agentic AI & Tool Building"
+---
+
+::: {.day-header}
+# Day 3: Agentic AI & Tool Building
+::: {.day-subtitle}
+From chatbots to agents: context engineering, CLI tools, and building your own AI agent
+:::
+::: {.day-time}
+1:00--4:00 PM EST
+:::
+:::
+
+## Learning Objectives
+
+By the end of today, you will be able to:
+
+1. Distinguish between AI chatbots and AI agents and explain why the difference matters
+2. Describe the five components of context engineering and why it is critical for effective AI use
+3. Explain the Model Context Protocol (MCP) and how it enables tool integration
+4. Use or observe command-line AI tools (Claude Code, Codex CLI, Gemini CLI)
+5. Build a simple AI agent using Google AI Studio
+6. Discuss the role of AI in grant writing and research workflows
+7. Understand why local AI models matter for sensitive data and how to run them
+
+---
+
+## Lecture: Agents, Context, and Tools
+
+### Chatbots vs. Agents
+
+The AI landscape is rapidly moving from **chatbots** (reactive, single-turn, limited to text) to **agents** (proactive, multi-step, tool-using):
+
+| Feature | Chatbot | Agent |
+|---------|---------|-------|
+| Interaction | Single turn Q&A | Multi-step task completion |
+| Tools | None (text only) | Can use tools (search, code, APIs) |
+| Memory | Limited to conversation | Can maintain context across tasks |
+| Autonomy | Responds only when asked | Can take initiative, plan, and execute |
+| Error handling | Stops at confusion | Can retry, adapt, self-correct |
+
+**Why this matters for public health:** Agents can do things like "pull the latest flu surveillance data, compare it to last year, draft a summary report, and email it to the team"---tasks that involve multiple steps, tools, and decision points.
+
+### Context Engineering: The 5 Components
+
+Context engineering is the practice of designing the information environment that an AI system operates within. It is more fundamental than prompt engineering. The five key components:
+
+1. **System prompt / Instructions:** What the AI should do, its role, its constraints
+2. **User input:** The specific request or query
+3. **Retrieved knowledge:** Relevant documents, data, or information pulled in for the task (RAG --- Retrieval-Augmented Generation)
+4. **Tool definitions:** What tools the AI can use and how to use them
+5. **Conversation history / Memory:** What has happened before in the interaction
+
+:::{.callout-tip}
+## Think of It Like Briefing a New Employee
+Context engineering is like preparing a briefing packet for a highly skilled new employee on their first day. You would not just say "do your job." You would provide: their role description (system prompt), the specific task (user input), relevant background materials (retrieved knowledge), access to the tools and systems they need (tool definitions), and notes from previous meetings (conversation history).
+:::
+
+### Model Context Protocol (MCP)
+
+MCP is an emerging open standard (created by Anthropic) that allows AI models to connect with external tools and data sources through a standardized interface. Think of it as a "USB port for AI"---a universal way to plug in capabilities.
+
+Examples of MCP tools:
+
+- File system access (read/write documents)
+- Database queries
+- Web search
+- Calendar and email integration
+- Code execution
+- API calls to external services
+
+---
+
+## Activity 1: Context Engineering Exercise {.activity}
+
+::: {.activity}
+
+### Activity 1: Context Engineering Exercise
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Small group design exercise
+:::
+
+**Goal:** Design a context package for a specialized public health AI assistant.
+
+#### Scenario
+
+You are designing a **"Neighborhood Health Assessment AI Assistant"** for the Philadelphia Department of Public Health. This agent should be able to:
+
+- Pull demographic and health data for any Philadelphia neighborhood
+- Compare indicators across neighborhoods
+- Generate assessment reports with visualizations
+- Identify health equity concerns
+- Recommend evidence-based interventions
+
+#### Your Task
+
+In your small group, design the **five context components** for this agent:
+
+**1. System Prompt / Instructions**
+
+- What role should the agent assume?
+- What are its core capabilities?
+- What constraints should it have? (e.g., never provide individual-level data, always cite sources, flag uncertainty)
+
+**2. User Input Examples**
+
+- Write 3 example queries a health department analyst might ask this agent
+
+**3. Retrieved Knowledge**
+
+- What documents, datasets, or knowledge bases should this agent have access to?
+- How often should they be updated?
+
+**4. Tool Definitions**
+
+- What tools should this agent be able to use? (e.g., database query, mapping, chart generation, report writing)
+
+**5. Conversation History / Memory**
+
+- What should the agent remember across conversations?
+- What should it forget (for privacy/security)?
+
+#### Share Out
+
+Each group presents their context design in 2 minutes. Class discusses: What did groups prioritize differently? What components were hardest to define?
+
+:::
+
+---
+
+## Activity 2: Claude Code CLI Walkthrough {.activity}
+
+::: {.activity}
+
+### Activity 2: Claude Code CLI Walkthrough
+::: {.activity-meta}
+Duration: ~25 minutes | Format: Instructor demonstration (follow along if you have Claude Code installed)
+:::
+
+**Goal:** See how a command-line AI tool can perform data analysis, write code, and generate documents directly on your computer.
+
+#### What is Claude Code?
+
+Claude Code is a command-line interface (CLI) tool from Anthropic that lets you interact with Claude directly from your terminal. Unlike the web-based chat, Claude Code can:
+
+- Read and write files on your computer
+- Execute code and see results
+- Navigate your file system
+- Chain multiple operations together
+- Work with local data that never leaves your machine (though prompts are still sent to Anthropic's servers)
+
+#### Demo Outline
+
+The instructor will demonstrate:
+
+**1. Data Analysis and Visualization**
+
+```
+claude "Load the Philadelphia HVI dataset from data/hvi.csv.
+       Create a summary by zip code and generate a bar chart
+       of the top 10 most vulnerable areas. Save the chart
+       as hvi_top10.png"
+```
+
+**2. Document Generation**
+
+```
+claude "Read the analysis results in output/ and draft a
+       2-page executive summary for city council. Include
+       the key findings, a table of the most vulnerable
+       neighborhoods, and three policy recommendations.
+       Save as executive_summary.docx"
+```
+
+**3. Multi-Step Workflow**
+
+```
+claude "Download the latest flu surveillance data from CDC,
+       compare Philadelphia's rates to the national average,
+       create a trend visualization, and draft a weekly
+       update email for the department director"
+```
+
+#### Key Takeaways
+
+- CLI tools are powerful for **integrating AI into existing workflows**
+- They work with your local files and tools
+- They enable **automation** of repetitive analysis-report-communicate cycles
+- They require some comfort with the command line (but AI can help with that too)
+
+:::
+
+---
+
+## Activity 3: Brief Tour of Other CLI Tools {.activity}
+
+::: {.activity}
+
+### Activity 3: Brief Tour of Other CLI Tools
+::: {.activity-meta}
+Duration: ~10 minutes | Format: Instructor overview
+:::
+
+**Goal:** Awareness of the broader landscape of command-line AI tools.
+
+#### Comparison
+
+| Feature | Claude Code | Codex CLI (OpenAI) | Gemini CLI (Google) |
+|---------|------------|-------------------|-------------------|
+| Model | Claude (Anthropic) | GPT-4o / o3 (OpenAI) | Gemini (Google) |
+| File access | Yes | Yes | Yes |
+| Code execution | Yes | Yes (sandboxed) | Yes |
+| Cost | API usage | API usage | Free (with Gemini API key) |
+| Best for | Analysis, writing, coding | Code generation, debugging | Google ecosystem integration |
+| Install | `npm install -g @anthropic-ai/claude-code` | `npm install -g @openai/codex` | `npm install -g @anthropic-ai/claude-code` |
+
+:::{.callout-note}
+All three tools require an API key and incur usage costs (except Gemini CLI which currently offers a free tier). The instructor will demonstrate; you do not need to install these today unless you want to.
+:::
+
+:::
+
+---
+
+## Activity 4: Google AI Studio Agent Building {.activity}
+
+::: {.activity}
+
+### Activity 4: Google AI Studio Agent Building
+::: {.activity-meta}
+Duration: ~30 minutes | Format: Hands-on (using your free Google AI Studio account)
+:::
+
+**Goal:** Build a simple AI agent with system instructions and structured behavior using Google AI Studio.
+
+#### Instructions
+
+1. Go to [Google AI Studio](https://aistudio.google.com)
+2. Click **"Create New"** and select a structured prompt or chat-based prompt
+
+#### Option A: Disease Prediction Agent
+
+Build an agent that helps public health analysts assess disease outbreak risk:
+
+**System Instructions:**
+
+> You are an infectious disease risk assessment assistant for the Philadelphia Department of Public Health. Your role is to help analysts evaluate potential outbreak risks based on surveillance data and environmental factors.
+>
+> When analyzing a potential outbreak:
+> 1. Ask clarifying questions about the data (number of cases, location, time period, demographics affected)
+> 2. Compare to historical baselines
+> 3. Identify potential risk factors
+> 4. Assess the likelihood of sustained transmission
+> 5. Recommend specific response actions based on Philadelphia's outbreak response protocols
+>
+> Always cite the evidence basis for your assessments. Always flag uncertainty. Never provide definitive predictions---use probabilistic language.
+
+Test your agent with scenarios like:
+> "We've seen 15 cases of Legionella in the Kensington area over the past two weeks. The previous baseline for this period is 2-4 cases. What should we be looking at?"
+
+#### Option B: Environmental Health Risk Assessor
+
+Build an agent focused on environmental health:
+
+**System Instructions:**
+
+> You are an environmental health risk assessment assistant. You help public health analysts evaluate environmental exposures and their potential health impacts in Philadelphia neighborhoods.
+>
+> For each assessment:
+> 1. Identify the exposure pathway (air, water, soil, food)
+> 2. Assess the exposed population (size, vulnerability factors)
+> 3. Evaluate exposure duration and intensity
+> 4. Review known health effects from the scientific literature
+> 5. Recommend monitoring, mitigation, and communication strategies
+>
+> Always specify the strength of evidence for health effects. Distinguish between established and emerging science.
+
+#### Reflection
+
+- How does providing system instructions change the AI's behavior?
+- What guardrails did you include? What would you add?
+- How could this be useful in your daily work?
+- What are the risks of relying on such an agent?
+
+:::
+
+---
+
+## Activity 5: AI for Grant Writing {.activity}
+
+::: {.activity}
+
+### Activity 5: AI for Grant Writing
+::: {.activity-meta}
+Duration: ~15 minutes | Format: Demonstration with brief hands-on practice
+:::
+
+**Goal:** Explore how AI can assist (not replace) specific components of the grant writing process.
+
+#### Where AI Can Help
+
+| Grant Component | How AI Can Assist | Human Judgment Still Needed |
+|----------------|-------------------|---------------------------|
+| Specific Aims | Draft structure, refine language | Scientific direction, innovation |
+| Background | Literature synthesis, gap identification | Critical interpretation, theory |
+| Significance | Evidence compilation, impact framing | Vision, originality |
+| Approach | Methods description, statistical plan template | Study design decisions, feasibility |
+| Budget justification | Template language, calculations | Resource allocation strategy |
+| Biosketches | Formatting, description drafting | Accuracy verification |
+
+#### Quick Practice
+
+Try one of these prompts:
+
+> I am writing an R01 grant proposal to study the relationship between urban green space and mental health outcomes in Philadelphia. Draft a 1-page Specific Aims section with: a brief introductory paragraph establishing the problem, an overarching goal, and three specific aims. Each aim should include a brief description and a hypothesis.
+
+Then critically evaluate: What would you keep? What needs your expertise to fix?
+
+:::{.callout-warning}
+## NIH Policy on AI in Grant Writing
+NIH and other funders are developing policies on AI use in grant applications. As of 2025, NIH requires disclosure of AI tool use in the preparation of grant applications. Always check the current funder requirements before submitting. **AI cannot serve as a reviewer or be listed as a co-investigator.**
+:::
+
+:::
+
+---
+
+## Activity 6: Local AI with Ollama {.activity}
+
+::: {.activity}
+
+### Activity 6: Local AI with Ollama
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Demonstration + optional hands-on installation
+:::
+
+**Goal:** Understand why local AI models matter for sensitive data and see how to run them.
+
+#### Why Local Models?
+
+When you use ChatGPT, Claude, or Gemini, your prompts and data are sent to external servers. For many public health tasks, this is fine. But for work involving:
+
+- **Protected Health Information (PHI)**
+- **Personally identifiable data**
+- **Pre-publication research data**
+- **Sensitive agency communications**
+- **Data covered by IRB protocols**
+
+...you may need AI that runs entirely on your own machine, with **no data leaving your computer**.
+
+#### What is Ollama?
+
+[Ollama](https://ollama.com) is a free, open-source tool that lets you run AI models locally on your laptop. It supports many models, including:
+
+- **Llama 3** (Meta) --- good general-purpose model
+- **Mistral** --- fast and efficient
+- **Phi-3** (Microsoft) --- optimized for smaller hardware
+- **Gemma** (Google) --- lightweight and capable
+
+#### Installation (for those who can install software)
+
+```bash
+# macOS (Homebrew)
+brew install ollama
+
+# Or download from https://ollama.com/download
+
+# Start Ollama
+ollama serve
+
+# Pull and run a model
+ollama run llama3
+```
+
+**System Requirements:**
+
+- At least 8 GB RAM (16 GB recommended)
+- 5--10 GB free disk space per model
+- macOS, Linux, or Windows
+
+#### Browser-Based Alternatives (for restricted computers)
+
+If you cannot install software on your work computer:
+
+- **[Google AI Studio](https://aistudio.google.com):** Free, browser-based, runs Gemini models with reasonable privacy policies
+- **[HuggingChat](https://huggingface.co/chat/):** Free, open-source models, browser-based
+- **Note:** These still send data to external servers but may have stronger privacy protections than consumer products
+
+#### Demo
+
+The instructor will demonstrate:
+
+1. Installing and running Ollama
+2. Chatting with a local model
+3. Comparing response quality to cloud-based models (trade-offs: speed, quality, privacy)
+4. When local models are "good enough" vs. when you need cloud models
+
+:::{.callout-note}
+## For IT-Restricted Computers
+Many government and health department computers restrict software installation. If you cannot install Ollama on your work computer, the browser-based alternatives above provide a middle ground. For truly sensitive work, talk to your IT department about setting up a local AI environment on a secure server.
+:::
+
+:::
+
+---
+
+::: {.bonus-challenges-section}
+
+## Bonus Challenge Exercises
+
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+
+::: {.challenge-card}
+
+#### Challenge 6: Building an Automated Data Pipeline
+
+::: {.challenge-meta}
+**Difficulty:** Expert | **Time:** 90 min | **Tools:** Claude Code, Python, OpenDataPhilly API
+:::
+
+Build a Python pipeline with Claude Code that acquires 311 service request data from the OpenDataPhilly API, cleans and geocodes it, computes per-tract complaint rates and trends, and generates an HTML report with charts and narrative. Document architecture and error handling.
+
+[Full instructions →](challenges.qmd#exercise-6)
+
+:::
+
+::: {.challenge-card}
+
+#### Challenge 7: Custom MCP Server Design
+
+::: {.challenge-meta}
+**Difficulty:** Expert | **Time:** 60 min | **Tools:** Any text editor or word processor
+:::
+
+Choose a public health scenario (disease surveillance, community health assessment, or environmental inspection support). Design a complete MCP server specification with 6--10 tools, security constraints, a 500--800 word system prompt, and a capability comparison table.
+
+[Full instructions →](challenges.qmd#exercise-7)
+
+:::
+
+::: {.challenge-card}
+
+#### Challenge 8: Local vs. Cloud Model Evaluation
+
+::: {.challenge-meta}
+**Difficulty:** Intermediate | **Time:** 45 min | **Tools:** Ollama (Llama 3.1 8B), Claude or ChatGPT
+:::
+
+Create 10 test prompts across five categories (factual knowledge, data interpretation, writing, reasoning, code generation). Run them through both a local Ollama model and a cloud model, score each response, and write a recommendation memo for your department on when to use each.
+
+[Full instructions →](challenges.qmd#exercise-8)
+
+:::
+
+::: {.challenge-card}
+
+#### Challenge 9: AI-Assisted Grant Proposal Section
+
+::: {.challenge-meta}
+**Difficulty:** Advanced | **Time:** 75 min | **Tools:** Claude (Opus 4), ChatGPT (GPT-4o), Perplexity
+:::
+
+Choose a research topic at the intersection of AI and urban health. Use iterative AI-assisted drafting to produce a 1-page NIH-format Specific Aims section and a 2-page Significance/Innovation section, tracking which content was AI-generated vs. human-written at each stage.
+
+[Full instructions →](challenges.qmd#exercise-9)
+
+:::
+
+:::
+
+---
+
+## Today's Readings
+
+See the [Readings page](readings.qmd#day-3-readings) for today's assigned and recommended readings.
+
+---
+
+## Looking Ahead
+
+Tomorrow we shift from **tools** to **workflows**. You will assess your own work processes, identify where AI can help, and work through realistic urban health scenarios in small groups. Come prepared to think critically about your daily work and where AI fits in.

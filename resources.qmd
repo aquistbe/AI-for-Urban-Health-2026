@@ -1,0 +1,216 @@
+---
+title: "Resources"
+---
+
+# Course Resources
+
+A curated collection of tools, data sources, guides, and learning resources for the course and beyond.
+
+---
+
+## AI Platforms {#ai-platforms}
+
+### Generative AI Chat Platforms
+
+| Platform | Link | Description | Free Tier? |
+|----------|------|-------------|------------|
+| **ChatGPT** | [chat.openai.com](https://chat.openai.com) | OpenAI's flagship conversational AI. Strong at creative tasks, analysis, and code generation. GPT-4o available on free tier. | Yes |
+| **Claude** | [claude.ai](https://claude.ai) | Anthropic's AI assistant. Known for nuanced, detailed responses and strong safety practices. Handles long documents well. | Yes |
+| **Gemini** | [gemini.google.com](https://gemini.google.com) | Google's AI assistant. Strong multimodal capabilities and integration with Google Workspace. | Yes |
+| **Perplexity** | [perplexity.ai](https://perplexity.ai) | AI-powered research tool with inline citations from web sources. Excellent for fact-checking and evidence synthesis. | Yes |
+
+### Specialized Platforms
+
+| Platform | Link | Description |
+|----------|------|-------------|
+| **Google AI Studio** | [aistudio.google.com](https://aistudio.google.com) | Free platform for building and testing AI applications with Gemini models. Used for agent building (Day 3) and image analysis (Day 2). |
+| **NotebookLM** | [notebooklm.google.com](https://notebooklm.google.com) | Google's notebook tool that lets you upload documents and have AI analyze them. Good for document analysis (Day 2). |
+| **HuggingChat** | [huggingface.co/chat](https://huggingface.co/chat/) | Free chat interface for open-source models. Good alternative when you want to use non-commercial models. |
+
+---
+
+## Agentic AI Tools {#agentic-tools}
+
+### Command-Line Tools
+
+| Tool | Link | Description | Requirements |
+|------|------|-------------|--------------|
+| **Claude Code** | [docs.anthropic.com/en/docs/claude-code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic's CLI tool for AI-assisted coding, analysis, and file operations. | Node.js, Anthropic API key |
+| **Cowork** | Available through Claude desktop app | Collaborative AI environment within Claude for multi-step tasks. | Claude desktop app |
+| **Codex CLI** | [github.com/openai/codex](https://github.com/openai/codex) | OpenAI's CLI tool for code generation and execution. | Node.js, OpenAI API key |
+| **Gemini CLI** | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | Google's CLI tool for AI-assisted tasks with Gemini models. Currently offers a free tier. | Node.js, Google API key |
+
+### Installation (General)
+
+All CLI tools require [Node.js](https://nodejs.org/) (version 18 or later). Install via:
+
+```bash
+# Install Node.js (if not already installed)
+# macOS with Homebrew:
+brew install node
+
+# Then install the CLI tool:
+npm install -g @anthropic-ai/claude-code    # Claude Code
+npm install -g @openai/codex                 # Codex CLI
+npx https://github.com/google-gemini/gemini-cli  # Gemini CLI
+```
+
+---
+
+## Ollama: Local AI Models {#ollama}
+
+### What is Ollama?
+
+[Ollama](https://ollama.com) lets you run large language models locally on your computer. **Your data never leaves your machine** (no data is sent to any external server), making it suitable for sensitive data---though the models are generally less capable than cloud-based alternatives.
+
+### Installation
+
+| Platform | Method |
+|----------|--------|
+| **macOS** | `brew install ollama` or [download from ollama.com](https://ollama.com/download) |
+| **Windows** | [Download installer](https://ollama.com/download/windows) |
+| **Linux** | `curl -fsSL https://ollama.com/install.sh \| sh` |
+
+### System Requirements
+
+- **Minimum:** 8 GB RAM, 5 GB free disk space
+- **Recommended:** 16 GB RAM, 10+ GB free disk space
+- **For larger models:** 32 GB RAM or Apple Silicon Mac with unified memory
+
+### Getting Started
+
+```bash
+# Start Ollama (runs in background)
+ollama serve
+
+# Download and run a model
+ollama run llama3          # Meta's Llama 3 (general purpose)
+ollama run mistral         # Mistral (fast, efficient)
+ollama run phi3            # Microsoft Phi-3 (small, fast)
+ollama run gemma           # Google Gemma (lightweight)
+
+# List downloaded models
+ollama list
+
+# Remove a model
+ollama rm model-name
+```
+
+### Recommended Models for Public Health Work
+
+| Model | Size | Best For |
+|-------|------|----------|
+| `llama3` (8B) | ~4.7 GB | General-purpose text tasks |
+| `llama3` (70B) | ~39 GB | Higher-quality output (needs 64 GB RAM) |
+| `mistral` (7B) | ~4.1 GB | Fast responses, good for iterative work |
+| `phi3` (3.8B) | ~2.3 GB | Constrained hardware, quick tasks |
+| `gemma` (7B) | ~5.0 GB | Good balance of quality and speed |
+
+### Browser-Based Alternatives (No Installation Required)
+
+If you cannot install software on your work computer:
+
+- **[Google AI Studio](https://aistudio.google.com):** Free, browser-based, runs Gemini models. Reasonable privacy policies for non-sensitive work.
+- **[HuggingChat](https://huggingface.co/chat/):** Free, runs open-source models in the browser.
+- **[Poe](https://poe.com):** Access to multiple models through a single interface.
+
+:::{.callout-note}
+Browser-based alternatives still send data to external servers. They are more private than consumer chatbots in some cases, but they are not equivalent to running models locally. For truly sensitive data, use Ollama or discuss options with your IT department.
+:::
+
+---
+
+## Data Sources {#data-sources}
+
+### Philadelphia Data
+
+| Dataset | Source | Description | Link |
+|---------|--------|-------------|------|
+| **Heat Vulnerability Index** | OpenDataPhilly | Census tract-level heat vulnerability scores incorporating temperature, tree canopy, poverty, and health indicators | [opendataphilly.org](https://opendataphilly.org/datasets/heat-vulnerability-index/) |
+| **OpenDataPhilly** | City of Philadelphia | Central portal for Philadelphia open data (health, environment, infrastructure, demographics) | [opendataphilly.org](https://opendataphilly.org/) |
+| **Community Health Assessment** | PDPH | Philadelphia's most recent community health needs assessment | [phila.gov](https://www.phila.gov/programs/community-health-assessment/) |
+| **Vital Statistics** | PDPH | Birth, death, and disease surveillance data | [phila.gov/health](https://www.phila.gov/departments/department-of-public-health/) |
+| **Crime Data** | Philadelphia Police | Incident-level crime data (relevant for injury prevention) | [opendataphilly.org](https://opendataphilly.org/datasets/crime-incidents/) |
+| **Property Data** | OPA | Property characteristics and assessments (relevant for housing and health) | [opendataphilly.org](https://opendataphilly.org/datasets/opa-property-assessments/) |
+
+### National / Federal Data
+
+| Dataset | Source | Description | Link |
+|---------|--------|-------------|------|
+| **PLACES** | CDC | Local-level chronic disease and health risk factor estimates | [cdc.gov/places](https://www.cdc.gov/places/) |
+| **WONDER** | CDC | Mortality, natality, and population data query system | [wonder.cdc.gov](https://wonder.cdc.gov/) |
+| **Social Vulnerability Index** | CDC/ATSDR | Census tract-level social vulnerability indicators | [atsdr.cdc.gov/placeandhealth/svi](https://www.atsdr.cdc.gov/placeandhealth/svi/) |
+| **American Community Survey** | Census Bureau | Detailed demographic, economic, housing, and social data | [data.census.gov](https://data.census.gov/) |
+| **Environmental Justice Screening Tool** | EPA | Environmental and health data for identifying overburdened communities | [ejscreen.epa.gov](https://ejscreen.epa.gov/) |
+| **Healthy People 2030** | HHS | National health objectives and leading health indicators | [health.gov/healthypeople](https://health.gov/healthypeople) |
+
+---
+
+## Prompt Engineering Guides {#prompt-guides}
+
+| Guide | Provider | Focus | Link |
+|-------|----------|-------|------|
+| **Prompt Engineering Guide** | Anthropic | Comprehensive guide for Claude prompting | [docs.anthropic.com](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) |
+| **Prompt Engineering Guide** | Google | Best practices for Gemini models | [ai.google.dev](https://ai.google.dev/gemini-api/docs/prompting-strategies) |
+| **Prompt Engineering Guide** | OpenAI | Techniques for GPT models | [platform.openai.com](https://platform.openai.com/docs/guides/prompt-engineering) |
+| **Learn Prompting** | Community | Open-source, comprehensive prompt engineering course | [learnprompting.org](https://learnprompting.org/) |
+
+---
+
+## Philadelphia AI Policy {#philly-ai-policy}
+
+### State Level
+
+- **Pennsylvania Executive Order on AI:** Governor Shapiro signed an executive order establishing governance and guardrails for Commonwealth use of AI. [Read the executive order](https://www.governor.pa.gov/newsroom/governor-shapiro-signs-executive-order-establishing-governance-guardrails-for-commonwealth-use-of-artificial-intelligence/)
+
+### City Level
+
+- Philadelphia is developing its approach to AI governance through the **Office of Innovation and Technology (OIT)**. Check [phila.gov/oit](https://www.phila.gov/departments/office-of-innovation-and-technology/) for updates.
+- The city's AI policy is expected to address: procurement of AI tools, data privacy requirements, transparency and accountability, community engagement, and workforce impacts.
+
+### Federal
+
+- **NIST AI Risk Management Framework:** [nist.gov/artificial-intelligence](https://www.nist.gov/artificial-intelligence)
+- **Executive Order on AI Safety (2023):** [whitehouse.gov](https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/)
+
+---
+
+## Course Tools {#course-tools}
+
+| Tool | Purpose | Day Used | Link |
+|------|---------|----------|------|
+| **MakeSense.ai** | Free browser-based image annotation tool | Day 2 | [makesense.ai](https://www.makesense.ai/) |
+| **NotebookLM** | Document analysis and synthesis | Day 2 | [notebooklm.google.com](https://notebooklm.google.com) |
+| **Google AI Studio** | Agent building, image analysis, structured prompts | Days 2, 3 | [aistudio.google.com](https://aistudio.google.com) |
+| **Ollama** | Local AI model execution | Day 3 | [ollama.com](https://ollama.com) |
+
+---
+
+## Continued Learning {#continued-learning}
+
+### Books
+
+- **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* --- The course textbook. Read the remaining chapters after the course.
+- **Topol, E. (2019).** *Deep Medicine.* --- AI in healthcare, accessible to non-technical readers.
+- **Benjamin, R. (2019).** *Race After Technology.* --- Critical perspective on technology and racial justice.
+- **O'Neil, C. (2016).** *Weapons of Math Destruction.* --- Algorithmic bias in everyday systems.
+
+### Newsletters and Substacks
+
+- [One Useful Thing](https://www.oneusefulthing.org/) (Ethan Mollick) --- Practical AI developments
+- [The Batch](https://www.deeplearning.ai/the-batch/) (Andrew Ng / DeepLearning.AI) --- Weekly AI news
+- [Import AI](https://importai.substack.com/) (Jack Clark) --- Policy-focused AI analysis
+
+### Online Courses (Free or Low-Cost)
+
+- [AI for Everyone](https://www.coursera.org/learn/ai-for-everyone) --- Coursera, Andrew Ng, non-technical
+- [Introduction to Generative AI](https://cloud.google.com/learn/training/machinelearning-AI) --- Google Cloud, free
+- [Practical Deep Learning](https://course.fast.ai/) --- fast.ai, free, more technical
+
+### Organizations to Follow
+
+- [Partnership on AI](https://partnershiponai.org/) --- Multi-stakeholder AI governance
+- [AI Now Institute](https://ainowinstitute.org/) --- Social implications of AI
+- [Stanford HAI](https://hai.stanford.edu/) --- Human-centered AI research
+- [Data & Society](https://datasociety.net/) --- Social and cultural issues in data and automation
+- [Big Cities Health Coalition](https://bigcitieshealth.org/) --- Large urban health departments network

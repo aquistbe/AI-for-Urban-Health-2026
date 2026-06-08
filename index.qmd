@@ -1,0 +1,132 @@
+---
+title: "AI for Urban Health"
+---
+
+::: {.hero-banner}
+# AI for Urban Health
+::: {.subtitle}
+UHC Summer Institute 2026 | Drexel University
+:::
+::: {.tagline}
+A hands-on course for public health professionals
+:::
+:::
+
+## Welcome
+
+Welcome to **AI for Urban Health**, a week-long intensive course offered through Drexel University's Urban Health Collaborative (UHC) Summer Institute. This course is designed for public health professionals---particularly those working in urban settings---who want to understand, evaluate, and practically apply artificial intelligence tools in their daily work.
+
+Over five days, you will move from foundational AI concepts to hands-on experience with cutting-edge tools, culminating in practical workflow integration and responsible use frameworks. No prior programming experience is required.
+
+:::{.callout-note}
+## Course Details
+
+- **Dates:** Monday--Friday (see [Key Dates](#key-dates) below)
+- **Time:** 1:00--4:00 PM EST daily
+- **Format:** In-person (hybrid option TBD)
+- **Location:** TBD
+- **Instructor:** D. Alex Quistberg, PhD, MPH ([daq26@drexel.edu](mailto:daq26@drexel.edu))
+:::
+
+## Course Overview
+
+This course covers the full landscape of AI as it applies to urban public health practice:
+
+| Day | Topic | Key Activities |
+|-----|-------|----------------|
+| [Day 1](day1.qmd) | Foundations of AI | Explore AI platforms, prompt engineering, professional writing |
+| [Day 2](day2.qmd) | Multimodal AI & Data Analysis | Image analysis, data analysis with AI, document analysis |
+| [Day 3](day3.qmd) | Agentic AI & Tool Building | Context engineering, CLI tools, build your own agent |
+| [Day 4](day4.qmd) | AI for Urban Health Workflows | Workflow assessment, scenario-based group work |
+| [Day 5](day5.qmd) | Responsible AI & Future Directions | Ethics, bias detection, privacy, personal integration plan |
+
+## Quick Links
+
+::: {.quick-links}
+
+::: {.quick-link-card}
+[**Day 1**<br>Foundations of AI](day1.qmd){.card-day}
+:::
+
+::: {.quick-link-card}
+[**Day 2**<br>Multimodal AI & Data](day2.qmd){.card-day}
+:::
+
+::: {.quick-link-card}
+[**Day 3**<br>Agentic AI & Tools](day3.qmd){.card-day}
+:::
+
+::: {.quick-link-card}
+[**Day 4**<br>Urban Health Workflows](day4.qmd){.card-day}
+:::
+
+::: {.quick-link-card}
+[**Day 5**<br>Responsible AI](day5.qmd){.card-day}
+:::
+
+::: {.quick-link-card}
+[**Readings**<br>All Course Readings](readings.qmd){.card-day}
+:::
+
+::: {.quick-link-card}
+[**Resources**<br>Tools & Links](resources.qmd){.card-day}
+:::
+
+:::
+
+## Key Dates {#key-dates}
+
+| Event | Date |
+|-------|------|
+| Pre-course survey due | TBD |
+| Day 1 | TBD |
+| Day 2 | TBD |
+| Day 3 | TBD |
+| Day 4 | TBD |
+| Day 5 | TBD |
+
+## Instructor
+
+**D. Alex Quistberg, PhD, MPH**
+
+Dr. Quistberg is a faculty member at the Dornsife School of Public Health, Drexel University, and a researcher at the Urban Health Collaborative. His work focuses on urban health, injury epidemiology, and the application of emerging technologies to public health practice.
+
+- **Email:** [daq26@drexel.edu](mailto:daq26@drexel.edu)
+
+## Pre-Course Checklist {.checklist}
+
+Please complete the following before Day 1:
+
+- Create a free account at [ChatGPT](https://chat.openai.com) (OpenAI)
+- Create a free account at [Claude](https://claude.ai) (Anthropic)
+- Create a free account at [Google AI Studio](https://aistudio.google.com) (Google)
+- Create a free account at [Perplexity](https://perplexity.ai)
+- Complete the pre-course survey (link TBD)
+- Review the [pre-course readings](readings.qmd#pre-course) (optional but recommended)
+- Bring a laptop to each session
+- Bring a writing sample or work document you would like AI help with (de-identified if it contains any sensitive data)
+
+:::{.callout-warning}
+## Important: Data Privacy
+
+Throughout this course, we will use AI platforms that send data to external servers. **Never enter protected health information (PHI), personally identifiable information (PII), or other sensitive data into any AI tool** unless you are using a locally hosted model (covered in Day 3) or a platform with a signed Business Associate Agreement (BAA).
+
+When working with real-world examples, always de-identify data first. We will discuss data privacy in detail throughout the course and dedicate significant time to it on Day 5.
+:::
+
+## What You Will Learn
+
+By the end of this course, you will be able to:
+
+1. **Explain** core AI concepts (machine learning, deep learning, foundation models) in accessible terms
+2. **Use** generative AI platforms effectively for writing, analysis, and research tasks
+3. **Apply** prompt engineering techniques to get better, more reproducible results
+4. **Analyze** data using AI-assisted tools, including tabular, image, and text data
+5. **Evaluate** when AI tools are appropriate---and when they are not---for public health applications
+6. **Build** simple AI agents and integrate AI into professional workflows
+7. **Identify** ethical concerns including bias, privacy, and accountability
+8. **Develop** a personal plan for responsible AI integration in your work
+
+## Questions?
+
+Contact the instructor at [daq26@drexel.edu](mailto:daq26@drexel.edu) with any questions before or during the course.
