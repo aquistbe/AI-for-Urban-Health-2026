@@ -4,176 +4,165 @@ title: "Readings"
 
 # Course Readings
 
-This page lists all readings for the course, organized by day. Most readings link to their source or a search; **[Find it]** links resolve the exact title. Readings marked **[Provided]** will be made available through the course materials. All others are available online at the links provided.
+Readings are organized by day, with **Required** (current, short, do-before-class) and **Recommended** (deeper or historical) tiers.
+
+- Links go to the **source** where it is freely available online.
+- **[Find it]** links run a title search (use them if a direct link is paywalled or moves).
+- **[Provided]** items are distributed through the course materials — these include copyrighted articles and book excerpts we don't post publicly.
+
+> No textbook purchase is required. *Co-Intelligence* is recommended, not required; its core ideas are captured in Mollick's free essays and newsletter (below).
 
 ---
 
-## Pre-Course Readings (Suggested) {#pre-course}
+## Pre-Course (Optional but Recommended) {#pre-course}
 
-These are optional but recommended to get the most out of the course:
+1. **Mollick, E. (2025).** *I, Cyborg: Using Co-Intelligence.* One Useful Thing. [Read free](https://www.oneusefulthing.org/p/i-cyborg-using-co-intelligence)
+   - The free, current stand-in for the book: the jagged frontier, "centaurs vs. cyborgs," and keeping a human in the loop.
 
-1. **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* Portfolio/Penguin. **Chapters 1--2.** [Provided]
-   - An accessible introduction to how AI is changing work and why public health professionals need to engage with it.
+2. **World Health Organization. (2024).** *Ethics and governance of AI for health: Guidance on large multi-modal models.* WHO. [Available online](https://www.who.int/publications/i/item/9789240084759)
+   - The updated, generative-AI-era successor to WHO's 2021 guidance; read the executive summary.
 
-2. **Topol, E. (2019).** High-performance medicine: the convergence of human and artificial intelligence. *Nature Medicine, 25*(1), 44--56. [Available online](https://doi.org/10.1038/s41591-018-0300-7)
-   - A landmark review of AI applications in medicine and health, providing context for the course.
-
-3. **World Health Organization. (2021).** *Ethics and governance of artificial intelligence for health.* WHO. [Available online](https://www.who.int/publications/i/item/9789240029200)
-   - Read the executive summary (pp. 1--12) for an international perspective on AI ethics in health.
+3. **Recommended:** Topol, E. (2019). High-performance medicine. *Nature Medicine, 25*(1), 44--56. [Available online](https://doi.org/10.1038/s41591-018-0300-7) · "How People Are Really Using AI in 2026." [Provided]
 
 ---
 
-## Day 1 Readings {#day-1-readings}
+## Day 1 — Foundations of AI {#day-1-readings}
 
 ### Required
 
-1. **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* Chapters 1--2. [Provided]
+1. **Anthropic. (2024).** *Prompt Engineering Guide.* [Available online](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+   - Focus on "Be clear and direct" and "Use examples."
 
-2. **Anthropic. (2024).** *Prompt Engineering Guide.* [Available online](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
-   - Practical guide to writing effective prompts. Focus on the "Be clear and direct" and "Use examples" sections.
+2. **Anthropic. (2025).** *Effective context engineering for AI agents.* [Available online](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+   - Why the course now centers *context* engineering over single prompts.
 
 ### Recommended
 
-3. **Vaswani, A., et al. (2017).** Attention is all you need. *Advances in Neural Information Processing Systems, 30.* [Available online](https://arxiv.org/abs/1706.03762)
-   - The original transformer paper. Read for historical context; the technical details are not required for this course.
-
-4. **Governor Shapiro. (2024).** Executive Order: Establishing governance and guardrails for Commonwealth use of artificial intelligence. [Available online](https://www.governor.pa.gov/newsroom/governor-shapiro-signs-executive-order-establishing-governance-guardrails-for-commonwealth-use-of-artificial-intelligence/)
-   - Pennsylvania's approach to AI governance in state agencies.
+3. **Mollick, E. (2024).** *Co-Intelligence*, Ch. 1--2. Portfolio/Penguin. [Provided]
+4. **Vaswani, A., et al. (2017).** Attention is all you need. *NeurIPS 30.* [Available online](https://arxiv.org/abs/1706.03762) — historical context only.
+5. **Governor Shapiro. (2024).** Executive Order on AI governance for the Commonwealth. [Available online](https://www.governor.pa.gov/newsroom/governor-shapiro-signs-executive-order-establishing-governance-guardrails-for-commonwealth-use-of-artificial-intelligence/)
+6. **MIT Technology Review. (2026).** *10 Breakthrough Technologies / What matters in AI right now.* [Find it](https://www.google.com/search?q=MIT+Technology+Review+2026+10+things+that+matter+in+AI) — a quick snapshot of how fast things changed.
 
 ---
 
-## Day 2 Readings {#day-2-readings}
+## Day 2 — Multimodal AI & Working with Models {#day-2-readings}
 
 ### Required
 
-1. **Mollick, E. (2024).** *Co-Intelligence.* Chapter 3: "AI as a Creative." [Provided]
+1. **Jowsey, T., et al. (2025).** *We reject the use of generative AI for reflexive qualitative research.* [Available online](https://journals.sagepub.com/doi/10.1177/10778004251401851)
+   - The current debate on AI in qualitative analysis; pairs with Activity 4.
 
-2. **Jowsey, T., Corral Barrios, G., & Taggart, A. (2024).** AI-assisted thematic analysis: the future of qualitative data analysis in health professions education research? *Medical Education, 58*(11), 1276--1278. [Find it](https://scholar.google.com/scholar?q=Jowsey%20AI-assisted%20thematic%20analysis%20future%20qualitative%20data%20analysis%20health%20professions%20education)
-   - Critical examination of using AI for qualitative data analysis. Key reading for Activity 4.
+2. **Boykis, V. (2026).** *Running local models is good now.* [Read free](https://vickiboykis.com/) ([Find it](https://www.google.com/search?q=Vicki+Boykis+running+local+models+is+good+now)) — open/local models for sensitive data.
 
 ### Recommended
 
-3. **OpenDataPhilly. (2024).** Heat Vulnerability Index --- Metadata and Documentation. [Available online](https://opendataphilly.org/datasets/heat-vulnerability-index/)
-   - Review the dataset documentation before class to prepare for Activity 3.
-
-4. **Meskó, B., & Topol, E. (2023).** The imperative for regulatory oversight of large language models (or generative AI) in healthcare. *npj Digital Medicine, 6*(1), 120. [Available online](https://doi.org/10.1038/s41746-023-00873-0)
-
-5. **Gichoya, J. W., et al. (2022).** AI recognition of patient race in medical imaging: a modelling study. *The Lancet Digital Health, 4*(6), e406--e414. [Available online](https://doi.org/10.1016/S2589-7500(22)00063-2)
-   - Demonstrates how AI can identify race from medical images in ways humans cannot, raising concerns about automated bias.
+3. **OpenDataPhilly. (2024).** Heat Vulnerability Index — Metadata & Documentation. [Available online](https://opendataphilly.org/datasets/heat-vulnerability-index/) — review before Activity 3.
+4. **Gichoya, J. W., et al. (2022).** AI recognition of patient race in medical imaging. *Lancet Digital Health, 4*(6). [Available online](https://doi.org/10.1016/S2589-7500(22)00063-2)
+5. **"Exploring Agent-Assisted Qualitative Analysis."** [Provided] — the constructive counterpoint to Jowsey et al.
+6. **Anthropic. (2025).** *Coding agents for data analysis.* [Provided] / [Find it](https://www.google.com/search?q=Anthropic+coding+agents+for+data+analysis)
+7. **Meskó, B., & Topol, E. (2023).** Regulatory oversight of LLMs in healthcare. *npj Digital Medicine, 6*. [Available online](https://doi.org/10.1038/s41746-023-00873-0) — now largely superseded by WHO (2024).
+8. **Mollick, E. (2024).** *Co-Intelligence*, Ch. 3. [Provided]
 
 ---
 
-## Day 3 Readings {#day-3-readings}
+## Day 3 — Agentic AI, MCP & Loops {#day-3-readings}
 
 ### Required
 
-1. **Mollick, E. (2024).** *Co-Intelligence.* Chapter 4: "AI as a Coworker." [Provided]
+1. **Anthropic. (2025).** *Claude Code Documentation.* [Available online](https://docs.anthropic.com/en/docs/claude-code) — skim getting-started + capabilities.
 
-2. **Anthropic. (2025).** *Claude Code Documentation.* [Available online](https://docs.anthropic.com/en/docs/claude-code)
-   - Overview of the Claude Code CLI tool. Skim the getting started section and capabilities overview.
+2. **Ji, Y. ("Peak"). (2025).** *Context Engineering for AI Agents: Lessons from Building Manus.* [Read free](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus)
+   - What building a real agent actually takes.
+
+3. **Anthropic / modelcontextprotocol.io.** *Introduction to the Model Context Protocol (MCP).* [Available online](https://modelcontextprotocol.io)
 
 ### Recommended
 
-3. **Microsoft Research. (2023).** AutoGen: Enabling next-gen LLM applications via multi-agent conversation. [Available online](https://arxiv.org/abs/2308.08155)
-   - Technical paper on multi-agent AI systems. Read the introduction and discussion sections for context.
-
-4. **Google. (2025).** *Google AI Studio Documentation.* [Available online](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart)
-   - Getting started guide for Google AI Studio. Review before Activity 4.
-
-5. **Ollama. (2025).** *Ollama Documentation.* [Available online](https://ollama.com/)
-   - Review if you plan to install Ollama for Activity 6.
+4. **Google. (2025).** *Google AI Studio Documentation.* [Available online](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart) — review before Activity 4.
+5. **Ollama. (2025).** *Ollama Documentation.* [Available online](https://ollama.com/) — for Activity 6.
+6. **Wisdom, S. (2025).** *Beyond Vibes: How to Actually Evaluate AI Agents.* Nesta. [Find it](https://www.google.com/search?q=Beyond+Vibes+How+to+Actually+Evaluate+AI+Agents+Nesta)
+7. **Forward Future. (2026).** *Loop Library: Repeatable AI Agent Workflows.* [Read free](https://signals.forwardfuture.ai/loop-library/)
+8. **Microsoft Research. (2023).** AutoGen: multi-agent LLM applications. [Available online](https://arxiv.org/abs/2308.08155) — earlier multi-agent framing; included for history.
+9. **Mollick, E. (2024).** *Co-Intelligence*, Ch. 4. [Provided]
 
 ---
 
-## Day 4 Readings {#day-4-readings}
+## Day 4 — AI for Urban Health Workflows {#day-4-readings}
 
 ### Required
 
-1. **Mollick, E. (2024).** *Co-Intelligence.* Chapters 5--6: "AI as an Expert" and "AI as a Coach." [Provided]
+1. **Mollick, E., & Mollick, L. (2024).** Using AI to implement effective teaching strategies. *Wharton.* [Available online](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4391243)
+   - Human–AI collaboration frameworks that transfer to public-health workflows.
 
-2. **Mollick, E., & Mollick, L. (2024).** Using AI to implement effective teaching strategies in classrooms: Five strategies, including prompts. *The Wharton School Research Paper.* [Available online](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4391243)
-   - While focused on education, the frameworks for AI-human collaboration are directly applicable to public health workflow design.
+2. **Philadelphia Department of Public Health. (2024).** *Community Health Assessment.* [Available online](https://www.phila.gov/programs/community-health-assessment/) — background for the scenarios.
 
 ### Recommended
 
-3. **Philadelphia Department of Public Health. (2024).** *Community Health Assessment.* [Available online](https://www.phila.gov/programs/community-health-assessment/)
-   - Background reading for the scenario-based activities. Review the executive summary and key findings.
-
-4. **Lee, E. C., et al. (2023).** Artificial intelligence for public health surveillance: opportunities and challenges. *Annual Review of Public Health, 44*, 349--373. [Find it](https://scholar.google.com/scholar?q=Lee%20Artificial%20intelligence%20for%20public%20health%20surveillance%20opportunities%20and%20challenges%20Annual%20Review%20of%20Public%20Health%202023)
+3. **The Lancet Public Health. (2025).** Artificial intelligence in public health: promises, challenges, and an agenda. [Available online](https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(25)00036-2/fulltext) — current field overview.
+4. **Anthropic. (2025).** *Coding agents in the social sciences.* [Provided] / [Find it](https://www.google.com/search?q=Anthropic+coding+agents+in+the+social+sciences)
+5. **World Economic Forum. (2025).** New Earth-observation tech is boosting climate intelligence. [Find it](https://www.google.com/search?q=World+Economic+Forum+new+earth+observation+tech+climate+intelligence) — remote sensing for urban health.
+6. **Lee, E. C., et al. (2023).** AI for public health surveillance. *Annual Review of Public Health, 44*, 349--373. [Find it](https://www.google.com/search?q=Lee+Artificial+intelligence+for+public+health+surveillance+Annual+Review+2023)
+7. **Mollick, E. (2024).** *Co-Intelligence*, Ch. 5--6. [Provided]
 
 ---
 
-## Day 5 Readings {#day-5-readings}
+## Day 5 — Responsible AI & Future Directions {#day-5-readings}
 
 ### Required
 
-1. **Mollick, E. (2024).** *Co-Intelligence.* Chapters 7--8. [Provided]
+1. **Obermeyer, Z., et al. (2019).** Dissecting racial bias in an algorithm used to manage the health of populations. *Science, 366*. [Available online](https://doi.org/10.1126/science.aax2342) — the case in Activity 1.
 
-2. **Obermeyer, Z., Powers, B., Vogeli, C., & Mullainathan, S. (2019).** Dissecting racial bias in an algorithm used to manage the health of populations. *Science, 366*(6464), 447--453. [Available online](https://doi.org/10.1126/science.aax2342)
-   - Essential reading on algorithmic bias in healthcare. This is the real case discussed in Activity 1, Dilemma 4.
+2. **Mitchell, M., et al. (2019).** Model cards for model reporting. *FAccT.* [Available online](https://arxiv.org/abs/1810.03993)
+
+3. **Gebru, T., et al. (2021).** Datasheets for datasets. *CACM, 64*(12). [Available online](https://arxiv.org/abs/1803.09010)
 
 ### Recommended
 
-3. **Mitchell, M., et al. (2019).** Model cards for model reporting. *Proceedings of the Conference on Fairness, Accountability, and Transparency*, 220--229. [Available online](https://arxiv.org/abs/1810.03993)
-   - The original model cards paper. Key reading on AI transparency.
-
-4. **Gebru, T., et al. (2021).** Datasheets for datasets. *Communications of the ACM, 64*(12), 86--92. [Available online](https://arxiv.org/abs/1803.09010)
-   - Companion to the model cards paper, focused on documenting training data.
-
-5. **Benjamin, R. (2019).** *Race After Technology: Abolitionist Tools for the New Jim Code.* Polity Press. [Publisher](https://scholar.google.com/scholar?q=Race%20After%20Technology%20Ruha%20Benjamin)
-   - Chapter 1: "Engineered Inequity." [Provided excerpt]
-   - Critical examination of how technology can reinforce racial inequality.
-
-6. **Vayena, E., Blasimme, A., & Cohen, I. G. (2018).** Machine learning in medicine: addressing ethical challenges. *PLoS Medicine, 15*(11), e1002689. [Available online](https://doi.org/10.1371/journal.pmed.1002689)
-
-7. **Char, D. S., Shah, N. H., & Magnus, D. (2018).** Implementing machine learning in health care---addressing ethical challenges. *New England Journal of Medicine, 378*(11), 981--983. [Available online](https://doi.org/10.1056/NEJMp1714229)
+4. **Court ruling: companies liable for false AI-generated statements (2026).** [Find it](https://www.google.com/search?q=court+ruled+Google+liable+for+false+statements+generated+by+AI) — accountability when AI errs.
+5. **"LLMs can unmask pseudonymous users at scale" (Ars Technica, 2026).** [Find it](https://www.google.com/search?q=LLMs+can+unmask+pseudonymous+users+at+scale+Ars+Technica) — re-identification / privacy.
+6. **"These new tools could make AI vision systems less biased" (MIT Technology Review).** [Find it](https://www.google.com/search?q=these+new+tools+could+make+AI+vision+systems+less+biased+MIT+Technology+Review)
+7. **"What it will take to make AI sustainable" (WIRED).** [Find it](https://www.google.com/search?q=what+it+will+take+to+make+AI+sustainable+WIRED) — environmental footprint.
+8. **Mollick, E. (2025).** *Choosing to Stay Human.* One Useful Thing. [Read free](https://www.oneusefulthing.org/) ([Find it](https://www.google.com/search?q=Ethan+Mollick+Choosing+to+Stay+Human))
+9. **Benjamin, R. (2019).** *Race After Technology*, Ch. 1. [Provided excerpt]
+10. **Vayena, E., et al. (2018).** ML in medicine: ethical challenges. *PLoS Medicine.* [Available online](https://doi.org/10.1371/journal.pmed.1002689) · **Char, D. S., et al. (2018).** *NEJM, 378*(11). [Available online](https://doi.org/10.1056/NEJMp1714229)
+11. **Mollick, E. (2024).** *Co-Intelligence*, Ch. 7--8. [Provided]
 
 ---
 
-## Additional Qualitative Research Readings {#qualitative-readings}
+## Additional Qualitative-Research Readings {#qualitative-readings}
 
-For participants interested in AI-assisted qualitative research:
-
-1. **Jowsey, T., Corral Barrios, G., & Taggart, A. (2024).** AI-assisted thematic analysis: the future of qualitative data analysis in health professions education research? *Medical Education, 58*(11), 1276--1278. [Find it](https://scholar.google.com/scholar?q=Jowsey%20AI-assisted%20thematic%20analysis%20future%20qualitative%20data%20analysis%20health%20professions%20education) (Also listed under Day 2.)
-
-2. **Dai, S. C., Stedman, A., Cheng, C. K., Chauhan, S., Liang, R., & Leung, F. H. (2024).** Using large language models to generate qualitative research interview guides on patient experiences. *JMIR Medical Education, 10*, e59608. [Available online](https://doi.org/10.2196/59608)
-
-3. **Marathe, S., & Toyama, K. (2018).** Semi-automated coding for qualitative research: A user-centered inquiry and initial prototypes. *Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems*, 1--12. [Find it](https://scholar.google.com/scholar?q=Marathe%20Toyama%20Semi-automated%20coding%20for%20qualitative%20research%20user-centered%20inquiry%20CHI%202018)
-
-4. **Tai, R. (2024).** An assessment of the quality of qualitative research conducted using AI tools like ChatGPT. *Preprint.* [Find it](https://scholar.google.com/scholar?q=Tai%20assessment%20quality%20qualitative%20research%20AI%20tools%20ChatGPT%202024)
+1. **Jowsey, T., et al. (2025).** *We reject the use of generative AI for reflexive qualitative research.* [Available online](https://journals.sagepub.com/doi/10.1177/10778004251401851) (Also Day 2.)
+2. **"Exploring Agent-Assisted Qualitative Analysis."** [Provided] — the other side of the debate.
+3. **Dai, S. C., et al. (2024).** Using LLMs to generate qualitative interview guides. *JMIR Medical Education, 10*. [Available online](https://doi.org/10.2196/59608)
+4. **Guest, G., et al. (2025).** AI-assisted thematic analysis — empirical comparison. [Provided] / [Find it](https://www.google.com/search?q=Guest+2025+AI+thematic+analysis+comparison)
+5. **Jowsey, T., et al. (2024).** AI-assisted thematic analysis (commentary). *Medical Education, 58*(11). [Find it](https://scholar.google.com/scholar?q=Jowsey+AI-assisted+thematic+analysis+Medical+Education+2024)
 
 ---
 
 ## Recommended Resources {#recommended-resources}
 
+### Current field overviews (AI + public health)
+
+- **The Lancet Public Health (2025).** AI in public health: promises, challenges, and an agenda. [Link](https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(25)00036-2/fulltext)
+- **ASPPH (2025).** *Harnessing Innovation: AI for Public Health* (roadmap for academic public health). [Link](https://aspph.org/initiatives/ai-for-public-health/)
+- **WHO (2024).** Guidance on large multi-modal models. [Link](https://www.who.int/publications/i/item/9789240084759)
+
 ### Books
 
-- **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* Portfolio/Penguin.
-  - The primary course text. Accessible, practical, and grounded in research.
+- **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* Portfolio/Penguin. — recommended (not required; free essays above cover the core ideas).
+- **Benjamin, R. (2019).** *Race After Technology.* Polity.
+- **O'Neil, C. (2016).** *Weapons of Math Destruction.* Crown.
+- **Topol, E. (2019).** *Deep Medicine.* Basic Books.
 
-- **Benjamin, R. (2019).** *Race After Technology: Abolitionist Tools for the New Jim Code.* Polity Press.
-  - Essential reading on technology, race, and justice.
+### Newsletters
 
-- **O'Neil, C. (2016).** *Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy.* Crown.
-  - Accessible introduction to algorithmic bias, with public health-relevant examples.
-
-- **Topol, E. (2019).** *Deep Medicine: How Artificial Intelligence Can Make Healthcare Human Again.* Basic Books.
-  - Optimistic but thoughtful perspective on AI in healthcare.
-
-### Substacks and Newsletters
-
-- **Ethan Mollick** --- [One Useful Thing](https://www.oneusefulthing.org/) --- Regular, accessible updates on AI developments with practical implications
-- **The Batch** --- [deeplearning.ai](https://www.deeplearning.ai/the-batch/) --- Andrew Ng's weekly AI newsletter
-- **Import AI** --- [Jack Clark](https://importai.substack.com/) --- Policy-focused AI newsletter
+- **Ethan Mollick — [One Useful Thing](https://www.oneusefulthing.org/)** · **The Batch — [deeplearning.ai](https://www.deeplearning.ai/the-batch/)** · **Import AI — [Jack Clark](https://importai.substack.com/)**
 
 ### Online Courses
 
-- **Google.** [Introduction to Generative AI Learning Path](https://cloud.google.com/learn/training/machinelearning-AI) --- Free, self-paced
-- **Stanford HAI.** [Artificial Intelligence in Health Care](https://online.stanford.edu/courses/cs472-data-models-and-learning-health-care) --- More technical
-- **Coursera.** [AI for Everyone](https://www.coursera.org/learn/ai-for-everyone) by Andrew Ng --- Non-technical introduction
+- **Google.** [Intro to Generative AI](https://cloud.google.com/learn/training/machinelearning-AI) — free, self-paced.
+- **Coursera.** [AI for Everyone](https://www.coursera.org/learn/ai-for-everyone) — non-technical.
 
 ### Organizations
 
-- **Partnership on AI** --- [partnershiponai.org](https://partnershiponai.org/) --- Multi-stakeholder organization studying AI's impact on people and society
-- **AI Now Institute** --- [ainowinstitute.org](https://ainowinstitute.org/) --- Research institute examining social implications of AI
-- **Stanford HAI** --- [hai.stanford.edu](https://hai.stanford.edu/) --- Stanford's Institute for Human-Centered Artificial Intelligence
+- **[Partnership on AI](https://partnershiponai.org/)** · **[AI Now Institute](https://ainowinstitute.org/)** · **[Stanford HAI](https://hai.stanford.edu/)**

@@ -302,9 +302,11 @@ Design a JSON schema for extracting structured data from unstructured public hea
 
 See the [Readings page](readings.qmd#day-1-readings) for today's assigned and recommended readings.
 
-**Key reading for today:**
+**Key readings for today:**
 
-- Mollick, E. (2024). *Co-Intelligence: Living and Working with AI.* Chapters 1--2.
+- Anthropic. (2024). *Prompt Engineering Guide.*
+- Anthropic. (2025). *Effective context engineering for AI agents.*
+- *Recommended intro:* Mollick, E. (2025). [I, Cyborg: Using Co-Intelligence](https://www.oneusefulthing.org/p/i-cyborg-using-co-intelligence) (free).
 
 ---
 
