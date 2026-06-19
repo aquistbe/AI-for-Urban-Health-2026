@@ -12,6 +12,8 @@ Ethics, bias, privacy, accountability, and your personal AI integration plan
 :::
 :::
 
+[📊 Open the Day 5 slides ↗](slides/day5.html){.btn .btn-primary target="_blank" role="button"}
+
 ## Learning Objectives
 
 By the end of today, you will be able to:

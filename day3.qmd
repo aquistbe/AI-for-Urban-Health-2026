@@ -12,6 +12,8 @@ From chatbots to agents: context engineering, CLI tools, and building your own A
 :::
 :::
 
+[📊 Open the Day 3 slides ↗](slides/day3.html){.btn .btn-primary target="_blank" role="button"}
+
 ## Learning Objectives
 
 By the end of today, you will be able to:

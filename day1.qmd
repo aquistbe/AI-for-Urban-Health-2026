@@ -12,6 +12,8 @@ AI concepts, generative AI platforms, and prompt engineering for public health
 :::
 :::
 
+[📊 Open the Day 1 slides ↗](slides/day1.html){.btn .btn-primary target="_blank" role="button"}
+
 ## Learning Objectives
 
 By the end of today, you will be able to:

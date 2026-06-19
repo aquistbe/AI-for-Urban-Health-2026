@@ -4,6 +4,19 @@ title: "Resources"
 
 # Course Resources
 
+## Lecture Slides
+
+Full slide decks for each day (open in a new tab; best viewed full-screen, use arrow keys):
+
+- [Day 1 — Foundations of AI](slides/day1.html){target="_blank"}
+- [Day 2 — Multimodal AI & Working with Models](slides/day2.html){target="_blank"}
+- [Day 3 — Agentic AI, MCP & Loops](slides/day3.html){target="_blank"}
+- [Day 4 — Integrating AI into Urban-Health Workflows](slides/day4.html){target="_blank"}
+- [Day 5 — Responsible AI & Future Directions](slides/day5.html){target="_blank"}
+
+---
+
+
 A curated collection of tools, data sources, guides, and learning resources for the course and beyond.
 
 ---

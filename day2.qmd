@@ -12,6 +12,8 @@ Image analysis, data analysis with AI, qualitative methods, and document analysi
 :::
 :::
 
+[📊 Open the Day 2 slides ↗](slides/day2.html){.btn .btn-primary target="_blank" role="button"}
+
 ## Learning Objectives
 
 By the end of today, you will be able to:
