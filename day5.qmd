@@ -208,7 +208,7 @@ Duration: ~25 minutes | Format: Individual exploration with group discussion
 
 #### Instructions
 
-1. Use an image generation tool (ChatGPT/DALL-E, Gemini, etc.) with the following prompts:
+1. Use an image generation tool (ChatGPT image generation, Gemini, etc.) with the following prompts:
 
 **Prompt Set 1: Professional Roles**
 
@@ -428,7 +428,7 @@ These optional exercises are for students who finish the core activities early o
 #### Challenge 11: Adversarial AI Testing for Public Health Safety
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 min | **Tools:** Claude (Sonnet 4), ChatGPT (GPT-4o), Gemini 2.5 Pro
+**Difficulty:** Advanced | **Time:** 60 min | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Gemini
 :::
 
 Design 10 test prompts across five failure categories (inappropriate health advice, biased recommendations, statistical hallucination, privacy violations, overconfidence). Run each on at least two platforms, score severity, and compile a 1-page safety assessment with a risk matrix and deployment recommendation.

@@ -490,7 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>Model</td>
 <td>Claude (Anthropic)</td>
-<td>GPT-4o / o3 (OpenAI)</td>
+<td>GPT-5.5 when available; otherwise current default/latest GPT model (OpenAI)</td>
 <td>Gemini (Google)</td>
 </tr>
 <tr class="even">
@@ -521,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Install</td>
 <td><code>npm install -g @anthropic-ai/claude-code</code></td>
 <td><code>npm install -g @openai/codex</code></td>
-<td><code>npm install -g @anthropic-ai/claude-code</code></td>
+<td><code>npm install -g @google/gemini-cli</code></td>
 </tr>
 </tbody>
 </table>
@@ -695,10 +695,11 @@ Note
 <h4 class="anchored" data-anchor-id="what-is-ollama">What is Ollama?</h4>
 <p><a href="https://ollama.com">Ollama</a> is a free, open-source tool that lets you run AI models locally on your laptop. It supports many models, including:</p>
 <ul>
-<li><strong>Llama 3</strong> (Meta) — good general-purpose model</li>
+<li><strong>Llama 3.x / Llama 4</strong> (Meta) — good general-purpose models</li>
+<li><strong>Gemma 4</strong> (Google) — lightweight and capable; runs well on a laptop</li>
+<li><strong>Qwen / DeepSeek</strong> — strong open models (note: developed in China; data stays local when run via Ollama)</li>
 <li><strong>Mistral</strong> — fast and efficient</li>
-<li><strong>Phi-3</strong> (Microsoft) — optimized for smaller hardware</li>
-<li><strong>Gemma</strong> (Google) — lightweight and capable</li>
+<li><strong>Phi</strong> (Microsoft) — optimized for smaller hardware</li>
 </ul>
 </section>
 <section id="installation-for-those-who-can-install-software" class="level4">
@@ -785,7 +786,7 @@ Note
 <section id="challenge-9-ai-assisted-grant-proposal-section" class="level4 challenge-card">
 <h4 class="anchored" data-anchor-id="challenge-9-ai-assisted-grant-proposal-section">Challenge 9: AI-Assisted Grant Proposal Section</h4>
 <div class="challenge-meta">
-<p><strong>Difficulty:</strong> Advanced | <strong>Time:</strong> 75 min | <strong>Tools:</strong> Claude (Opus 4), ChatGPT (GPT-4o), Perplexity</p>
+<p><strong>Difficulty:</strong> Advanced | <strong>Time:</strong> 75 min | <strong>Tools:</strong> Claude, ChatGPT (GPT-5.5 if available), Perplexity</p>
 </div>
 <p>Choose a research topic at the intersection of AI and urban health. Use iterative AI-assisted drafting to produce a 1-page NIH-format Specific Aims section and a 2-page Significance/Innovation section, tracking which content was AI-generated vs.&nbsp;human-written at each stage.</p>
 <p><a href="./challenges.html#exercise-9">Full instructions →</a></p>

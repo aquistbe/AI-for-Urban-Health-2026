@@ -56,7 +56,7 @@ Scan the table below, find an exercise that matches your skill level and interes
 ::: {.challenge-exercise}
 
 ::: {.challenge-meta}
-**Difficulty:** Intermediate | **Time:** 45 minutes | **Tools:** Claude (Opus 4 or Sonnet 4), ChatGPT (GPT-4o or o3), Gemini 2.5 Pro, Perplexity
+**Difficulty:** Intermediate | **Time:** 45 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Gemini, Perplexity
 :::
 
 **Why this matters:** Public health professionals will inevitably need to choose among AI platforms for different tasks. A structured benchmark helps you make informed decisions rather than relying on anecdote.
@@ -105,7 +105,7 @@ If you ran this benchmark next month, would you expect the same results? What do
 ::: {.challenge-exercise}
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude (Opus 4 or Sonnet 4), ChatGPT (GPT-4o), any text editor
+**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), any text editor
 :::
 
 **Why this matters:** Public health work frequently involves extracting structured information from unstructured text---case reports, surveillance summaries, meeting notes. Designing prompts that produce consistent, machine-readable output is a high-value skill.
@@ -238,7 +238,7 @@ What does this exercise reveal about reproducibility in public health research? 
 ::: {.challenge-exercise}
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude (Opus 4), ChatGPT (GPT-4o), any spreadsheet application
+**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), any spreadsheet application
 :::
 
 **Why this matters:** AI-assisted qualitative coding raises important methodological questions about reliability, validity, and whether AI can capture the nuance that experienced qualitative researchers bring.
@@ -358,7 +358,7 @@ What governance structure would need to be in place before deploying an AI agent
 ::: {.challenge-exercise}
 
 ::: {.challenge-meta}
-**Difficulty:** Intermediate | **Time:** 45 minutes | **Tools:** Ollama (Llama 3.1 8B), Claude (Sonnet 4) or ChatGPT (GPT-4o)
+**Difficulty:** Intermediate | **Time:** 45 minutes | **Tools:** Ollama (Llama 3.1 8B), Claude or ChatGPT (GPT-5.5 if available)
 :::
 
 **Why this matters:** Understanding the quality tradeoff between local and cloud models helps you make informed decisions about when data privacy justifies reduced capability.
@@ -397,7 +397,7 @@ How might results change with a larger local model (70B)? Are there tasks where 
 ::: {.challenge-exercise}
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 75 minutes | **Tools:** Claude (Opus 4), ChatGPT (GPT-4o), Perplexity
+**Difficulty:** Advanced | **Time:** 75 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Perplexity
 :::
 
 **Why this matters:** Grant writing is one of the most time-intensive academic activities. AI can be a powerful drafting partner---but only if used iteratively, not as a one-shot generator.
@@ -517,7 +517,7 @@ What training would a new colleague need to use your workflow? How would you mon
 ::: {.challenge-exercise}
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude (Sonnet 4), ChatGPT (GPT-4o), Gemini 2.5 Pro
+**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Gemini
 :::
 
 **Why this matters:** Before deploying AI in public health settings, you need to understand how it can fail. Adversarial testing systematically probes for dangerous, biased, or misleading outputs.

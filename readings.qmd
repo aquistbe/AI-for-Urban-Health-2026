@@ -4,7 +4,7 @@ title: "Readings"
 
 # Course Readings
 
-This page lists all readings for the course, organized by day. Readings marked **[Provided]** will be made available through the course materials. All others are available online at the links provided.
+This page lists all readings for the course, organized by day. Most readings link to their source or a search; **[Find it]** links resolve the exact title. Readings marked **[Provided]** will be made available through the course materials. All others are available online at the links provided.
 
 ---
 
@@ -48,7 +48,7 @@ These are optional but recommended to get the most out of the course:
 
 1. **Mollick, E. (2024).** *Co-Intelligence.* Chapter 3: "AI as a Creative." [Provided]
 
-2. **Jowsey, T., Corral Barrios, G., & Taggart, A. (2024).** AI-assisted thematic analysis: the future of qualitative data analysis in health professions education research? *Medical Education, 58*(11), 1276--1278.
+2. **Jowsey, T., Corral Barrios, G., & Taggart, A. (2024).** AI-assisted thematic analysis: the future of qualitative data analysis in health professions education research? *Medical Education, 58*(11), 1276--1278. [Find it](https://scholar.google.com/scholar?q=Jowsey%20AI-assisted%20thematic%20analysis%20future%20qualitative%20data%20analysis%20health%20professions%20education)
    - Critical examination of using AI for qualitative data analysis. Key reading for Activity 4.
 
 ### Recommended
@@ -99,7 +99,7 @@ These are optional but recommended to get the most out of the course:
 3. **Philadelphia Department of Public Health. (2024).** *Community Health Assessment.* [Available online](https://www.phila.gov/programs/community-health-assessment/)
    - Background reading for the scenario-based activities. Review the executive summary and key findings.
 
-4. **Lee, E. C., et al. (2023).** Artificial intelligence for public health surveillance: opportunities and challenges. *Annual Review of Public Health, 44*, 349--373.
+4. **Lee, E. C., et al. (2023).** Artificial intelligence for public health surveillance: opportunities and challenges. *Annual Review of Public Health, 44*, 349--373. [Find it](https://scholar.google.com/scholar?q=Lee%20Artificial%20intelligence%20for%20public%20health%20surveillance%20opportunities%20and%20challenges%20Annual%20Review%20of%20Public%20Health%202023)
 
 ---
 
@@ -120,7 +120,7 @@ These are optional but recommended to get the most out of the course:
 4. **Gebru, T., et al. (2021).** Datasheets for datasets. *Communications of the ACM, 64*(12), 86--92. [Available online](https://arxiv.org/abs/1803.09010)
    - Companion to the model cards paper, focused on documenting training data.
 
-5. **Benjamin, R. (2019).** *Race After Technology: Abolitionist Tools for the New Jim Code.* Polity Press.
+5. **Benjamin, R. (2019).** *Race After Technology: Abolitionist Tools for the New Jim Code.* Polity Press. [Publisher](https://scholar.google.com/scholar?q=Race%20After%20Technology%20Ruha%20Benjamin)
    - Chapter 1: "Engineered Inequity." [Provided excerpt]
    - Critical examination of how technology can reinforce racial inequality.
 
@@ -134,13 +134,13 @@ These are optional but recommended to get the most out of the course:
 
 For participants interested in AI-assisted qualitative research:
 
-1. **Jowsey, T., Corral Barrios, G., & Taggart, A. (2024).** AI-assisted thematic analysis: the future of qualitative data analysis in health professions education research? *Medical Education, 58*(11), 1276--1278. (Also listed under Day 2.)
+1. **Jowsey, T., Corral Barrios, G., & Taggart, A. (2024).** AI-assisted thematic analysis: the future of qualitative data analysis in health professions education research? *Medical Education, 58*(11), 1276--1278. [Find it](https://scholar.google.com/scholar?q=Jowsey%20AI-assisted%20thematic%20analysis%20future%20qualitative%20data%20analysis%20health%20professions%20education) (Also listed under Day 2.)
 
 2. **Dai, S. C., Stedman, A., Cheng, C. K., Chauhan, S., Liang, R., & Leung, F. H. (2024).** Using large language models to generate qualitative research interview guides on patient experiences. *JMIR Medical Education, 10*, e59608. [Available online](https://doi.org/10.2196/59608)
 
-3. **Marathe, S., & Toyama, K. (2018).** Semi-automated coding for qualitative research: A user-centered inquiry and initial prototypes. *Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems*, 1--12.
+3. **Marathe, S., & Toyama, K. (2018).** Semi-automated coding for qualitative research: A user-centered inquiry and initial prototypes. *Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems*, 1--12. [Find it](https://scholar.google.com/scholar?q=Marathe%20Toyama%20Semi-automated%20coding%20for%20qualitative%20research%20user-centered%20inquiry%20CHI%202018)
 
-4. **Tai, R. (2024).** An assessment of the quality of qualitative research conducted using AI tools like ChatGPT. *Preprint.* [Check for published version]
+4. **Tai, R. (2024).** An assessment of the quality of qualitative research conducted using AI tools like ChatGPT. *Preprint.* [Find it](https://scholar.google.com/scholar?q=Tai%20assessment%20quality%20qualitative%20research%20AI%20tools%20ChatGPT%202024)
 
 ---
 

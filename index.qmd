@@ -35,7 +35,7 @@ This course covers the full landscape of AI as it applies to urban public health
 | Day | Topic | Key Activities |
 |-----|-------|----------------|
 | [Day 1](day1.qmd) | Foundations of AI | Explore AI platforms, prompt engineering, professional writing |
-| [Day 2](day2.qmd) | Multimodal AI & Data Analysis | Image analysis, data analysis with AI, document analysis |
+| [Day 2](day2.qmd) | Multimodal AI & Working with Models | Image analysis, data analysis with AI, document analysis |
 | [Day 3](day3.qmd) | Agentic AI & Tool Building | Context engineering, CLI tools, build your own agent |
 | [Day 4](day4.qmd) | AI for Urban Health Workflows | Workflow assessment, scenario-based group work |
 | [Day 5](day5.qmd) | Responsible AI & Future Directions | Ethics, bias detection, privacy, personal integration plan |
@@ -49,7 +49,7 @@ This course covers the full landscape of AI as it applies to urban public health
 :::
 
 ::: {.quick-link-card}
-[**Day 2**<br>Multimodal AI & Data](day2.qmd){.card-day}
+[**Day 2**<br>Multimodal AI & Working with Models](day2.qmd){.card-day}
 :::
 
 ::: {.quick-link-card}

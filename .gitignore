@@ -12,3 +12,7 @@ Thumbs.db
 .Rhistory
 
 **/*.quarto_ipynb
+/.deno/
+/.quarto-home/
+/.deno/
+/.quarto-home/

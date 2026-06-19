@@ -208,12 +208,12 @@ Duration: ~10 minutes | Format: Instructor overview
 
 | Feature | Claude Code | Codex CLI (OpenAI) | Gemini CLI (Google) |
 |---------|------------|-------------------|-------------------|
-| Model | Claude (Anthropic) | GPT-4o / o3 (OpenAI) | Gemini (Google) |
+| Model | Claude (Anthropic) | GPT-5.5 when available; otherwise current default/latest GPT model (OpenAI) | Gemini (Google) |
 | File access | Yes | Yes | Yes |
 | Code execution | Yes | Yes (sandboxed) | Yes |
 | Cost | API usage | API usage | Free (with Gemini API key) |
 | Best for | Analysis, writing, coding | Code generation, debugging | Google ecosystem integration |
-| Install | `npm install -g @anthropic-ai/claude-code` | `npm install -g @openai/codex` | `npm install -g @anthropic-ai/claude-code` |
+| Install | `npm install -g @anthropic-ai/claude-code` | `npm install -g @openai/codex` | `npm install -g @google/gemini-cli` |
 
 :::{.callout-note}
 All three tools require an API key and incur usage costs (except Gemini CLI which currently offers a free tier). The instructor will demonstrate; you do not need to install these today unless you want to.
@@ -353,10 +353,11 @@ When you use ChatGPT, Claude, or Gemini, your prompts and data are sent to exter
 
 [Ollama](https://ollama.com) is a free, open-source tool that lets you run AI models locally on your laptop. It supports many models, including:
 
-- **Llama 3** (Meta) --- good general-purpose model
+- **Llama 3.x / Llama 4** (Meta) --- good general-purpose models
+- **Gemma 4** (Google) --- lightweight and capable; runs well on a laptop
+- **Qwen / DeepSeek** --- strong open models (note: developed in China; data stays local when run via Ollama)
 - **Mistral** --- fast and efficient
-- **Phi-3** (Microsoft) --- optimized for smaller hardware
-- **Gemma** (Google) --- lightweight and capable
+- **Phi** (Microsoft) --- optimized for smaller hardware
 
 #### Installation (for those who can install software)
 
@@ -458,7 +459,7 @@ Create 10 test prompts across five categories (factual knowledge, data interpret
 #### Challenge 9: AI-Assisted Grant Proposal Section
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 75 min | **Tools:** Claude (Opus 4), ChatGPT (GPT-4o), Perplexity
+**Difficulty:** Advanced | **Time:** 75 min | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Perplexity
 :::
 
 Choose a research topic at the intersection of AI and urban health. Use iterative AI-assisted drafting to produce a 1-page NIH-format Specific Aims section and a 2-page Significance/Innovation section, tracking which content was AI-generated vs. human-written at each stage.

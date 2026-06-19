@@ -72,7 +72,7 @@ a:hover {
 
 /* --- Page Footer --- */
 .nav-footer {
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -179,7 +179,7 @@ a:hover {
 }
 
 .quick-link-card .card-day {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 600;

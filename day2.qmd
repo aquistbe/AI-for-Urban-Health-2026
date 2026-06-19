@@ -1,9 +1,9 @@
 ---
-title: "Day 2: Multimodal AI & Data Analysis"
+title: "Day 2: Multimodal AI & Working with Models"
 ---
 
 ::: {.day-header}
-# Day 2: Multimodal AI & Data Analysis
+# Day 2: Multimodal AI & Working with Models
 ::: {.day-subtitle}
 Image analysis, data analysis with AI, qualitative methods, and document analysis
 :::
@@ -38,6 +38,23 @@ Modern AI systems are increasingly **multimodal**---they can process and generat
 - **Deep Research tools:** AI-powered research assistants that can search, synthesize, and cite (e.g., Perplexity, ChatGPT Deep Research, Gemini Deep Research)
 
 :::{.callout-tip}
+## Working with Models: Build On, Don't Build
+
+You almost never need to train your own model. The practical skill is **adapting and connecting existing foundation models** to your data and tools.
+
+**Four ways to put a model to work** (climb only as far as you need):
+
+1. **Prompt / context engineering** --- instructions, examples, and system prompts. Start here.
+2. **Retrieval (RAG)** --- let the model read your documents at query time (e.g., NotebookLM).
+3. **Tools** --- give it actions: web search, code execution, database queries (the focus of Day 3).
+4. **Fine-tuning** --- further-train a smaller model for a narrow, repeated task.
+
+**Open & local models.** For sensitive health data, a capable open model run locally (via Ollama or LM Studio --- e.g., Gemma 4, Llama, Qwen, DeepSeek) keeps data on your machine, often the responsible default. See [Resources](resources.qmd) for setup.
+
+**When to use what:** one-off drafting → a frontier chat model; answers grounded in your documents → retrieval/projects; large-scale processing → API + scripting; sensitive data → a local model; multi-step work across tools → an agent (Day 3).
+
+---
+
 ## Today's Approach
 We will work with real Philadelphia data and realistic public health scenarios. The goal is not to replace your statistical training, but to show how AI can accelerate your workflow---and where you still need human judgment.
 :::
@@ -98,7 +115,7 @@ Duration: ~20 minutes | Format: Individual exploration with group reflection
 
 #### Instructions
 
-1. Use an image-generation-capable platform (ChatGPT with DALL-E, Gemini, or another tool) to create images for a public health campaign. Try prompts like:
+1. Use an image-generation-capable platform (ChatGPT image generation, Gemini, or another tool) to create images for a public health campaign. Try prompts like:
 
 > Create a warm, inviting illustration for a flyer promoting free blood pressure screenings at a community health fair in a diverse urban neighborhood. The image should show people of different ages and backgrounds in a welcoming community setting. Do not include any text in the image.
 
@@ -113,6 +130,11 @@ Duration: ~20 minutes | Format: Individual exploration with group reflection
    - Are there stereotypes or biases in the representation?
    - Would you feel comfortable using this in an official health department communication?
    - What are the ethical considerations of using AI-generated images in public health materials?
+
+:::{.callout-note}
+## Free-tier note
+Gemini and **Google AI Studio** offer free image generation. ChatGPT's free tier includes limited image generation; if you hit a limit, **Microsoft Copilot** (free) also generates images, or your instructor will demonstrate.
+:::
 
 :::{.callout-warning}
 ## Ethical Considerations
@@ -130,6 +152,11 @@ AI-generated images can perpetuate stereotypes and may not accurately represent 
 ### Activity 3: Data Analysis with AI
 ::: {.activity-meta}
 Duration: ~50 minutes | Format: Guided hands-on analysis
+:::
+
+:::{.callout-note}
+## Free-tier note
+Claude, ChatGPT, and Gemini **free tiers** all accept CSV/Excel uploads for this activity (subject to file-size and daily message limits). **Google AI Studio** (free) also works well. No paid plan is required.
 :::
 
 **Goal:** Use AI to analyze a real Philadelphia dataset through progressive prompting, from exploration to code generation.
@@ -351,7 +378,7 @@ Find a published epidemiologic study using public data (BRFSS, NHANES, CDC WONDE
 #### Challenge 5: Advanced Qualitative Coding
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 min | **Tools:** Claude (Opus 4), ChatGPT (GPT-4o), spreadsheet app
+**Difficulty:** Advanced | **Time:** 60 min | **Tools:** Claude, ChatGPT (GPT-5.5 if available), spreadsheet app
 :::
 
 Develop a complete codebook from focus group excerpts about heat safety barriers in Philadelphia. Apply AI-generated codes alongside your own independent coding, calculate inter-rater reliability (Cohen's kappa), and write a methods paragraph suitable for a research paper.
