@@ -74,22 +74,28 @@ Duration: ~30 minutes | Format: Hands-on comparison exercise
 
 **Goal:** Compare manual and AI-assisted image annotation approaches relevant to urban health research.
 
+**Sample image:** We will use an aerial view of a busy urban intersection. [Download the image](data/day2_intersection_aerial.jpeg){download="day2_intersection_aerial.jpeg"}.
+
+![Aerial view of an urban intersection with crosswalks, bus lanes, vehicles, motorcycles, and pedestrians --- the sample image for this activity.](data/day2_intersection_aerial.jpeg){width=70%}
+
+An [example annotation export](data/day2_sample_annotations.json){download="day2_sample_annotations.json"} (COCO-format JSON from MakeSense.ai, with labels for crosswalks, traffic lanes, motor vehicles, pedestrians, and bus stops) is available for instructors as a reference.
+
 #### Part A: Manual Annotation with MakeSense.ai (~15 min)
 
 1. Go to [MakeSense.ai](https://www.makesense.ai/) --- a free, browser-based image annotation tool
-2. Upload the provided sample images (urban streetscapes, housing conditions, or environmental features)
+2. Upload the sample image above (or your own urban streetscape, housing-condition, or environmental-feature image)
 3. Practice creating:
-   - **Bounding boxes** around objects of interest (e.g., crosswalks, trash accumulation, green space)
+   - **Bounding boxes** around objects of interest (e.g., crosswalks, traffic lanes, motor vehicles, pedestrians, bus stops)
    - **Labels** for each annotation
-4. Export your annotations
+4. Export your annotations (try COCO JSON, the format of the example export above)
 
 #### Part B: AI-Assisted Annotation with Google AI Studio (~15 min)
 
 1. Go to [Google AI Studio](https://aistudio.google.com)
-2. Upload the same images
+2. Upload the same image
 3. Use Gemini's **Spatial Understanding** capabilities. Try prompts like:
 
-> Analyze this street-level image and identify all features relevant to pedestrian safety. For each feature, provide its approximate location in the image and classify it as either a "safety asset" (e.g., crosswalk, traffic signal) or a "safety concern" (e.g., obstructed sidewalk, missing curb cut).
+> Analyze this aerial image of an urban intersection and identify all features relevant to pedestrian safety. For each feature, provide its approximate location in the image and classify it as either a "safety asset" (e.g., crosswalk, bus lane, traffic signal) or a "safety concern" (e.g., a long unmarked crossing, vehicles encroaching on the crosswalk, missing curb cut).
 
 4. Compare the AI-generated annotations with your manual ones
 
@@ -167,7 +173,7 @@ Claude, ChatGPT, and Gemini **free tiers** all accept CSV/Excel uploads for this
 
 We will work with the **Heat Vulnerability Index (HVI)** from OpenDataPhilly:
 
-**Download link:** [Heat Vulnerability Index --- OpenDataPhilly](https://opendataphilly.org/datasets/heat-vulnerability-index/)
+**Download link:** [Heat Vulnerability by Census Tract --- OpenDataPhilly](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/)
 
 This dataset measures heat vulnerability across Philadelphia census tracts, incorporating factors like surface temperature, impervious surfaces, tree canopy, poverty, age, and health conditions.
 
@@ -256,26 +262,30 @@ This activity is an optional deeper dive for participants interested in qualitat
 
 #### Instructions
 
-1. **Upload a transcript excerpt** to Claude or ChatGPT. You may use:
-   - A provided sample transcript (excerpts from community health interviews---fictional)
+1. **Upload a transcript** to Claude or ChatGPT. You may use:
+   - The provided sample: a fictional focus group on the **health impacts of climate change** — [download (.txt)](data/climate_health_focus_group_transcript.txt){download="climate_health_focus_group_transcript.txt"} or [(.md)](data/climate_health_focus_group_transcript.md){download="climate_health_focus_group_transcript.md"}. It covers health impacts residents experience, how they want to respond, and reactions to four different message framings for adaptation and mitigation.
    - Your own de-identified qualitative data
 
 2. **Initial thematic coding:** Ask the AI to identify preliminary themes:
 
-> I am going to share excerpts from community health interviews about barriers to accessing primary care in North Philadelphia. Please read through these excerpts and identify the major themes that emerge. For each theme, provide: (1) a theme name, (2) a brief description, (3) two to three supporting quotes from the text.
+> I am going to share a transcript from a community focus group about the health impacts of climate change. Please read through it and identify the major themes that emerge. For each theme, provide: (1) a theme name, (2) a brief description, (3) two to three supporting quotes from the text.
 
-3. **Code refinement:** After reviewing the initial themes, ask the AI to:
+3. **Message testing:** This transcript also tested four different message framings. Ask the AI to analyze them:
+
+> The facilitator tested four message framings (A--D) for communicating about climate and health. Summarize how participants reacted to each, note where reactions differed by age or lived experience, and recommend which framing to use for which audience.
+
+4. **Code refinement:** After reviewing the initial themes, ask the AI to:
 
 > Review the themes you identified. Are there any that overlap and should be combined? Are there any that are too broad and should be split? Reorganize the coding framework and provide a revised codebook with definitions for each code.
 
-4. **Compare with manual coding:** If you have experience with qualitative coding, compare:
+5. **Compare with manual coding:** If you have experience with qualitative coding, compare:
    - What themes did the AI identify that you would have missed (or vice versa)?
    - How do the AI-generated code definitions compare to what you would write?
    - Where does the AI's interpretation seem superficial or inaccurate?
 
-5. **Memo generation:** Ask the AI to draft an analytic memo:
+6. **Memo generation:** Ask the AI to draft an analytic memo:
 
-> Based on the themes identified, draft an analytic memo (300 words) discussing the relationships between themes and how they connect to existing literature on healthcare access in under-resourced urban communities.
+> Based on the themes identified, draft an analytic memo (300 words) discussing the relationships between themes and how they connect to existing literature on climate change, health equity, and risk communication in under-resourced urban communities.
 
 #### Critical Discussion
 

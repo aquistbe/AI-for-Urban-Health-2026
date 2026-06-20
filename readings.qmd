@@ -56,7 +56,7 @@ Readings are organized by day, with **Required** (current, short, do-before-clas
 
 ### Recommended
 
-3. **OpenDataPhilly. (2024).** Heat Vulnerability Index — Metadata & Documentation. [Available online](https://opendataphilly.org/datasets/heat-vulnerability-index/) — review before Activity 3.
+3. **OpenDataPhilly. (2024).** Heat Vulnerability Index — Metadata & Documentation. [Available online](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) — review before Activity 3.
 4. **Gichoya, J. W., et al. (2022).** AI recognition of patient race in medical imaging. *Lancet Digital Health, 4*(6). [Available online](https://doi.org/10.1016/S2589-7500(22)00063-2)
 5. **"Exploring Agent-Assisted Qualitative Analysis."** [Provided] — the constructive counterpoint to Jowsey et al.
 6. **Anthropic. (2025).** *Coding agents for data analysis.* [Provided] / [Find it](https://www.google.com/search?q=Anthropic+coding+agents+for+data+analysis)

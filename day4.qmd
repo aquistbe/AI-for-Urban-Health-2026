@@ -229,7 +229,7 @@ For your presentation, address:
 
 **Suggested AI Applications:**
 
-- Analyze the [Philadelphia HVI data](https://opendataphilly.org/datasets/heat-vulnerability-index/) to identify priority neighborhoods
+- Analyze the [Philadelphia HVI data](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) to identify priority neighborhoods
 - Generate targeted messaging for different vulnerable populations (elderly, outdoor workers, people experiencing homelessness)
 - Create a decision support tool for when to activate heat emergency protocols
 - Draft a heat action plan with specific triggers and responses

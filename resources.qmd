@@ -139,7 +139,7 @@ Browser-based alternatives still send data to external servers. They are more pr
 
 | Dataset | Source | Description | Link |
 |---------|--------|-------------|------|
-| **Heat Vulnerability Index** | OpenDataPhilly | Census tract-level heat vulnerability scores incorporating temperature, tree canopy, poverty, and health indicators | [opendataphilly.org](https://opendataphilly.org/datasets/heat-vulnerability-index/) |
+| **Heat Vulnerability Index** | OpenDataPhilly | Census tract-level heat vulnerability scores incorporating temperature, tree canopy, poverty, and health indicators | [opendataphilly.org](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) |
 | **OpenDataPhilly** | City of Philadelphia | Central portal for Philadelphia open data (health, environment, infrastructure, demographics) | [opendataphilly.org](https://opendataphilly.org/) |
 | **Community Health Assessment** | PDPH | Philadelphia's most recent community health needs assessment | [phila.gov](https://www.phila.gov/programs/community-health-assessment/) |
 | **Vital Statistics** | PDPH | Birth, death, and disease surveillance data | [phila.gov/health](https://www.phila.gov/departments/department-of-public-health/) |

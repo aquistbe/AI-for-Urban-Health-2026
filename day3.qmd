@@ -197,6 +197,84 @@ claude "Download the latest flu surveillance data from CDC,
 - They enable **automation** of repetitive analysis-report-communicate cycles
 - They require some comfort with the command line (but AI can help with that too)
 
+::: {.callout-note collapse="true"}
+## Instructor Walkthrough: Running the Claude Code Demo Live
+
+This is a step-by-step guide for the instructor to run the demo end-to-end on a real dataset. It uses a small **sample** Heat Vulnerability dataset so every command actually executes. Total live time: ~20--25 minutes. (Verified against Claude Code documentation, 2026; the CLI changes often, so test once the day before.)
+
+### Before class (15 minutes, once)
+
+1. **Install** (needs [Node.js](https://nodejs.org) v18+; check with `node --version`):
+
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   claude --version          # confirm it installed
+   ```
+
+   Do *not* use `sudo`. If you hit permission errors, use `nvm` or reconfigure npm's global prefix.
+
+2. **Authenticate.** Run `claude` once; a browser opens to approve login. This works with a Claude Pro/Max **or** Team/Enterprise subscription (recommended for teaching), or with an API key from the [Console](https://console.anthropic.com).
+
+   > **Cost gotcha:** if `ANTHROPIC_API_KEY` is set in your shell, it overrides your subscription and you'll be billed per-token. For a subscription demo, `unset ANTHROPIC_API_KEY` first.
+
+3. **Build the demo folder** and drop in the sample data ([download `hvi_sample.csv`](data/hvi_sample.csv){download="hvi_sample.csv"} --- 45 tracts; neighborhood names are illustrative and values are synthetic):
+
+   ```bash
+   mkdir -p ~/cli-demo/data && cd ~/cli-demo
+   # move the downloaded file into ~/cli-demo/data/hvi_sample.csv
+   ```
+
+4. **Dry-run it once** so there are no surprises live, then `/clear` before class.
+
+### Live demo (project on screen, narrate as you go)
+
+**Step 0 --- Start in the demo folder (1 min).** Open the terminal in `~/cli-demo` and launch the REPL:
+
+```bash
+cd ~/cli-demo
+claude
+```
+
+Point out the prompt is now waiting, and that Claude can see this folder. Type `/help` to show the slash commands, then `/cost` to show that usage is tracked.
+
+**Step 1 --- Explore the data (read-only; ~4 min).** Paste:
+
+> Look at data/hvi_sample.csv. How many records are there, what is the unit of analysis, what columns are present, and are there any data-quality issues? Don't write any files yet --- just summarize.
+
+*What to narrate:* Claude reads the file without asking permission (reads are allowed by default), but it has **not** changed anything. This is the safe way to start: explore before you act. Tie back to context engineering (Activity 1) --- it only knows what's in the folder plus your instructions.
+
+**Step 2 --- Generate a chart (first permission prompt; ~6 min).** Paste:
+
+> Create a horizontal bar chart of the 10 tracts with the highest hvi_score, labeled by neighborhood. Use Python (matplotlib), save it as figures/hvi_top10.png, and create the figures/ folder if needed.
+
+*What to narrate:* Claude now wants to **write a script and run it**, so it pauses and shows you the command and the file it will create. **Approve it in front of the class** --- this is the human-in-the-loop checkpoint and the single most important thing to show. Open `figures/hvi_top10.png` afterward.
+
+**Step 3 --- Draft a brief from the findings (~5 min).** Paste:
+
+> Using what you found, draft a one-page plain-language brief for City Council on heat vulnerability, with the top 5 neighborhoods in a table and three policy recommendations. Save it as brief.md.
+
+*What to narrate:* Same approval step for the new file. Then **open `brief.md` and read a recommendation aloud, then push back**: ask the class "is that number actually in our data?" Open the CSV and check. This is the *verification-is-the-bottleneck* point from earlier --- fluent output still needs checking, especially before anything reaches a decision-maker.
+
+**Step 4 --- Show the controls (~3 min).**
+
+- `/permissions` --- how to pre-approve or block specific commands.
+- Press **Shift+Tab** to cycle to **plan mode** (read-only): Claude proposes a plan but cannot edit. Good for "think before you touch my files."
+- `/clear` to wipe context; `/cost` to show total session cost; `/exit` (or Ctrl+D) to quit.
+
+### If something breaks (fallbacks)
+
+- **Can't install / locked-down laptop:** run the *same prompts* against [claude.ai](https://claude.ai) or [Google AI Studio](https://aistudio.google.com) by uploading `hvi_sample.csv`. You lose the local-file/automation angle but keep the analysis narrative.
+- **No internet in the room:** pre-record the run, or screenshot each step into the slides as a backup.
+- **Want a no-prompt, scripted version:** `claude -p "summarize data/hvi_sample.csv"` runs once and exits --- useful to show automation, but do the interactive version first so students see the approval prompts.
+- **Don't use `--dangerously-skip-permissions` in class** except to name it and explain why skipping approvals is risky.
+
+### The three points to land
+
+1. Agentic CLIs act on your **real files and tools**, not just chat text.
+2. The **permission prompt is the safety boundary** --- you stay in the loop on every write and command.
+3. Generation is cheap; **verification is the job.** Always check the numbers before the output leaves the room.
+:::
+
 :::
 
 ---

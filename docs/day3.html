@@ -457,13 +457,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        update email for the department director"</code></pre>
 </section>
 <section id="key-takeaways" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h4>
+<h4 class="anchored">Key Takeaways</h4>
 <ul>
 <li>CLI tools are powerful for <strong>integrating AI into existing workflows</strong></li>
 <li>They work with your local files and tools</li>
 <li>They enable <strong>automation</strong> of repetitive analysis-report-communicate cycles</li>
 <li>They require some comfort with the command line (but AI can help with that too)</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Instructor Walkthrough: Running the Claude Code Demo Live
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a step-by-step guide for the instructor to run the demo end-to-end on a real dataset. It uses a small <strong>sample</strong> Heat Vulnerability dataset so every command actually executes. Total live time: ~20–25 minutes. (Verified against Claude Code documentation, 2026; the CLI changes often, so test once the day before.)</p>
+<section id="before-class-15-minutes-once" class="level3">
+<h3 class="anchored" data-anchor-id="before-class-15-minutes-once">Before class (15 minutes, once)</h3>
+<ol type="1">
+<li><p><strong>Install</strong> (needs <a href="https://nodejs.org">Node.js</a> v18+; check with <code>node --version</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--version</span>          <span class="co"># confirm it installed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Do <em>not</em> use <code>sudo</code>. If you hit permission errors, use <code>nvm</code> or reconfigure npm’s global prefix.</p></li>
+<li><p><strong>Authenticate.</strong> Run <code>claude</code> once; a browser opens to approve login. This works with a Claude Pro/Max <strong>or</strong> Team/Enterprise subscription (recommended for teaching), or with an API key from the <a href="https://console.anthropic.com">Console</a>.</p>
+<blockquote class="blockquote">
+<p><strong>Cost gotcha:</strong> if <code>ANTHROPIC_API_KEY</code> is set in your shell, it overrides your subscription and you’ll be billed per-token. For a subscription demo, <code>unset ANTHROPIC_API_KEY</code> first.</p>
+</blockquote></li>
+<li><p><strong>Build the demo folder</strong> and drop in the sample data (<a href="data/hvi_sample.csv" download="hvi_sample.csv">download <code>hvi_sample.csv</code></a> — 45 tracts; neighborhood names are illustrative and values are synthetic):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/cli-demo/data <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> ~/cli-demo</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># move the downloaded file into ~/cli-demo/data/hvi_sample.csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Dry-run it once</strong> so there are no surprises live, then <code>/clear</code> before class.</p></li>
+</ol>
+</section>
+<section id="live-demo-project-on-screen-narrate-as-you-go" class="level3">
+<h3 class="anchored" data-anchor-id="live-demo-project-on-screen-narrate-as-you-go">Live demo (project on screen, narrate as you go)</h3>
+<p><strong>Step 0 — Start in the demo folder (1 min).</strong> Open the terminal in <code>~/cli-demo</code> and launch the REPL:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cli-demo</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Point out the prompt is now waiting, and that Claude can see this folder. Type <code>/help</code> to show the slash commands, then <code>/cost</code> to show that usage is tracked.</p>
+<p><strong>Step 1 — Explore the data (read-only; ~4 min).</strong> Paste:</p>
+<blockquote class="blockquote">
+<p>Look at data/hvi_sample.csv. How many records are there, what is the unit of analysis, what columns are present, and are there any data-quality issues? Don’t write any files yet — just summarize.</p>
+</blockquote>
+<p><em>What to narrate:</em> Claude reads the file without asking permission (reads are allowed by default), but it has <strong>not</strong> changed anything. This is the safe way to start: explore before you act. Tie back to context engineering (Activity 1) — it only knows what’s in the folder plus your instructions.</p>
+<p><strong>Step 2 — Generate a chart (first permission prompt; ~6 min).</strong> Paste:</p>
+<blockquote class="blockquote">
+<p>Create a horizontal bar chart of the 10 tracts with the highest hvi_score, labeled by neighborhood. Use Python (matplotlib), save it as figures/hvi_top10.png, and create the figures/ folder if needed.</p>
+</blockquote>
+<p><em>What to narrate:</em> Claude now wants to <strong>write a script and run it</strong>, so it pauses and shows you the command and the file it will create. <strong>Approve it in front of the class</strong> — this is the human-in-the-loop checkpoint and the single most important thing to show. Open <code>figures/hvi_top10.png</code> afterward.</p>
+<p><strong>Step 3 — Draft a brief from the findings (~5 min).</strong> Paste:</p>
+<blockquote class="blockquote">
+<p>Using what you found, draft a one-page plain-language brief for City Council on heat vulnerability, with the top 5 neighborhoods in a table and three policy recommendations. Save it as brief.md.</p>
+</blockquote>
+<p><em>What to narrate:</em> Same approval step for the new file. Then <strong>open <code>brief.md</code> and read a recommendation aloud, then push back</strong>: ask the class “is that number actually in our data?” Open the CSV and check. This is the <em>verification-is-the-bottleneck</em> point from earlier — fluent output still needs checking, especially before anything reaches a decision-maker.</p>
+<p><strong>Step 4 — Show the controls (~3 min).</strong></p>
+<ul>
+<li><code>/permissions</code> — how to pre-approve or block specific commands.</li>
+<li>Press <strong>Shift+Tab</strong> to cycle to <strong>plan mode</strong> (read-only): Claude proposes a plan but cannot edit. Good for “think before you touch my files.”</li>
+<li><code>/clear</code> to wipe context; <code>/cost</code> to show total session cost; <code>/exit</code> (or Ctrl+D) to quit.</li>
+</ul>
+</section>
+<section id="if-something-breaks-fallbacks" class="level3">
+<h3 class="anchored" data-anchor-id="if-something-breaks-fallbacks">If something breaks (fallbacks)</h3>
+<ul>
+<li><strong>Can’t install / locked-down laptop:</strong> run the <em>same prompts</em> against <a href="https://claude.ai">claude.ai</a> or <a href="https://aistudio.google.com">Google AI Studio</a> by uploading <code>hvi_sample.csv</code>. You lose the local-file/automation angle but keep the analysis narrative.</li>
+<li><strong>No internet in the room:</strong> pre-record the run, or screenshot each step into the slides as a backup.</li>
+<li><strong>Want a no-prompt, scripted version:</strong> <code>claude -p "summarize data/hvi_sample.csv"</code> runs once and exits — useful to show automation, but do the interactive version first so students see the approval prompts.</li>
+<li><strong>Don’t use <code>--dangerously-skip-permissions</code> in class</strong> except to name it and explain why skipping approvals is risky.</li>
+</ul>
+</section>
+<section id="the-three-points-to-land" class="level3">
+<h3 class="anchored" data-anchor-id="the-three-points-to-land">The three points to land</h3>
+<ol type="1">
+<li>Agentic CLIs act on your <strong>real files and tools</strong>, not just chat text.</li>
+<li>The <strong>permission prompt is the safety boundary</strong> — you stay in the loop on every write and command.</li>
+<li>Generation is cheap; <strong>verification is the job.</strong> Always check the numbers before the output leaves the room.</li>
+</ol>
+</section>
+</div>
+</div>
+</div>
 </section>
 </section>
 <hr>
@@ -711,16 +789,16 @@ Note
 </section>
 <section id="installation-for-those-who-can-install-software" class="level4">
 <h4 class="anchored" data-anchor-id="installation-for-those-who-can-install-software">Installation (for those who can install software)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run llama3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run llama3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>System Requirements:</strong></p>
 <ul>
 <li>At least 8 GB RAM (16 GB recommended)</li>

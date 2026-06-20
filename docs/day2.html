@@ -278,28 +278,36 @@ ul.task-list li input[type="checkbox"] {
 <p>Duration: ~30 minutes | Format: Hands-on comparison exercise</p>
 </div>
 <p><strong>Goal:</strong> Compare manual and AI-assisted image annotation approaches relevant to urban health research.</p>
+<p><strong>Sample image:</strong> We will use an aerial view of a busy urban intersection. <a href="data/day2_intersection_aerial.jpeg" download="day2_intersection_aerial.jpeg">Download the image</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/day2_intersection_aerial.jpeg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Aerial view of an urban intersection with crosswalks, bus lanes, vehicles, motorcycles, and pedestrians — the sample image for this activity.</figcaption>
+</figure>
+</div>
+<p>An <a href="data/day2_sample_annotations.json" download="day2_sample_annotations.json">example annotation export</a> (COCO-format JSON from MakeSense.ai, with labels for crosswalks, traffic lanes, motor vehicles, pedestrians, and bus stops) is available for instructors as a reference.</p>
 <section id="part-a-manual-annotation-with-makesense.ai-15-min" class="level4">
 <h4 class="anchored" data-anchor-id="part-a-manual-annotation-with-makesense.ai-15-min">Part A: Manual Annotation with MakeSense.ai (~15 min)</h4>
 <ol type="1">
 <li>Go to <a href="https://www.makesense.ai/">MakeSense.ai</a> — a free, browser-based image annotation tool</li>
-<li>Upload the provided sample images (urban streetscapes, housing conditions, or environmental features)</li>
+<li>Upload the sample image above (or your own urban streetscape, housing-condition, or environmental-feature image)</li>
 <li>Practice creating:
 <ul>
-<li><strong>Bounding boxes</strong> around objects of interest (e.g., crosswalks, trash accumulation, green space)</li>
+<li><strong>Bounding boxes</strong> around objects of interest (e.g., crosswalks, traffic lanes, motor vehicles, pedestrians, bus stops)</li>
 <li><strong>Labels</strong> for each annotation</li>
 </ul></li>
-<li>Export your annotations</li>
+<li>Export your annotations (try COCO JSON, the format of the example export above)</li>
 </ol>
 </section>
 <section id="part-b-ai-assisted-annotation-with-google-ai-studio-15-min" class="level4">
 <h4 class="anchored" data-anchor-id="part-b-ai-assisted-annotation-with-google-ai-studio-15-min">Part B: AI-Assisted Annotation with Google AI Studio (~15 min)</h4>
 <ol type="1">
 <li>Go to <a href="https://aistudio.google.com">Google AI Studio</a></li>
-<li>Upload the same images</li>
+<li>Upload the same image</li>
 <li>Use Gemini’s <strong>Spatial Understanding</strong> capabilities. Try prompts like:</li>
 </ol>
 <blockquote class="blockquote">
-<p>Analyze this street-level image and identify all features relevant to pedestrian safety. For each feature, provide its approximate location in the image and classify it as either a “safety asset” (e.g., crosswalk, traffic signal) or a “safety concern” (e.g., obstructed sidewalk, missing curb cut).</p>
+<p>Analyze this aerial image of an urban intersection and identify all features relevant to pedestrian safety. For each feature, provide its approximate location in the image and classify it as either a “safety asset” (e.g., crosswalk, bus lane, traffic signal) or a “safety concern” (e.g., a long unmarked crossing, vehicles encroaching on the crosswalk, missing curb cut).</p>
 </blockquote>
 <ol start="4" type="1">
 <li>Compare the AI-generated annotations with your manual ones</li>
@@ -403,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-dataset-philadelphia-heat-vulnerability-index" class="level4">
 <h4 class="anchored" data-anchor-id="the-dataset-philadelphia-heat-vulnerability-index">The Dataset: Philadelphia Heat Vulnerability Index</h4>
 <p>We will work with the <strong>Heat Vulnerability Index (HVI)</strong> from OpenDataPhilly:</p>
-<p><strong>Download link:</strong> <a href="https://opendataphilly.org/datasets/heat-vulnerability-index/">Heat Vulnerability Index — OpenDataPhilly</a></p>
+<p><strong>Download link:</strong> <a href="https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/">Heat Vulnerability by Census Tract — OpenDataPhilly</a></p>
 <p>This dataset measures heat vulnerability across Philadelphia census tracts, incorporating factors like surface temperature, impervious surfaces, tree canopy, poverty, age, and health conditions.</p>
 </section>
 <section id="step-by-step-progressive-prompting" class="level4">
@@ -506,23 +514,29 @@ Note
 <section id="instructions-1" class="level4">
 <h4 class="anchored" data-anchor-id="instructions-1">Instructions</h4>
 <ol type="1">
-<li><strong>Upload a transcript excerpt</strong> to Claude or ChatGPT. You may use:
+<li><strong>Upload a transcript</strong> to Claude or ChatGPT. You may use:
 <ul>
-<li>A provided sample transcript (excerpts from community health interviews—fictional)</li>
+<li>The provided sample: a fictional focus group on the <strong>health impacts of climate change</strong> — <a href="data/climate_health_focus_group_transcript.txt" download="climate_health_focus_group_transcript.txt">download (.txt)</a> or <a href="./data/climate_health_focus_group_transcript.html" download="climate_health_focus_group_transcript.md">(.md)</a>. It covers health impacts residents experience, how they want to respond, and reactions to four different message framings for adaptation and mitigation.</li>
 <li>Your own de-identified qualitative data</li>
 </ul></li>
 <li><strong>Initial thematic coding:</strong> Ask the AI to identify preliminary themes:</li>
 </ol>
 <blockquote class="blockquote">
-<p>I am going to share excerpts from community health interviews about barriers to accessing primary care in North Philadelphia. Please read through these excerpts and identify the major themes that emerge. For each theme, provide: (1) a theme name, (2) a brief description, (3) two to three supporting quotes from the text.</p>
+<p>I am going to share a transcript from a community focus group about the health impacts of climate change. Please read through it and identify the major themes that emerge. For each theme, provide: (1) a theme name, (2) a brief description, (3) two to three supporting quotes from the text.</p>
 </blockquote>
 <ol start="3" type="1">
+<li><strong>Message testing:</strong> This transcript also tested four different message framings. Ask the AI to analyze them:</li>
+</ol>
+<blockquote class="blockquote">
+<p>The facilitator tested four message framings (A–D) for communicating about climate and health. Summarize how participants reacted to each, note where reactions differed by age or lived experience, and recommend which framing to use for which audience.</p>
+</blockquote>
+<ol start="4" type="1">
 <li><strong>Code refinement:</strong> After reviewing the initial themes, ask the AI to:</li>
 </ol>
 <blockquote class="blockquote">
 <p>Review the themes you identified. Are there any that overlap and should be combined? Are there any that are too broad and should be split? Reorganize the coding framework and provide a revised codebook with definitions for each code.</p>
 </blockquote>
-<ol start="4" type="1">
+<ol start="5" type="1">
 <li><strong>Compare with manual coding:</strong> If you have experience with qualitative coding, compare:
 <ul>
 <li>What themes did the AI identify that you would have missed (or vice versa)?</li>
@@ -532,7 +546,7 @@ Note
 <li><strong>Memo generation:</strong> Ask the AI to draft an analytic memo:</li>
 </ol>
 <blockquote class="blockquote">
-<p>Based on the themes identified, draft an analytic memo (300 words) discussing the relationships between themes and how they connect to existing literature on healthcare access in under-resourced urban communities.</p>
+<p>Based on the themes identified, draft an analytic memo (300 words) discussing the relationships between themes and how they connect to existing literature on climate change, health equity, and risk communication in under-resourced urban communities.</p>
 </blockquote>
 </section>
 <section id="critical-discussion" class="level4">
