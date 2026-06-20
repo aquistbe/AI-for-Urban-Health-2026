@@ -522,6 +522,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>/clear</code> to wipe context; <code>/cost</code> to show total session cost; <code>/exit</code> (or Ctrl+D) to quit.</li>
 </ul>
 </section>
+<section id="alternative-run-it-inside-positron-recommended-for-rpython-users" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-run-it-inside-positron-recommended-for-rpython-users">Alternative: run it inside Positron (recommended for R/Python users)</h3>
+<p>Claude Code is still the CLI here — you just host it in <a href="https://positron.posit.co">Positron</a> (Posit’s R/Python IDE) instead of a bare terminal. For a data-science audience this is usually the better venue: students stay in a familiar environment, and Claude’s edits and outputs appear right in the IDE.</p>
+<ol type="1">
+<li><strong>Open the demo folder in Positron:</strong> <em>File → Open Folder → <code>~/cli-demo</code>.</em></li>
+<li><strong>Open the integrated terminal</strong> (<em>Terminal → New Terminal</em>, or <code>Ctrl+`</code>) and run <code>claude</code> there. Claude Code auto-detects the IDE (via a lock file in <code>~/.claude/ide/</code>), so it knows which file you have open and shows its edits as <strong>diffs in the editor</strong> — which is much clearer to project than a terminal diff.</li>
+<li><strong>Keep it in your language.</strong> Add to your prompts: <em>“Use R and ggplot2; save the script as a .R file and run it with Rscript”</em> (or <em>“use Python”</em>). Run the same four steps as above.</li>
+<li><strong>Verify in the IDE.</strong> Open <code>hvi_sample.csv</code> in Positron’s <strong>data viewer</strong>, let the chart land in the <strong>Plots</strong> pane, and run one line of R/Python yourself to confirm Claude’s numbers — a clean, visible version of the verification step.</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Caveat:</strong> Claude runs commands in that terminal’s shell, so the R/Python it uses is whatever is on your <strong>PATH</strong>, not necessarily Positron’s selected interpreter. Confirm <code>Rscript</code> (or your Python environment) works in that terminal <em>before</em> class.</p>
+</blockquote>
+<p>Positron also ships a built-in <strong>Positron Assistant</strong> (a native in-IDE chat/agent, bring-your-own Claude API key). That’s a different flavor from the agentic-CLI lesson, so keep Claude Code as the tool you demo — but it’s worth mentioning to students as another option.</p>
+</section>
 <section id="if-something-breaks-fallbacks" class="level3">
 <h3 class="anchored" data-anchor-id="if-something-breaks-fallbacks">If something breaks (fallbacks)</h3>
 <ul>

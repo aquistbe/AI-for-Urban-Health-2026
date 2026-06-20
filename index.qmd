@@ -26,6 +26,7 @@ Over five days, you will move from foundational AI concepts to hands-on experien
 - **Format:** In-person (hybrid option TBD)
 - **Location:** TBD
 - **Instructor:** D. Alex Quistberg, PhD, MPH ([daq26@drexel.edu](mailto:daq26@drexel.edu))
+- **Teaching Assistant:** Janelle Edwards, PhD, MPH ([je466@drexel.edu](mailto:je466@drexel.edu))
 :::
 
 ## Course Overview
@@ -85,13 +86,17 @@ This course covers the full landscape of AI as it applies to urban public health
 | Day 4 | TBD |
 | Day 5 | TBD |
 
-## Instructor
+## Teaching Staff
 
-**D. Alex Quistberg, PhD, MPH**
+**D. Alex Quistberg, PhD, MPH** --- Instructor
 
 Dr. Quistberg is a faculty member at the Dornsife School of Public Health, Drexel University, and a researcher at the Urban Health Collaborative. His work focuses on urban health, injury epidemiology, and the application of emerging technologies to public health practice.
 
 - **Email:** [daq26@drexel.edu](mailto:daq26@drexel.edu)
+
+**Janelle Edwards, PhD, MPH** --- Teaching Assistant
+
+- **Email:** [je466@drexel.edu](mailto:je466@drexel.edu)
 
 ## Pre-Course Checklist {.checklist}
 

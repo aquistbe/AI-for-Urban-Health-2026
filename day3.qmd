@@ -261,6 +261,19 @@ Point out the prompt is now waiting, and that Claude can see this folder. Type `
 - Press **Shift+Tab** to cycle to **plan mode** (read-only): Claude proposes a plan but cannot edit. Good for "think before you touch my files."
 - `/clear` to wipe context; `/cost` to show total session cost; `/exit` (or Ctrl+D) to quit.
 
+### Alternative: run it inside Positron (recommended for R/Python users)
+
+Claude Code is still the CLI here --- you just host it in [Positron](https://positron.posit.co) (Posit's R/Python IDE) instead of a bare terminal. For a data-science audience this is usually the better venue: students stay in a familiar environment, and Claude's edits and outputs appear right in the IDE.
+
+1. **Open the demo folder in Positron:** *File &rarr; Open Folder &rarr; `~/cli-demo`.*
+2. **Open the integrated terminal** (*Terminal &rarr; New Terminal*, or ``Ctrl+` ``) and run `claude` there. Claude Code auto-detects the IDE (via a lock file in `~/.claude/ide/`), so it knows which file you have open and shows its edits as **diffs in the editor** --- which is much clearer to project than a terminal diff.
+3. **Keep it in your language.** Add to your prompts: *"Use R and ggplot2; save the script as a .R file and run it with Rscript"* (or *"use Python"*). Run the same four steps as above.
+4. **Verify in the IDE.** Open `hvi_sample.csv` in Positron's **data viewer**, let the chart land in the **Plots** pane, and run one line of R/Python yourself to confirm Claude's numbers --- a clean, visible version of the verification step.
+
+> **Caveat:** Claude runs commands in that terminal's shell, so the R/Python it uses is whatever is on your **PATH**, not necessarily Positron's selected interpreter. Confirm `Rscript` (or your Python environment) works in that terminal *before* class.
+
+Positron also ships a built-in **Positron Assistant** (a native in-IDE chat/agent, bring-your-own Claude API key). That's a different flavor from the agentic-CLI lesson, so keep Claude Code as the tool you demo --- but it's worth mentioning to students as another option.
+
 ### If something breaks (fallbacks)
 
 - **Can't install / locked-down laptop:** run the *same prompts* against [claude.ai](https://claude.ai) or [Google AI Studio](https://aistudio.google.com) by uploading `hvi_sample.csv`. You lose the local-file/automation angle but keep the analysis narrative.
