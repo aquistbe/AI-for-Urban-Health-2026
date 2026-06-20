@@ -376,6 +376,20 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   </div>
 </div>
 
+<!-- 19b VERIFICATION IS THE BOTTLENECK (adapted from Beam & Aslim) -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Verification</span><h3>Verification Is the Bottleneck</h3></div>
+  <div class="slide-body">
+    <p class="lead">Agents can generate far faster than you can check. As output gets cheaper, <em>your</em> verification becomes the limiting step &mdash; and the real skill.</p>
+    <div class="two-col">
+      <div class="card" style="border-left:3px solid var(--accent-violet);"><h4 class="accent-violet">Why it matters</h4><ul><li>Fluent output is not the same as correct output.</li><li>The faster the agent, the more there is to check.</li><li>The higher the stakes, the higher your burden of proof.</li></ul></div>
+      <div class="card" style="border-left:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Turn the model on its own work</h4><ul><li>Make it an <em>adversarial reader</em>: "Argue why this analysis is wrong."</li><li>Ask it to find the weakest claim, the missing control, the unchecked assumption.</li><li>Have it critique your code, your draft, your study design &mdash; then you decide.</li></ul></div>
+    </div>
+    <p class="note">Using AI to pressure-test your own thinking is one of its most reliable uses &mdash; and it keeps you in the loop.</p>
+    <div class="src">Framing adapted from Beam &amp; Aslim, "Thinking With Agents" (Univ. of Vermont, 2026) · thinkingwithagents.github.io</div>
+  </div>
+</div>
+
 <!-- 20 AGENTS FOR UH -->
 <div class="slide">
   <div class="slide-header"><span class="tag">Applied</span><h3>Agents for Urban Health</h3></div>
@@ -409,7 +423,7 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
 </div><!-- /deck -->
 
 <div class="nav-bar">
-  <span class="slide-counter" id="slideCounter">1 / 24</span>
+  <span class="slide-counter" id="slideCounter">1 / 25</span>
   <div class="nav-buttons">
     <button onclick="goToSlide(0)">⏮ Start</button>
     <button onclick="prev()">← Prev</button>

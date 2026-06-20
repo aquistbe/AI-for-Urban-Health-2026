@@ -203,7 +203,7 @@ Browser-based alternatives still send data to external servers. They are more pr
 
 ### Books
 
-- **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* --- The course textbook. Read the remaining chapters after the course.
+- **Mollick, E. (2024).** *Co-Intelligence: Living and Working with AI.* --- Recommended introduction to working with AI (no longer a required text; see Readings).
 - **Topol, E. (2019).** *Deep Medicine.* --- AI in healthcare, accessible to non-technical readers.
 - **Benjamin, R. (2019).** *Race After Technology.* --- Critical perspective on technology and racial justice.
 - **O'Neil, C. (2016).** *Weapons of Math Destruction.* --- Algorithmic bias in everyday systems.
@@ -219,6 +219,7 @@ Browser-based alternatives still send data to external servers. They are more pr
 - [AI for Everyone](https://www.coursera.org/learn/ai-for-everyone) --- Coursera, Andrew Ng, non-technical
 - [Introduction to Generative AI](https://cloud.google.com/learn/training/machinelearning-AI) --- Google Cloud, free
 - [Practical Deep Learning](https://course.fast.ai/) --- fast.ai, free, more technical
+- [Thinking With Agents](https://thinkingwithagents.github.io/) (Beam & Aslim, Univ. of Vermont, 2026) --- A hands-on course on working with AI agents. Source of several framings used in this course: the three ways to work with AI, the "three inverse laws," and verification as the bottleneck.
 
 ### Organizations to Follow
 

@@ -193,6 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#chatbots-vs.-agents" id="toc-chatbots-vs.-agents" class="nav-link" data-scroll-target="#chatbots-vs.-agents">Chatbots vs.&nbsp;Agents</a></li>
   <li><a href="#context-engineering-the-5-components" id="toc-context-engineering-the-5-components" class="nav-link" data-scroll-target="#context-engineering-the-5-components">Context Engineering: The 5 Components</a></li>
   <li><a href="#model-context-protocol-mcp" id="toc-model-context-protocol-mcp" class="nav-link" data-scroll-target="#model-context-protocol-mcp">Model Context Protocol (MCP)</a></li>
+  <li><a href="#verification-is-the-bottleneck" id="toc-verification-is-the-bottleneck" class="nav-link" data-scroll-target="#verification-is-the-bottleneck">Verification Is the Bottleneck</a></li>
   </ul></li>
   <li><a href="#activity-1-context-engineering-exercise" id="toc-activity-1-context-engineering-exercise" class="nav-link" data-scroll-target="#activity-1-context-engineering-exercise">Activity 1: Context Engineering Exercise</a>
   <ul class="collapse">
@@ -354,6 +355,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Code execution</li>
 <li>API calls to external services</li>
 </ul>
+</section>
+<section id="verification-is-the-bottleneck" class="level3">
+<h3 class="anchored" data-anchor-id="verification-is-the-bottleneck">Verification Is the Bottleneck</h3>
+<p>Agents generate far faster than you can check, so verification — not generation — becomes the limiting step and the real skill. Fluent output is not the same as correct output, and the higher the stakes, the higher your burden of proof. One of the most reliable uses of a model is to turn it on its own work: ask it to be an <em>adversarial reader</em> (“argue why this analysis is wrong”), to find the weakest claim, the missing control, or the unchecked assumption in your code, draft, or study design — then you decide.</p>
+<p><em>Adapted from Beam &amp; Aslim, <a href="https://thinkingwithagents.github.io/">“Thinking With Agents”</a> (Univ. of Vermont, 2026).</em></p>
 <hr>
 </section>
 </section>

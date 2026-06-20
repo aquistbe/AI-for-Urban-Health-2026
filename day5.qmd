@@ -92,6 +92,8 @@ When AI assists with public health decisions, clear accountability is essential:
 - **Documentation** of AI use in decision-making processes should become standard practice
 - **Audit mechanisms** should be built in to review AI-assisted decisions
 
+This maps onto the **three inverse laws** introduced on Day 1: *non-anthropomorphism* (the model has no judgment to defer to), *non-deference* (verify before acting), and *non-abdication* (you stay answerable for the result). *Framing adapted from Beam & Aslim, ["Thinking With Agents"](https://thinkingwithagents.github.io/) (Univ. of Vermont, 2026).*
+
 ### Environmental Costs
 
 AI has significant environmental costs that are often overlooked:

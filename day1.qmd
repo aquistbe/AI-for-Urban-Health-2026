@@ -66,6 +66,20 @@ Urban public health generates enormous amounts of data---surveillance records, c
 AI is most effective when it augments human expertise rather than replacing it. Throughout this course, we will focus on **human-in-the-loop** approaches where AI assists with tasks but humans make the final decisions.
 :::
 
+### A Working Vocabulary
+
+A few terms you will hear all week: a **model** is the trained system itself (Claude, GPT, Gemini) --- a pattern-completion engine, not a database; a **token** is a chunk of text (~¾ of a word) counted for usage and limits; a **prompt** is what you send, including any context; the **context window** is how much it can hold in mind at once; a **session** is one conversation (no memory across sessions unless you build it); and an **agent** is a model given tools and a goal that it pursues in steps (Day 3).
+
+### Three Ways to Work With AI
+
+The same model behaves differently depending on where you meet it: in a **chat window** (browser; ask, paste, generate; can't see your files), **inside your tools** (an editor or app that sees and edits your work in place), or **agentically** (you give a goal and it plans and runs multi-step work). The move from "ask and copy" to "delegate and verify" is the biggest shift this year.
+
+### The Three Inverse Laws of AI
+
+Asimov's laws constrain robots to protect people; these "inverse laws" constrain *us*: **non-anthropomorphism** (don't attribute judgment or intent to the model), **non-deference** (never treat output as authoritative without verification), and **non-abdication** (you remain responsible for the result --- "the AI told me so" is never a defense). We return to these on Day 5.
+
+*Vocabulary, the three modes, and the inverse laws are adapted from Beam & Aslim, ["Thinking With Agents"](https://thinkingwithagents.github.io/) (Univ. of Vermont, 2026).*
+
 ### Philadelphia AI Policy Discussion
 
 The Commonwealth of Pennsylvania has issued [executive guidance on AI use in state agencies](https://www.governor.pa.gov/newsroom/governor-shapiro-signs-executive-order-establishing-governance-guardrails-for-commonwealth-use-of-artificial-intelligence/). We will review:

@@ -72,6 +72,12 @@ Examples of MCP tools:
 - Code execution
 - API calls to external services
 
+### Verification Is the Bottleneck
+
+Agents generate far faster than you can check, so verification --- not generation --- becomes the limiting step and the real skill. Fluent output is not the same as correct output, and the higher the stakes, the higher your burden of proof. One of the most reliable uses of a model is to turn it on its own work: ask it to be an *adversarial reader* ("argue why this analysis is wrong"), to find the weakest claim, the missing control, or the unchecked assumption in your code, draft, or study design --- then you decide.
+
+*Adapted from Beam & Aslim, ["Thinking With Agents"](https://thinkingwithagents.github.io/) (Univ. of Vermont, 2026).*
+
 ---
 
 ## Activity 1: Context Engineering Exercise {.activity}

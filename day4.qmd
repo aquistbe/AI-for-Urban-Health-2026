@@ -387,6 +387,18 @@ Each group presents for 3 minutes:
 
 ---
 
+## Try It: Research-Workflow Demos
+
+Three concrete ways to put agentic AI to work in your own research. Try the chat-based versions on a free tier; the file-building demo will be shown live by the instructor.
+
+- **Teach it your voice.** Give the model a few of your own writing samples and have it draft in your style --- an abstract, an email, a grant aim. You edit; it learns the pattern.
+- **CV → website.** Hand an agent your CV and ask it to build a simple academic site (structure, pages, styling), then refine it by conversation.
+- **Live research brainstorm.** Talk through a study idea with the model as a thinking partner: rival hypotheses, confounders, designs, and what would falsify it.
+
+*Adapted from Beam & Aslim, ["Thinking With Agents"](https://thinkingwithagents.github.io/) (Univ. of Vermont, 2026).*
+
+---
+
 ::: {.bonus-challenges-section}
 
 ## Bonus Challenge Exercises

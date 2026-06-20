@@ -244,6 +244,23 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   </div>
 </div>
 
+<!-- 6c KEY TERMS (vocabulary, adapted from Beam & Aslim) -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Vocabulary</span><h3>A Working Vocabulary for This Week</h3></div>
+  <div class="slide-body">
+    <p class="lead">A few terms you'll hear all week. You don't need the math &mdash; just the working meaning.</p>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:14px; flex:1; align-content:center;">
+      <div class="card"><h4 class="accent-blue">Model</h4><p>The trained system itself (Claude, GPT, Gemini). A pattern-completion engine &mdash; not a database, not a person.</p></div>
+      <div class="card"><h4 class="accent-blue">Token</h4><p>A chunk of text (~&frac34; of a word) the model reads and writes. Usage and limits are counted in tokens.</p></div>
+      <div class="card"><h4 class="accent-blue">Prompt</h4><p>What you send the model &mdash; your instructions plus any context (files, data, examples) you provide.</p></div>
+      <div class="card"><h4 class="accent-blue">Context window</h4><p>How much the model can hold in mind at once: your prompt, attached files, and the conversation so far.</p></div>
+      <div class="card"><h4 class="accent-blue">Session</h4><p>One continuous conversation. The model has no memory of past sessions unless you give it one.</p></div>
+      <div class="card"><h4 class="accent-blue">Agent</h4><p>A model given tools and a goal, allowed to take steps on its own toward it (Day 3).</p></div>
+    </div>
+    <div class="src">Framing adapted from Beam &amp; Aslim, "Thinking With Agents" (Univ. of Vermont, 2026) · thinkingwithagents.github.io</div>
+  </div>
+</div>
+
 <!-- 7 TIMELINE -->
 <div class="slide">
   <div class="slide-header"><span class="tag">History</span><h3>A Short History — through June 2026</h3></div>
@@ -553,6 +570,21 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   <div><div class="section-number">Part 5</div><h2>Talking to Models</h2><div class="section-desc">Getting good results is a skill — and it's evolving from writing prompts to engineering context.</div></div>
 </div>
 
+<!-- 26b THREE WAYS TO WORK WITH AI (adapted from Beam & Aslim) -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">How to work with AI</span><h3>Three Ways to Work With AI</h3></div>
+  <div class="slide-body">
+    <p class="lead">The same model feels different depending on <em>where</em> you meet it. Match the mode to the task.</p>
+    <div class="three-col">
+      <div class="card" style="border-top:3px solid var(--accent-blue);"><div class="kv">Mode 1</div><h4 class="accent-blue">Chat window</h4><p>ChatGPT, Claude, or Gemini in the browser. You ask, paste, and generate. It can't see your files or run anything.</p><p class="note" style="margin-top:8px;">Like texting a very well-read colleague.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-cyan);"><div class="kv">Mode 2</div><h4 class="accent-cyan">Inside your tools</h4><p>AI built into an editor or app (Cursor, VS Code, Word, a spreadsheet). It sees what you're working on and edits in place.</p><p class="note" style="margin-top:8px;">Like a copilot reading over your shoulder.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-emerald);"><div class="kv">Mode 3</div><h4 class="accent-emerald">Agentic</h4><p>You give a goal; it plans and runs multi-step work &mdash; reads and writes files, runs code, uses tools (Claude Code, Cowork). Day 3.</p><p class="note" style="margin-top:8px;">Like delegating to a capable intern.</p></div>
+    </div>
+    <p class="note">The shift from "ask and copy" (Mode 1) to "delegate and verify" (Mode 3) is the biggest change in how we work this year.</p>
+    <div class="src">Framing adapted from Beam &amp; Aslim, "Thinking With Agents" (Univ. of Vermont, 2026) · thinkingwithagents.github.io</div>
+  </div>
+</div>
+
 <!-- 27 PROMPT ENGINEERING -->
 <div class="slide">
   <div class="slide-header"><span class="tag">Prompting</span><h3>Prompt Engineering: The Basics</h3></div>
@@ -628,6 +660,21 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   </div>
 </div>
 
+<!-- 31b INVERSE LAWS (adapted from Beam & Aslim) -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Responsible use</span><h3>The Three Inverse Laws of AI</h3></div>
+  <div class="slide-body">
+    <p class="lead">Asimov's laws constrain robots to protect people. These "inverse laws" constrain <em>us</em> — the humans using AI.</p>
+    <div class="three-col">
+      <div class="card" style="border-top:3px solid var(--accent-blue);"><div class="kv">Law I</div><h4 class="accent-blue">Non-anthropomorphism</h4><p>Don't attribute judgment, intent, or care to the model. Fluent output is not understanding — it's a statistical system, not a coauthor.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-amber);"><div class="kv">Law II</div><h4 class="accent-amber">Non-deference</h4><p>Never treat AI output as authoritative without independent verification. The higher the stakes, the higher your burden to check.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-rose);"><div class="kv">Law III</div><h4 class="accent-rose">Non-abdication</h4><p>You remain fully responsible for the result. "The AI told me so" is never a defense.</p></div>
+    </div>
+    <p class="note">We'll return to these on Day 5 (responsibility &amp; accountability).</p>
+    <div class="src">Framing adapted from Beam &amp; Aslim, "Thinking With Agents" (Univ. of Vermont, 2026) · thinkingwithagents.github.io</div>
+  </div>
+</div>
+
 <!-- 32 ACTIVITIES -->
 <div class="slide">
   <div class="slide-header"><span class="tag">Hands-on</span><h3>Today's Activities</h3></div>
@@ -650,7 +697,7 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
 </div><!-- /deck -->
 
 <div class="nav-bar">
-  <span class="slide-counter" id="slideCounter">1 / 32</span>
+  <span class="slide-counter" id="slideCounter">1 / 35</span>
   <div class="nav-buttons">
     <button onclick="goToSlide(0)">⏮ Start</button>
     <button onclick="prev()">← Prev</button>
