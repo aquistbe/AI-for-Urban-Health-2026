@@ -838,6 +838,29 @@ Note
 <li>Comparing response quality to cloud-based models (trade-offs: speed, quality, privacy)</li>
 <li>When local models are “good enough” vs.&nbsp;when you need cloud models</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Advanced companion: agentic workflows on a local model (notebook)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Want to go further than chatting? This <a href="code/Agentic_Workflows_UrbanHealth_2026.ipynb" download="Agentic_Workflows_UrbanHealth_2026.ipynb">Jupyter notebook</a> builds real <strong>agentic workflows</strong> on a local Ollama model (a laptop-friendly model like Qwen3 or Gemma 4) — everything runs on your machine, free and private. It works through three patterns on a small set of urban-health abstracts (pedestrian safety, heat, air quality):</p>
+<ol type="1">
+<li><strong>One structured-output prompt</strong> to screen an abstract against inclusion criteria (Pydantic + JSON mode).</li>
+<li><strong>A multi-agent crew</strong> (CrewAI) — a screener and an extractor collaborating.</li>
+<li><strong>A state machine</strong> (LangGraph) — the same workflow as an explicit graph with conditional branching.</li>
+</ol>
+<p>Plus a tool-calling agent (a stand-in PubMed search + a confidence-interval calculator) that previews what MCP standardizes, and a “try it yourself” exercise. It ties directly to the Day 3 concepts: the agent loop, context engineering, tools/MCP, guardrails, and verification.</p>
+<p>Run it in <strong>Positron</strong>, VS Code, or Jupyter. Install once with <code>pip install ollama crewai langgraph langchain-ollama pydantic</code>. Best as an optional advanced track or a live instructor demo.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

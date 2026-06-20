@@ -496,6 +496,20 @@ The instructor will demonstrate:
 3. Comparing response quality to cloud-based models (trade-offs: speed, quality, privacy)
 4. When local models are "good enough" vs. when you need cloud models
 
+:::{.callout-tip collapse="true"}
+## Advanced companion: agentic workflows on a local model (notebook)
+
+Want to go further than chatting? This [Jupyter notebook](code/Agentic_Workflows_UrbanHealth_2026.ipynb){download="Agentic_Workflows_UrbanHealth_2026.ipynb"} builds real **agentic workflows** on a local Ollama model (a laptop-friendly model like Qwen3 or Gemma 4) — everything runs on your machine, free and private. It works through three patterns on a small set of urban-health abstracts (pedestrian safety, heat, air quality):
+
+1. **One structured-output prompt** to screen an abstract against inclusion criteria (Pydantic + JSON mode).
+2. **A multi-agent crew** (CrewAI) — a screener and an extractor collaborating.
+3. **A state machine** (LangGraph) — the same workflow as an explicit graph with conditional branching.
+
+Plus a tool-calling agent (a stand-in PubMed search + a confidence-interval calculator) that previews what MCP standardizes, and a "try it yourself" exercise. It ties directly to the Day 3 concepts: the agent loop, context engineering, tools/MCP, guardrails, and verification.
+
+Run it in **Positron**, VS Code, or Jupyter. Install once with `pip install ollama crewai langgraph langchain-ollama pydantic`. Best as an optional advanced track or a live instructor demo.
+:::
+
 :::{.callout-note}
 ## For IT-Restricted Computers
 Many government and health department computers restrict software installation. If you cannot install Ollama on your work computer, the browser-based alternatives above provide a middle ground. For truly sensitive work, talk to your IT department about setting up a local AI environment on a secure server.

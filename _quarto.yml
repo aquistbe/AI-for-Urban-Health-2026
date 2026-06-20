@@ -1,9 +1,15 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!data/**"
+    - "!code/**"
   resources:
     - slides/
     - data/
+    - code/
 
 website:
   title: "AI for Urban Health"

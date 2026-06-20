@@ -96,28 +96,39 @@ npm install -g @google/gemini-cli            # Gemini CLI
 # Start Ollama (runs in background)
 ollama serve
 
-# Download and run a model
-ollama run llama3.2        # Meta's Llama 3.2 (general purpose)
-ollama run mistral         # Mistral (fast, efficient)
-ollama run phi3            # Microsoft Phi-3 (small, fast)
-ollama run gemma3          # Google Gemma 3 (lightweight, laptop-friendly)
+# Download and run a model (pick one that fits your laptop — see table below)
+ollama run qwen3           # Alibaba Qwen3 — strong, good at structured output/tools
+ollama run gemma4          # Google Gemma 4 — efficient, laptop-friendly
+ollama run qwen3:4b        # smaller size for 8 GB laptops
+ollama run llama3.1:8b     # Meta Llama, general purpose
 
-# List downloaded models
+# List downloaded models; see if one is running on GPU or CPU
 ollama list
+ollama ps
 
 # Remove a model
 ollama rm model-name
 ```
 
-### Recommended Models for Public Health Work
+::: {.callout-note}
+Open models change fast. The names above are current as of mid-2026 — always check [ollama.com/library](https://ollama.com/library) for the latest tags and sizes. The strongest *open-weight* model right now, **GLM-5.2** (MIT license, ~744B mixture-of-experts), is a datacenter/cloud-class model: run it via Ollama Cloud or a hosted API, **not** on a laptop.
+:::
 
-| Model | Size | Best For |
-|-------|------|----------|
-| `llama3` (8B) | ~4.7 GB | General-purpose text tasks |
-| `llama3` (70B) | ~39 GB | Higher-quality output (needs 64 GB RAM) |
-| `mistral` (7B) | ~4.1 GB | Fast responses, good for iterative work |
-| `phi3` (3.8B) | ~2.3 GB | Constrained hardware, quick tasks |
-| `gemma` (7B) | ~5.0 GB | Good balance of quality and speed |
+### Which Model Fits Your Laptop?
+
+Rough guide using 4-bit quantization (`Q4_K_M`, Ollama's default) — a model needs roughly **0.6 GB of memory per billion parameters**, plus headroom for context.
+
+| Your laptop | Usable memory | Models that run well (Q4) |
+|---|---|---|
+| Entry (8 GB RAM, no/integrated GPU) | ~5 GB | Gemma 4 small, Qwen3 4B, Phi-4-mini, Llama 3.2 3B |
+| Mainstream (16 GB RAM, or 8 GB GPU) | ~10 GB | Qwen3 8B, Gemma 4, Llama 3.1 8B |
+| Strong (32 GB RAM, or 12–16 GB GPU) | ~20 GB | Qwen3 14B–32B, Gemma 4 (larger), gpt-oss 20B |
+| Workstation (64 GB+ unified, or 24 GB GPU) | 40 GB+ | 70B-class or large MoE, heavily quantized |
+| Not a laptop (cloud/server) | — | GLM-5.2, DeepSeek V4, MiniMax M3, Llama 4 Maverick |
+
+**On a Mac (Apple Silicon — M1/M2/M3/M4):** memory is *unified* (shared by CPU and GPU) and Ollama uses the GPU (Metal) automatically. Plan to use about 60–70% of total RAM for the model — a 16 GB Mac handles up to ~8–14B comfortably, a 32 GB Mac up to ~32B. *Intel Macs are CPU-only; stick to 3–4B models.*
+
+**On a PC (Windows / Linux):** with an **NVIDIA GPU**, the limit is **VRAM** — the model should mostly fit in VRAM for good speed (check with `nvidia-smi`). Roughly: 8 GB VRAM → up to 8B, 12 GB → up to 14B, 24 GB (e.g., RTX 4090) → up to ~32B. **Without a dedicated GPU**, Ollama runs on CPU + system RAM — fine for 3–8B models, just slower. AMD GPUs work via ROCm on Linux and recent Windows builds.
 
 ### Browser-Based Alternatives (No Installation Required)
 

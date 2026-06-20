@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
   <li><a href="#system-requirements" id="toc-system-requirements" class="nav-link" data-scroll-target="#system-requirements">System Requirements</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
-  <li><a href="#recommended-models-for-public-health-work" id="toc-recommended-models-for-public-health-work" class="nav-link" data-scroll-target="#recommended-models-for-public-health-work">Recommended Models for Public Health Work</a></li>
+  <li><a href="#which-model-fits-your-laptop" id="toc-which-model-fits-your-laptop" class="nav-link" data-scroll-target="#which-model-fits-your-laptop">Which Model Fits Your Laptop?</a></li>
   <li><a href="#browser-based-alternatives-no-installation-required" id="toc-browser-based-alternatives-no-installation-required" class="nav-link" data-scroll-target="#browser-based-alternatives-no-installation-required">Browser-Based Alternatives (No Installation Required)</a></li>
   </ul></li>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a>
@@ -441,56 +441,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama (runs in background)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and run a model</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run llama3.2        <span class="co"># Meta's Llama 3.2 (general purpose)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run mistral         <span class="co"># Mistral (fast, efficient)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run phi3            <span class="co"># Microsoft Phi-3 (small, fast)</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma3          <span class="co"># Google Gemma 3 (lightweight, laptop-friendly)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and run a model (pick one that fits your laptop — see table below)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3           <span class="co"># Alibaba Qwen3 — strong, good at structured output/tools</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma4          <span class="co"># Google Gemma 4 — efficient, laptop-friendly</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3:4b        <span class="co"># smaller size for 8 GB laptops</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run llama3.1:8b     <span class="co"># Meta Llama, general purpose</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List downloaded models</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List downloaded models; see if one is running on GPU or CPU</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> list</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove a model</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> rm model-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> ps</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove a model</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> rm model-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open models change fast. The names above are current as of mid-2026 — always check <a href="https://ollama.com/library">ollama.com/library</a> for the latest tags and sizes. The strongest <em>open-weight</em> model right now, <strong>GLM-5.2</strong> (MIT license, ~744B mixture-of-experts), is a datacenter/cloud-class model: run it via Ollama Cloud or a hosted API, <strong>not</strong> on a laptop.</p>
+</div>
+</div>
 </section>
-<section id="recommended-models-for-public-health-work" class="level3">
-<h3 class="anchored" data-anchor-id="recommended-models-for-public-health-work">Recommended Models for Public Health Work</h3>
+<section id="which-model-fits-your-laptop" class="level3">
+<h3 class="anchored" data-anchor-id="which-model-fits-your-laptop">Which Model Fits Your Laptop?</h3>
+<p>Rough guide using 4-bit quantization (<code>Q4_K_M</code>, Ollama’s default) — a model needs roughly <strong>0.6 GB of memory per billion parameters</strong>, plus headroom for context.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Model</th>
-<th>Size</th>
-<th>Best For</th>
+<th>Your laptop</th>
+<th>Usable memory</th>
+<th>Models that run well (Q4)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>llama3</code> (8B)</td>
-<td>~4.7 GB</td>
-<td>General-purpose text tasks</td>
+<td>Entry (8 GB RAM, no/integrated GPU)</td>
+<td>~5 GB</td>
+<td>Gemma 4 small, Qwen3 4B, Phi-4-mini, Llama 3.2 3B</td>
 </tr>
 <tr class="even">
-<td><code>llama3</code> (70B)</td>
-<td>~39 GB</td>
-<td>Higher-quality output (needs 64 GB RAM)</td>
+<td>Mainstream (16 GB RAM, or 8 GB GPU)</td>
+<td>~10 GB</td>
+<td>Qwen3 8B, Gemma 4, Llama 3.1 8B</td>
 </tr>
 <tr class="odd">
-<td><code>mistral</code> (7B)</td>
-<td>~4.1 GB</td>
-<td>Fast responses, good for iterative work</td>
+<td>Strong (32 GB RAM, or 12–16 GB GPU)</td>
+<td>~20 GB</td>
+<td>Qwen3 14B–32B, Gemma 4 (larger), gpt-oss 20B</td>
 </tr>
 <tr class="even">
-<td><code>phi3</code> (3.8B)</td>
-<td>~2.3 GB</td>
-<td>Constrained hardware, quick tasks</td>
+<td>Workstation (64 GB+ unified, or 24 GB GPU)</td>
+<td>40 GB+</td>
+<td>70B-class or large MoE, heavily quantized</td>
 </tr>
 <tr class="odd">
-<td><code>gemma</code> (7B)</td>
-<td>~5.0 GB</td>
-<td>Good balance of quality and speed</td>
+<td>Not a laptop (cloud/server)</td>
+<td>—</td>
+<td>GLM-5.2, DeepSeek V4, MiniMax M3, Llama 4 Maverick</td>
 </tr>
 </tbody>
 </table>
+<p><strong>On a Mac (Apple Silicon — M1/M2/M3/M4):</strong> memory is <em>unified</em> (shared by CPU and GPU) and Ollama uses the GPU (Metal) automatically. Plan to use about 60–70% of total RAM for the model — a 16 GB Mac handles up to ~8–14B comfortably, a 32 GB Mac up to ~32B. <em>Intel Macs are CPU-only; stick to 3–4B models.</em></p>
+<p><strong>On a PC (Windows / Linux):</strong> with an <strong>NVIDIA GPU</strong>, the limit is <strong>VRAM</strong> — the model should mostly fit in VRAM for good speed (check with <code>nvidia-smi</code>). Roughly: 8 GB VRAM → up to 8B, 12 GB → up to 14B, 24 GB (e.g., RTX 4090) → up to ~32B. <strong>Without a dedicated GPU</strong>, Ollama runs on CPU + system RAM — fine for 3–8B models, just slower. AMD GPUs work via ROCm on Linux and recent Windows builds.</p>
 </section>
 <section id="browser-based-alternatives-no-installation-required" class="level3">
 <h3 class="anchored" data-anchor-id="browser-based-alternatives-no-installation-required">Browser-Based Alternatives (No Installation Required)</h3>
