@@ -23,6 +23,7 @@ By the end of today, you will be able to:
 3. Design AI-assisted approaches to realistic urban health challenges
 4. Identify which parts of a workflow should be automated vs. kept human
 5. Present and defend an AI integration strategy to peers
+6. Use AI to assist (not replace) grant and research writing, with appropriate disclosure
 
 ---
 
@@ -396,6 +397,45 @@ Three concrete ways to put agentic AI to work in your own research. Try the chat
 - **Live research brainstorm.** Talk through a study idea with the model as a thinking partner: rival hypotheses, confounders, designs, and what would falsify it.
 
 *Adapted from Beam & Aslim, ["Thinking With Agents"](https://thinkingwithagents.github.io/) (Univ. of Vermont, 2026).*
+
+---
+
+## Activity 4: AI for Grant & Research Writing (optional / if time) {.activity}
+
+::: {.activity}
+
+### Activity 4: AI for Grant & Research Writing *(optional / if time)*
+::: {.activity-meta}
+Duration: ~15 minutes | Format: Demonstration with brief hands-on practice | **Optional --- if time allows**
+:::
+
+**Goal:** Explore how AI can assist (not replace) specific components of grant and research writing.
+
+#### Where AI Can Help
+
+| Grant Component | How AI Can Assist | Human Judgment Still Needed |
+|----------------|-------------------|---------------------------|
+| Specific Aims | Draft structure, refine language | Scientific direction, innovation |
+| Background | Literature synthesis, gap identification | Critical interpretation, theory |
+| Significance | Evidence compilation, impact framing | Vision, originality |
+| Approach | Methods description, statistical plan template | Study design decisions, feasibility |
+| Budget justification | Template language, calculations | Resource allocation strategy |
+| Biosketches | Formatting, description drafting | Accuracy verification |
+
+#### Quick Practice
+
+Try this prompt, then critically evaluate what you would keep and what needs your expertise to fix:
+
+> I am writing an R01 grant proposal to study the relationship between urban green space and mental health outcomes in Philadelphia. Draft a 1-page Specific Aims section with: a brief introductory paragraph establishing the problem, an overarching goal, and three specific aims. Each aim should include a brief description and a hypothesis.
+
+For a deeper version, see [Bonus Exercise 9: AI-Assisted Grant Proposal](challenges.qmd#exercise-9).
+
+:::{.callout-warning}
+## NIH Policy on AI in Grant Writing
+NIH and other funders are developing policies on AI use in grant applications. As of 2025, NIH requires disclosure of AI tool use in the preparation of grant applications. Always check the current funder requirements before submitting. **AI cannot serve as a reviewer or be listed as a co-investigator.**
+:::
+
+:::
 
 ---
 

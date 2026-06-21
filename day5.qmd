@@ -25,6 +25,7 @@ By the end of today, you will be able to:
 5. Evaluate the trade-offs between AI capability and interpretability (the "black box" problem)
 6. Discuss accountability frameworks for AI-assisted decisions in public health
 7. Develop a personal plan for responsible AI integration in your work
+8. Make AI-assisted work reproducible and transparent, including disclosure of AI use
 
 ---
 
@@ -363,6 +364,49 @@ Share your plan with a partner. Give each other feedback:
 - Is the plan realistic and specific enough to actually implement?
 - Are there risks or considerations the other person missed?
 - What additional support or resources would help?
+
+:::
+
+---
+
+## Activity 5: Make Your Work Reproducible (with AI) {.activity}
+
+::: {.activity}
+
+### Activity 5: Make Your Work Reproducible (with AI)
+::: {.activity-meta}
+Duration: ~20 minutes | Format: Individual work + pair review
+:::
+
+**Goal:** Take a piece of your own AI-assisted analysis or writing and make it transparent and reproducible --- so a colleague (or future you) can rerun it and see exactly where AI was used.
+
+**Why it matters:** Responsible AI use is not just about bias and privacy --- it is also about rigor. If you cannot reproduce a result or say how it was produced, you cannot stand behind it. AI makes it faster to generate work *and* easier to lose track of how that work was made.
+
+#### Steps
+
+1. **Pick one artifact** --- a recent analysis script, a report, or something you built this week.
+2. **Capture the environment.** Record the software and package versions so it can be rebuilt:
+   - *Python:* `uv lock` / `uv export` (or `pip freeze > requirements.txt`)
+   - *R:* `sessionInfo()` output, or `renv::snapshot()`
+3. **Make it literate.** Put code and narrative in one document that runs top to bottom (Quarto, R Markdown, or a Jupyter notebook) --- no "run these cells out of order" surprises.
+4. **Log the AI use.** Note where AI contributed (drafting, code, analysis) and write a short **AI-use disclosure statement** you could include in a paper or report.
+5. **Document data provenance.** A short README: data source, access date, and which files are raw vs. derived.
+6. **Stress-test it.** Use AI as an adversarial reader of your own work:
+
+   > Review this analysis. List every external dependency, file path, hard-coded value, and manual step someone else would need to reproduce it. Flag anything that is not documented.
+
+   Then fix the gaps it finds.
+
+#### Pair Review
+
+Swap with a partner and try to follow each other's README and reproducibility notes. Could you rerun it from scratch? What is missing?
+
+**Deliverable:** A runnable literate document, an environment/lock file, a short README, and an AI-use disclosure statement.
+
+:::{.callout-note}
+## Reflection
+What would break if someone ran your project a year from now? Where did AI genuinely help reproducibility, and where could it create a false sense of completeness? For a deeper version, see [Bonus Exercise 4: Reproducing a Published Analysis](challenges.qmd#exercise-4).
+:::
 
 :::
 

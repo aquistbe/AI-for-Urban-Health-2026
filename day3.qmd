@@ -23,8 +23,7 @@ By the end of today, you will be able to:
 3. Explain the Model Context Protocol (MCP) and how it enables tool integration
 4. Use or observe command-line AI tools (Claude Code, Codex CLI, Gemini CLI)
 5. Build a simple AI agent using Google AI Studio
-6. Discuss the role of AI in grant writing and research workflows
-7. Understand why local AI models matter for sensitive data and how to run them
+6. Understand why local AI models matter for sensitive data and how to run them
 
 ---
 
@@ -37,7 +36,7 @@ Install these **before class** if you can. Each tool below has a **Windows** and
 - **Everyone:** [Positron](#setup) (the IDE), plus **R** and/or **Python** for the data activities.
 - **Day 3 CLI demo:** [Node.js + Claude Code](#setup).
 - **Local models (Day 3):** [Ollama](#setup).
-- **Locked-down work computer?** You can do almost everything in the browser (Claude.ai, ChatGPT, Google AI Studio). Ask your IT department before installing, and see "For IT-Restricted Computers" under Activity 6.
+- **Locked-down work computer?** You can do almost everything in the browser (Claude.ai, ChatGPT, Google AI Studio). Ask your IT department before installing, and see "For IT-Restricted Computers" under Activity 5.
 :::
 
 ### Positron (the data-science IDE)
@@ -421,13 +420,13 @@ Positron also ships a built-in **Positron Assistant** (a native in-IDE chat/agen
 
 ---
 
-## Activity 3: Brief Tour of Other CLI Tools {.activity}
+## Activity 3: Brief Tour of Other CLI Tools (optional / if time) {.activity}
 
 ::: {.activity}
 
-### Activity 3: Brief Tour of Other CLI Tools
+### Activity 3: Brief Tour of Other CLI Tools *(optional / if time)*
 ::: {.activity-meta}
-Duration: ~10 minutes | Format: Instructor overview
+Duration: ~10 minutes | Format: Instructor overview | **Optional --- skip if running short**
 :::
 
 **Goal:** Awareness of the broader landscape of command-line AI tools.
@@ -515,50 +514,11 @@ Build an agent focused on environmental health:
 
 ---
 
-## Activity 5: AI for Grant Writing {.activity}
+## Activity 5: Local AI with Ollama {.activity}
 
 ::: {.activity}
 
-### Activity 5: AI for Grant Writing
-::: {.activity-meta}
-Duration: ~15 minutes | Format: Demonstration with brief hands-on practice
-:::
-
-**Goal:** Explore how AI can assist (not replace) specific components of the grant writing process.
-
-#### Where AI Can Help
-
-| Grant Component | How AI Can Assist | Human Judgment Still Needed |
-|----------------|-------------------|---------------------------|
-| Specific Aims | Draft structure, refine language | Scientific direction, innovation |
-| Background | Literature synthesis, gap identification | Critical interpretation, theory |
-| Significance | Evidence compilation, impact framing | Vision, originality |
-| Approach | Methods description, statistical plan template | Study design decisions, feasibility |
-| Budget justification | Template language, calculations | Resource allocation strategy |
-| Biosketches | Formatting, description drafting | Accuracy verification |
-
-#### Quick Practice
-
-Try one of these prompts:
-
-> I am writing an R01 grant proposal to study the relationship between urban green space and mental health outcomes in Philadelphia. Draft a 1-page Specific Aims section with: a brief introductory paragraph establishing the problem, an overarching goal, and three specific aims. Each aim should include a brief description and a hypothesis.
-
-Then critically evaluate: What would you keep? What needs your expertise to fix?
-
-:::{.callout-warning}
-## NIH Policy on AI in Grant Writing
-NIH and other funders are developing policies on AI use in grant applications. As of 2025, NIH requires disclosure of AI tool use in the preparation of grant applications. Always check the current funder requirements before submitting. **AI cannot serve as a reviewer or be listed as a co-investigator.**
-:::
-
-:::
-
----
-
-## Activity 6: Local AI with Ollama {.activity}
-
-::: {.activity}
-
-### Activity 6: Local AI with Ollama
+### Activity 5: Local AI with Ollama
 ::: {.activity-meta}
 Duration: ~20 minutes | Format: Demonstration + optional hands-on installation
 :::
