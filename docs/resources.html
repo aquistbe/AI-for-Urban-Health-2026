@@ -132,6 +132,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./day3.html#setup"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./day1.html"> 
 <span class="menu-text">Day 1</span></a>
   </li>  
@@ -206,6 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#system-requirements" id="toc-system-requirements" class="nav-link" data-scroll-target="#system-requirements">System Requirements</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
   <li><a href="#which-model-fits-your-laptop" id="toc-which-model-fits-your-laptop" class="nav-link" data-scroll-target="#which-model-fits-your-laptop">Which Model Fits Your Laptop?</a></li>
+  <li><a href="#hands-on-agentic-workflows-notebook" id="toc-hands-on-agentic-workflows-notebook" class="nav-link" data-scroll-target="#hands-on-agentic-workflows-notebook">Hands-On: Agentic Workflows Notebook</a></li>
   <li><a href="#browser-based-alternatives-no-installation-required" id="toc-browser-based-alternatives-no-installation-required" class="nav-link" data-scroll-target="#browser-based-alternatives-no-installation-required">Browser-Based Alternatives (No Installation Required)</a></li>
   </ul></li>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a>
@@ -268,6 +273,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 <p>A curated collection of tools, data sources, guides, and learning resources for the course and beyond.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Installing the software?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See the full step-by-step <strong><a href="./day3.html#setup">Software Setup guide (Windows &amp; macOS)</a></strong> on the Day 3 page — it covers Positron, R, Python, uv, Node.js + Claude Code, and Ollama, with separate Windows and Mac instructions for each.</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="ai-platforms" class="level2">
@@ -513,6 +531,10 @@ Note
 </table>
 <p><strong>On a Mac (Apple Silicon — M1/M2/M3/M4):</strong> memory is <em>unified</em> (shared by CPU and GPU) and Ollama uses the GPU (Metal) automatically. Plan to use about 60–70% of total RAM for the model — a 16 GB Mac handles up to ~8–14B comfortably, a 32 GB Mac up to ~32B. <em>Intel Macs are CPU-only; stick to 3–4B models.</em></p>
 <p><strong>On a PC (Windows / Linux):</strong> with an <strong>NVIDIA GPU</strong>, the limit is <strong>VRAM</strong> — the model should mostly fit in VRAM for good speed (check with <code>nvidia-smi</code>). Roughly: 8 GB VRAM → up to 8B, 12 GB → up to 14B, 24 GB (e.g., RTX 4090) → up to ~32B. <strong>Without a dedicated GPU</strong>, Ollama runs on CPU + system RAM — fine for 3–8B models, just slower. AMD GPUs work via ROCm on Linux and recent Windows builds.</p>
+</section>
+<section id="hands-on-agentic-workflows-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="hands-on-agentic-workflows-notebook">Hands-On: Agentic Workflows Notebook</h3>
+<p>Once Ollama is running, this <a href="code/Agentic_Workflows_UrbanHealth_2026.ipynb" download="Agentic_Workflows_UrbanHealth_2026.ipynb">Jupyter notebook</a> builds real <strong>agentic workflows</strong> entirely on a local model — structured-output screening, a multi-agent crew (CrewAI), a state machine (LangGraph), and a tool-calling agent — on a small set of urban-health abstracts. Everything runs on your machine, free and private. Open it in Positron, VS Code, or Jupyter. It is also linked from <a href="./day3.html">Day 3</a> as an optional advanced track.</p>
 </section>
 <section id="browser-based-alternatives-no-installation-required" class="level3">
 <h3 class="anchored" data-anchor-id="browser-based-alternatives-no-installation-required">Browser-Based Alternatives (No Installation Required)</h3>
@@ -792,6 +814,103 @@ Note
 </section>
 
 </main> <!-- /main -->
+<script>
+// Makes activity / scenario / challenge / bonus-exercise blocks collapsible.
+// Collapsed by default EXCEPT the first activity/exercise on a page (kept open so
+// the page doesn't look empty). The title, meta line, and one-line Goal teaser stay
+// visible while collapsed. Robust to Quarto wrapping each heading in its own <section>.
+(function () {
+  var SEL = "div.activity, div.scenario-card, div.challenge-card, div.challenge-exercise";
+  function isMeta(el) {
+    return el && el.classList &&
+      (el.classList.contains("activity-meta") || el.classList.contains("challenge-meta"));
+  }
+  function isGoalPara(el) {
+    return el && el.tagName === "P" && /^goal\b/i.test((el.textContent || "").trim());
+  }
+  function moveSiblingsInto(startNode, container) {
+    var n = startNode.nextSibling;
+    while (n) { var next = n.nextSibling; container.appendChild(n); n = next; }
+  }
+  function initBox(box) {
+    if (box.dataset.collapsibleInit) return;
+    var h = box.querySelector("h2, h3, h4, h5, h6");
+    if (!h) return;
+    box.dataset.collapsibleInit = "1";
+
+    // `top` = direct child of box containing the heading (heading itself, or its <section>)
+    var top = h;
+    while (top.parentElement && top.parentElement !== box) top = top.parentElement;
+
+    // visible prefix while collapsed: heading + optional meta + optional one-line Goal
+    var visibleEnd = h;
+    if (isMeta(visibleEnd.nextElementSibling)) visibleEnd = visibleEnd.nextElementSibling;
+    if (isGoalPara(visibleEnd.nextElementSibling)) {
+      visibleEnd = visibleEnd.nextElementSibling;
+      visibleEnd.classList.add("collapsible-teaser");
+    }
+
+    var bodyA = document.createElement("div");
+    bodyA.className = "collapsible-body";
+    moveSiblingsInto(visibleEnd, bodyA);
+    (top === h ? box : top).appendChild(bodyA);
+
+    if (top !== h) {
+      var bodyB = document.createElement("div");
+      bodyB.className = "collapsible-body";
+      moveSiblingsInto(top, bodyB);
+      box.appendChild(bodyB);
+    }
+
+    var arrow = document.createElement("span");
+    arrow.className = "collapsible-arrow";
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "▸ "; // ▸
+    h.insertBefore(arrow, h.firstChild);
+    h.classList.add("collapsible-toggle");
+    h.style.cursor = "pointer";
+
+    box.classList.add("collapsible-collapsed");
+    h.addEventListener("click", function () {
+      var collapsed = box.classList.toggle("collapsible-collapsed");
+      arrow.textContent = collapsed ? "▸ " : "▾ "; // ▸ / ▾
+    });
+  }
+  function setOpen(box) {
+    box.classList.remove("collapsible-collapsed");
+    var arrow = box.querySelector(".collapsible-arrow");
+    if (arrow) arrow.textContent = "▾ "; // ▾
+  }
+  function expandForHash() {
+    if (!location.hash) return;
+    var el;
+    try { el = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+    catch (e) { el = null; }
+    if (!el) return;
+    var box = el.closest ? el.closest(SEL) : null;
+    if (box && box.classList.contains("collapsible-collapsed")) setOpen(box);
+    if (el.scrollIntoView) el.scrollIntoView();
+  }
+  function run() {
+    var boxes = document.querySelectorAll(SEL);
+    var keptOpen = false;
+    boxes.forEach(function (box) {
+      initBox(box);
+      // keep the first activity (day pages) or first exercise (challenges page) expanded
+      if (!keptOpen &&
+          (box.classList.contains("activity") || box.classList.contains("challenge-exercise"))) {
+        setOpen(box);
+        keptOpen = true;
+      }
+    });
+    expandForHash();
+    window.addEventListener("hashchange", expandForHash);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else { run(); }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

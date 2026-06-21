@@ -132,6 +132,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./day3.html#setup"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./day1.html"> 
 <span class="menu-text">Day 1</span></a>
   </li>  
@@ -188,6 +192,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#day-3-agentic-ai-tool-building" id="toc-day-3-agentic-ai-tool-building" class="nav-link active" data-scroll-target="#day-3-agentic-ai-tool-building">Day 3: Agentic AI &amp; Tool Building</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Software Setup (Windows &amp; macOS)</a>
+  <ul class="collapse">
+  <li><a href="#positron-the-data-science-ide" id="toc-positron-the-data-science-ide" class="nav-link" data-scroll-target="#positron-the-data-science-ide">Positron (the data-science IDE)</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#uv-recommended-manage-python-versions-project-environments" id="toc-uv-recommended-manage-python-versions-project-environments" class="nav-link" data-scroll-target="#uv-recommended-manage-python-versions-project-environments">uv (recommended: manage Python versions + project environments)</a></li>
+  <li><a href="#node.js-claude-code-for-the-cli-demo" id="toc-node.js-claude-code-for-the-cli-demo" class="nav-link" data-scroll-target="#node.js-claude-code-for-the-cli-demo">Node.js + Claude Code (for the CLI demo)</a></li>
+  <li><a href="#ollama-run-ai-models-locally" id="toc-ollama-run-ai-models-locally" class="nav-link" data-scroll-target="#ollama-run-ai-models-locally">Ollama (run AI models locally)</a></li>
+  <li><a href="#no-installation-needed-browser-only" id="toc-no-installation-needed-browser-only" class="nav-link" data-scroll-target="#no-installation-needed-browser-only">No installation needed (browser only)</a></li>
+  </ul></li>
   <li><a href="#lecture-agents-context-and-tools" id="toc-lecture-agents-context-and-tools" class="nav-link" data-scroll-target="#lecture-agents-context-and-tools">Lecture: Agents, Context, and Tools</a>
   <ul class="collapse">
   <li><a href="#chatbots-vs.-agents" id="toc-chatbots-vs.-agents" class="nav-link" data-scroll-target="#chatbots-vs.-agents">Chatbots vs.&nbsp;Agents</a></li>
@@ -270,6 +284,180 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Understand why local AI models matter for sensitive data and how to run them</li>
 </ol>
 <hr>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Software Setup (Windows &amp; macOS)</h2>
+<p>Install these <strong>before class</strong> if you can. Each tool below has a <strong>Windows</strong> and a <strong>macOS</strong> tab — follow the one for your computer. None of this is needed just to use the web chat tools (Claude, ChatGPT, Gemini, Google AI Studio) — those only need a browser and a free account.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What to install for what
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Everyone:</strong> <a href="#setup">Positron</a> (the IDE), plus <strong>R</strong> and/or <strong>Python</strong> for the data activities.</li>
+<li><strong>Day 3 CLI demo:</strong> <a href="#setup">Node.js + Claude Code</a>.</li>
+<li><strong>Local models (Day 3):</strong> <a href="#setup">Ollama</a>.</li>
+<li><strong>Locked-down work computer?</strong> You can do almost everything in the browser (Claude.ai, ChatGPT, Google AI Studio). Ask your IT department before installing, and see “For IT-Restricted Computers” under Activity 6.</li>
+</ul>
+</div>
+</div>
+<section id="positron-the-data-science-ide" class="level3">
+<h3 class="anchored" data-anchor-id="positron-the-data-science-ide">Positron (the data-science IDE)</h3>
+<p>Free IDE for R and Python from Posit (the RStudio team). Requires <strong>macOS 12+</strong> or <strong>Windows 10/11</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Go to the <a href="https://positron.posit.co/download.html">Positron download page</a> and accept the license.</li>
+<li>Download the <strong>user-level installer</strong> for your chip — <code>x64</code> for most PCs, <code>arm64</code> for Windows-on-ARM.</li>
+<li>Run the <code>.exe</code> and follow the prompts.</li>
+<li>If it won’t launch, install the latest <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist">Microsoft Visual C++ Redistributable</a>.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li>Go to the <a href="https://positron.posit.co/download.html">Positron download page</a> and accept the license.</li>
+<li>Download the <code>.dmg</code> for your chip: <strong>Apple Silicon (arm64)</strong> for M1/M2/M3/M4, or <strong>Intel (x64)</strong>. To check, open the Apple menu → About This Mac, or run <code>uname -m</code> (<code>arm64</code> vs <code>x86_64</code>).</li>
+<li>Open the <code>.dmg</code> and drag <strong>Positron</strong> into Applications.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="r" class="level3">
+<h3 class="anchored" data-anchor-id="r">R</h3>
+<p>Install from CRAN (not via conda). Positron needs <strong>R 4.2 or higher</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Download from <a href="https://cran.r-project.org/bin/windows/base/">CRAN → base</a> and run the installer.</li>
+<li><em>Optional:</em> install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> if you need to compile packages from source.</li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ol type="1">
+<li>Download the <code>.pkg</code> from <a href="https://cran.r-project.org/bin/macosx/">CRAN → macOS</a>: <strong>arm64</strong> for Apple Silicon, <strong>x86_64</strong> for Intel.</li>
+<li>Run the installer (it installs to <code>/Library/Frameworks/R.framework</code>).</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="python" class="level3">
+<h3 class="anchored" data-anchor-id="python">Python</h3>
+<p>Positron works with Python <strong>3.9–3.13</strong>. Easiest path: let <strong>uv</strong> (next section) install Python for you. Otherwise use the official installer.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ol type="1">
+<li>Download from <a href="https://www.python.org/downloads/windows/">python.org/downloads</a>.</li>
+<li>In the installer, <strong>check “Add python.exe to PATH”</strong> before clicking Install — this matters.</li>
+</ol>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<ol type="1">
+<li>Download the macOS <code>universal2</code> installer from <a href="https://www.python.org/downloads/macos/">python.org/downloads</a>, <strong>or</strong> install via Homebrew: <code>brew install python</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="uv-recommended-manage-python-versions-project-environments" class="level3">
+<h3 class="anchored" data-anchor-id="uv-recommended-manage-python-versions-project-environments">uv (recommended: manage Python versions + project environments)</h3>
+<p><a href="https://docs.astral.sh/uv/">uv</a> is a fast tool that creates an isolated environment per project (so packages never collide) and can even install Python for you.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Open <strong>PowerShell</strong> and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>powershell <span class="op">-</span>ExecutionPolicy ByPass <span class="op">-</span>c <span class="st">"irm https://astral.sh/uv/install.ps1 | iex"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then (optional) let uv supply Python: <code>uv python install 3.12</code></p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>In <strong>Terminal</strong>, run either:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install uv</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-LsSf</span> https://astral.sh/uv/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then (optional) let uv supply Python: <code>uv python install 3.12</code></p>
+</div>
+</div>
+</div>
+<p>Per-project use (same on both): <code>cd</code> into a folder, then <code>uv init</code>, <code>uv add pandas numpy matplotlib jupyterlab ipykernel</code>, and run with <code>uv run python script.py</code>.</p>
+</section>
+<section id="node.js-claude-code-for-the-cli-demo" class="level3">
+<h3 class="anchored" data-anchor-id="node.js-claude-code-for-the-cli-demo">Node.js + Claude Code (for the CLI demo)</h3>
+<p>Claude Code is a command-line tool; it needs <strong>Node.js v18+</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<ol type="1">
+<li><p>Install the <strong>LTS</strong> build from <a href="https://nodejs.org">nodejs.org</a> (<code>.msi</code>).</p></li>
+<li><p>Open <strong>PowerShell</strong> (or Windows Terminal) and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>npm install <span class="op">-</span>g @anthropic-ai<span class="op">/</span>claude-code</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>claude</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<ol type="1">
+<li><p>Install Node from <a href="https://nodejs.org">nodejs.org</a> (<code>.pkg</code>), or <code>brew install node</code>.</p></li>
+<li><p>In <strong>Terminal</strong>, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</div>
+</div>
+</div>
+<p>On first run, <code>claude</code> opens a browser to sign in (works with a Claude Pro/Max or Team subscription, or an API key).</p>
+</section>
+<section id="ollama-run-ai-models-locally" class="level3">
+<h3 class="anchored" data-anchor-id="ollama-run-ai-models-locally">Ollama (run AI models locally)</h3>
+<p>Runs open models on your own machine — free and private. After installing, pull a model that fits your laptop (see the <a href="./resources.html#which-model-fits-your-laptop">model sizing guide</a>).</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<ol type="1">
+<li>Download the installer from <a href="https://ollama.com/download/windows">ollama.com/download/windows</a> and run it.</li>
+<li>In PowerShell: <code>ollama pull gemma4:12b</code> (smaller laptops) or <code>ollama pull qwen3</code>.</li>
+</ol>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<ol type="1">
+<li>Download the <code>.dmg</code> from <a href="https://ollama.com/download">ollama.com/download</a>, or <code>brew install ollama</code>.</li>
+<li>In Terminal: <code>ollama pull gemma4:12b</code> or <code>ollama pull qwen3</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="no-installation-needed-browser-only" class="level3">
+<h3 class="anchored" data-anchor-id="no-installation-needed-browser-only">No installation needed (browser only)</h3>
+<p>These need only a browser and a free account: <a href="https://claude.ai">Claude</a>, <a href="https://chat.openai.com">ChatGPT</a>, <a href="https://gemini.google.com">Gemini</a>, <a href="https://aistudio.google.com">Google AI Studio</a>, <a href="https://perplexity.ai">Perplexity</a>, and <a href="https://www.makesense.ai/">MakeSense.ai</a> (Day 2 image annotation).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Skip Anaconda for this course
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’ve used Anaconda, <strong>don’t rely on its bundled R or Python here</strong> — it tends to shadow the versions above and cause “wrong version” headaches in Positron. Use <strong>CRAN R</strong> and <strong>uv/python.org Python</strong> as described. If you only want conda for Python, <a href="https://github.com/conda-forge/miniforge">Miniforge</a> is the lighter, license-clean option.</p>
+</div>
+</div>
+<hr>
+</section>
 </section>
 <section id="lecture-agents-context-and-tools" class="level2">
 <h2 class="anchored" data-anchor-id="lecture-agents-context-and-tools">Lecture: Agents, Context, and Tools</h2>
@@ -465,7 +653,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>They require some comfort with the command line (but AI can help with that too)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -474,31 +662,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a step-by-step guide for the instructor to run the demo end-to-end on a real dataset. It uses a small <strong>sample</strong> Heat Vulnerability dataset so every command actually executes. Total live time: ~20–25 minutes. (Verified against Claude Code documentation, 2026; the CLI changes often, so test once the day before.)</p>
 <section id="before-class-15-minutes-once" class="level3">
 <h3 class="anchored" data-anchor-id="before-class-15-minutes-once">Before class (15 minutes, once)</h3>
 <ol type="1">
 <li><p><strong>Install</strong> (needs <a href="https://nodejs.org">Node.js</a> v18+; check with <code>node --version</code>):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--version</span>          <span class="co"># confirm it installed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--version</span>          <span class="co"># confirm it installed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Do <em>not</em> use <code>sudo</code>. If you hit permission errors, use <code>nvm</code> or reconfigure npm’s global prefix.</p></li>
 <li><p><strong>Authenticate.</strong> Run <code>claude</code> once; a browser opens to approve login. This works with a Claude Pro/Max <strong>or</strong> Team/Enterprise subscription (recommended for teaching), or with an API key from the <a href="https://console.anthropic.com">Console</a>.</p>
 <blockquote class="blockquote">
 <p><strong>Cost gotcha:</strong> if <code>ANTHROPIC_API_KEY</code> is set in your shell, it overrides your subscription and you’ll be billed per-token. For a subscription demo, <code>unset ANTHROPIC_API_KEY</code> first.</p>
 </blockquote></li>
 <li><p><strong>Build the demo folder</strong> and drop in the sample data (<a href="data/hvi_sample.csv" download="hvi_sample.csv">download <code>hvi_sample.csv</code></a> — 45 tracts; neighborhood names are illustrative and values are synthetic):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/cli-demo/data <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> ~/cli-demo</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># move the downloaded file into ~/cli-demo/data/hvi_sample.csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/cli-demo/data <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> ~/cli-demo</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># move the downloaded file into ~/cli-demo/data/hvi_sample.csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Dry-run it once</strong> so there are no surprises live, then <code>/clear</code> before class.</p></li>
 </ol>
 </section>
 <section id="live-demo-project-on-screen-narrate-as-you-go" class="level3">
 <h3 class="anchored" data-anchor-id="live-demo-project-on-screen-narrate-as-you-go">Live demo (project on screen, narrate as you go)</h3>
 <p><strong>Step 0 — Start in the demo folder (1 min).</strong> Open the terminal in <code>~/cli-demo</code> and launch the REPL:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cli-demo</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cli-demo</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Point out the prompt is now waiting, and that Claude can see this folder. Type <code>/help</code> to show the slash commands, then <code>/cost</code> to show that usage is tracked.</p>
 <p><strong>Step 1 — Explore the data (read-only; ~4 min).</strong> Paste:</p>
 <blockquote class="blockquote">
@@ -803,16 +991,17 @@ Note
 </section>
 <section id="installation-for-those-who-can-install-software" class="level4">
 <h4 class="anchored" data-anchor-id="installation-for-those-who-can-install-software">Installation (for those who can install software)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run llama3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model (pick one that fits your laptop)</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3          <span class="co"># strong default; try qwen3:4b on 8 GB laptops</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma4         <span class="co"># Google's efficient option</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>System Requirements:</strong></p>
 <ul>
 <li>At least 8 GB RAM (16 GB recommended)</li>
@@ -839,16 +1028,14 @@ Note
 <li>When local models are “good enough” vs.&nbsp;when you need cloud models</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Tip</span>Advanced companion: agentic workflows on a local model (notebook)
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Want to go further than chatting? This <a href="code/Agentic_Workflows_UrbanHealth_2026.ipynb" download="Agentic_Workflows_UrbanHealth_2026.ipynb">Jupyter notebook</a> builds real <strong>agentic workflows</strong> on a local Ollama model (a laptop-friendly model like Qwen3 or Gemma 4) — everything runs on your machine, free and private. It works through three patterns on a small set of urban-health abstracts (pedestrian safety, heat, air quality):</p>
 <ol type="1">
@@ -858,7 +1045,6 @@ Note
 </ol>
 <p>Plus a tool-calling agent (a stand-in PubMed search + a confidence-interval calculator) that previews what MCP standardizes, and a “try it yourself” exercise. It ties directly to the Day 3 concepts: the agent loop, context engineering, tools/MCP, guardrails, and verification.</p>
 <p>Run it in <strong>Positron</strong>, VS Code, or Jupyter. Install once with <code>pip install ollama crewai langgraph langchain-ollama pydantic</code>. Best as an optional advanced track or a live instructor demo.</p>
-</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -928,6 +1114,103 @@ Note
 </section>
 
 </main> <!-- /main -->
+<script>
+// Makes activity / scenario / challenge / bonus-exercise blocks collapsible.
+// Collapsed by default EXCEPT the first activity/exercise on a page (kept open so
+// the page doesn't look empty). The title, meta line, and one-line Goal teaser stay
+// visible while collapsed. Robust to Quarto wrapping each heading in its own <section>.
+(function () {
+  var SEL = "div.activity, div.scenario-card, div.challenge-card, div.challenge-exercise";
+  function isMeta(el) {
+    return el && el.classList &&
+      (el.classList.contains("activity-meta") || el.classList.contains("challenge-meta"));
+  }
+  function isGoalPara(el) {
+    return el && el.tagName === "P" && /^goal\b/i.test((el.textContent || "").trim());
+  }
+  function moveSiblingsInto(startNode, container) {
+    var n = startNode.nextSibling;
+    while (n) { var next = n.nextSibling; container.appendChild(n); n = next; }
+  }
+  function initBox(box) {
+    if (box.dataset.collapsibleInit) return;
+    var h = box.querySelector("h2, h3, h4, h5, h6");
+    if (!h) return;
+    box.dataset.collapsibleInit = "1";
+
+    // `top` = direct child of box containing the heading (heading itself, or its <section>)
+    var top = h;
+    while (top.parentElement && top.parentElement !== box) top = top.parentElement;
+
+    // visible prefix while collapsed: heading + optional meta + optional one-line Goal
+    var visibleEnd = h;
+    if (isMeta(visibleEnd.nextElementSibling)) visibleEnd = visibleEnd.nextElementSibling;
+    if (isGoalPara(visibleEnd.nextElementSibling)) {
+      visibleEnd = visibleEnd.nextElementSibling;
+      visibleEnd.classList.add("collapsible-teaser");
+    }
+
+    var bodyA = document.createElement("div");
+    bodyA.className = "collapsible-body";
+    moveSiblingsInto(visibleEnd, bodyA);
+    (top === h ? box : top).appendChild(bodyA);
+
+    if (top !== h) {
+      var bodyB = document.createElement("div");
+      bodyB.className = "collapsible-body";
+      moveSiblingsInto(top, bodyB);
+      box.appendChild(bodyB);
+    }
+
+    var arrow = document.createElement("span");
+    arrow.className = "collapsible-arrow";
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "▸ "; // ▸
+    h.insertBefore(arrow, h.firstChild);
+    h.classList.add("collapsible-toggle");
+    h.style.cursor = "pointer";
+
+    box.classList.add("collapsible-collapsed");
+    h.addEventListener("click", function () {
+      var collapsed = box.classList.toggle("collapsible-collapsed");
+      arrow.textContent = collapsed ? "▸ " : "▾ "; // ▸ / ▾
+    });
+  }
+  function setOpen(box) {
+    box.classList.remove("collapsible-collapsed");
+    var arrow = box.querySelector(".collapsible-arrow");
+    if (arrow) arrow.textContent = "▾ "; // ▾
+  }
+  function expandForHash() {
+    if (!location.hash) return;
+    var el;
+    try { el = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+    catch (e) { el = null; }
+    if (!el) return;
+    var box = el.closest ? el.closest(SEL) : null;
+    if (box && box.classList.contains("collapsible-collapsed")) setOpen(box);
+    if (el.scrollIntoView) el.scrollIntoView();
+  }
+  function run() {
+    var boxes = document.querySelectorAll(SEL);
+    var keptOpen = false;
+    boxes.forEach(function (box) {
+      initBox(box);
+      // keep the first activity (day pages) or first exercise (challenges page) expanded
+      if (!keptOpen &&
+          (box.classList.contains("activity") || box.classList.contains("challenge-exercise"))) {
+        setOpen(box);
+        keptOpen = true;
+      }
+    });
+    expandForHash();
+    window.addEventListener("hashchange", expandForHash);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else { run(); }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

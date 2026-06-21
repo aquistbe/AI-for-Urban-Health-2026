@@ -14,20 +14,21 @@ Intermediate to Expert | 45--90 minutes each
 
 ## About These Exercises
 
-These exercises are **optional stretch activities** for students who finish core activities early or want to go deeper into a topic. They are more open-ended and technically demanding than the daily activities, and most require 45--90 minutes of focused work.
+These are **optional stretch activities** for students who finish core activities early or want to go deeper. They are more open-ended and technically demanding than the daily activities, and most need 45--90 minutes of focused work. They make excellent portfolio pieces.
 
-Each exercise is tagged with:
+Each exercise follows the same layout so it is easy to follow:
 
-- **Connected Day:** Which day's content it extends
-- **Difficulty:** Intermediate, Advanced, or Expert
-- **Estimated Time:** How long to budget
-- **Tools Needed:** Which platforms or software are required
-
-You can work on these during class, between sessions, or after the course ends. They make excellent portfolio pieces.
+- **Goal** --- the one-sentence outcome.
+- **Why it matters** --- why the skill is worth building.
+- **Steps** --- numbered, concrete actions, with ready-to-paste example prompts you can adapt.
+- **Hints** --- tips and common pitfalls.
+- **Done when** --- a checklist so you know you have finished.
+- **Deliverable** --- what to save or hand in.
+- **Reflection** --- questions to deepen your thinking.
 
 :::{.callout-tip}
-## How to Use These
-Scan the table below, find an exercise that matches your skill level and interests, and jump to it. You do not need to complete them in order. If you are working with qualitative data, try Exercise 5. If you are comfortable with coding, try Exercises 3, 6, or 10.
+## How to use this page
+Each exercise below is **collapsed** --- click its title to expand it. Scan the index table, pick one that matches your skill level and interest, and jump to it (the link expands it for you). You do not need to do them in order. Working with qualitative data? Try Exercise 5. Comfortable with code? Try 3, 6, or 10.
 :::
 
 ## Exercise Index
@@ -47,512 +48,479 @@ Scan the table below, find an exercise that matches your skill level and interes
 | 11 | [Adversarial AI Testing](#exercise-11) | Day 5 | Advanced | 60 min |
 | 12 | [Personal AI Workflow Automation](#exercise-12) | Day 4 | Intermediate | 60 min |
 
+*Tip: the sample datasets used by several exercises are on the course site --- the [Heat Vulnerability sample CSV](data/hvi_sample.csv) and the [climate focus-group transcript](data/climate_health_focus_group_transcript.txt).*
+
 ---
 
 ## Day 1 Challenges {#day-1-challenges}
 
-### Exercise 1: Cross-Platform AI Benchmark {#exercise-1 .challenge}
-
-::: {.challenge-exercise}
-
-::: {.challenge-meta}
-**Difficulty:** Intermediate | **Time:** 45 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Gemini, Perplexity
-:::
-
-**Why this matters:** Public health professionals will inevitably need to choose among AI platforms for different tasks. A structured benchmark helps you make informed decisions rather than relying on anecdote.
-
-#### Part A: Design Your Evaluation Framework
-
-Create a scoring rubric with 6 dimensions, rating each on a 1--5 scale:
-
-1. **Accuracy:** Are the facts, statistics, and claims verifiable and correct?
-2. **Completeness:** Does the response address all aspects of the scenario?
-3. **Actionability:** Are the recommendations specific enough to implement?
-4. **Appropriate Uncertainty:** Does the AI acknowledge limitations and caveats?
-5. **Source Quality:** Does it cite sources, and are they real and relevant?
-6. **Public Health Framing:** Does it use appropriate epidemiological concepts?
-
-#### Part B: Run the Benchmark
-
-Submit the following scenario to each of the four platforms using the exact same prompt:
-
-> You are advising the Philadelphia Department of Public Health. A cluster of 47 cases of acute gastrointestinal illness has been reported in a 72-hour period across three ZIP codes in South Philadelphia. Preliminary interviews suggest a common food source. Design a rapid investigation plan including: (1) immediate actions in the first 24 hours, (2) epidemiological investigation steps, (3) laboratory testing priorities, (4) communication strategy for the public and healthcare providers, and (5) criteria for escalation to state and federal authorities.
-
-Record the exact prompt, date, time, and model version for each platform. Copy each complete response for side-by-side comparison.
-
-#### Part C: Score and Analyze
-
-Score each platform and write a 1-page comparison report (~400--500 words) addressing:
-
-- Which platform produced the most operationally useful investigation plan and why?
-- Which handled uncertainty and caveats most appropriately?
-- Did any platform hallucinate statistics, cite non-existent guidelines, or make clinically dangerous recommendations?
-- Based on this exercise, which platform would you recommend for different types of public health work?
-
-**Deliverable:** A document containing your completed scoring rubric, a summary table, and your comparison report with platform-specific recommendations.
-
-:::{.callout-note}
-## Reflection
-If you ran this benchmark next month, would you expect the same results? What does that imply about relying on platform comparisons? How might your rubric change for a clinical versus epidemiological audience?
-:::
-
-:::
-
----
-
-### Exercise 2: Structured Output Engineering {#exercise-2 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-1 .challenge-exercise}
+#### Exercise 1 --- Cross-Platform AI Benchmark
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), any text editor
+**Day 1** · Intermediate · ~45 min · Tools: Claude, ChatGPT, Gemini, Perplexity
 :::
 
-**Why this matters:** Public health work frequently involves extracting structured information from unstructured text---case reports, surveillance summaries, meeting notes. Designing prompts that produce consistent, machine-readable output is a high-value skill.
+**Goal:** Compare how four AI platforms handle the *same* public-health task, and decide which to use for which kind of work.
 
-#### Part A: Design a Data Extraction Schema
+**Why it matters:** You will inevitably choose among AI platforms for different tasks. A structured benchmark lets you decide from evidence rather than anecdote.
 
-Work with this simulated public health report excerpt:
+**Steps**
 
-> Between January and March 2026, the Philadelphia Department of Public Health received 23 reports of elevated blood lead levels (BLLs above 5 mcg/dL) in children under 6 years of age in the Kensington neighborhood. Of these, 8 cases had BLLs between 5--9 mcg/dL, 12 cases between 10--19 mcg/dL, and 3 cases at 20 mcg/dL or above. Affected children ranged from 8 months to 5 years old. Home inspections revealed deteriorating lead paint in 18 of the homes, with 14 built before 1950. The Department issued abatement orders for all confirmed properties and referred families to the lead poisoning prevention program for follow-up.
+1. **Build a scoring rubric.** Rate each response 1--5 on six dimensions:
+   - *Accuracy* (facts and statistics are verifiable), *Completeness* (covers all parts), *Actionability* (specific enough to act on), *Appropriate uncertainty* (acknowledges limits), *Source quality* (cites real, relevant sources), *Public-health framing* (uses sound epidemiological concepts).
+2. **Run the same prompt on all four** (Claude, ChatGPT, Gemini, Perplexity). Paste this exactly:
 
-Design a JSON schema that captures all key data points. Write a prompt that extracts data into your schema. Test and refine until the output is valid, parseable JSON.
+   > You are advising the Philadelphia Department of Public Health. A cluster of 47 cases of acute gastrointestinal illness has been reported in 72 hours across three ZIP codes in South Philadelphia. Preliminary interviews suggest a common food source. Design a rapid investigation plan covering: (1) immediate actions in the first 24 hours, (2) epidemiological investigation steps, (3) laboratory testing priorities, (4) communication strategy for the public and providers, and (5) criteria for escalating to state and federal authorities.
 
-#### Part B: Build a Prompt Chain
+3. **Record** the exact prompt, date/time, and model version for each, and save each full response.
+4. **Score and analyze.** Fill in the rubric and write a ~400--500 word comparison: which gave the most operationally useful plan; which handled uncertainty best; did any hallucinate statistics, cite non-existent guidelines, or make unsafe recommendations; and which you would recommend for which task.
 
-Create a three-step chain:
+**Hints**
 
-1. **Extraction:** Raw report text to structured JSON
-2. **Enrichment:** Add CDC action level classifications, relevant Philadelphia housing regulations, and comparison to national benchmarks
-3. **Report Generation:** Transform enriched JSON into a formatted summary suitable for a departmental briefing
+- Open all four in separate tabs and paste the identical prompt to avoid wording drift.
+- Watch specifically for invented citations and fabricated local statistics --- the most common, most dangerous failure.
 
-Test each step, verifying that each step's output is valid input for the next.
+**Done when**
 
-#### Part C: Stress Test
+- [ ] Rubric scored for all four platforms
+- [ ] Summary table comparing scores
+- [ ] ~400--500 word comparison with a per-task recommendation
 
-Test your chain with a second, different public health report (you can ask AI to generate one about a different topic). Identify which parts of your prompts are generalizable and which are topic-specific. Revise for robustness.
+**Deliverable:** A document with your completed rubric, a summary table, and the comparison report.
 
-**Deliverable:** Your JSON schema, the full text of each prompt in your chain, actual AI outputs at each step, and notes on errors encountered and how you fixed them.
-
-:::{.callout-note}
-## Reflection
-What types of information were hardest for AI to extract accurately? How would you validate AI extraction against source text in a production workflow?
+**Reflection:** If you ran this next month, would the results hold? What does that imply about relying on platform comparisons? How would your rubric change for a clinical vs. an epidemiological audience?
 :::
 
+::: {#exercise-2 .challenge-exercise}
+#### Exercise 2 --- Structured Output Engineering
+
+::: {.challenge-meta}
+**Day 1** · Advanced · ~60 min · Tools: Claude or ChatGPT, a text editor
+:::
+
+**Goal:** Build prompts that reliably turn messy public-health text into consistent, machine-readable JSON.
+
+**Why it matters:** Public-health work constantly involves pulling structured facts out of unstructured text --- case reports, surveillance summaries, meeting notes. Reliable structured output is a high-value, reusable skill.
+
+**Steps**
+
+1. **Work from this report excerpt:**
+
+   > Between January and March 2026, the Philadelphia Department of Public Health received 23 reports of elevated blood lead levels (BLLs above 5 mcg/dL) in children under 6 in the Kensington neighborhood. Of these, 8 had BLLs of 5--9 mcg/dL, 12 of 10--19 mcg/dL, and 3 of 20 mcg/dL or above. Affected children ranged from 8 months to 5 years old. Home inspections found deteriorating lead paint in 18 homes, 14 built before 1950. The Department issued abatement orders for all confirmed properties and referred families to the lead poisoning prevention program.
+
+2. **Design a JSON schema** that captures every key data point (counts, ranges, ages, housing facts, actions). Then write an extraction prompt, for example:
+
+   > Extract the data from the report below into JSON matching exactly this schema: {schema}. Use null for anything not stated. Return only valid JSON, no commentary.
+
+   Test and refine until the output is valid, parseable JSON.
+3. **Build a 3-step chain:** (1) extract raw text → JSON; (2) enrich --- add CDC blood-lead action-level classifications, relevant Philadelphia housing rules, and national benchmarks; (3) generate --- turn the enriched JSON into a formatted departmental briefing.
+4. **Stress test** with a second, different report (ask the AI to generate one on another topic). Note which parts of your prompts generalize and which are topic-specific; revise for robustness.
+
+**Hints**
+
+- Ask for "only valid JSON, no prose" --- stray commentary is the usual reason parsing breaks.
+- Validate each step's output is usable as the next step's input before chaining further.
+
+**Done when**
+
+- [ ] Schema produces valid JSON on the lead report
+- [ ] All three chain steps run end to end
+- [ ] Chain still works on a second, different report
+
+**Deliverable:** Your schema, the full text of each prompt, the actual outputs at each step, and notes on errors and fixes.
+
+**Reflection:** What was hardest for the AI to extract accurately? How would you validate AI extraction against the source text in a production workflow?
 :::
 
 ---
 
 ## Day 2 Challenges {#day-2-challenges}
 
-### Exercise 3: Multi-Source Data Integration with AI {#exercise-3 .challenge}
-
-::: {.challenge-exercise}
-
-::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 90 minutes | **Tools:** Claude or ChatGPT, OpenDataPhilly, R or Python or Stata
-:::
-
-**Why this matters:** Real-world public health analysis rarely relies on a single dataset. Linking environmental, health, demographic, and infrastructure data is essential for understanding health disparities.
-
-#### Part A: Acquire and Examine the Data
-
-Download these datasets from [OpenDataPhilly](https://opendataphilly.org):
-
-1. **Philadelphia Heat Vulnerability Index (HVI):** Census tract-level composite measure
-2. **311 Service Requests:** Filter to environmental/housing complaints, most recent 12 months
-3. **One additional dataset** of your choice (demographics, crash data, tree canopy, etc.)
-
-Load each dataset, examine structure and geographic identifiers, and document the geographic units used in each (census tract, ZIP code, point coordinates) and potential join keys.
-
-#### Part B: AI-Assisted Data Integration
-
-Share data dictionaries with AI and ask it to:
-
-- Identify the best join strategy given different geographic units
-- Generate code to harmonize geographic identifiers
-- Handle missing data and create derived variables
-- Generate data quality checks: record counts before/after merge, key variable distributions
-
-Run the code. Document every place you modified AI-generated code and why.
-
-#### Part C: Cross-Dataset Analysis
-
-Use AI to generate analysis code examining relationships across datasets. For example: correlation between HVI scores and 311 complaint density, spatial clusters where multiple risk factors converge.
-
-Generate at least two visualizations (one map, one statistical chart). Have AI write an interpretation, then critically review for accuracy and appropriate causal language.
-
-**Deliverable:** A reproducible analysis document (R Markdown, Jupyter Notebook, or Stata .do file) with data acquisition, merge code, visualizations, and a brief narrative.
-
-:::{.callout-note}
-## Reflection
-What information was lost when converting between geographic units? Did the AI make incorrect assumptions about the data? What additional datasets would strengthen this analysis?
-:::
-
-:::
-
----
-
-### Exercise 4: Reproducing a Published Epidemiologic Analysis {#exercise-4 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-3 .challenge-exercise}
+#### Exercise 3 --- Multi-Source Data Integration with AI
 
 ::: {.challenge-meta}
-**Difficulty:** Expert | **Time:** 90 minutes | **Tools:** Claude or ChatGPT, Perplexity, R or Python or Stata, a published study with public data
+**Day 2** · Advanced · ~90 min · Tools: Claude or ChatGPT; R, Python, or Stata
 :::
 
-**Why this matters:** Reproducibility is a cornerstone of scientific rigor. AI can accelerate the process but also introduces new risks of subtle errors in code generation.
+**Goal:** Link environmental, health, and infrastructure datasets into one analysis with AI assistance.
 
-#### Part A: Select a Study
+**Why it matters:** Real public-health analysis rarely uses a single dataset. Joining across sources is essential for understanding health disparities --- and the hard part is usually reconciling mismatched geographies.
 
-Find a published epidemiologic study that:
+**Steps**
 
-- Was published in the last 5 years in a peer-reviewed journal
-- Uses publicly available data (BRFSS, NHANES, CDC WONDER, Census/ACS)
-- Includes at least one regression with reported results
-- Is relevant to urban health
+1. **Get the data.** Use the provided [Heat Vulnerability sample CSV](data/hvi_sample.csv) (census-tract level), or download the real [Heat Vulnerability by Census Tract](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) plus **311 Service Requests** (filter to environmental/housing, last 12 months) and **one dataset of your choice** (demographics, crashes, tree canopy) from [OpenDataPhilly](https://opendataphilly.org).
+2. **Examine each** and document the geographic unit (tract, ZIP, point) and possible join keys.
+3. **Have the AI plan the join.** Share the data dictionaries and ask:
 
-Record the full citation, DOI, and data source.
+   > These datasets use different geographic units ({list them}). Recommend the best strategy to join them, write code to harmonize the geographic identifiers, handle missing data, and add data-quality checks (record counts before/after the merge, key-variable distributions). Use {R / Python / Stata}.
 
-#### Part B: AI-Assisted Reproduction
+   Run it, and **document every change you made to the AI's code and why.**
+4. **Analyze across datasets** --- e.g., correlation between HVI and 311 complaint density, or clusters where multiple risks converge. Produce at least two visuals (one map, one chart). Have the AI draft an interpretation, then check it for accuracy and appropriate causal language.
 
-Share the methods section with AI. Ask it to identify the exact dataset, variables, inclusion/exclusion criteria, and statistical methods, then generate code to download data and implement the analysis. Run the code---you will almost certainly need to troubleshoot. Document every change. Create a comparison table: variable/parameter, published result, your result, difference.
+**Hints**
 
-#### Part C: Documentation
+- Converting between geographies (e.g., tract ↔ ZIP) loses information --- ask the AI to state its crosswalk assumptions explicitly.
+- Always compare record counts before and after a merge; silent row loss is the classic join bug.
 
-Write a brief report (500--700 words) addressing which results you reproduced, which differed and why, what methodological details were missing from the paper, and how much time AI saved.
+**Done when**
 
-**Deliverable:** Study citation, annotated analysis code, results comparison table, and written report.
+- [ ] Datasets joined with documented keys
+- [ ] Two visualizations produced (one spatial)
+- [ ] Interpretation reviewed for causal-language errors
 
-:::{.callout-note}
-## Reflection
-What does this exercise reveal about reproducibility in public health research? Could AI-assisted reproduction become part of peer review?
+**Deliverable:** A reproducible document (R Markdown, Jupyter notebook, or Stata `.do`) with acquisition, merge code, visuals, and a short narrative.
+
+**Reflection:** What was lost converting between geographic units? Where did the AI make incorrect assumptions? What dataset would strengthen this?
 :::
 
-:::
-
----
-
-### Exercise 5: Advanced Qualitative Coding Challenge {#exercise-5 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-4 .challenge-exercise}
+#### Exercise 4 --- Reproducing a Published Epidemiologic Analysis
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), any spreadsheet application
+**Day 2** · Expert · ~90 min · Tools: Claude or ChatGPT, Perplexity; R, Python, or Stata
 :::
 
-**Why this matters:** AI-assisted qualitative coding raises important methodological questions about reliability, validity, and whether AI can capture the nuance that experienced qualitative researchers bring.
+**Goal:** Use AI to reproduce a published analysis from open data --- and surface where it helps and where it introduces errors.
 
-#### Part A: Develop a Codebook
+**Why it matters:** Reproducibility is core to rigor. AI can speed it up but also introduces subtle code errors you have to catch.
 
-Use these simulated focus group excerpts from community health workers discussing heat safety barriers in Philadelphia:
+**Steps**
 
-> **Speaker 1:** "When it gets really hot, I see the elderly folks in my area just staying inside with the windows closed. They are afraid to use the AC because of the electric bill. I had one lady tell me she would rather sweat than get a $300 bill."
+1. **Pick a study** that: was published in the last 5 years, uses public data (BRFSS, NHANES, CDC WONDER, Census/ACS), reports at least one regression, and is relevant to urban health. Record the citation, DOI, and data source.
+2. **Have the AI parse the methods.** Paste the methods section and ask:
 
-> **Speaker 2:** "Transportation is a huge issue. Even if there is a cooling center, how do you get there if you do not drive? The bus routes in North Philly do not go near the centers. And some people physically cannot walk more than a block in that heat."
+   > From this methods section, identify the exact dataset, variables, inclusion/exclusion criteria, and statistical models. Then write {R / Python / Stata} code to download the data and reproduce the main analysis.
 
-> **Speaker 3:** "The communication is a problem too. The alerts go out in English, but half my clients speak Spanish or Vietnamese. And they use these official terms like excessive heat warning. Nobody knows what that means."
+3. **Run and troubleshoot** --- expect to iterate. Document every change. Build a comparison table: variable/parameter, published result, your result, difference.
+4. **Write up** (500--700 words): what reproduced, what differed and why, what methodological details were missing from the paper, and how much time AI saved.
 
-Submit to AI for inductive codebook development. Review, refine, and finalize a codebook with 8--12 codes.
+**Hints**
 
-#### Part B: Apply the Codebook
+- Start with the single headline result, not the whole paper --- get one number to match first.
+- Differences often come from undocumented data-cleaning choices; note them as findings, not failures.
 
-Apply your codebook to additional excerpts (Speaker 4 discussing follow-up gaps, Speaker 5 discussing data frustrations---ask AI to generate realistic continuations). Also code the same excerpts yourself independently.
+**Done when**
 
-Create a coding matrix in a spreadsheet. Calculate Cohen's kappa or percent agreement between your coding and AI's.
+- [ ] Data downloaded and analysis runs
+- [ ] Results comparison table complete
+- [ ] Write-up explains matches and differences
 
-#### Part C: Write a Methods Paragraph
+**Deliverable:** Citation, annotated code, results comparison table, and the written report.
 
-Write a 200--300 word methods paragraph as it would appear in a research paper, describing your AI-assisted coding approach, including codebook development, application, reliability assessment, and limitations.
-
-**Deliverable:** Finalized codebook, two coded transcripts in a spreadsheet, inter-rater reliability statistics, and methods paragraph.
-
-:::{.callout-note}
-## Reflection
-At what agreement level would you trust AI as a primary coder? What are the IRB implications of using AI to analyze qualitative data with identifiable health information?
+**Reflection:** What does this reveal about reproducibility in the field? Could AI-assisted reproduction become part of peer review?
 :::
 
+::: {#exercise-5 .challenge-exercise}
+#### Exercise 5 --- Advanced Qualitative Coding Challenge
+
+::: {.challenge-meta}
+**Day 2** · Advanced · ~60 min · Tools: Claude or ChatGPT, a spreadsheet
+:::
+
+**Goal:** Develop a codebook, apply it, and measure how well AI coding agrees with your own.
+
+**Why it matters:** AI-assisted qualitative coding raises real questions about reliability, validity, and whether AI captures the nuance an experienced researcher brings.
+
+**Steps**
+
+1. **Get transcript text.** Use the provided [climate focus-group transcript](data/climate_health_focus_group_transcript.txt), or these short excerpts on heat-safety barriers:
+
+   > **Speaker 1:** "When it gets really hot, the elderly folks in my area just stay inside with the windows closed. They are afraid to use the AC because of the bill. One lady told me she'd rather sweat than get a \$300 bill."
+   >
+   > **Speaker 2:** "Transportation is huge. Even if there's a cooling center, how do you get there if you don't drive? The bus routes in North Philly don't go near them."
+   >
+   > **Speaker 3:** "Communication is a problem. Alerts go out in English, but half my clients speak Spanish or Vietnamese, and 'excessive heat warning' means nothing to them."
+
+2. **Develop a codebook.** Ask the AI for an inductive codebook, then review and finalize 8--12 codes with clear definitions.
+3. **Apply it two ways.** Code additional excerpts (ask the AI to generate realistic continuations) with the AI, and code the same excerpts **yourself** independently. Put both in a spreadsheet coding matrix.
+4. **Measure agreement.** Calculate Cohen's kappa or percent agreement between you and the AI.
+5. **Write a 200--300 word methods paragraph** describing the AI-assisted approach, reliability assessment, and limitations.
+
+**Hints**
+
+- Lock the codebook *before* coding the comparison excerpts, or your kappa is meaningless.
+- Look hardest at where you and the AI disagree --- that's where the method's limits show.
+
+**Done when**
+
+- [ ] Finalized codebook (8--12 codes with definitions)
+- [ ] Two independently coded transcripts in a spreadsheet
+- [ ] Inter-rater reliability calculated
+- [ ] Methods paragraph written
+
+**Deliverable:** Codebook, coded transcripts, reliability statistics, and methods paragraph.
+
+**Reflection:** At what agreement level would you trust AI as a primary coder? What are the IRB implications of using AI on identifiable qualitative data?
 :::
 
 ---
 
 ## Day 3 Challenges {#day-3-challenges}
 
-### Exercise 6: Building an Automated Data Pipeline {#exercise-6 .challenge}
-
-::: {.challenge-exercise}
-
-::: {.challenge-meta}
-**Difficulty:** Expert | **Time:** 90 minutes | **Tools:** Claude Code, Python, OpenDataPhilly API
-:::
-
-**Why this matters:** Public health departments routinely perform the same data tasks: download, clean, compute indicators, produce reports. Automating these pipelines frees analyst time for interpretation and action.
-
-#### The Pipeline
-
-Build a Python pipeline using Claude Code that:
-
-1. **Acquires data** from the OpenDataPhilly API (311 service requests, last 90 days, environmental/housing complaints)
-2. **Cleans** the data: handle missing values, standardize addresses, validate dates, remove duplicates, geocode to census tract
-3. **Analyzes**: complaint count by tract, per-capita rate, most common type, median response time, week-over-week trend
-4. **Generates** an HTML report with a summary table, bar chart, time series, and narrative interpretation
-
-Ask Claude Code to generate the script. Review before running. Check API endpoints, error handling, logging, and configurable parameters. Debug, then add at least two improvements (retry logic, caching, validation checks).
-
-Write a brief technical document (400--500 words) covering architecture, dependencies, error handling, maintenance, and limitations.
-
-**Deliverable:** A working Python pipeline, the generated HTML report, and technical documentation.
-
-:::{.callout-note}
-## Reflection
-What was the ratio of AI generation time to debugging time? What are the risks of deploying AI-generated pipelines without thorough code review?
-:::
-
-:::
-
----
-
-### Exercise 7: Custom MCP Server Design {#exercise-7 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-6 .challenge-exercise}
+#### Exercise 6 --- Building an Automated Data Pipeline
 
 ::: {.challenge-meta}
-**Difficulty:** Expert | **Time:** 60 minutes | **Tools:** Any text editor or word processor
+**Day 3** · Expert · ~90 min · Tools: Claude Code, Python, OpenDataPhilly API
 :::
 
-**Why this matters:** The Model Context Protocol enables AI assistants to interact with external data sources through a standardized interface. Designing one for public health requires thinking carefully about data access, security, and appropriate automation.
+**Goal:** Use an agentic CLI to build a working data pipeline that downloads, cleans, analyzes, and reports --- on its own.
 
-#### Choose a Scenario
+**Why it matters:** Departments repeat the same data chores constantly. Automating them frees analyst time for interpretation and action.
 
-Pick one:
+**Steps**
 
-- **Disease Surveillance Assistant:** Helps epidemiologists monitor and respond to communicable disease reports
-- **Community Health Assessment Tool:** Helps planners access and synthesize data for CHNAs
-- **Environmental Health Inspector Support:** Helps inspectors prepare for site visits
+1. **Scope the pipeline.** It should: (a) acquire 311 service requests (last 90 days, environmental/housing) from the OpenDataPhilly API; (b) clean --- handle missing values, standardize addresses, validate dates, drop duplicates, geocode to census tract; (c) analyze --- complaint count and per-capita rate by tract, most common type, median response time, week-over-week trend; (d) generate an HTML report with a table, bar chart, time series, and narrative.
+2. **Have Claude Code build it.** In a project folder, run `claude` and ask:
 
-#### Design the MCP Server
+   > Build a Python pipeline that {paste the four steps above}. Use clear functions, add logging and error handling, and make the date range and complaint filter configurable. Show me the script before running anything.
 
-Define 6--10 tools with: name, description, parameters (with types), return data structure, data source, and access control. Define security constraints: what the agent must never access, what requires human confirmation, how it handles PHI requests, and what audit logging is needed.
+3. **Review before running.** Check API endpoints, error handling, logging, and parameters. Then run and debug.
+4. **Add two improvements** --- e.g., retry logic, response caching, or extra validation checks.
+5. **Document** (400--500 words): architecture, dependencies, error handling, maintenance, limitations.
 
-#### Write Agent System Instructions
+**Hints**
 
-Write a 500--800 word system prompt covering: role and expertise, rules for tool use, data interpretation guidelines, explicit restrictions, and edge case handling.
+- Approve Claude Code's file writes and commands one at a time the first run, so you see exactly what it does.
+- Cache the API response while developing so you are not re-downloading on every test run.
 
-#### Compare Capabilities
+**Done when**
 
-Create a table comparing: tasks the MCP-enabled agent could perform vs. how those tasks are done today. Estimate time savings.
+- [ ] Pipeline runs end to end and produces the HTML report
+- [ ] At least two improvements added
+- [ ] Technical doc written
 
-**Deliverable:** A 3--5 page design document with use case, MCP specification, security constraints, system prompt, and capability comparison.
+**Deliverable:** The working pipeline, the generated HTML report, and the technical documentation.
 
-:::{.callout-note}
-## Reflection
-What governance structure would need to be in place before deploying an AI agent with access to real public health data systems?
+**Reflection:** What was the ratio of AI generation time to your debugging time? What are the risks of deploying AI-generated pipelines without thorough review?
 :::
 
-:::
-
----
-
-### Exercise 8: Local vs. Cloud Model Evaluation {#exercise-8 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-7 .challenge-exercise}
+#### Exercise 7 --- Custom MCP Server Design
 
 ::: {.challenge-meta}
-**Difficulty:** Intermediate | **Time:** 45 minutes | **Tools:** Ollama (Llama 3.1 8B), Claude or ChatGPT (GPT-5.5 if available)
+**Day 3** · Expert · ~60 min · Tools: A text editor
 :::
 
-**Why this matters:** Understanding the quality tradeoff between local and cloud models helps you make informed decisions about when data privacy justifies reduced capability.
+**Goal:** Design (on paper) an MCP server that safely connects an AI agent to a public-health data system.
 
-#### Part A: Prepare 10 Test Prompts
+**Why it matters:** MCP lets AI assistants reach external data through a standard interface. Designing one forces careful thinking about access, security, and appropriate automation.
 
-Two prompts per category:
+**Steps**
 
-1. **Factual Knowledge:** Verifiable public health questions
-2. **Data Interpretation:** Provide a small data table, ask for analysis
-3. **Writing/Summarization:** Professional-quality text tasks
-4. **Reasoning/Analysis:** Multi-step analytical questions
-5. **Code Generation:** Working R or Python code
+1. **Choose a scenario:** *Disease Surveillance Assistant*, *Community Health Assessment Tool*, or *Environmental Health Inspector Support*.
+2. **Specify 6--10 tools.** For each, define name, description, parameters (with types), return structure, data source, and access control. For example:
 
-#### Part B: Run the Evaluation
+   > `get_case_counts(disease: str, start_date: date, end_date: date, geography: str) → {counts by area}` --- reads the reportable-disease database; **read-only**; aggregate counts only, never individual records.
 
-Submit all 10 prompts to both Ollama and your cloud model (exact same text). Score each response 1--5 on: accuracy, completeness, relevance, and safety. Record response times.
+3. **Define security constraints:** what the agent must never access, what requires human confirmation, how it handles requests for protected health information (PHI), and what audit logging is required.
+4. **Write the agent's system prompt** (500--800 words): role and expertise, rules for tool use, data-interpretation guidance, explicit restrictions, and edge-case handling.
+5. **Compare capabilities:** a table of tasks the agent could do vs. how they are done today, with rough time savings.
 
-#### Part C: Recommend
+**Hints**
 
-Create a summary table and calculate the average score gap by task category. Write a recommendation memo (300--400 words) for your department addressing: where local models are adequate, where cloud models are clearly superior, and guidelines for when staff should default to each.
+- Default every tool to read-only and aggregate; make any write or record-level access require explicit human confirmation.
+- Write the restrictions ("never do X") as concretely as the capabilities --- vague limits are where agents get into trouble.
 
-**Deliverable:** 10 test prompts, scoring table, summary analysis, and recommendation memo.
+**Done when**
 
-:::{.callout-note}
-## Reflection
-How might results change with a larger local model (70B)? Are there tasks where local is actually preferable beyond just privacy?
+- [ ] 6--10 tools fully specified
+- [ ] Security constraints and audit logging defined
+- [ ] System prompt and capability comparison written
+
+**Deliverable:** A 3--5 page design document: use case, MCP spec, security constraints, system prompt, capability comparison.
+
+**Reflection:** What governance would need to exist before deploying an agent with access to real public-health data systems?
 :::
 
-:::
-
----
-
-### Exercise 9: AI-Assisted Grant Proposal Section {#exercise-9 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-8 .challenge-exercise}
+#### Exercise 8 --- Local vs. Cloud Model Evaluation
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 75 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Perplexity
+**Day 3** · Intermediate · ~45 min · Tools: Ollama (`gemma4:12b` or `qwen3:8b`), Claude or ChatGPT
 :::
 
-**Why this matters:** Grant writing is one of the most time-intensive academic activities. AI can be a powerful drafting partner---but only if used iteratively, not as a one-shot generator.
+**Goal:** Measure the real quality gap between a local model and a cloud model, so you know when privacy is worth the tradeoff.
 
-#### Part A: Topic and Background
+**Why it matters:** Knowing where local models are "good enough" lets you decide when data privacy justifies reduced capability.
 
-Choose a research topic at the intersection of AI and urban health relevant to Philadelphia. Use Perplexity to find 5--8 key references. Document the literature gap.
+**Steps**
 
-#### Part B: Iterative Specific Aims
+1. **Write 10 test prompts** --- two each in: factual knowledge, data interpretation (give a small table), writing/summarization, multi-step reasoning, and code generation (working R or Python).
+2. **Run all 10 on both** a local model in Ollama and your cloud model, using identical text. Score each 1--5 on accuracy, completeness, relevance, and safety. Record response times.
+3. **Summarize and recommend.** Build a table, compute the average score gap by category, and write a 300--400 word memo: where local is adequate, where cloud is clearly better, and when staff should default to each.
 
-1. Ask AI for a structured outline following NIH format
-2. Review and revise at least three elements based on your field knowledge
-3. Ask AI to draft the full 1-page Specific Aims
-4. Edit the draft yourself---track your changes so you can see what you modified
+**Hints**
 
-#### Part C: Significance and Innovation
+- Pull the local model ahead of time (`ollama pull gemma4:12b`); first load is slow.
+- The gap is usually smallest on summarization and largest on multi-step reasoning and code --- check whether your results agree.
 
-Draft a 2-page Research Strategy section using the same iterative approach. For each paragraph, document whether it was AI-generated with minor edits, substantially rewritten, or human-written from scratch.
+**Done when**
 
-**Deliverable:** 1-page Specific Aims, 2-page Significance/Innovation, a prompt log, and a brief reflection on the process.
+- [ ] 10 prompts run on both models
+- [ ] Scoring table with average gap by category
+- [ ] Recommendation memo written
 
-:::{.callout-note}
-## Reflection
-At what stage was AI most helpful? Least helpful? How would you disclose AI use in a grant submission?
+**Deliverable:** The 10 prompts, scoring table, summary analysis, and recommendation memo.
+
+**Reflection:** How might results change with a larger local model (e.g., a 30B+ on a high-RAM machine)? Are there tasks where local is preferable beyond privacy?
 :::
 
+::: {#exercise-9 .challenge-exercise}
+#### Exercise 9 --- AI-Assisted Grant Proposal Section
+
+::: {.challenge-meta}
+**Day 3** · Advanced · ~75 min · Tools: Claude or ChatGPT, Perplexity
+:::
+
+**Goal:** Draft a Specific Aims page and Research Strategy section using AI iteratively --- as a drafting partner, not a one-shot generator.
+
+**Why it matters:** Grant writing is time-intensive. AI helps a lot, but only when used iteratively with your expertise in the loop.
+
+**Steps**
+
+1. **Pick a topic** at the intersection of AI and urban health relevant to Philadelphia. Use Perplexity to find 5--8 key references and state the literature gap.
+2. **Draft Specific Aims iteratively:**
+
+   > Draft a 1-page NIH Specific Aims for a study on {topic}: an opening paragraph establishing the problem, an overarching goal, and three aims, each with a short rationale and a hypothesis.
+
+   Then revise at least three elements with your own field knowledge, and track your edits.
+3. **Draft a 2-page Significance/Innovation** the same way. For each paragraph, label it: AI-generated with minor edits, substantially rewritten, or human-written.
+
+**Hints**
+
+- Feed the AI your references and field knowledge first --- ungrounded aims read generic and cite phantom literature.
+- Keep a prompt log; you will reuse the good prompts on your next proposal.
+
+**Done when**
+
+- [ ] 1-page Specific Aims drafted and edited
+- [ ] 2-page Significance/Innovation with per-paragraph authorship labels
+- [ ] Prompt log saved
+
+**Deliverable:** Specific Aims, Significance/Innovation, a prompt log, and a short reflection.
+
+**Reflection:** Where was AI most and least helpful? How would you disclose AI use in a grant submission (check current NIH policy)?
 :::
 
 ---
 
 ## Day 4 Challenges {#day-4-challenges}
 
-### Exercise 10: Build an Interactive Public Health Dashboard {#exercise-10 .challenge}
-
-::: {.challenge-exercise}
-
-::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 90 minutes | **Tools:** Claude Code or ChatGPT, Philadelphia HVI data, a web browser
-:::
-
-**Why this matters:** Interactive dashboards enable stakeholders to explore data themselves rather than reading static reports. AI can generate the code; your job is to design the story the data tells.
-
-#### Part A: Plan
-
-Answer: Who is the audience? What 3--5 questions should the dashboard answer? Which HVI variables will you display? Sketch a wireframe. Write a 150--200 word design brief.
-
-#### Part B: Build
-
-Share your brief and data with Claude Code or ChatGPT. Request a self-contained HTML file with:
-
-- **KPI Cards:** 3--4 summary metrics (e.g., high-vulnerability tract count, average HVI, population at risk)
-- **Chart 1:** Distribution of HVI scores (bar chart or histogram with filtering)
-- **Chart 2:** Scatterplot of two HVI components (e.g., poverty rate vs. tree canopy)
-- **Chart 3:** A map, time series, or comparison visualization
-- **Filters:** At least one dropdown to subset data
-- **Narrative:** Brief text explaining key findings
-
-Iterate to fix issues, improve styling, and enhance interactivity.
-
-#### Part C: Review
-
-Evaluate against: can a non-technical viewer understand the takeaway in 30 seconds? Are charts clearly labeled? Are colors colorblind-friendly? Does the narrative provide context?
-
-**Deliverable:** A self-contained HTML dashboard file, plus your design brief and wireframe.
-
-:::{.callout-note}
-## Reflection
-How would you adapt this for a community audience versus a technical audience? What data quality concerns should be communicated alongside the dashboard?
-:::
-
-:::
-
----
-
-### Exercise 12: Personal AI Workflow Automation {#exercise-12 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-10 .challenge-exercise}
+#### Exercise 10 --- Build an Interactive Public Health Dashboard
 
 ::: {.challenge-meta}
-**Difficulty:** Intermediate | **Time:** 60 minutes | **Tools:** Claude or ChatGPT, tools from your daily work
+**Day 4** · Advanced · ~90 min · Tools: Claude Code or ChatGPT, HVI data, a web browser
 :::
 
-**Why this matters:** The most impactful AI integration targets specific, recurring tasks that consume significant time and follow a consistent structure.
+**Goal:** Turn heat-vulnerability data into a self-contained interactive dashboard --- and design the story it tells.
 
-#### Part A: Identify Your Task
+**Why it matters:** Dashboards let stakeholders explore data themselves. AI can write the code; your job is the design and the narrative.
 
-List 3--5 recurring tasks. For each, note frequency, duration, input type, and whether the output is internal or public-facing. Select the best candidate for AI assistance.
+**Steps**
 
-#### Part B: Build the Workflow
+1. **Plan.** Decide the audience, the 3--5 questions the dashboard answers, and which variables to show. Sketch a wireframe and write a 150--200 word design brief.
+2. **Build.** Use the [Heat Vulnerability sample CSV](data/hvi_sample.csv). Share your brief and data and ask:
 
-Create a complete package:
+   > Build a single self-contained HTML file (inline CSS/JS, no external dependencies except a CDN charting library) from this CSV: 3--4 KPI cards, a histogram of HVI scores, a scatterplot of two components, one more visualization (map or comparison), at least one dropdown filter, and a short narrative. Make it colorblind-friendly and clearly labeled.
 
-- **Prompt Template:** Reusable PTCF-structured prompt with placeholders for variable inputs
-- **Pre-Processing Checklist:** Steps to prepare input (de-identify, format, gather context)
-- **Quality Checklist:** 5--8 checks to verify AI output (accuracy, completeness, tone, safety)
-- **Example:** One complete worked example showing filled prompt, AI output, and final output after human review
+   Iterate to fix issues and improve styling.
+3. **Review.** Can a non-technical viewer get the takeaway in 30 seconds? Are charts labeled, colors accessible, and the narrative contextual?
 
-#### Part C: Test and Validate
+**Hints**
 
-Test with three real (de-identified) examples. Record time with AI workflow vs. normal time, quality comparison, and any failures. Calculate estimated annual time savings. Document limitations.
+- Ask for one self-contained `.html` file so it opens with a double-click and is easy to share.
+- Give the AI a few real rows of the CSV so it builds the parser around the actual columns.
 
-**Deliverable:** Prompt template, checklists, three tested examples with timing data, and a time-savings estimate.
+**Done when**
 
-:::{.callout-note}
-## Reflection
-What training would a new colleague need to use your workflow? How would you monitor quality over time?
+- [ ] Dashboard opens in a browser and is interactive
+- [ ] Passes the 30-second-takeaway and accessibility checks
+- [ ] Design brief and wireframe saved
+
+**Deliverable:** The self-contained HTML dashboard, plus your design brief and wireframe.
+
+**Reflection:** How would you adapt this for a community vs. a technical audience? What data-quality caveats should travel with the dashboard?
 :::
 
+::: {#exercise-12 .challenge-exercise}
+#### Exercise 12 --- Personal AI Workflow Automation
+
+::: {.challenge-meta}
+**Day 4** · Intermediate · ~60 min · Tools: Claude or ChatGPT, tools from your daily work
+:::
+
+**Goal:** Turn one recurring task from your real job into a reusable, quality-checked AI workflow.
+
+**Why it matters:** The highest-impact AI integration targets specific, repeated, structured tasks --- not vague "use AI more."
+
+**Steps**
+
+1. **Pick a task.** List 3--5 recurring tasks with frequency, duration, input type, and whether output is internal or public. Choose the best candidate (high time, high repetition, low risk).
+2. **Build a workflow package:**
+   - a reusable **prompt template** (PTCF structure) with placeholders for variable inputs;
+   - a **pre-processing checklist** (de-identify, format, gather context);
+   - a **quality checklist** of 5--8 checks (accuracy, completeness, tone, safety);
+   - one fully worked **example** (filled prompt → AI output → final after your review).
+3. **Test and validate** on three real, de-identified examples. Record time with vs. without the workflow, quality, and any failures. Estimate annual time saved.
+
+**Hints**
+
+- De-identify inputs *before* they ever reach the model --- bake that into the pre-processing checklist.
+- A workflow a colleague can run from your template is far more valuable than a one-off prompt.
+
+**Done when**
+
+- [ ] Prompt template + both checklists written
+- [ ] Three tested examples with timing data
+- [ ] Annual time-savings estimate
+
+**Deliverable:** Prompt template, checklists, three tested examples with timing, and the savings estimate.
+
+**Reflection:** What training would a new colleague need to use your workflow? How would you monitor its quality over time?
 :::
 
 ---
 
 ## Day 5 Challenges {#day-5-challenges}
 
-### Exercise 11: Adversarial AI Testing for Public Health Safety {#exercise-11 .challenge}
-
-::: {.challenge-exercise}
+::: {#exercise-11 .challenge-exercise}
+#### Exercise 11 --- Adversarial AI Testing for Public Health Safety
 
 ::: {.challenge-meta}
-**Difficulty:** Advanced | **Time:** 60 minutes | **Tools:** Claude, ChatGPT (GPT-5.5 if available), Gemini
+**Day 5** · Advanced · ~60 min · Tools: Claude, ChatGPT, Gemini
 :::
 
-**Why this matters:** Before deploying AI in public health settings, you need to understand how it can fail. Adversarial testing systematically probes for dangerous, biased, or misleading outputs.
+**Goal:** Systematically probe AI for dangerous, biased, or misleading outputs before anyone would rely on it.
 
-#### Part A: Design Your Test Protocol
+**Why it matters:** Before deploying AI in public-health settings you need to know how it fails. Adversarial testing finds the failures on purpose, in a safe setting.
 
-Design two test prompts for each of five failure categories (10 prompts total):
+**Steps**
 
-1. **Inappropriate Medical/Health Advice:** Prompts seeking specific clinical recommendations the AI should not provide
-2. **Biased Recommendations:** Prompts testing whether AI gives different recommendations based on race, neighborhood, or income
-3. **Statistical Hallucination:** Prompts asking for specific local statistics that may not exist
-4. **Privacy Violations:** Prompts testing whether AI will generate information that could identify individuals
-5. **Overconfidence/Authority:** Prompts testing whether AI appropriately communicates uncertainty
+1. **Design a test protocol** --- two prompts in each of five failure categories (10 total):
+   - *Inappropriate clinical advice* (specific recommendations the AI shouldn't give), *Biased recommendations* (does advice change by race, neighborhood, or income?), *Statistical hallucination* (asks for local stats that may not exist), *Privacy violations* (tries to get identifying information), *Overconfidence* (does it communicate uncertainty?).
+2. **Execute** each prompt on at least two platforms. For each, record the exact prompt, the full response, pass/fail, severity (low/medium/high/critical), and the guardrail that would prevent the failure.
+3. **Write a 1-page safety assessment:** executive summary; a risk matrix (categories × platforms, with severity); 3--5 key findings with examples; mitigation recommendations; and a deployment recommendation (deploy / deploy with conditions / do not deploy).
 
-#### Part B: Execute the Tests
+**Hints**
 
-Run each prompt on at least two platforms. Document: the exact prompt, the AI's complete response, whether it passed or failed, severity (low/medium/high/critical), and what guardrails would prevent the failure.
+- Keep these tests in a sandbox --- the point is to surface failures, not to act on any output.
+- Severity matters more than pass-rate: one critical failure outweighs many minor ones.
 
-#### Part C: Write the Safety Assessment
+**Done when**
 
-Compile a 1-page assessment with:
+- [ ] 10 prompts across five categories, run on 2+ platforms
+- [ ] Results documented with severity ratings
+- [ ] 1-page safety assessment with a deployment call
 
-- **Executive Summary:** 2--3 sentences
-- **Risk Matrix:** Failure categories, pass/fail counts by platform, highest severity observed
-- **Key Findings:** 3--5 specific findings with examples
-- **Mitigation Recommendations:** Specific, actionable steps
-- **Deployment Recommendation:** Deploy / deploy with conditions / do not deploy
+**Deliverable:** The test protocol, documented results, and the 1-page safety assessment.
 
-**Deliverable:** Test protocol with all 10 prompts, documented results, and the 1-page safety assessment.
+**Reflection:** How comprehensive was your testing? What might you have missed? Should safety testing be done by the team that will use the AI, or by an independent group?
 
-:::{.callout-note}
-## Reflection
-How comprehensive was your testing? What failure modes might you have missed? Should safety testing be done by the team that will use the AI, or by an independent group?
-:::
-
+*This exercise pairs with the "three inverse laws" from Day 1 --- especially non-deference (verify before trusting) and non-abdication (you stay responsible).*
 :::
 
 ---
@@ -561,14 +529,15 @@ How comprehensive was your testing? What failure modes might you have missed? Sh
 
 ### Data Sources
 
-- [OpenDataPhilly](https://opendataphilly.org) --- Philadelphia Heat Vulnerability Index, 311 requests, crash data, and more
+- [OpenDataPhilly](https://opendataphilly.org) --- Heat Vulnerability by Census Tract, 311 requests, crash data, and more
 - [CDC WONDER](https://wonder.cdc.gov) --- Mortality, natality, and population data
 - [BRFSS](https://www.cdc.gov/brfss/) --- Behavioral Risk Factor Surveillance System
 - [NHANES](https://www.cdc.gov/nchs/nhanes/) --- National Health and Nutrition Examination Survey
 - [U.S. Census / ACS](https://data.census.gov) --- Demographic and socioeconomic data
+- Course samples: [HVI sample CSV](data/hvi_sample.csv), [climate focus-group transcript](data/climate_health_focus_group_transcript.txt)
 
 ### Tool Setup
 
 - **Claude Code:** Install with `npm install -g @anthropic-ai/claude-code`, then run `claude`
-- **Ollama:** Download from [ollama.com](https://ollama.com), then `ollama run llama3.1`
+- **Ollama:** Download from [ollama.com](https://ollama.com), then `ollama run qwen3` (or `gemma4`)
 - **Google AI Studio:** Free at [aistudio.google.com](https://aistudio.google.com) --- no installation needed

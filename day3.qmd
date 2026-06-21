@@ -28,6 +28,135 @@ By the end of today, you will be able to:
 
 ---
 
+## Software Setup (Windows & macOS) {#setup}
+
+Install these **before class** if you can. Each tool below has a **Windows** and a **macOS** tab --- follow the one for your computer. None of this is needed just to use the web chat tools (Claude, ChatGPT, Gemini, Google AI Studio) --- those only need a browser and a free account.
+
+:::{.callout-tip}
+## What to install for what
+- **Everyone:** [Positron](#setup) (the IDE), plus **R** and/or **Python** for the data activities.
+- **Day 3 CLI demo:** [Node.js + Claude Code](#setup).
+- **Local models (Day 3):** [Ollama](#setup).
+- **Locked-down work computer?** You can do almost everything in the browser (Claude.ai, ChatGPT, Google AI Studio). Ask your IT department before installing, and see "For IT-Restricted Computers" under Activity 6.
+:::
+
+### Positron (the data-science IDE)
+
+Free IDE for R and Python from Posit (the RStudio team). Requires **macOS 12+** or **Windows 10/11**.
+
+::: {.panel-tabset}
+#### Windows
+1. Go to the [Positron download page](https://positron.posit.co/download.html) and accept the license.
+2. Download the **user-level installer** for your chip --- `x64` for most PCs, `arm64` for Windows-on-ARM.
+3. Run the `.exe` and follow the prompts.
+4. If it won't launch, install the latest [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist).
+
+#### macOS
+1. Go to the [Positron download page](https://positron.posit.co/download.html) and accept the license.
+2. Download the `.dmg` for your chip: **Apple Silicon (arm64)** for M1/M2/M3/M4, or **Intel (x64)**. To check, open the Apple menu → About This Mac, or run `uname -m` (`arm64` vs `x86_64`).
+3. Open the `.dmg` and drag **Positron** into Applications.
+:::
+
+### R
+
+Install from CRAN (not via conda). Positron needs **R 4.2 or higher**.
+
+::: {.panel-tabset}
+#### Windows
+1. Download from [CRAN → base](https://cran.r-project.org/bin/windows/base/) and run the installer.
+2. *Optional:* install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) if you need to compile packages from source.
+
+#### macOS
+1. Download the `.pkg` from [CRAN → macOS](https://cran.r-project.org/bin/macosx/): **arm64** for Apple Silicon, **x86_64** for Intel.
+2. Run the installer (it installs to `/Library/Frameworks/R.framework`).
+:::
+
+### Python
+
+Positron works with Python **3.9--3.13**. Easiest path: let **uv** (next section) install Python for you. Otherwise use the official installer.
+
+::: {.panel-tabset}
+#### Windows
+1. Download from [python.org/downloads](https://www.python.org/downloads/windows/).
+2. In the installer, **check "Add python.exe to PATH"** before clicking Install --- this matters.
+
+#### macOS
+1. Download the macOS `universal2` installer from [python.org/downloads](https://www.python.org/downloads/macos/), **or** install via Homebrew: `brew install python`.
+:::
+
+### uv (recommended: manage Python versions + project environments)
+
+[uv](https://docs.astral.sh/uv/) is a fast tool that creates an isolated environment per project (so packages never collide) and can even install Python for you.
+
+::: {.panel-tabset}
+#### Windows
+Open **PowerShell** and run:
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+Then (optional) let uv supply Python: `uv python install 3.12`
+
+#### macOS
+In **Terminal**, run either:
+```zsh
+brew install uv
+# or:
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+Then (optional) let uv supply Python: `uv python install 3.12`
+:::
+
+Per-project use (same on both): `cd` into a folder, then `uv init`, `uv add pandas numpy matplotlib jupyterlab ipykernel`, and run with `uv run python script.py`.
+
+### Node.js + Claude Code (for the CLI demo)
+
+Claude Code is a command-line tool; it needs **Node.js v18+**.
+
+::: {.panel-tabset}
+#### Windows
+1. Install the **LTS** build from [nodejs.org](https://nodejs.org) (`.msi`).
+2. Open **PowerShell** (or Windows Terminal) and run:
+   ```powershell
+   npm install -g @anthropic-ai/claude-code
+   claude
+   ```
+
+#### macOS
+1. Install Node from [nodejs.org](https://nodejs.org) (`.pkg`), or `brew install node`.
+2. In **Terminal**, run:
+   ```zsh
+   npm install -g @anthropic-ai/claude-code
+   claude
+   ```
+:::
+
+On first run, `claude` opens a browser to sign in (works with a Claude Pro/Max or Team subscription, or an API key).
+
+### Ollama (run AI models locally)
+
+Runs open models on your own machine --- free and private. After installing, pull a model that fits your laptop (see the [model sizing guide](resources.qmd#which-model-fits-your-laptop)).
+
+::: {.panel-tabset}
+#### Windows
+1. Download the installer from [ollama.com/download/windows](https://ollama.com/download/windows) and run it.
+2. In PowerShell: `ollama pull gemma4:12b` (smaller laptops) or `ollama pull qwen3`.
+
+#### macOS
+1. Download the `.dmg` from [ollama.com/download](https://ollama.com/download), or `brew install ollama`.
+2. In Terminal: `ollama pull gemma4:12b` or `ollama pull qwen3`.
+:::
+
+### No installation needed (browser only)
+
+These need only a browser and a free account: [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), [Gemini](https://gemini.google.com), [Google AI Studio](https://aistudio.google.com), [Perplexity](https://perplexity.ai), and [MakeSense.ai](https://www.makesense.ai/) (Day 2 image annotation).
+
+::: {.callout-warning}
+## Skip Anaconda for this course
+If you've used Anaconda, **don't rely on its bundled R or Python here** --- it tends to shadow the versions above and cause "wrong version" headaches in Positron. Use **CRAN R** and **uv/python.org Python** as described. If you only want conda for Python, [Miniforge](https://github.com/conda-forge/miniforge) is the lighter, license-clean option.
+:::
+
+---
+
 ## Lecture: Agents, Context, and Tools
 
 ### Chatbots vs. Agents
@@ -469,8 +598,9 @@ brew install ollama
 # Start Ollama
 ollama serve
 
-# Pull and run a model
-ollama run llama3
+# Pull and run a model (pick one that fits your laptop)
+ollama run qwen3          # strong default; try qwen3:4b on 8 GB laptops
+ollama run gemma4         # Google's efficient option
 ```
 
 **System Requirements:**
@@ -496,7 +626,7 @@ The instructor will demonstrate:
 3. Comparing response quality to cloud-based models (trade-offs: speed, quality, privacy)
 4. When local models are "good enough" vs. when you need cloud models
 
-:::{.callout-tip collapse="true"}
+:::{.callout-tip}
 ## Advanced companion: agentic workflows on a local model (notebook)
 
 Want to go further than chatting? This [Jupyter notebook](code/Agentic_Workflows_UrbanHealth_2026.ipynb){download="Agentic_Workflows_UrbanHealth_2026.ipynb"} builds real **agentic workflows** on a local Ollama model (a laptop-friendly model like Qwen3 or Gemma 4) — everything runs on your machine, free and private. It works through three patterns on a small set of urban-health abstracts (pedestrian safety, heat, air quality):

@@ -19,6 +19,11 @@ Full slide decks for each day (open in a new tab; best viewed full-screen, use a
 
 A curated collection of tools, data sources, guides, and learning resources for the course and beyond.
 
+::: {.callout-tip}
+## Installing the software?
+See the full step-by-step **[Software Setup guide (Windows & macOS)](day3.qmd#setup)** on the Day 3 page --- it covers Positron, R, Python, uv, Node.js + Claude Code, and Ollama, with separate Windows and Mac instructions for each.
+:::
+
 ---
 
 ## AI Platforms {#ai-platforms}
@@ -129,6 +134,10 @@ Rough guide using 4-bit quantization (`Q4_K_M`, Ollama's default) — a model ne
 **On a Mac (Apple Silicon — M1/M2/M3/M4):** memory is *unified* (shared by CPU and GPU) and Ollama uses the GPU (Metal) automatically. Plan to use about 60–70% of total RAM for the model — a 16 GB Mac handles up to ~8–14B comfortably, a 32 GB Mac up to ~32B. *Intel Macs are CPU-only; stick to 3–4B models.*
 
 **On a PC (Windows / Linux):** with an **NVIDIA GPU**, the limit is **VRAM** — the model should mostly fit in VRAM for good speed (check with `nvidia-smi`). Roughly: 8 GB VRAM → up to 8B, 12 GB → up to 14B, 24 GB (e.g., RTX 4090) → up to ~32B. **Without a dedicated GPU**, Ollama runs on CPU + system RAM — fine for 3–8B models, just slower. AMD GPUs work via ROCm on Linux and recent Windows builds.
+
+### Hands-On: Agentic Workflows Notebook
+
+Once Ollama is running, this [Jupyter notebook](code/Agentic_Workflows_UrbanHealth_2026.ipynb){download="Agentic_Workflows_UrbanHealth_2026.ipynb"} builds real **agentic workflows** entirely on a local model — structured-output screening, a multi-agent crew (CrewAI), a state machine (LangGraph), and a tool-calling agent — on a small set of urban-health abstracts. Everything runs on your machine, free and private. Open it in Positron, VS Code, or Jupyter. It is also linked from [Day 3](day3.qmd) as an optional advanced track.
 
 ### Browser-Based Alternatives (No Installation Required)
 

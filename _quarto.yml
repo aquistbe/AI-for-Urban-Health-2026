@@ -19,6 +19,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: day3.qmd#setup
+        text: Setup
       - href: day1.qmd
         text: Day 1
       - href: day2.qmd
@@ -49,3 +51,4 @@ format:
     css: styles.css
     toc: true
     toc-depth: 3
+    include-after-body: _collapsible.html

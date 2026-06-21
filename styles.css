@@ -1,4 +1,22 @@
 /* ============================================
+   Collapsible activity / challenge sections
+   (toggled by _collapsible.html)
+   ============================================ */
+.collapsible-toggle { cursor: pointer; user-select: none; }
+.collapsible-toggle:hover { opacity: 0.85; }
+.collapsible-arrow { color: #003366; font-weight: 700; }
+.collapsible-collapsed .collapsible-body { display: none; }
+.collapsible-collapsed { padding-bottom: 0.6rem; }
+/* one-line Goal teaser shown under a collapsed title */
+.collapsible-teaser { margin-top: 0.25rem; }
+.collapsible-collapsed .collapsible-teaser { opacity: 0.85; }
+/* subtle hint that a collapsed block can be opened */
+.collapsible-collapsed.activity,
+.collapsible-collapsed.scenario-card,
+.collapsible-collapsed.challenge-card,
+.collapsible-collapsed.challenge-exercise { opacity: 0.97; }
+
+/* ============================================
    AI for Urban Health — Course Website Styles
    Drexel University | UHC Summer Institute 2026
    ============================================ */
