@@ -49,7 +49,7 @@ Each exercise below is **collapsed** --- click its title to expand it. Scan the 
 | 12 | [Personal AI Workflow Automation](#exercise-12) | Day 4 | Intermediate | 60 min |
 | 13 | [Create a Skill + a Scheduled Task](#exercise-13) | Day 3 | Intermediate | 45 min |
 
-*Tip: the sample datasets used by several exercises are on the course site --- the [Heat Vulnerability sample CSV](data/hvi_sample.csv) and the [climate focus-group transcript](data/climate_health_focus_group_transcript.txt).*
+*Tip: the sample datasets used by several exercises are on the course site --- the [Philadelphia HVI CSV](data/philadelphia_hvi.csv) and the [climate focus-group transcript](data/climate_health_focus_group_transcript.txt).*
 
 ---
 
@@ -151,7 +151,7 @@ Each exercise below is **collapsed** --- click its title to expand it. Scan the 
 
 **Steps**
 
-1. **Get the data.** Use the provided [Heat Vulnerability sample CSV](data/hvi_sample.csv) (census-tract level), or download the real [Heat Vulnerability by Census Tract](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) plus **311 Service Requests** (filter to environmental/housing, last 12 months) and **one dataset of your choice** (demographics, crashes, tree canopy) from [OpenDataPhilly](https://opendataphilly.org).
+1. **Get the data.** Use the provided [Philadelphia HVI CSV](data/philadelphia_hvi.csv) (census-tract level), or download the real [Heat Vulnerability by Census Tract](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) plus **311 Service Requests** (filter to environmental/housing, last 12 months) and **one dataset of your choice** (demographics, crashes, tree canopy) from [OpenDataPhilly](https://opendataphilly.org).
 2. **Examine each** and document the geographic unit (tract, ZIP, point) and possible join keys.
 3. **Have the AI plan the join.** Share the data dictionaries and ask:
 
@@ -477,7 +477,7 @@ Authoring a `SKILL.md` is free for anyone (it's just a folder). *Using* skills i
 **Steps**
 
 1. **Plan.** Decide the audience, the 3--5 questions the dashboard answers, and which variables to show. Sketch a wireframe and write a 150--200 word design brief.
-2. **Build.** Use the [Heat Vulnerability sample CSV](data/hvi_sample.csv). Share your brief and data and ask:
+2. **Build.** Use the [Philadelphia HVI CSV](data/philadelphia_hvi.csv). Share your brief and data and ask:
 
    > Build a single self-contained HTML file (inline CSS/JS, no external dependencies except a CDN charting library) from this CSV: 3--4 KPI cards, a histogram of HVI scores, a scatterplot of two components, one more visualization (map or comparison), at least one dropdown filter, and a short narrative. Make it colorblind-friendly and clearly labeled.
 
@@ -588,7 +588,7 @@ Authoring a `SKILL.md` is free for anyone (it's just a folder). *Using* skills i
 - [BRFSS](https://www.cdc.gov/brfss/) --- Behavioral Risk Factor Surveillance System
 - [NHANES](https://www.cdc.gov/nchs/nhanes/) --- National Health and Nutrition Examination Survey
 - [U.S. Census / ACS](https://data.census.gov) --- Demographic and socioeconomic data
-- Course samples: [HVI sample CSV](data/hvi_sample.csv), [climate focus-group transcript](data/climate_health_focus_group_transcript.txt)
+- Course samples: [Philadelphia HVI CSV](data/philadelphia_hvi.csv), [climate focus-group transcript](data/climate_health_focus_group_transcript.txt)
 
 ### Tool Setup
 

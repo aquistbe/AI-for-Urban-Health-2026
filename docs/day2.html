@@ -414,44 +414,45 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Goal:</strong> Use AI to analyze a real Philadelphia dataset through progressive prompting, from exploration to code generation.</p>
 <section id="the-dataset-philadelphia-heat-vulnerability-index" class="level4">
 <h4 class="anchored" data-anchor-id="the-dataset-philadelphia-heat-vulnerability-index">The Dataset: Philadelphia Heat Vulnerability Index</h4>
-<p>We will work with the <strong>Heat Vulnerability Index (HVI)</strong> from OpenDataPhilly:</p>
-<p><strong>Download link:</strong> <a href="https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/">Heat Vulnerability by Census Tract — OpenDataPhilly</a></p>
-<p>This dataset measures heat vulnerability across Philadelphia census tracts, incorporating factors like surface temperature, impervious surfaces, tree canopy, poverty, age, and health conditions.</p>
+<p>We will work with the real <strong>Heat Vulnerability Index (HVI)</strong> from OpenDataPhilly — 384 Philadelphia census tracts (2023).</p>
+<p><strong>Get the data:</strong> <a href="data/philadelphia_hvi.csv" download="philadelphia_hvi.csv">philadelphia_hvi.csv</a> (a cleaned table, ready to upload), or the original <a href="https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/">Heat Vulnerability by Census Tract</a> on OpenDataPhilly. For mapping, also grab the <a href="data/philadelphia_hvi.geojson" download="philadelphia_hvi.geojson">GeoJSON</a>.</p>
+<p>Each row is one tract: <code>geoid10</code> (tract ID), <code>name10</code> (tract number), <code>hsi_score</code> (heat <strong>sensitivity</strong> index), <code>hei_score</code> (heat <strong>exposure</strong> index), <code>hvi_score</code> (overall vulnerability), <code>n_veryhigh</code> (count of very-high-vulnerability blocks), and <code>year</code>. The overall HVI combines the exposure and sensitivity indices.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This published file contains the composite <strong>indices only</strong> — not the underlying drivers (poverty, tree canopy, surface temperature). To analyze those drivers you would join other datasets, which is exactly <a href="./challenges.html#exercise-3">Bonus Exercise 3</a>.</p>
+</div>
+</div>
 </section>
 <section id="step-by-step-progressive-prompting" class="level4">
 <h4 class="anchored" data-anchor-id="step-by-step-progressive-prompting">Step-by-Step Progressive Prompting</h4>
-<p>Upload the dataset to your preferred AI platform (Claude and ChatGPT both handle CSV/Excel uploads well) and work through these prompts sequentially:</p>
+<p>Upload <code>philadelphia_hvi.csv</code> to your preferred AI platform (Claude and ChatGPT both handle CSV uploads well) and work through these prompts in order:</p>
 <p><strong>Step 1: Explore</strong></p>
 <blockquote class="blockquote">
-<p>I have uploaded a dataset on heat vulnerability in Philadelphia. Please examine the data and tell me: How many records are there? What variables are included? What is the unit of analysis? Are there any missing values or data quality issues?</p>
+<p>I have uploaded the Philadelphia Heat Vulnerability Index dataset. Examine it and tell me: how many records are there, what variables are included, what is the unit of analysis, and are there any missing values or data-quality issues?</p>
 </blockquote>
 <p><strong>Step 2: Describe</strong></p>
 <blockquote class="blockquote">
-<p>Provide descriptive statistics for all numeric variables. Which census tracts have the highest and lowest heat vulnerability scores? What is the distribution of the overall HVI score?</p>
+<p>Provide descriptive statistics for the numeric variables. Which census tracts have the highest and lowest overall HVI scores (give the geoid10 and name10)? Describe the distribution of hvi_score.</p>
 </blockquote>
 <p><strong>Step 3: Analyze</strong></p>
 <blockquote class="blockquote">
-<p>What variables are most strongly correlated with the overall heat vulnerability index score? Are there spatial patterns (e.g., do certain parts of the city have consistently higher vulnerability)?</p>
+<p>The overall HVI combines a heat-exposure index (hei_score) and a heat-sensitivity index (hsi_score). Examine the relationship between exposure and sensitivity: are they correlated? Which tracts score high on BOTH? How does each relate to the overall hvi_score?</p>
 </blockquote>
 <p><strong>Step 4: Visualize</strong></p>
 <blockquote class="blockquote">
-<p>Create the following visualizations:</p>
-<ol type="1">
-<li>A histogram of the HVI score distribution</li>
-<li>A scatter plot showing the relationship between tree canopy coverage and HVI score</li>
-<li>A correlation heatmap of the key variables</li>
-</ol>
+<p>Create: (1) a histogram of hvi_score; (2) a scatter plot of hei_score (x-axis) vs hsi_score (y-axis), with points sized or colored by hvi_score; (3) a horizontal bar chart of the 15 tracts with the highest hvi_score, labeled by name10.</p>
 </blockquote>
-<p><strong>Step 5: Generate Code</strong></p>
+<p><strong>Step 5: Generate Code + Map</strong></p>
 <blockquote class="blockquote">
-<p>Write code in [R / Python / Stata] that would:</p>
-<ol type="1">
-<li>Load this dataset</li>
-<li>Clean any missing values</li>
-<li>Calculate summary statistics by quintile of the HVI score</li>
-<li>Run a linear regression predicting HVI score from tree canopy, impervious surface, and poverty rate</li>
-<li>Generate a publication-quality figure showing the relationship between poverty and heat vulnerability</li>
-</ol>
+<p>Write code in [R / Python / Stata] that: (1) loads philadelphia_hvi.csv; (2) computes summary statistics by quintile of hvi_score; (3) makes the top-15-tracts bar chart; and (4) joins the table to philadelphia_hvi.geojson on geoid10 and draws a choropleth map of hvi_score across Philadelphia.</p>
 </blockquote>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R Users</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python Users</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Stata Users</a></li></ul>

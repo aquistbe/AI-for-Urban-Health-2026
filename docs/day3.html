@@ -691,15 +691,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="demo-outline">Demo Outline</h4>
 <p>The instructor will demonstrate:</p>
 <p><strong>1. Data Analysis and Visualization</strong></p>
-<pre><code>claude "Load the Philadelphia HVI dataset from data/hvi.csv.
-       Create a summary by zip code and generate a bar chart
-       of the top 10 most vulnerable areas. Save the chart
+<pre><code>claude "Load the Philadelphia HVI dataset from data/philadelphia_hvi.csv.
+       Summarize it and generate a bar chart of the 10 census
+       tracts with the highest hvi_score. Save the chart
        as hvi_top10.png"</code></pre>
 <p><strong>2. Document Generation</strong></p>
 <pre><code>claude "Read the analysis results in output/ and draft a
        2-page executive summary for city council. Include
        the key findings, a table of the most vulnerable
-       neighborhoods, and three policy recommendations.
+       tracts, and three policy recommendations.
        Save as executive_summary.docx"</code></pre>
 <p><strong>3. Multi-Step Workflow</strong></p>
 <pre><code>claude "Download the latest flu surveillance data from CDC,
@@ -739,9 +739,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><strong>Cost gotcha:</strong> if <code>ANTHROPIC_API_KEY</code> is set in your shell, it overrides your subscription and you’ll be billed per-token. For a subscription demo, <code>unset ANTHROPIC_API_KEY</code> first.</p>
 </blockquote></li>
-<li><p><strong>Build the demo folder</strong> and drop in the sample data (<a href="data/hvi_sample.csv" download="hvi_sample.csv">download <code>hvi_sample.csv</code></a> — 45 tracts; neighborhood names are illustrative and values are synthetic):</p>
+<li><p><strong>Build the demo folder</strong> and drop in the data (<a href="data/philadelphia_hvi.csv" download="philadelphia_hvi.csv">download <code>philadelphia_hvi.csv</code></a> — the real OpenDataPhilly HVI: 384 Philadelphia tracts, 2023):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/cli-demo/data <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> ~/cli-demo</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># move the downloaded file into ~/cli-demo/data/hvi_sample.csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># move the downloaded file into ~/cli-demo/data/philadelphia_hvi.csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Dry-run it once</strong> so there are no surprises live, then <code>/clear</code> before class.</p></li>
 </ol>
 </section>
@@ -753,17 +753,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Point out the prompt is now waiting, and that Claude can see this folder. Type <code>/help</code> to show the slash commands, then <code>/cost</code> to show that usage is tracked.</p>
 <p><strong>Step 1 — Explore the data (read-only; ~4 min).</strong> Paste:</p>
 <blockquote class="blockquote">
-<p>Look at data/hvi_sample.csv. How many records are there, what is the unit of analysis, what columns are present, and are there any data-quality issues? Don’t write any files yet — just summarize.</p>
+<p>Look at data/philadelphia_hvi.csv. How many records are there, what is the unit of analysis, what columns are present, and are there any data-quality issues? Don’t write any files yet — just summarize.</p>
 </blockquote>
 <p><em>What to narrate:</em> Claude reads the file without asking permission (reads are allowed by default), but it has <strong>not</strong> changed anything. This is the safe way to start: explore before you act. Tie back to context engineering (Activity 1) — it only knows what’s in the folder plus your instructions.</p>
 <p><strong>Step 2 — Generate a chart (first permission prompt; ~6 min).</strong> Paste:</p>
 <blockquote class="blockquote">
-<p>Create a horizontal bar chart of the 10 tracts with the highest hvi_score, labeled by neighborhood. Use Python (matplotlib), save it as figures/hvi_top10.png, and create the figures/ folder if needed.</p>
+<p>Create a horizontal bar chart of the 10 tracts with the highest hvi_score, labeled by name10 (the tract number). Use Python (matplotlib), save it as figures/hvi_top10.png, and create the figures/ folder if needed.</p>
 </blockquote>
 <p><em>What to narrate:</em> Claude now wants to <strong>write a script and run it</strong>, so it pauses and shows you the command and the file it will create. <strong>Approve it in front of the class</strong> — this is the human-in-the-loop checkpoint and the single most important thing to show. Open <code>figures/hvi_top10.png</code> afterward.</p>
 <p><strong>Step 3 — Draft a brief from the findings (~5 min).</strong> Paste:</p>
 <blockquote class="blockquote">
-<p>Using what you found, draft a one-page plain-language brief for City Council on heat vulnerability, with the top 5 neighborhoods in a table and three policy recommendations. Save it as brief.md.</p>
+<p>Using what you found, draft a one-page plain-language brief for City Council on heat vulnerability, with the top 5 tracts (by name10) in a table and three policy recommendations. Save it as brief.md.</p>
 </blockquote>
 <p><em>What to narrate:</em> Same approval step for the new file. Then <strong>open <code>brief.md</code> and read a recommendation aloud, then push back</strong>: ask the class “is that number actually in our data?” Open the CSV and check. This is the <em>verification-is-the-bottleneck</em> point from earlier — fluent output still needs checking, especially before anything reaches a decision-maker.</p>
 <p><strong>Step 4 — Show the controls (~3 min).</strong></p>
@@ -780,7 +780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Open the demo folder in Positron:</strong> <em>File → Open Folder → <code>~/cli-demo</code>.</em></li>
 <li><strong>Open the integrated terminal</strong> (<em>Terminal → New Terminal</em>, or <code>Ctrl+`</code>) and run <code>claude</code> there. Claude Code auto-detects the IDE (via a lock file in <code>~/.claude/ide/</code>), so it knows which file you have open and shows its edits as <strong>diffs in the editor</strong> — which is much clearer to project than a terminal diff.</li>
 <li><strong>Keep it in your language.</strong> Add to your prompts: <em>“Use R and ggplot2; save the script as a .R file and run it with Rscript”</em> (or <em>“use Python”</em>). Run the same four steps as above.</li>
-<li><strong>Verify in the IDE.</strong> Open <code>hvi_sample.csv</code> in Positron’s <strong>data viewer</strong>, let the chart land in the <strong>Plots</strong> pane, and run one line of R/Python yourself to confirm Claude’s numbers — a clean, visible version of the verification step.</li>
+<li><strong>Verify in the IDE.</strong> Open <code>philadelphia_hvi.csv</code> in Positron’s <strong>data viewer</strong>, let the chart land in the <strong>Plots</strong> pane, and run one line of R/Python yourself to confirm Claude’s numbers — a clean, visible version of the verification step.</li>
 </ol>
 <blockquote class="blockquote">
 <p><strong>Caveat:</strong> Claude runs commands in that terminal’s shell, so the R/Python it uses is whatever is on your <strong>PATH</strong>, not necessarily Positron’s selected interpreter. Confirm <code>Rscript</code> (or your Python environment) works in that terminal <em>before</em> class.</p>
@@ -790,9 +790,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="if-something-breaks-fallbacks" class="level3">
 <h3 class="anchored" data-anchor-id="if-something-breaks-fallbacks">If something breaks (fallbacks)</h3>
 <ul>
-<li><strong>Can’t install / locked-down laptop:</strong> run the <em>same prompts</em> against <a href="https://claude.ai">claude.ai</a> or <a href="https://aistudio.google.com">Google AI Studio</a> by uploading <code>hvi_sample.csv</code>. You lose the local-file/automation angle but keep the analysis narrative.</li>
+<li><strong>Can’t install / locked-down laptop:</strong> run the <em>same prompts</em> against <a href="https://claude.ai">claude.ai</a> or <a href="https://aistudio.google.com">Google AI Studio</a> by uploading <code>philadelphia_hvi.csv</code>. You lose the local-file/automation angle but keep the analysis narrative.</li>
 <li><strong>No internet in the room:</strong> pre-record the run, or screenshot each step into the slides as a backup.</li>
-<li><strong>Want a no-prompt, scripted version:</strong> <code>claude -p "summarize data/hvi_sample.csv"</code> runs once and exits — useful to show automation, but do the interactive version first so students see the approval prompts.</li>
+<li><strong>Want a no-prompt, scripted version:</strong> <code>claude -p "summarize data/philadelphia_hvi.csv"</code> runs once and exits — useful to show automation, but do the interactive version first so students see the approval prompts.</li>
 <li><strong>Don’t use <code>--dangerously-skip-permissions</code> in class</strong> except to name it and explain why skipping approvals is risky.</li>
 </ul>
 </section>

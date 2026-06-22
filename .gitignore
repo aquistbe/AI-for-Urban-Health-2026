@@ -11,6 +11,10 @@ Thumbs.db
 .Rproj.user/
 .Rhistory
 
+# Local working folder for the Claude Code demo (not part of the published course)
+/cli-demo/
+/docs/cli-demo/
+
 **/*.quarto_ipynb
 /.deno/
 /.quarto-home/

@@ -6,6 +6,7 @@ project:
     - "*.md"
     - "!data/**"
     - "!code/**"
+    - "!cli-demo/**"
   resources:
     - slides/
     - data/

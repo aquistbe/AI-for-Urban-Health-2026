@@ -171,45 +171,39 @@ Claude, ChatGPT, and Gemini **free tiers** all accept CSV/Excel uploads for this
 
 #### The Dataset: Philadelphia Heat Vulnerability Index
 
-We will work with the **Heat Vulnerability Index (HVI)** from OpenDataPhilly:
+We will work with the real **Heat Vulnerability Index (HVI)** from OpenDataPhilly --- 384 Philadelphia census tracts (2023).
 
-**Download link:** [Heat Vulnerability by Census Tract --- OpenDataPhilly](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/)
+**Get the data:** [philadelphia_hvi.csv](data/philadelphia_hvi.csv){download="philadelphia_hvi.csv"} (a cleaned table, ready to upload), or the original [Heat Vulnerability by Census Tract](https://opendataphilly.org/datasets/heat-vulnerability-by-census-tract/) on OpenDataPhilly. For mapping, also grab the [GeoJSON](data/philadelphia_hvi.geojson){download="philadelphia_hvi.geojson"}.
 
-This dataset measures heat vulnerability across Philadelphia census tracts, incorporating factors like surface temperature, impervious surfaces, tree canopy, poverty, age, and health conditions.
+Each row is one tract: `geoid10` (tract ID), `name10` (tract number), `hsi_score` (heat **sensitivity** index), `hei_score` (heat **exposure** index), `hvi_score` (overall vulnerability), `n_veryhigh` (count of very-high-vulnerability blocks), and `year`. The overall HVI combines the exposure and sensitivity indices.
+
+:::{.callout-note}
+This published file contains the composite **indices only** --- not the underlying drivers (poverty, tree canopy, surface temperature). To analyze those drivers you would join other datasets, which is exactly [Bonus Exercise 3](challenges.qmd#exercise-3).
+:::
 
 #### Step-by-Step Progressive Prompting
 
-Upload the dataset to your preferred AI platform (Claude and ChatGPT both handle CSV/Excel uploads well) and work through these prompts sequentially:
+Upload `philadelphia_hvi.csv` to your preferred AI platform (Claude and ChatGPT both handle CSV uploads well) and work through these prompts in order:
 
 **Step 1: Explore**
 
-> I have uploaded a dataset on heat vulnerability in Philadelphia. Please examine the data and tell me: How many records are there? What variables are included? What is the unit of analysis? Are there any missing values or data quality issues?
+> I have uploaded the Philadelphia Heat Vulnerability Index dataset. Examine it and tell me: how many records are there, what variables are included, what is the unit of analysis, and are there any missing values or data-quality issues?
 
 **Step 2: Describe**
 
-> Provide descriptive statistics for all numeric variables. Which census tracts have the highest and lowest heat vulnerability scores? What is the distribution of the overall HVI score?
+> Provide descriptive statistics for the numeric variables. Which census tracts have the highest and lowest overall HVI scores (give the geoid10 and name10)? Describe the distribution of hvi_score.
 
 **Step 3: Analyze**
 
-> What variables are most strongly correlated with the overall heat vulnerability index score? Are there spatial patterns (e.g., do certain parts of the city have consistently higher vulnerability)?
+> The overall HVI combines a heat-exposure index (hei_score) and a heat-sensitivity index (hsi_score). Examine the relationship between exposure and sensitivity: are they correlated? Which tracts score high on BOTH? How does each relate to the overall hvi_score?
 
 **Step 4: Visualize**
 
-> Create the following visualizations:
->
-> 1. A histogram of the HVI score distribution
-> 2. A scatter plot showing the relationship between tree canopy coverage and HVI score
-> 3. A correlation heatmap of the key variables
+> Create: (1) a histogram of hvi_score; (2) a scatter plot of hei_score (x-axis) vs hsi_score (y-axis), with points sized or colored by hvi_score; (3) a horizontal bar chart of the 15 tracts with the highest hvi_score, labeled by name10.
 
-**Step 5: Generate Code**
+**Step 5: Generate Code + Map**
 
-> Write code in [R / Python / Stata] that would:
->
-> 1. Load this dataset
-> 2. Clean any missing values
-> 3. Calculate summary statistics by quintile of the HVI score
-> 4. Run a linear regression predicting HVI score from tree canopy, impervious surface, and poverty rate
-> 5. Generate a publication-quality figure showing the relationship between poverty and heat vulnerability
+> Write code in [R / Python / Stata] that: (1) loads philadelphia_hvi.csv; (2) computes summary statistics by quintile of hvi_score; (3) makes the top-15-tracts bar chart; and (4) joins the table to philadelphia_hvi.geojson on geoid10 and draws a choropleth map of hvi_score across Philadelphia.
 
 ::: {.panel-tabset}
 
