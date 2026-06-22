@@ -207,6 +207,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#chatbots-vs.-agents" id="toc-chatbots-vs.-agents" class="nav-link" data-scroll-target="#chatbots-vs.-agents">Chatbots vs.&nbsp;Agents</a></li>
   <li><a href="#context-engineering-the-5-components" id="toc-context-engineering-the-5-components" class="nav-link" data-scroll-target="#context-engineering-the-5-components">Context Engineering: The 5 Components</a></li>
   <li><a href="#model-context-protocol-mcp" id="toc-model-context-protocol-mcp" class="nav-link" data-scroll-target="#model-context-protocol-mcp">Model Context Protocol (MCP)</a></li>
+  <li><a href="#agent-skills" id="toc-agent-skills" class="nav-link" data-scroll-target="#agent-skills">Agent Skills</a></li>
+  <li><a href="#agentic-harnesses-cowork-claude-code-codex-and-more" id="toc-agentic-harnesses-cowork-claude-code-codex-and-more" class="nav-link" data-scroll-target="#agentic-harnesses-cowork-claude-code-codex-and-more">Agentic Harnesses: Cowork, Claude Code, Codex, and More</a></li>
+  <li><a href="#scheduled-tasks" id="toc-scheduled-tasks" class="nav-link" data-scroll-target="#scheduled-tasks">Scheduled Tasks</a></li>
   <li><a href="#verification-is-the-bottleneck" id="toc-verification-is-the-bottleneck" class="nav-link" data-scroll-target="#verification-is-the-bottleneck">Verification Is the Bottleneck</a></li>
   </ul></li>
   <li><a href="#activity-1-context-engineering-exercise" id="toc-activity-1-context-engineering-exercise" class="nav-link" data-scroll-target="#activity-1-context-engineering-exercise">Activity 1: Context Engineering Exercise</a>
@@ -274,7 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Distinguish between AI chatbots and AI agents and explain why the difference matters</li>
 <li>Describe the five components of context engineering and why it is critical for effective AI use</li>
 <li>Explain the Model Context Protocol (MCP) and how it enables tool integration</li>
-<li>Use or observe command-line AI tools (Claude Code, Codex CLI, Gemini CLI)</li>
+<li>Describe Agent Skills and compare agentic harnesses (Cowork, Claude Code, Codex, Antigravity, OpenCoworker)</li>
+<li>Use or observe command-line AI tools (Claude Code, Codex CLI)</li>
 <li>Build a simple AI agent using Google AI Studio</li>
 <li>Understand why local AI models matter for sensitive data and how to run them</li>
 </ol>
@@ -539,6 +543,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>API calls to external services</li>
 </ul>
 </section>
+<section id="agent-skills" class="level3">
+<h3 class="anchored" data-anchor-id="agent-skills">Agent Skills</h3>
+<p>A <strong>Skill</strong> is a reusable folder of expertise you hand the agent. At minimum it is a <code>SKILL.md</code> file — a Markdown document with YAML frontmatter (a <code>name</code> and a <code>description</code>) and instructions in the body — plus optional <code>scripts/</code> (code the agent can run) and <code>references/</code> (documents loaded only when needed). When a task matches the description, the agent loads the skill on demand and follows it.</p>
+<p>If MCP is <em>how</em> an agent reaches tools, a Skill is <em>how it knows your way of doing a task</em>. Where a prompt is a one-off instruction, a Skill is durable and reusable: write your de-identification checklist, your report format, or your STROBE/CONSORT reporting steps once, and the agent applies them every time — across chats, Claude Code, and Cowork.</p>
+<p>You can write a <code>SKILL.md</code> by hand, or use the <strong>Skill Creator</strong> (a “skill that builds skills”) — it’s pre-installed in Claude Desktop and Cowork, and installable in Claude Code (<code>/plugin install skill-creator</code>). On claude.ai, upload a zipped skill folder under <strong>Settings → Customize → Skills</strong>.</p>
+<p><em>Public-health skill ideas:</em> a “de-identify before sharing” checklist, a plain-language health-communication rewriter, a grant Specific-Aims formatter, or a data-dictionary generator.</p>
+</section>
+<section id="agentic-harnesses-cowork-claude-code-codex-and-more" class="level3">
+<h3 class="anchored" data-anchor-id="agentic-harnesses-cowork-claude-code-codex-and-more">Agentic Harnesses: Cowork, Claude Code, Codex, and More</h3>
+<p>The same core idea — a model plus tools running in a loop — ships in several “harnesses” that differ mainly in <em>where</em> you work and <em>how much autonomy</em> they take. (Recall the three ways to work with AI from Day 1.)</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Harness</th>
+<th>What it is</th>
+<th>Best for</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Claude Code</strong> (Anthropic)</td>
+<td>Terminal/CLI agent</td>
+<td>Coding, data analysis, file automation in a repo</td>
+<td>Reads <code>CLAUDE.md</code>; strong on coding benchmarks; Anthropic models</td>
+</tr>
+<tr class="even">
+<td><strong>Cowork</strong> (Anthropic)</td>
+<td>Desktop app agent</td>
+<td>Non-coders: files, connectors, <strong>Skills</strong>, <strong>scheduled tasks</strong></td>
+<td>Runs each task as its own session; paid plan</td>
+</tr>
+<tr class="odd">
+<td><strong>Codex / Codex CLI</strong> (OpenAI)</td>
+<td>Terminal agent</td>
+<td>Long, “walk-away” autonomous runs (“goal mode”)</td>
+<td>Strong Docker sandboxing; OpenAI models</td>
+</tr>
+<tr class="even">
+<td><strong>Google Antigravity</strong></td>
+<td>Agent-first IDE + CLI/SDK</td>
+<td>Orchestrating <em>multiple</em> agents; browser-testing what it builds</td>
+<td>Free public preview; Gemini models (Gemini CLI folded into it)</td>
+</tr>
+<tr class="odd">
+<td><strong>OpenCoworker</strong></td>
+<td>Open-source desktop agent</td>
+<td>Privacy-sensitive work; bring-your-own model</td>
+<td>Free/self-hostable; use your API key or a local Ollama model</td>
+</tr>
+</tbody>
+</table>
+<p>The differences that matter for choosing: <strong>surface</strong> (terminal vs.&nbsp;desktop vs.&nbsp;IDE), <strong>autonomy</strong> (one step vs.&nbsp;hours of unattended work), <strong>model lock-in</strong> (vendor-only vs.&nbsp;bring-your-own), and <strong>data control</strong> (cloud vs.&nbsp;fully local). For sensitive public-health data, weigh the last two heavily.</p>
+</section>
+<section id="scheduled-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="scheduled-tasks">Scheduled Tasks</h3>
+<p>Agentic tools increasingly run on a <strong>schedule</strong>, not just on demand. In Cowork, you describe a task once, pick a cadence (hourly, daily, weekdays, weekly) or an event trigger (a new file, a webhook), and it runs automatically — each run with access to your files, connectors, and Skills. This turns a one-off (“summarize this week’s 311 complaints”) into standing automation (“every Monday, pull the new data, update the chart, and draft the email”). Schedule only work you’d be comfortable having run with a human reviewing the output — not irreversible actions.</p>
+</section>
 <section id="verification-is-the-bottleneck" class="level3">
 <h3 class="anchored" data-anchor-id="verification-is-the-bottleneck">Verification Is the Bottleneck</h3>
 <p>Agents generate far faster than you can check, so verification — not generation — becomes the limiting step and the real skill. Fluent output is not the same as correct output, and the higher the stakes, the higher your burden of proof. One of the most reliable uses of a model is to turn it on its own work: ask it to be an <em>adversarial reader</em> (“argue why this analysis is wrong”), to find the weakest claim, the missing control, or the unchecked assumption in your code, draft, or study design — then you decide.</p>
@@ -764,46 +832,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="header">
 <th>Feature</th>
 <th>Claude Code</th>
-<th>Codex CLI (OpenAI)</th>
-<th>Gemini CLI (Google)</th>
+<th>Codex / Codex CLI (OpenAI)</th>
+<th>Antigravity (Google)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Model</td>
 <td>Claude (Anthropic)</td>
-<td>GPT-5.5 when available; otherwise current default/latest GPT model (OpenAI)</td>
+<td>GPT-5.5 when available; otherwise the current default GPT model (OpenAI)</td>
 <td>Gemini (Google)</td>
 </tr>
 <tr class="even">
+<td>Surface</td>
+<td>Terminal</td>
+<td>Terminal</td>
+<td>Agent-first IDE + CLI</td>
+</tr>
+<tr class="odd">
 <td>File access</td>
 <td>Yes</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Code execution</td>
 <td>Yes</td>
-<td>Yes (sandboxed)</td>
-<td>Yes</td>
-</tr>
-<tr class="even">
-<td>Cost</td>
-<td>API usage</td>
-<td>API usage</td>
-<td>Free (with Gemini API key)</td>
+<td>Yes (Docker sandbox)</td>
+<td>Yes (and browser-tests builds)</td>
 </tr>
 <tr class="odd">
-<td>Best for</td>
-<td>Analysis, writing, coding</td>
-<td>Code generation, debugging</td>
-<td>Google ecosystem integration</td>
+<td>Cost</td>
+<td>Claude subscription or API</td>
+<td>API usage</td>
+<td>Free public preview</td>
 </tr>
 <tr class="even">
+<td>Best for</td>
+<td>Analysis, writing, coding in a repo</td>
+<td>Long autonomous “goal mode” runs</td>
+<td>Orchestrating multiple agents</td>
+</tr>
+<tr class="odd">
 <td>Install</td>
 <td><code>npm install -g @anthropic-ai/claude-code</code></td>
 <td><code>npm install -g @openai/codex</code></td>
-<td><code>npm install -g @google/gemini-cli</code></td>
+<td>Desktop app + Antigravity CLI</td>
 </tr>
 </tbody>
 </table>
@@ -817,7 +891,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All three tools require an API key and incur usage costs (except Gemini CLI which currently offers a free tier). The instructor will demonstrate; you do not need to install these today unless you want to.</p>
+<p>Google’s standalone Gemini CLI was consolidated into <strong>Antigravity</strong> in mid-2026. The instructor will demonstrate; you do not need to install these today unless you want to.</p>
 </div>
 </div>
 </section>
@@ -980,7 +1054,7 @@ Note
 </section>
 <section id="bonus-challenge-exercises" class="level2 bonus-challenges-section">
 <h2 class="anchored" data-anchor-id="bonus-challenge-exercises">Bonus Challenge Exercises</h2>
-<p>These optional exercises are for students who finish the core activities early or want to go deeper. See the full <a href="./challenges.html">Bonus Challenges page</a> for complete instructions and all 12 exercises across the course.</p>
+<p>These optional exercises are for students who finish the core activities early or want to go deeper. See the full <a href="./challenges.html">Bonus Challenges page</a> for complete instructions and all 13 exercises across the course.</p>
 <section id="challenge-6-building-an-automated-data-pipeline" class="level4 challenge-card">
 <h4 class="anchored" data-anchor-id="challenge-6-building-an-automated-data-pipeline">Challenge 6: Building an Automated Data Pipeline</h4>
 <div class="challenge-meta">

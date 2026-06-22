@@ -265,6 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
 <p>Full slide decks for each day (open in a new tab; best viewed full-screen, use arrow keys):</p>
 <ul>
+<li><a href="slides/day0.html" target="_blank">Welcome &amp; Orientation</a> — start here: how the course works, software, and setup</li>
 <li><a href="slides/day1.html" target="_blank">Day 1 — Foundations of AI</a></li>
 <li><a href="slides/day2.html" target="_blank">Day 2 — Multimodal AI &amp; Working with Models</a></li>
 <li><a href="slides/day3.html" target="_blank">Day 3 — Agentic AI, MCP &amp; Loops</a></li>
@@ -377,29 +378,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><strong>Claude Code</strong></td>
 <td><a href="https://docs.anthropic.com/en/docs/claude-code">docs.anthropic.com/en/docs/claude-code</a></td>
-<td>Anthropic’s CLI tool for AI-assisted coding, analysis, and file operations.</td>
-<td>Node.js, Anthropic API key</td>
+<td>Anthropic’s CLI agent for coding, analysis, and file operations. Reads a <code>CLAUDE.md</code> project file.</td>
+<td>Node.js, Claude subscription or API key</td>
 </tr>
 <tr class="even">
 <td><strong>Cowork</strong></td>
 <td>Available through Claude desktop app</td>
-<td>Collaborative AI environment within Claude for multi-step tasks.</td>
-<td>Claude desktop app</td>
+<td>Anthropic’s desktop agent for non-coders: files, connectors, <strong>Skills</strong>, and <strong>scheduled tasks</strong>.</td>
+<td>Claude desktop app, paid plan</td>
 </tr>
 <tr class="odd">
-<td><strong>Codex CLI</strong></td>
+<td><strong>Codex / Codex CLI</strong></td>
 <td><a href="https://github.com/openai/codex">github.com/openai/codex</a></td>
-<td>OpenAI’s CLI tool for code generation and execution.</td>
+<td>OpenAI’s terminal agent; strong sandboxing and long “goal mode” runs.</td>
 <td>Node.js, OpenAI API key</td>
 </tr>
 <tr class="even">
-<td><strong>Gemini CLI</strong></td>
-<td><a href="https://github.com/google-gemini/gemini-cli">github.com/google-gemini/gemini-cli</a></td>
-<td>Google’s CLI tool for AI-assisted tasks with Gemini models. Currently offers a free tier.</td>
-<td>Node.js, Google API key</td>
+<td><strong>Google Antigravity</strong></td>
+<td><a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/">Google Developers Blog</a></td>
+<td>Agent-first IDE with CLI/SDK; orchestrates multiple agents and browser-tests what it builds. (Gemini CLI was consolidated into Antigravity in mid-2026.)</td>
+<td>Desktop app; free preview</td>
+</tr>
+<tr class="odd">
+<td><strong>OpenCoworker</strong></td>
+<td><a href="https://www.opencoworker.com/">opencoworker.com</a></td>
+<td>Open-source desktop agent (macOS/Windows); bring your own model or run locally via Ollama.</td>
+<td>API key or local Ollama</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Agent Skills.</strong> A Skill is a reusable folder (<code>SKILL.md</code> + optional scripts and references) that teaches an agent your way of doing a recurring task — portable across claude.ai, Claude Code, and Cowork. See Anthropic’s <a href="https://code.claude.com/docs/en/skills">Agent Skills docs</a> and the public <a href="https://github.com/anthropics/skills">skills repository</a>. Try Bonus <a href="./challenges.html#exercise-13">Exercise 13</a> to build one.</p>
 </section>
 <section id="installation-general" class="level3">
 <h3 class="anchored" data-anchor-id="installation-general">Installation (General)</h3>
@@ -410,8 +418,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Then install the CLI tool:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code     <span class="co"># Claude Code</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @openai/codex                 <span class="co"># Codex CLI</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/gemini-cli            <span class="co"># Gemini CLI</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @openai/codex                 <span class="co"># Codex CLI</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(Google’s terminal agent now ships as part of <a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/">Antigravity</a> rather than a standalone Gemini CLI.)</p>
 <hr>
 </section>
 </section>

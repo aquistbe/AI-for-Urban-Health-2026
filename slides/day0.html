@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome & Orientation — AI for Urban Health (2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-slide: #0f1424;
+  --bg-card: #161c32;
+  --accent-blue: #4a9eff;
+  --accent-cyan: #22d3ee;
+  --accent-violet: #a78bfa;
+  --accent-amber: #fbbf24;
+  --accent-rose: #fb7185;
+  --accent-emerald: #34d399;
+  --text-primary: #e8ecf4;
+  --text-secondary: #8892a8;
+  --text-dim: #4a5268;
+  --border: #1e2640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 19.2px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+  user-select: none;
+}
+.deck { width: 100vw; height: calc(100vh - 36px); display: flex; align-items: center; justify-content: center; background: #000; position: relative; }
+.slide-frame { position: relative; width: 1280px; height: 720px; min-width: 1280px; min-height: 720px; flex-shrink: 0; transform-origin: center center; }
+.slide { position: absolute; inset: 0; display: none; flex-direction: column; padding: 22px 40px 44px 40px; overflow: hidden; background: var(--bg-slide); }
+.slide.active { display: flex; }
+
+/* Title */
+.slide.title-slide { justify-content: center; align-items: center; text-align: center; background: linear-gradient(160deg, #0a0e1a 0%, #111833 40%, #0f1424 100%); overflow: hidden; }
+.title-slide::before { content: ''; position: absolute; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(74,158,255,0.08) 0%, transparent 70%); top: -80px; right: -80px; }
+.title-slide::after { content: ''; position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(167,139,250,0.06) 0%, transparent 70%); bottom: -60px; left: -60px; }
+.title-slide .kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent-blue); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 18px; z-index: 1; }
+.title-slide h1 { font-family: 'Playfair Display', serif; font-size: 3.6rem; font-weight: 900; line-height: 1.12; letter-spacing: -0.5px; max-width: 880px; background: linear-gradient(135deg, #e8ecf4 30%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
+.title-slide .subtitle { font-size: 1.3rem; color: var(--text-secondary); margin-top: 18px; max-width: 760px; font-weight: 400; position: relative; z-index: 1; }
+.title-slide .course-info { margin-top: 34px; font-size: 0.95rem; color: var(--text-dim); position: relative; z-index: 1; line-height: 1.6; }
+
+/* Section divider */
+.slide.section-slide { justify-content: center; align-items: flex-start; padding-left: 90px; background: linear-gradient(135deg, #0a0e1a, #111833); }
+.section-slide .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: var(--accent-blue); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+.section-slide h2 { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; line-height: 1.18; max-width: 760px; }
+.section-slide .section-desc { margin-top: 16px; color: var(--text-secondary); font-size: 1.15rem; max-width: 620px; line-height: 1.6; }
+
+/* Content header */
+.slide-header { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; flex-shrink: 0; }
+.slide-header .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; letter-spacing: 2px; text-transform: uppercase; padding: 5px 13px; border-radius: 4px; background: rgba(74,158,255,0.1); color: var(--accent-blue); border: 1px solid rgba(74,158,255,0.2); }
+.slide-header h3 { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 700; }
+.slide-body { flex: 1; display: flex; flex-direction: column; gap: 18px; min-height: 0; justify-content: center; }
+/* Cards size to their content and the group centers vertically (avoids tall empty cards) */
+.slide-body > .two-col, .slide-body > .three-col, .slide-body > .four-col { flex: 0 0 auto !important; }
+
+/* Nav */
+.nav-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 36px; background: rgba(0,0,0,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
+.nav-bar .slide-counter { font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: var(--text-secondary); }
+.nav-bar .nav-buttons { display: flex; gap: 8px; }
+.nav-bar button { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); padding: 4px 12px; border-radius: 4px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.84rem; transition: background 0.15s; }
+.nav-bar button:hover { background: #1e2640; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-violet)); transition: width 0.3s ease; z-index: 100; }
+
+/* Utility */
+.accent-blue { color: var(--accent-blue); } .accent-cyan { color: var(--accent-cyan); } .accent-violet { color: var(--accent-violet); }
+.accent-amber { color: var(--accent-amber); } .accent-rose { color: var(--accent-rose); } .accent-emerald { color: var(--accent-emerald); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.four-col { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+.card h4 { font-size: 1.18rem; margin-bottom: 9px; font-weight: 700; }
+.card p, .card ul { font-size: 1.02rem; color: var(--text-secondary); line-height: 1.55; }
+.card ul { padding-left: 16px; } .card ul li { margin-bottom: 5px; }
+.lead { font-size: 1.25rem; color: var(--text-secondary); line-height: 1.6; }
+.src { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-top: auto; }
+.src a { color: var(--accent-blue); text-decoration: none; opacity: 0.85; }
+a { color: var(--accent-blue); }
+.pill { display:inline-block; background: rgba(74,158,255,0.1); border:1px solid rgba(74,158,255,0.25); border-radius: 999px; padding: 3px 12px; font-size: 0.8rem; color: var(--accent-blue); font-family:'JetBrains Mono',monospace; }
+.kv { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-dim); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;}
+table.data { width:100%; border-collapse: collapse; font-size: 1rem; }
+table.data th, table.data td { border:1px solid var(--border); padding: 8px 12px; text-align:left; }
+table.data th { background: rgba(74,158,255,0.08); color: var(--text-primary); font-weight:700; }
+table.data td { color: var(--text-secondary); }
+table.data tr:nth-child(even) td { background: rgba(255,255,255,0.012); }
+.note { font-size:0.92rem; color: var(--text-dim); font-style: italic; }
+ul.clean { list-style:none; padding:0; }
+ul.clean li { padding-left: 22px; position: relative; margin-bottom: 10px; font-size: 1.08rem; color: var(--text-secondary); line-height:1.5; }
+ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--accent-blue); }
+.flow { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.flow .node { background: var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:11px 16px; font-size:0.98rem; text-align:center; }
+.flow .arrow { color: var(--text-dim); font-size:1.3rem; }
+.badge-row { display:flex; gap:8px; flex-wrap:wrap; }
+.badge { background: rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.2); color: var(--accent-cyan); border-radius:6px; padding:4px 10px; font-size:0.82rem; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="deck" id="deck">
+<div class="slide-frame">
+<!-- 0 TITLE -->
+<div class="slide title-slide active">
+  <div class="kicker">UHC Summer Institute 2026</div>
+  <h1>An Introduction to AI for Urban Health</h1>
+  <div class="subtitle">Welcome &amp; Orientation — how the course works, what you'll need, and how to get set up</div>
+  <div class="course-info">Instructor: D. Alex Quistberg, PhD, MPH · TA: Janelle Edwards, PhD, MPH<br>Five sessions · 1:00–4:00 PM EST · Drexel Dornsife School of Public Health</div>
+</div>
+
+<!-- 1 ROADMAP -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">This session</span><h3>Orientation Roadmap</h3></div>
+  <div class="slide-body">
+    <ul class="clean">
+      <li>Who we are and what this course is</li>
+      <li>The five-day schedule at a glance</li>
+      <li>Where everything lives: recordings vs. the course website</li>
+      <li>Software and accounts you'll use</li>
+      <li>Doing it free vs. paying for a model — how to decide</li>
+      <li>Trying a free, private local model (Ollama)</li>
+      <li>A getting-started checklist before Day 1</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2 TEACHING STAFF -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Welcome</span><h3>Your Teaching Staff</h3></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="card"><h4 class="accent-blue">D. Alex Quistberg, PhD, MPH</h4><p>Instructor. Injury epidemiologist; urban health, the built environment, and computer vision. Dornsife School of Public Health &amp; Urban Health Collaborative.</p><p style="margin-top:8px;">daq26@drexel.edu</p></div>
+      <div class="card"><h4 class="accent-emerald">Janelle Edwards, PhD, MPH</h4><p>Teaching Assistant. Here to help with setup, activities, and questions throughout the week.</p><p style="margin-top:8px;">je466@drexel.edu</p></div>
+    </div>
+    <p class="note">Reach out any time during the course — especially if you get stuck on setup.</p>
+  </div>
+</div>
+
+<!-- 3 WHAT THIS IS -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">About</span><h3>What This Course Is</h3></div>
+  <div class="slide-body">
+    <p class="lead">A practical introduction to AI for urban and public-health professionals and students — paired with hands-on activities to bring these tools into your real work.</p>
+    <div class="three-col">
+      <div class="card" style="border-top:3px solid var(--accent-blue);"><h4 class="accent-blue">Practical</h4><p>You'll actually use the tools, not just hear about them. Every day has hands-on activities.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-violet);"><h4 class="accent-violet">For your field</h4><p>Examples and data are drawn from urban and public health, not generic tech demos.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Responsible</h4><p>Human-in-the-loop throughout: AI assists, you decide. We close the week on responsible use.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 SCHEDULE -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Schedule</span><h3>The Week at a Glance</h3></div>
+  <div class="slide-body">
+    <table class="data">
+      <tr><th>Day</th><th>Topic</th><th>You'll come away able to…</th></tr>
+      <tr><td><strong>Day 1</strong></td><td>Foundations of AI</td><td>Use the major AI platforms and write better prompts</td></tr>
+      <tr><td><strong>Day 2</strong></td><td>Multimodal AI &amp; Working with Models</td><td>Analyze images, data, and documents with AI</td></tr>
+      <tr><td><strong>Day 3</strong></td><td>Agentic AI, MCP &amp; Loops</td><td>Understand agents, skills, and local models</td></tr>
+      <tr><td><strong>Day 4</strong></td><td>AI for Urban-Health Workflows</td><td>Design AI-assisted workflows for real scenarios</td></tr>
+      <tr><td><strong>Day 5</strong></td><td>Responsible AI &amp; Future Directions</td><td>Use AI ethically, transparently, and reproducibly</td></tr>
+    </table>
+    <p class="note">Each session runs 1:00–4:00 PM EST with lecture, demos, and hands-on time.</p>
+  </div>
+</div>
+
+<!-- 5 SECTION: LOGISTICS -->
+<div class="slide section-slide"><div><div class="section-number">Logistics</div><h2>Where to Find Everything</h2><div class="section-desc">Two homes: recorded lectures on Blackboard, and all hands-on content on the course website.</div></div></div>
+
+<!-- 6 WHERE THINGS LIVE -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Two homes</span><h3>Recordings vs. Course Website</h3></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="card" style="border-left:3px solid var(--accent-amber);"><h4 class="accent-amber">Blackboard</h4><p><strong>Recorded video lectures.</strong> Watch or re-watch each day's session here, posted after each class. Log in at <strong>learn.dcollege.net</strong>.</p></div>
+      <div class="card" style="border-left:3px solid var(--accent-blue);"><h4 class="accent-blue">Course website</h4><p><strong>Everything hands-on:</strong> slides, activities, readings, resources, setup guide, and bonus challenges. Built with Quarto, hosted on GitHub Pages.</p></div>
+    </div>
+    <p class="lead" style="text-align:center; margin-top:6px;"><span class="pill">aquistbe.github.io/ai-for-urban-health-2026</span></p>
+    <p class="note">Bookmark the website — it's where you'll spend class and self-study time.</p>
+  </div>
+</div>
+
+<!-- 7 SITE TOUR -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Site tour</span><h3>Getting Around the Website</h3></div>
+  <div class="slide-body">
+    <div class="three-col">
+      <div class="card"><h4 class="accent-blue">Home &amp; Setup</h4><p>Course overview and a step-by-step <strong>Software Setup</strong> guide (Windows &amp; Mac).</p></div>
+      <div class="card"><h4 class="accent-violet">Day 1–5</h4><p>Each day's slides, lecture notes, and activities. Activity sections expand when you click them.</p></div>
+      <div class="card"><h4 class="accent-emerald">Readings &amp; Resources</h4><p>Assigned and recommended readings, tool links, data sources, and downloads.</p></div>
+    </div>
+    <p class="note">There's also a <strong>Bonus Challenges</strong> page (13 optional deep-dive exercises) and downloadable sample data and a notebook.</p>
+  </div>
+</div>
+
+<!-- 8 SECTION: SOFTWARE -->
+<div class="slide section-slide"><div><div class="section-number">Setup</div><h2>Software &amp; Accounts</h2><div class="section-desc">You can do everything for free. Here's what to install and sign up for.</div></div></div>
+
+<!-- 9 SOFTWARE OVERVIEW -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">What you'll use</span><h3>Software &amp; Accounts at a Glance</h3></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="card"><h4 class="accent-blue">Free accounts (browser)</h4><ul><li>ChatGPT, Claude, Gemini</li><li>Google AI Studio, Perplexity</li><li>MakeSense.ai (image annotation)</li></ul></div>
+      <div class="card"><h4 class="accent-emerald">Install on your computer</h4><ul><li>Positron (IDE) + R and/or Python</li><li>Ollama (free local models)</li><li>Optional: Claude Code (CLI)</li></ul></div>
+    </div>
+    <p class="note">Step-by-step instructions for each — with separate Windows and Mac steps — are on the <strong>Setup</strong> page of the website.</p>
+  </div>
+</div>
+
+<!-- 10 FREE VS PAID -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Decide</span><h3>Free vs. Paying for a License</h3></div>
+  <div class="slide-body">
+    <p class="lead">Every activity can be completed on <strong>free tiers</strong>. A paid plan is optional — here's how to weigh it.</p>
+    <div class="three-col">
+      <div class="card" style="border-top:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Free is enough</h4><p>You can finish the whole course without paying. Free tiers cover the activities.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-blue);"><h4 class="accent-blue">A paid plan (~$20/mo)</h4><p>ChatGPT Plus, Claude Pro, or Google AI Pro give the best models, higher limits, image generation, and fewer interruptions.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-amber);"><h4 class="accent-amber">Free-tier limits</h4><p>Expect usage caps, occasional waits, and sometimes older models. Fine for learning; can slow a long session.</p></div>
+    </div>
+    <p class="note">Suggestion: start free; if you hit limits or want the best model, one ~$20 plan for the week is plenty. The $100–250/mo tiers are not needed for this course. We don't endorse a specific vendor — pick one you like. <em>Prices as of mid-2026; check current pricing.</em></p>
+  </div>
+</div>
+
+<!-- 11 LOCAL MODELS -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Free &amp; private</span><h3>We'll Also Try a Local Model</h3></div>
+  <div class="slide-body">
+    <p class="lead">Alongside the cloud tools, we'll run a model entirely on your own computer with <strong>Ollama</strong> — no account, no cost, and your data never leaves your machine.</p>
+    <div class="two-col">
+      <div class="card" style="border-left:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Why it matters</h4><ul><li>Free and works offline</li><li>Private — good for sensitive health data</li><li>No usage caps</li></ul></div>
+      <div class="card" style="border-left:3px solid var(--accent-amber);"><h4 class="accent-amber">The trade-off</h4><ul><li>Smaller / less capable than frontier cloud models</li><li>Needs a reasonably modern laptop (8 GB+ RAM)</li></ul></div>
+    </div>
+    <p class="note">We'll use this on Day 3, but you'll set it up now so you're ready.</p>
+  </div>
+</div>
+
+<!-- 12 OLLAMA QUICKSTART -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Quick start</span><h3>Install Ollama + a Model (just enough)</h3></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="card"><h4 class="accent-blue">macOS</h4><p>Download from <strong>ollama.com/download</strong> (or <code>brew install ollama</code>). Then in Terminal:</p><p style="font-family:'JetBrains Mono',monospace; font-size:0.92rem; margin-top:8px;">ollama pull gemma4:12b</p></div>
+      <div class="card"><h4 class="accent-cyan">Windows</h4><p>Download the installer from <strong>ollama.com/download/windows</strong> and run it. Then in PowerShell:</p><p style="font-family:'JetBrains Mono',monospace; font-size:0.92rem; margin-top:8px;">ollama pull gemma4:12b</p></div>
+    </div>
+    <p>Test it: <span style="font-family:'JetBrains Mono',monospace;">ollama run gemma4:12b "Say hello in one sentence."</span> &nbsp;On a smaller laptop, try <span style="font-family:'JetBrains Mono',monospace;">qwen3:4b</span> instead.</p>
+    <p class="note">That's all you need for the activities. Full model-sizing guidance (and which model fits your laptop) is on the Setup page.</p>
+  </div>
+</div>
+
+<!-- 13 CHECKLIST -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Before Day 1</span><h3>Getting-Started Checklist</h3></div>
+  <div class="slide-body">
+    <ul class="clean">
+      <li>Create free accounts: ChatGPT, Claude, Gemini, Google AI Studio</li>
+      <li>(Optional) Decide whether you'll add one ~$20/mo plan for the week</li>
+      <li>Install Positron, plus R and/or Python (Setup page, Windows &amp; Mac steps)</li>
+      <li>Install Ollama and pull one laptop-friendly model</li>
+      <li>Bookmark the course website; find the recordings on Blackboard</li>
+      <li>Stuck? Email the instructor or TA before Day 1</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 14 CLOSE -->
+<div class="slide title-slide">
+  <div class="kicker">Let's get started</div>
+  <h1>See You in Day 1</h1>
+  <div class="subtitle">Everything hands-on lives on the course website — recordings go to Blackboard.</div>
+  <div class="course-info"><span class="pill">aquistbe.github.io/ai-for-urban-health-2026</span></div>
+</div>
+</div><!-- /slide-frame -->
+</div><!-- /deck -->
+
+<div class="nav-bar">
+  <span class="slide-counter" id="slideCounter">1 / 15</span>
+  <div class="nav-buttons">
+    <button onclick="goToSlide(0)">⏮ Start</button>
+    <button onclick="prev()">← Prev</button>
+    <button onclick="next()">Next →</button>
+    <button onclick="goToSlide(totalSlides-1)">End ⏭</button>
+  </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+let current = 0;
+function showSlide(n) {
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(n, totalSlides - 1));
+  slides[current].classList.add('active');
+  document.getElementById('slideCounter').textContent = `${current + 1} / ${totalSlides}`;
+  document.getElementById('progressBar').style.width = `${((current + 1) / totalSlides) * 100}%`;
+}
+function next() { showSlide(current + 1); }
+function prev() { showSlide(current - 1); }
+function goToSlide(n) { showSlide(n); }
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+  if (e.key === 'Home') { e.preventDefault(); goToSlide(0); }
+  if (e.key === 'End') { e.preventDefault(); goToSlide(totalSlides - 1); }
+});
+let touchStartX = 0;
+document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+document.addEventListener('touchend', (e) => { const dx = e.changedTouches[0].screenX - touchStartX; if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); } });
+showSlide(0);
+function scaleFrame() {
+  const frame = document.querySelector('.slide-frame');
+  const deck = document.querySelector('.deck');
+  const scale = Math.min(deck.clientWidth / 1280, deck.clientHeight / 720);
+  frame.style.transform = `scale(${scale})`;
+}
+scaleFrame();
+window.addEventListener('resize', scaleFrame);
+
+// Shrink any slide whose content overflows 720px so nothing clips.
+function fitSlides() {
+  slides.forEach((slide) => {
+    const wasActive = slide.classList.contains('active');
+    if (!wasActive) { slide.style.visibility = 'hidden'; slide.classList.add('active'); }
+    slide.style.fontSize = '';
+    let fs = 100;
+    while (slide.scrollHeight > slide.clientHeight + 1 && fs > 55) { fs -= 3; slide.style.fontSize = fs + '%'; }
+    if (!wasActive) { slide.classList.remove('active'); slide.style.visibility = ''; }
+  });
+}
+window.addEventListener('load', () => { scaleFrame(); fitSlides(); });
+window.addEventListener('resize', () => { clearTimeout(window._ft); window._ft = setTimeout(fitSlides, 200); });
+</script>
+</body>
+</html>

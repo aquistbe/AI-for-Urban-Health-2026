@@ -47,6 +47,7 @@ Each exercise below is **collapsed** --- click its title to expand it. Scan the 
 | 10 | [Interactive Public Health Dashboard](#exercise-10) | Day 4 | Advanced | 90 min |
 | 11 | [Adversarial AI Testing](#exercise-11) | Day 5 | Advanced | 60 min |
 | 12 | [Personal AI Workflow Automation](#exercise-12) | Day 4 | Intermediate | 60 min |
+| 13 | [Create a Skill + a Scheduled Task](#exercise-13) | Day 3 | Intermediate | 45 min |
 
 *Tip: the sample datasets used by several exercises are on the course site --- the [Heat Vulnerability sample CSV](data/hvi_sample.csv) and the [climate focus-group transcript](data/climate_health_focus_group_transcript.txt).*
 
@@ -403,6 +404,59 @@ Each exercise below is **collapsed** --- click its title to expand it. Scan the 
 **Deliverable:** Specific Aims, Significance/Innovation, a prompt log, and a short reflection.
 
 **Reflection:** Where was AI most and least helpful? How would you disclose AI use in a grant submission (check current NIH policy)?
+:::
+
+::: {#exercise-13 .challenge-exercise}
+#### Exercise 13 --- Create a Skill + a Scheduled Task
+
+::: {.challenge-meta}
+**Day 3** · Intermediate · ~45 min · Tools: Claude (claude.ai / Claude Desktop / Cowork) or Claude Code
+:::
+
+**Goal:** Package one of your recurring tasks as a reusable **Skill**, then (optionally) wire it into a **scheduled task** that runs on its own.
+
+**Why it matters:** A Skill captures *your* way of doing a task so the agent repeats it consistently across conversations and tools --- and a scheduled task turns a one-off into standing automation. Together they move you from "ask each time" to "set it up once."
+
+**Steps**
+
+1. **Pick a recurring task** with a consistent structure --- e.g., "format a weekly surveillance summary," "de-identify a dataset to our standard," or "turn meeting notes into an action list."
+2. **Author a `SKILL.md`.** Create a folder with a `SKILL.md` that has YAML frontmatter and instructions:
+   ```markdown
+   ---
+   name: weekly-surveillance-summary
+   description: Format raw weekly case counts into our standard departmental summary. Use when the user provides weekly surveillance numbers.
+   ---
+   # Weekly Surveillance Summary
+   Steps:
+   1. Produce a one-paragraph plain-language summary.
+   2. Add a table: indicator, this week, last week, % change.
+   3. Flag any indicator up >20% week-over-week.
+   Tone: factual, no alarm. Never invent numbers not provided.
+   ```
+   Add optional `references/` (a template) or `scripts/` (a helper script) if useful. *Shortcut:* use the **Skill Creator** (built into Claude Desktop/Cowork; `/plugin install skill-creator` in Claude Code) to generate and refine it for you.
+3. **Install and test it.** Upload the zipped folder on claude.ai (**Settings → Customize → Skills**), or point Claude Code/Cowork at it. Start a **fresh** conversation, give it a realistic input, and confirm the skill *triggers* and produces your format. If it doesn't trigger, sharpen the `description` (it controls when the skill fires) and retest.
+4. **(Optional) Schedule it.** In **Cowork** (desktop, paid plan), turn the task into a recurring task: describe it once, pick a cadence (e.g., every Monday), and confirm each run can reach your files/skills. Schedule only work that's safe to run with a human reviewing the output afterward.
+
+**Hints**
+
+- The `description` is the most important line --- it decides when the skill activates. Be specific about the trigger.
+- De-identify any real data before it goes into the model, and bake that into the skill's instructions.
+- Keep `SKILL.md` in version control so you can track changes over time.
+
+**Done when**
+
+- [ ] A `SKILL.md` (plus any resources) that triggers reliably on a fresh, realistic input
+- [ ] A before/after example showing the skill's output
+- [ ] (Optional) A scheduled/recurring task configured, or a short note on what you'd schedule and how often
+
+**Deliverable:** Your skill folder, one worked example, and a note on which tasks are good vs. poor candidates for a skill or a schedule.
+
+:::{.callout-note}
+## Free-tier note
+Authoring a `SKILL.md` is free for anyone (it's just a folder). *Using* skills in claude.ai and **Cowork scheduled tasks** generally require a paid plan and the desktop app --- if you don't have access, the instructor will demo this part.
+:::
+
+**Reflection:** Which of your tasks are good candidates for a skill, and which should never be automated on a schedule without review? What could go wrong if a scheduled task runs on stale or bad input?
 :::
 
 ---

@@ -312,6 +312,20 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   </div>
 </div>
 
+<!-- 14b AGENT SKILLS -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Skills</span><h3>Agent Skills: Teaching the Agent Your Way</h3></div>
+  <div class="slide-body">
+    <p class="lead">A <strong>Skill</strong> is a reusable folder of expertise. If MCP is how an agent reaches tools, a Skill is how it knows <em>your</em> way of doing a task.</p>
+    <div class="two-col">
+      <div class="card" style="border-left:3px solid var(--accent-violet);"><h4 class="accent-violet">What's in it</h4><ul><li><code>SKILL.md</code> &mdash; name + description + instructions</li><li><code>scripts/</code> &mdash; code it can run (optional)</li><li><code>references/</code> &mdash; docs loaded on demand</li></ul></div>
+      <div class="card" style="border-left:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Why it helps</h4><ul><li>Write your method once, reuse it everywhere</li><li>Loads only when the task matches the description</li><li>Portable across claude.ai, Claude Code, and Cowork</li></ul></div>
+    </div>
+    <p class="note">Build one fast with the <strong>Skill Creator</strong> (built into Claude Desktop &amp; Cowork). Public-health ideas: a de-identification checklist, a plain-language rewriter, a grant Specific-Aims formatter.</p>
+    <div class="src">Anthropic, "Equipping agents for the real world with Agent Skills" (2026) &middot; code.claude.com/docs/skills</div>
+  </div>
+</div>
+
 <!-- 15 LOOPS -->
 <div class="slide">
   <div class="slide-header"><span class="tag">Reliability</span><h3>Loops: Repeatable Workflows That Know When to Stop</h3></div>
@@ -344,6 +358,23 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
     </table>
     <p class="note">Also free/open: OpenCode, Cline, Goose, Aider. Specific rankings shift monthly — pick by surface and workflow, not the leaderboard.</p>
     <div class="src">Rankings: Terminal-Bench (terminal-bench.ai) · accessed June 2026</div>
+  </div>
+</div>
+
+<!-- 17b HARNESSES -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Landscape</span><h3>Agentic Harnesses Compared</h3></div>
+  <div class="slide-body">
+    <p class="lead">The same idea &mdash; a model plus tools running in a loop &mdash; ships in different surfaces and autonomy levels (recall the three ways to work with AI from Day 1).</p>
+    <table class="data" style="font-size:0.92rem;">
+      <tr><th>Harness</th><th>What it is</th><th>Best for</th></tr>
+      <tr><td><strong>Claude Code</strong></td><td>Terminal agent (Anthropic)</td><td>Coding, data, file automation in a repo</td></tr>
+      <tr><td><strong>Cowork</strong></td><td>Desktop agent (Anthropic)</td><td>Non-coders: files, connectors, Skills, scheduled tasks</td></tr>
+      <tr><td><strong>Codex</strong></td><td>Terminal agent (OpenAI)</td><td>Long, &ldquo;walk-away&rdquo; autonomous runs</td></tr>
+      <tr><td><strong>Antigravity</strong></td><td>Agent-first IDE + CLI (Google)</td><td>Orchestrating multiple agents; browser-tested builds</td></tr>
+      <tr><td><strong>OpenCoworker</strong></td><td>Open-source desktop agent</td><td>Privacy-sensitive work; bring-your-own / local model</td></tr>
+    </table>
+    <p class="note">Choose on: <strong>surface</strong> (terminal / desktop / IDE), <strong>autonomy</strong>, <strong>model lock-in</strong>, and <strong>data control</strong>. For sensitive health data, weight model choice and local execution heavily.</p>
   </div>
 </div>
 
@@ -423,7 +454,7 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
 </div><!-- /deck -->
 
 <div class="nav-bar">
-  <span class="slide-counter" id="slideCounter">1 / 25</span>
+  <span class="slide-counter" id="slideCounter">1 / 27</span>
   <div class="nav-buttons">
     <button onclick="goToSlide(0)">⏮ Start</button>
     <button onclick="prev()">← Prev</button>

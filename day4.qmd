@@ -443,7 +443,7 @@ NIH and other funders are developing policies on AI use in grant applications. A
 
 ## Bonus Challenge Exercises
 
-These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 13 exercises across the course.
 
 ::: {.challenge-card}
 

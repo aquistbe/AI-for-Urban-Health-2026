@@ -18,6 +18,8 @@ Welcome to **AI for Urban Health**, a week-long intensive course offered through
 
 Over five days, you will move from foundational AI concepts to hands-on experience with cutting-edge tools, culminating in practical workflow integration and responsible use frameworks. No prior programming experience is required.
 
+**New here? Start with the orientation:** [📊 Welcome & Orientation slides ↗](slides/day0.html){.btn .btn-primary target="_blank" role="button"} --- how the course works, what software you'll need, and how to get set up.
+
 :::{.callout-note}
 ## Course Details
 

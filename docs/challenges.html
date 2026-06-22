@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -325,6 +360,13 @@ ul.task-list li input[type="checkbox"] {
 <td>Day 4</td>
 <td>Intermediate</td>
 <td>60 min</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td><a href="#exercise-13">Create a Skill + a Scheduled Task</a></td>
+<td>Day 3</td>
+<td>Intermediate</td>
+<td>45 min</td>
 </tr>
 </tbody>
 </table>
@@ -646,6 +688,61 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Deliverable:</strong> Specific Aims, Significance/Innovation, a prompt log, and a short reflection.</p>
 <p><strong>Reflection:</strong> Where was AI most and least helpful? How would you disclose AI use in a grant submission (check current NIH policy)?</p>
+</section>
+</div>
+<div id="exercise-13" class="challenge-exercise">
+<section id="exercise-13-create-a-skill-a-scheduled-task" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-13-create-a-skill-a-scheduled-task">Exercise 13 — Create a Skill + a Scheduled Task</h4>
+<div class="challenge-meta">
+<p><strong>Day 3</strong> · Intermediate · ~45 min · Tools: Claude (claude.ai / Claude Desktop / Cowork) or Claude Code</p>
+</div>
+<p><strong>Goal:</strong> Package one of your recurring tasks as a reusable <strong>Skill</strong>, then (optionally) wire it into a <strong>scheduled task</strong> that runs on its own.</p>
+<p><strong>Why it matters:</strong> A Skill captures <em>your</em> way of doing a task so the agent repeats it consistently across conversations and tools — and a scheduled task turns a one-off into standing automation. Together they move you from “ask each time” to “set it up once.”</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li><p><strong>Pick a recurring task</strong> with a consistent structure — e.g., “format a weekly surveillance summary,” “de-identify a dataset to our standard,” or “turn meeting notes into an action list.”</p></li>
+<li><p><strong>Author a <code>SKILL.md</code>.</strong> Create a folder with a <code>SKILL.md</code> that has YAML frontmatter and instructions:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> weekly-surveillance-summary</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Format raw weekly case counts into our standard departmental summary. Use when the user provides weekly surveillance numbers.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Weekly Surveillance Summary</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Steps:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Produce a one-paragraph plain-language summary.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Add a table: indicator, this week, last week, % change.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Flag any indicator up &gt;20% week-over-week.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Tone: factual, no alarm. Never invent numbers not provided.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add optional <code>references/</code> (a template) or <code>scripts/</code> (a helper script) if useful. <em>Shortcut:</em> use the <strong>Skill Creator</strong> (built into Claude Desktop/Cowork; <code>/plugin install skill-creator</code> in Claude Code) to generate and refine it for you.</p></li>
+<li><p><strong>Install and test it.</strong> Upload the zipped folder on claude.ai (<strong>Settings → Customize → Skills</strong>), or point Claude Code/Cowork at it. Start a <strong>fresh</strong> conversation, give it a realistic input, and confirm the skill <em>triggers</em> and produces your format. If it doesn’t trigger, sharpen the <code>description</code> (it controls when the skill fires) and retest.</p></li>
+<li><p><strong>(Optional) Schedule it.</strong> In <strong>Cowork</strong> (desktop, paid plan), turn the task into a recurring task: describe it once, pick a cadence (e.g., every Monday), and confirm each run can reach your files/skills. Schedule only work that’s safe to run with a human reviewing the output afterward.</p></li>
+</ol>
+<p><strong>Hints</strong></p>
+<ul>
+<li>The <code>description</code> is the most important line — it decides when the skill activates. Be specific about the trigger.</li>
+<li>De-identify any real data before it goes into the model, and bake that into the skill’s instructions.</li>
+<li>Keep <code>SKILL.md</code> in version control so you can track changes over time.</li>
+</ul>
+<p><strong>Done when</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">A <code>SKILL.md</code> (plus any resources) that triggers reliably on a fresh, realistic input</label></li>
+<li><label><input type="checkbox">A before/after example showing the skill’s output</label></li>
+<li><label><input type="checkbox">(Optional) A scheduled/recurring task configured, or a short note on what you’d schedule and how often</label></li>
+</ul>
+<p><strong>Deliverable:</strong> Your skill folder, one worked example, and a note on which tasks are good vs.&nbsp;poor candidates for a skill or a schedule.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Free-tier note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Authoring a <code>SKILL.md</code> is free for anyone (it’s just a folder). <em>Using</em> skills in claude.ai and <strong>Cowork scheduled tasks</strong> generally require a paid plan and the desktop app — if you don’t have access, the instructor will demo this part.</p>
+</div>
+</div>
+<p><strong>Reflection:</strong> Which of your tasks are good candidates for a skill, and which should never be automated on a schedule without review? What could go wrong if a scheduled task runs on stale or bad input?</p>
 </section>
 </div>
 <hr>

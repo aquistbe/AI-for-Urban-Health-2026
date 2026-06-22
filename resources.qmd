@@ -8,6 +8,7 @@ title: "Resources"
 
 Full slide decks for each day (open in a new tab; best viewed full-screen, use arrow keys):
 
+- [Welcome & Orientation](slides/day0.html){target="_blank"} --- start here: how the course works, software, and setup
 - [Day 1 — Foundations of AI](slides/day1.html){target="_blank"}
 - [Day 2 — Multimodal AI & Working with Models](slides/day2.html){target="_blank"}
 - [Day 3 — Agentic AI, MCP & Loops](slides/day3.html){target="_blank"}
@@ -53,10 +54,13 @@ See the full step-by-step **[Software Setup guide (Windows & macOS)](day3.qmd#se
 
 | Tool | Link | Description | Requirements |
 |------|------|-------------|--------------|
-| **Claude Code** | [docs.anthropic.com/en/docs/claude-code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic's CLI tool for AI-assisted coding, analysis, and file operations. | Node.js, Anthropic API key |
-| **Cowork** | Available through Claude desktop app | Collaborative AI environment within Claude for multi-step tasks. | Claude desktop app |
-| **Codex CLI** | [github.com/openai/codex](https://github.com/openai/codex) | OpenAI's CLI tool for code generation and execution. | Node.js, OpenAI API key |
-| **Gemini CLI** | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | Google's CLI tool for AI-assisted tasks with Gemini models. Currently offers a free tier. | Node.js, Google API key |
+| **Claude Code** | [docs.anthropic.com/en/docs/claude-code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic's CLI agent for coding, analysis, and file operations. Reads a `CLAUDE.md` project file. | Node.js, Claude subscription or API key |
+| **Cowork** | Available through Claude desktop app | Anthropic's desktop agent for non-coders: files, connectors, **Skills**, and **scheduled tasks**. | Claude desktop app, paid plan |
+| **Codex / Codex CLI** | [github.com/openai/codex](https://github.com/openai/codex) | OpenAI's terminal agent; strong sandboxing and long "goal mode" runs. | Node.js, OpenAI API key |
+| **Google Antigravity** | [Google Developers Blog](https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/) | Agent-first IDE with CLI/SDK; orchestrates multiple agents and browser-tests what it builds. (Gemini CLI was consolidated into Antigravity in mid-2026.) | Desktop app; free preview |
+| **OpenCoworker** | [opencoworker.com](https://www.opencoworker.com/) | Open-source desktop agent (macOS/Windows); bring your own model or run locally via Ollama. | API key or local Ollama |
+
+**Agent Skills.** A Skill is a reusable folder (`SKILL.md` + optional scripts and references) that teaches an agent your way of doing a recurring task --- portable across claude.ai, Claude Code, and Cowork. See Anthropic's [Agent Skills docs](https://code.claude.com/docs/en/skills) and the public [skills repository](https://github.com/anthropics/skills). Try Bonus [Exercise 13](challenges.qmd#exercise-13) to build one.
 
 ### Installation (General)
 
@@ -70,8 +74,9 @@ brew install node
 # Then install the CLI tool:
 npm install -g @anthropic-ai/claude-code     # Claude Code
 npm install -g @openai/codex                 # Codex CLI
-npm install -g @google/gemini-cli            # Gemini CLI
 ```
+
+(Google's terminal agent now ships as part of [Antigravity](https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/) rather than a standalone Gemini CLI.)
 
 ---
 

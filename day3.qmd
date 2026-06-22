@@ -21,9 +21,10 @@ By the end of today, you will be able to:
 1. Distinguish between AI chatbots and AI agents and explain why the difference matters
 2. Describe the five components of context engineering and why it is critical for effective AI use
 3. Explain the Model Context Protocol (MCP) and how it enables tool integration
-4. Use or observe command-line AI tools (Claude Code, Codex CLI, Gemini CLI)
-5. Build a simple AI agent using Google AI Studio
-6. Understand why local AI models matter for sensitive data and how to run them
+4. Describe Agent Skills and compare agentic harnesses (Cowork, Claude Code, Codex, Antigravity, OpenCoworker)
+5. Use or observe command-line AI tools (Claude Code, Codex CLI)
+6. Build a simple AI agent using Google AI Studio
+7. Understand why local AI models matter for sensitive data and how to run them
 
 ---
 
@@ -199,6 +200,34 @@ Examples of MCP tools:
 - Calendar and email integration
 - Code execution
 - API calls to external services
+
+### Agent Skills
+
+A **Skill** is a reusable folder of expertise you hand the agent. At minimum it is a `SKILL.md` file --- a Markdown document with YAML frontmatter (a `name` and a `description`) and instructions in the body --- plus optional `scripts/` (code the agent can run) and `references/` (documents loaded only when needed). When a task matches the description, the agent loads the skill on demand and follows it.
+
+If MCP is *how* an agent reaches tools, a Skill is *how it knows your way of doing a task*. Where a prompt is a one-off instruction, a Skill is durable and reusable: write your de-identification checklist, your report format, or your STROBE/CONSORT reporting steps once, and the agent applies them every time --- across chats, Claude Code, and Cowork.
+
+You can write a `SKILL.md` by hand, or use the **Skill Creator** (a "skill that builds skills") --- it's pre-installed in Claude Desktop and Cowork, and installable in Claude Code (`/plugin install skill-creator`). On claude.ai, upload a zipped skill folder under **Settings → Customize → Skills**.
+
+*Public-health skill ideas:* a "de-identify before sharing" checklist, a plain-language health-communication rewriter, a grant Specific-Aims formatter, or a data-dictionary generator.
+
+### Agentic Harnesses: Cowork, Claude Code, Codex, and More
+
+The same core idea --- a model plus tools running in a loop --- ships in several "harnesses" that differ mainly in *where* you work and *how much autonomy* they take. (Recall the three ways to work with AI from Day 1.)
+
+| Harness | What it is | Best for | Notes |
+|---|---|---|---|
+| **Claude Code** (Anthropic) | Terminal/CLI agent | Coding, data analysis, file automation in a repo | Reads `CLAUDE.md`; strong on coding benchmarks; Anthropic models |
+| **Cowork** (Anthropic) | Desktop app agent | Non-coders: files, connectors, **Skills**, **scheduled tasks** | Runs each task as its own session; paid plan |
+| **Codex / Codex CLI** (OpenAI) | Terminal agent | Long, "walk-away" autonomous runs ("goal mode") | Strong Docker sandboxing; OpenAI models |
+| **Google Antigravity** | Agent-first IDE + CLI/SDK | Orchestrating *multiple* agents; browser-testing what it builds | Free public preview; Gemini models (Gemini CLI folded into it) |
+| **OpenCoworker** | Open-source desktop agent | Privacy-sensitive work; bring-your-own model | Free/self-hostable; use your API key or a local Ollama model |
+
+The differences that matter for choosing: **surface** (terminal vs. desktop vs. IDE), **autonomy** (one step vs. hours of unattended work), **model lock-in** (vendor-only vs. bring-your-own), and **data control** (cloud vs. fully local). For sensitive public-health data, weigh the last two heavily.
+
+### Scheduled Tasks
+
+Agentic tools increasingly run on a **schedule**, not just on demand. In Cowork, you describe a task once, pick a cadence (hourly, daily, weekdays, weekly) or an event trigger (a new file, a webhook), and it runs automatically --- each run with access to your files, connectors, and Skills. This turns a one-off ("summarize this week's 311 complaints") into standing automation ("every Monday, pull the new data, update the chart, and draft the email"). Schedule only work you'd be comfortable having run with a human reviewing the output --- not irreversible actions.
 
 ### Verification Is the Bottleneck
 
@@ -433,17 +462,18 @@ Duration: ~10 minutes | Format: Instructor overview | **Optional --- skip if run
 
 #### Comparison
 
-| Feature | Claude Code | Codex CLI (OpenAI) | Gemini CLI (Google) |
+| Feature | Claude Code | Codex / Codex CLI (OpenAI) | Antigravity (Google) |
 |---------|------------|-------------------|-------------------|
-| Model | Claude (Anthropic) | GPT-5.5 when available; otherwise current default/latest GPT model (OpenAI) | Gemini (Google) |
+| Model | Claude (Anthropic) | GPT-5.5 when available; otherwise the current default GPT model (OpenAI) | Gemini (Google) |
+| Surface | Terminal | Terminal | Agent-first IDE + CLI |
 | File access | Yes | Yes | Yes |
-| Code execution | Yes | Yes (sandboxed) | Yes |
-| Cost | API usage | API usage | Free (with Gemini API key) |
-| Best for | Analysis, writing, coding | Code generation, debugging | Google ecosystem integration |
-| Install | `npm install -g @anthropic-ai/claude-code` | `npm install -g @openai/codex` | `npm install -g @google/gemini-cli` |
+| Code execution | Yes | Yes (Docker sandbox) | Yes (and browser-tests builds) |
+| Cost | Claude subscription or API | API usage | Free public preview |
+| Best for | Analysis, writing, coding in a repo | Long autonomous "goal mode" runs | Orchestrating multiple agents |
+| Install | `npm install -g @anthropic-ai/claude-code` | `npm install -g @openai/codex` | Desktop app + Antigravity CLI |
 
 :::{.callout-note}
-All three tools require an API key and incur usage costs (except Gemini CLI which currently offers a free tier). The instructor will demonstrate; you do not need to install these today unless you want to.
+Google's standalone Gemini CLI was consolidated into **Antigravity** in mid-2026. The instructor will demonstrate; you do not need to install these today unless you want to.
 :::
 
 :::
@@ -613,7 +643,7 @@ Many government and health department computers restrict software installation. 
 
 ## Bonus Challenge Exercises
 
-These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 13 exercises across the course.
 
 ::: {.challenge-card}
 

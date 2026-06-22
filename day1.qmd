@@ -26,6 +26,17 @@ By the end of today, you will be able to:
 
 ---
 
+:::{.callout-tip}
+## Set up a local model today (just enough for the week)
+Later activities use a free, private model running on your own computer with **Ollama**. Get it working now so you're ready:
+
+1. Install Ollama --- macOS: [ollama.com/download](https://ollama.com/download) (or `brew install ollama`); Windows: [ollama.com/download/windows](https://ollama.com/download/windows).
+2. Pull a laptop-friendly model: `ollama pull gemma4:12b` (or `qwen3:4b` on an 8 GB laptop).
+3. Test it: `ollama run gemma4:12b "Say hello in one sentence."`
+
+That's all you need for the activities. Full guidance (and which model fits your laptop) is on the [Setup page](day3.qmd#setup); we go deeper on Day 3.
+:::
+
 ## Lecture: AI Concepts and History
 
 ### What Is Artificial Intelligence?
@@ -278,7 +289,7 @@ If you bring a real work document to this activity, make sure it contains no pro
 
 ## Bonus Challenge Exercises
 
-These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 12 exercises across the course.
+These optional exercises are for students who finish the core activities early or want to go deeper. See the full [Bonus Challenges page](challenges.qmd) for complete instructions and all 13 exercises across the course.
 
 ::: {.challenge-card}
 
