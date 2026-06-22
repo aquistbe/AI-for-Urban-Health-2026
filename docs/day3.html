@@ -1025,13 +1025,13 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Want to go further than chatting? This <a href="code/Agentic_Workflows_UrbanHealth_2026.ipynb" download="Agentic_Workflows_UrbanHealth_2026.ipynb">Jupyter notebook</a> builds real <strong>agentic workflows</strong> on a local Ollama model (a laptop-friendly model like Qwen3 or Gemma 4) — everything runs on your machine, free and private. It works through three patterns on a small set of urban-health abstracts (pedestrian safety, heat, air quality):</p>
+<p>Want to go further than chatting? This <a href="code/Agentic_Workflows_UrbanHealth_2026.ipynb" download="Agentic_Workflows_UrbanHealth_2026.ipynb">Jupyter notebook</a> builds real <strong>agentic workflows</strong> on a local Ollama model (a laptop-friendly model like Gemma 4 or Qwen3) — everything runs on your machine, free and private. You pick an everyday triage task — <strong>311 complaints, food-safety violations, or pedestrian-injury surveillance</strong> — and work it through three patterns:</p>
 <ol type="1">
-<li><strong>One structured-output prompt</strong> to screen an abstract against inclusion criteria (Pydantic + JSON mode).</li>
-<li><strong>A multi-agent crew</strong> (CrewAI) — a screener and an extractor collaborating.</li>
-<li><strong>A state machine</strong> (LangGraph) — the same workflow as an explicit graph with conditional branching.</li>
+<li><strong>One structured-output prompt</strong> that triages one report against your rule (Pydantic + JSON mode).</li>
+<li><strong>A multi-agent crew</strong> (CrewAI) — a triage agent and a documentation agent collaborating.</li>
+<li><strong>A state machine</strong> (LangGraph) — the same workflow as an explicit graph with a conditional branch.</li>
 </ol>
-<p>Plus a tool-calling agent (a stand-in PubMed search + a confidence-interval calculator) that previews what MCP standardizes, and a “try it yourself” exercise. It ties directly to the Day 3 concepts: the agent loop, context engineering, tools/MCP, guardrails, and verification.</p>
+<p>Plus a tool-calling agent (a keyword search + a triage counter over your queue) that previews what MCP standardizes, and a “try it yourself” exercise. It ties directly to the Day 3 concepts: the agent loop, context engineering, tools/MCP, guardrails, and verification.</p>
 <p>Run it in <strong>Positron</strong>, VS Code, or Jupyter. Install once with <code>pip install ollama crewai langgraph langchain-ollama pydantic</code>. Best as an optional advanced track or a live instructor demo.</p>
 </div>
 </div>

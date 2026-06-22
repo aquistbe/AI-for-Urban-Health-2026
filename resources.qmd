@@ -142,7 +142,7 @@ Rough guide using 4-bit quantization (`Q4_K_M`, Ollama's default) — a model ne
 
 ### Hands-On: Agentic Workflows Notebook
 
-Once Ollama is running, this [Jupyter notebook](code/Agentic_Workflows_UrbanHealth_2026.ipynb){download="Agentic_Workflows_UrbanHealth_2026.ipynb"} builds real **agentic workflows** entirely on a local model — structured-output screening, a multi-agent crew (CrewAI), a state machine (LangGraph), and a tool-calling agent — on a small set of urban-health abstracts. Everything runs on your machine, free and private. Open it in Positron, VS Code, or Jupyter. It is also linked from [Day 3](day3.qmd) as an optional advanced track.
+Once Ollama is running, this [Jupyter notebook](code/Agentic_Workflows_UrbanHealth_2026.ipynb){download="Agentic_Workflows_UrbanHealth_2026.ipynb"} builds real **agentic workflows** entirely on a local model — structured-output triage, a multi-agent crew (CrewAI), a state machine (LangGraph), and a tool-calling agent — on an everyday triage task you choose: **311 complaints, food-safety violations, or pedestrian-injury surveillance**. Everything runs on your machine, free and private. Open it in Positron, VS Code, or Jupyter. It is also linked from [Day 3](day3.qmd) as an optional advanced track.
 
 ### Browser-Based Alternatives (No Installation Required)
 
