@@ -18,13 +18,13 @@ From chatbots to agents: context engineering, CLI tools, and building your own A
 
 By the end of today, you will be able to:
 
-1. Distinguish between AI chatbots and AI agents and explain why the difference matters
-2. Describe the five components of context engineering and why it is critical for effective AI use
-3. Explain the Model Context Protocol (MCP) and how it enables tool integration
-4. Describe Agent Skills and compare agentic harnesses (Cowork, Claude Code, Codex, Antigravity, OpenCoworker)
-5. Use or observe command-line AI tools (Claude Code, Codex CLI)
-6. Build a simple AI agent using Google AI Studio
-7. Understand why local AI models matter for sensitive data and how to run them
+1. Distinguish an AI agent from a chatbot, and describe the agent loop and architecture
+2. Apply context-engineering principles to design effective agent interactions
+3. Explain the Model Context Protocol (MCP) and how tools extend a model
+4. Configure agents with Skills (`SKILL.md`) and instruction files (`CLAUDE.md`)
+5. Use repeatable "loops" with clear stop conditions to get reliable results
+6. Describe multi-agent patterns and when to use them
+7. Evaluate agents and set guardrails appropriate for sensitive urban-health work
 
 ---
 
@@ -157,7 +157,7 @@ If you've used Anaconda, **don't rely on its bundled R or Python here** --- it t
 
 ---
 
-## Lecture: Agents, Context, and Tools
+## Lecture: Agents, Context, Tools & Multi-Agent Systems
 
 ### Chatbots vs. Agents
 
@@ -171,17 +171,35 @@ The AI landscape is rapidly moving from **chatbots** (reactive, single-turn, lim
 | Autonomy | Responds only when asked | Can take initiative, plan, and execute |
 | Error handling | Stops at confusion | Can retry, adapt, self-correct |
 
+**The working definition:** an agent is a language model that can use tools in a loop until it completes a task. The agent loop runs: **think/plan → act (use a tool) → observe the result → decide: done or loop again**.
+
 **Why this matters for public health:** Agents can do things like "pull the latest flu surveillance data, compare it to last year, draft a summary report, and email it to the team"---tasks that involve multiple steps, tools, and decision points.
+
+### Agent Architecture: The Five Components
+
+Every agent system, regardless of the harness it runs in, is built from the same five components:
+
+1. **Backbone model:** The LLM that reasons about the task (Claude, GPT, Gemini, etc.)
+2. **Planning module:** How the agent breaks a goal into steps and sequences them
+3. **Tool interface:** The mechanism for calling external tools (function calling, MCP)
+4. **Memory:** The context window for short-term state, plus any long-term storage
+5. **Sandbox / environment:** Where code runs and actions execute safely
+
+An **orchestration harness** (the agent loop) coordinates all five: the model reasons, the planner sequences steps, tools execute, memory preserves state, and the sandbox keeps execution safe. When something goes wrong, one of these five is usually the culprit. Diagnosing agent failures means asking: did the model misunderstand? did the plan go off-track? did a tool fail? did context get lost? did the sandbox block something?
+
+*Adapted from OpenAI, ["A Practical Guide to Building Agents"](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (2025).*
 
 ### Context Engineering: The 5 Components
 
-Context engineering is the practice of designing the information environment that an AI system operates within. It is more fundamental than prompt engineering. The five key components:
+Context engineering is the practice of designing the information environment that an AI system operates within. As work moves from one-shot chats to agents running over many turns, the question changes from "what do I *say*?" to "what *configuration of context* makes the right behavior likely?" The five key components:
 
 1. **System prompt / Instructions:** What the AI should do, its role, its constraints
 2. **User input:** The specific request or query
 3. **Retrieved knowledge:** Relevant documents, data, or information pulled in for the task (RAG --- Retrieval-Augmented Generation)
 4. **Tool definitions:** What tools the AI can use and how to use them
 5. **Conversation history / Memory:** What has happened before in the interaction
+
+Context is a **finite resource** --- every token competes for the model's attention. Managing this state well (compacting, summarizing, pruning) is most of what separates a flaky demo from a reliable agent.
 
 :::{.callout-tip}
 ## Think of It Like Briefing a New Employee
@@ -190,16 +208,11 @@ Context engineering is like preparing a briefing packet for a highly skilled new
 
 ### Model Context Protocol (MCP)
 
-MCP is an emerging open standard (created by Anthropic) that allows AI models to connect with external tools and data sources through a standardized interface. Think of it as a "USB port for AI"---a universal way to plug in capabilities.
+MCP is an open standard (created by Anthropic) that allows AI models to connect with external tools and data sources through a standardized interface. Think of it as a "USB port for AI"---a universal way to plug in capabilities. It is now broadly adopted across the major AI providers, with a large ecosystem of ready-made "servers" (connectors).
 
-Examples of MCP tools:
+The architecture is straightforward: **Model ↔ MCP client (the app) ↔ MCP server (the connector) ↔ your tool/data**. A request flows model → client → server → tool, and the result flows back along the same chain.
 
-- File system access (read/write documents)
-- Database queries
-- Web search
-- Calendar and email integration
-- Code execution
-- API calls to external services
+Examples of MCP tools: file system access (read/write documents), database queries, web search, calendar and email integration, code execution, and API calls to external services.
 
 ### Agent Skills
 
@@ -211,6 +224,43 @@ You can write a `SKILL.md` by hand, or use the **Skill Creator** (a "skill that 
 
 *Public-health skill ideas:* a "de-identify before sharing" checklist, a plain-language health-communication rewriter, a grant Specific-Aims formatter, or a data-dictionary generator.
 
+### Configuring Agent Behavior: CLAUDE.md and System Prompts
+
+A `CLAUDE.md` file is a Markdown file in your project root that the agent reads on every launch. Use it for persistent instructions ("always use Python 3.12"), project conventions ("we use snake_case"), domain context ("this repo handles HIPAA data"), and recurring reminders ("run tests before committing"). Claude Code and Cowork read these automatically.
+
+For API-based agents and tools like Google AI Studio, the **system prompt** is the equivalent --- persistent instructions the model sees before every user message. Same purpose, different delivery mechanism. Think of it as the agent's standing orders.
+
+The more specific and domain-aware your configuration, the less you need to repeat yourself --- and the fewer mistakes the agent makes.
+
+### Loops: Repeatable Workflows with Stop Conditions
+
+A "loop" is a reusable instruction that tells an agent what to do, how to check its work, and when to stop --- turning a one-off prompt into a dependable routine.
+
+Examples: a docs sweep that reviews the codebase, updates stale docs, verifies, and stops when docs match the code; a refactor loop that refactors, tests, auto-reviews, and commits after each step; an optimization loop that keeps tuning until a target metric is hit. Each has an explicit **VERIFY** step and a **STOP** condition.
+
+### Build the Loop, Not the Agent
+
+"You are not building an agent. You are building the loop that rebuilds it." --- Forward Future (2025). Three principles:
+
+1. **Fund the iteration:** The artifact (the report, the code, the analysis) is a side effect. The durable asset is the loop that produces it: plan → execute → evaluate → iterate. Invest in making the loop fast and cheap to run.
+2. **Expect to rebuild:** Models change, tools change, requirements change. An agent built around a brittle, one-time prompt will break. A loop with explicit evaluation criteria can adapt --- swap the model, swap the tools, keep the loop.
+3. **Evaluation is the loop:** Without a way to judge whether the output is good enough, there is no loop --- just a one-shot generation. The VERIFY step is what closes the circle.
+
+*Adapted from Forward Future, ["Build the Loop, Not the Agent"](https://www.forwardfuture.ai/p/build-the-loop-not-the-agent) (2025).*
+
+### Multi-Agent Systems and Orchestration Patterns
+
+When a task is too complex for one agent, split it across several --- each with its own tools, instructions, and expertise. Four common patterns:
+
+- **Manager pattern:** One "boss" agent delegates to specialist sub-agents, reviews their work, and synthesizes the final output. Example: a lead analyst that calls a data agent, a writing agent, and a fact-checker.
+- **Sequential handoff:** Agents hand off in a chain. Agent A finishes, passes output to Agent B, and so on. Example: extract → clean → analyze → report.
+- **Parallel:** Multiple agents work on different parts simultaneously. A coordinator merges results. Example: three agents each reviewing a different section of a grant.
+- **Decentralized:** Agents communicate peer-to-peer with no central coordinator. Google's A2A (Agent-to-Agent) protocol targets this pattern --- still early.
+
+Start with a single agent. Add agents only when you can clearly articulate what each one does that the others cannot.
+
+*Adapted from OpenAI, ["A Practical Guide to Building Agents"](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (2025).*
+
 ### Agentic Harnesses: Cowork, Claude Code, Codex, and More
 
 The same core idea --- a model plus tools running in a loop --- ships in several "harnesses" that differ mainly in *where* you work and *how much autonomy* they take. (Recall the three ways to work with AI from Day 1.)
@@ -220,14 +270,41 @@ The same core idea --- a model plus tools running in a loop --- ships in several
 | **Claude Code** (Anthropic) | Terminal/CLI agent | Coding, data analysis, file automation in a repo | Reads `CLAUDE.md`; strong on coding benchmarks; Anthropic models |
 | **Cowork** (Anthropic) | Desktop app agent | Non-coders: files, connectors, **Skills**, **scheduled tasks** | Runs each task as its own session; paid plan |
 | **Codex / Codex CLI** (OpenAI) | Terminal agent | Long, "walk-away" autonomous runs ("goal mode") | Strong Docker sandboxing; OpenAI models |
-| **Google Antigravity** | Agent-first IDE + CLI/SDK | Orchestrating *multiple* agents; browser-testing what it builds | Free public preview; Gemini models (Gemini CLI folded into it) |
+| **Antigravity** (Google) | Agent-first IDE + CLI/SDK | Orchestrating *multiple* agents; browser-testing what it builds | Free public preview; Gemini models (Gemini CLI folded into it) |
 | **OpenCoworker** | Open-source desktop agent | Privacy-sensitive work; bring-your-own model | Free/self-hostable; use your API key or a local Ollama model |
 
 The differences that matter for choosing: **surface** (terminal vs. desktop vs. IDE), **autonomy** (one step vs. hours of unattended work), **model lock-in** (vendor-only vs. bring-your-own), and **data control** (cloud vs. fully local). For sensitive public-health data, weigh the last two heavily.
 
+### Computer Use Agents
+
+A new category of agents can control a mouse and keyboard --- navigating apps and websites the way a human would. **Claude Computer Use** (Anthropic) sees screenshots and emits mouse/keyboard actions, working in any app. **OpenAI Operator** (CUA --- Computer-Using Agent) navigates web apps, fills forms, and completes multi-step web tasks. **Google Mariner** is a browser agent built on Gemini. These are early-stage but evolving fast. Main use cases: automating repetitive UI tasks, accessibility, and connecting to tools that have no API. Always supervise --- they click real buttons.
+
 ### Scheduled Tasks
 
 Agentic tools increasingly run on a **schedule**, not just on demand. In Cowork, you describe a task once, pick a cadence (hourly, daily, weekdays, weekly) or an event trigger (a new file, a webhook), and it runs automatically --- each run with access to your files, connectors, and Skills. This turns a one-off ("summarize this week's 311 complaints") into standing automation ("every Monday, pull the new data, update the chart, and draft the email"). Schedule only work you'd be comfortable having run with a human reviewing the output --- not irreversible actions.
+
+### How People Actually Work with Agents
+
+Anthropic studied thousands of real Claude Code sessions and found a consistent pattern: **70% of planning decisions are made by humans**, while **80% of code execution is done by the agent**. Domain expertise matters more than coding skill --- the bottleneck is knowing *what* to build, not *how* to build it. Nine distinct work modes were identified, from quick lookups to deep architecture sessions.
+
+What this means for you: you do not need to be a programmer to direct a coding agent effectively. Public health domain expertise --- understanding your data, your workflows, your constraints --- is more valuable than coding proficiency when working with these tools.
+
+*Source: Anthropic, ["What we learned from studying how people use Claude Code"](https://www.anthropic.com/research/claude-code-expertise) (Jun 2025).*
+
+### Evaluation: Beyond Vibes
+
+An agent that shines in a demo can fail "in the wild." Reliability needs real evaluation, not impressions. Three approaches: work out the **ground truth** (correct answers by hand, then compare), use **LLM-as-judge** (a model grades outputs at scale, calibrated against your ground truth), and **test repeatedly** (track where and how it fails across many cases, not just whether one demo worked). Especially important when wrong answers have real consequences.
+
+*Adapted from Nesta, ["Beyond Vibes: How to Actually Evaluate AI Agents"](https://www.nesta.org.uk/report/beyond-vibes/) (2025).*
+
+### Guardrails for Agentic Work
+
+- **Human in the loop:** Approve consequential or irreversible actions
+- **Least privilege:** Give only the access the task needs; sandbox execution
+- **Verify outputs:** Check facts, code, and numbers before acting on them
+- **Protect data:** Keep protected health data out of tools that aren't approved for it
+
+Agents act in the world --- so the stakes of a mistake are higher than with a chatbot. Scope and supervise accordingly.
 
 ### Verification Is the Bottleneck
 
@@ -449,106 +526,78 @@ Positron also ships a built-in **Positron Assistant** (a native in-IDE chat/agen
 
 ---
 
-## Activity 3: Brief Tour of Other CLI Tools (optional / if time) {.activity}
+## Activity 3: Loops, Skills & Orchestration {.activity}
 
 ::: {.activity}
 
-### Activity 3: Brief Tour of Other CLI Tools *(optional / if time)*
+### Activity 3: Loops, Skills & Orchestration
 ::: {.activity-meta}
-Duration: ~10 minutes | Format: Instructor overview | **Optional --- skip if running short**
+Duration: ~30 minutes | Format: Hands-on exercise (individual or pairs)
 :::
 
-**Goal:** Awareness of the broader landscape of command-line AI tools.
-
-#### Comparison
-
-| Feature | Claude Code | Codex / Codex CLI (OpenAI) | Antigravity (Google) |
-|---------|------------|-------------------|-------------------|
-| Model | Claude (Anthropic) | GPT-5.5 when available; otherwise the current default GPT model (OpenAI) | Gemini (Google) |
-| Surface | Terminal | Terminal | Agent-first IDE + CLI |
-| File access | Yes | Yes | Yes |
-| Code execution | Yes | Yes (Docker sandbox) | Yes (and browser-tests builds) |
-| Cost | Claude subscription or API | API usage | Free public preview |
-| Best for | Analysis, writing, coding in a repo | Long autonomous "goal mode" runs | Orchestrating multiple agents |
-| Install | `npm install -g @anthropic-ai/claude-code` | `npm install -g @openai/codex` | Desktop app + Antigravity CLI |
+**Goal:** Build a reusable loop with explicit stop conditions, write a `SKILL.md` file, and design a multi-step orchestrated workflow.
 
 :::{.callout-note}
-Google's standalone Gemini CLI was consolidated into **Antigravity** in mid-2026. The instructor will demonstrate; you do not need to install these today unless you want to.
+## Background
+"You are not building an agent. You are building the loop that rebuilds it." The durable asset is the loop --- the repeatable process of plan → execute → evaluate → iterate --- not the one-time output.
 :::
+
+#### Part A: Write a Loop (10 min)
+
+A "loop" is a set of instructions that tells an agent what to do, how to check its work, and when to stop. Write a loop for one of these public health tasks (or choose your own):
+
+**Option 1: Literature review sweep** --- Search for recent papers on your topic. For each: extract title, authors, year, key findings, relevance. VERIFY: check that each citation actually exists (search for the DOI). STOP: 15 verified papers or 50 search results exhausted.
+
+**Option 2: Data quality audit** --- Load a dataset. Check each column for missing values, outliers, inconsistent formats, duplicates. VERIFY: for flagged issues, show specific rows for human confirmation. STOP: every column checked and all issues logged.
+
+**Option 3: Grant section drafter** --- Read a research plan, draft a Significance section (500--800 words) with citations. VERIFY: check every factual claim against the cited source. Iterate to fix flagged issues. STOP: every claim sourced and section under 800 words.
+
+Write your loop as a plain-text document with these sections: **GOAL**, **STEPS**, **VERIFY**, **STOP CONDITION**, **OUTPUT**.
+
+#### Part B: Write a SKILL.md (10 min)
+
+A Skill is a reusable folder of expertise. Write a `SKILL.md` for a task you actually do at work:
+
+```markdown
+---
+name: [short-kebab-case-name]
+description: "[One sentence that tells the agent WHEN to load this skill]"
+---
+
+# [Skill Name]
+
+## When to use
+[Describe the trigger conditions]
+
+## Instructions
+[Step-by-step instructions the agent should follow]
+
+## Output format
+[What the deliverable should look like]
+
+## Guardrails
+[What the agent should NOT do]
+```
+
+*Ideas:* a de-identification checklist for data before sharing, a plain-language health communication rewriter, a STROBE/CONSORT reporting checklist, a data dictionary generator, a grant Specific Aims formatter.
+
+#### Part C: Design a Multi-Step Orchestration (10 min)
+
+Design a workflow that uses multiple agents or steps. Example --- weekly surveillance report: Agent 1 (Data) pulls and cleans data → Agent 2 (Analysis) compares to previous weeks, generates charts → Agent 3 (Writing) drafts narrative report → Human checkpoint → Agent 4 (Distribution) formats and prepares email draft.
+
+For your design, specify: (1) overall goal, (2) how many agents/steps, (3) what each does, (4) what is passed between steps, (5) where the human checkpoints are, (6) VERIFY and STOP conditions.
+
+**Share Out:** 2--3 volunteers share their loop, skill, or orchestration design. What makes a good stop condition? What happens when the loop doesn't converge?
 
 :::
 
 ---
 
-## Activity 4: Google AI Studio Agent Building {.activity}
+## Activity 4: Local AI with Ollama {.activity}
 
 ::: {.activity}
 
-### Activity 4: Google AI Studio Agent Building
-::: {.activity-meta}
-Duration: ~30 minutes | Format: Hands-on (using your free Google AI Studio account)
-:::
-
-**Goal:** Build a simple AI agent with system instructions and structured behavior using Google AI Studio.
-
-#### Instructions
-
-1. Go to [Google AI Studio](https://aistudio.google.com)
-2. Click **"Create New"** and select a structured prompt or chat-based prompt
-
-#### Option A: Disease Prediction Agent
-
-Build an agent that helps public health analysts assess disease outbreak risk:
-
-**System Instructions:**
-
-> You are an infectious disease risk assessment assistant for the Philadelphia Department of Public Health. Your role is to help analysts evaluate potential outbreak risks based on surveillance data and environmental factors.
->
-> When analyzing a potential outbreak:
-> 1. Ask clarifying questions about the data (number of cases, location, time period, demographics affected)
-> 2. Compare to historical baselines
-> 3. Identify potential risk factors
-> 4. Assess the likelihood of sustained transmission
-> 5. Recommend specific response actions based on Philadelphia's outbreak response protocols
->
-> Always cite the evidence basis for your assessments. Always flag uncertainty. Never provide definitive predictions---use probabilistic language.
-
-Test your agent with scenarios like:
-> "We've seen 15 cases of Legionella in the Kensington area over the past two weeks. The previous baseline for this period is 2-4 cases. What should we be looking at?"
-
-#### Option B: Environmental Health Risk Assessor
-
-Build an agent focused on environmental health:
-
-**System Instructions:**
-
-> You are an environmental health risk assessment assistant. You help public health analysts evaluate environmental exposures and their potential health impacts in Philadelphia neighborhoods.
->
-> For each assessment:
-> 1. Identify the exposure pathway (air, water, soil, food)
-> 2. Assess the exposed population (size, vulnerability factors)
-> 3. Evaluate exposure duration and intensity
-> 4. Review known health effects from the scientific literature
-> 5. Recommend monitoring, mitigation, and communication strategies
->
-> Always specify the strength of evidence for health effects. Distinguish between established and emerging science.
-
-#### Reflection
-
-- How does providing system instructions change the AI's behavior?
-- What guardrails did you include? What would you add?
-- How could this be useful in your daily work?
-- What are the risks of relying on such an agent?
-
-:::
-
----
-
-## Activity 5: Local AI with Ollama {.activity}
-
-::: {.activity}
-
-### Activity 5: Local AI with Ollama
+### Activity 4: Local AI with Ollama
 ::: {.activity-meta}
 Duration: ~20 minutes | Format: Demonstration + optional hands-on installation
 :::
@@ -678,7 +727,7 @@ Choose a public health scenario (disease surveillance, community health assessme
 #### Challenge 8: Local vs. Cloud Model Evaluation
 
 ::: {.challenge-meta}
-**Difficulty:** Intermediate | **Time:** 45 min | **Tools:** Ollama (Llama 3.1 8B), Claude or ChatGPT
+**Difficulty:** Intermediate | **Time:** 45 min | **Tools:** Ollama (Gemma 4 or Qwen3), Claude or ChatGPT
 :::
 
 Create 10 test prompts across five categories (factual knowledge, data interpretation, writing, reasoning, code generation). Run them through both a local Ollama model and a cloud model, score each response, and write a recommendation memo for your department on when to use each.
@@ -713,4 +762,4 @@ See the [Readings page](readings.qmd#day-3-readings) for today's assigned and re
 
 ## Looking Ahead
 
-Tomorrow we shift from **tools** to **workflows**. You will assess your own work processes, identify where AI can help, and work through realistic urban health scenarios in small groups. Come prepared to think critically about your daily work and where AI fits in.
+Tomorrow we shift from **tools** to **workflows**. You will build a simple agent in Google AI Studio, assess your own work processes for AI augmentation potential, work through realistic urban health scenarios in small groups, and explore AI-assisted grant writing. Come prepared to think critically about your daily work and where AI fits in.

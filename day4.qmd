@@ -19,11 +19,12 @@ Workflow integration, scenario-based group work, and Mollick's rules of co-intel
 By the end of today, you will be able to:
 
 1. Apply Mollick's Four Rules of Co-Intelligence to evaluate AI integration opportunities
-2. Assess your own professional workflows for AI augmentation potential
-3. Design AI-assisted approaches to realistic urban health challenges
-4. Identify which parts of a workflow should be automated vs. kept human
-5. Present and defend an AI integration strategy to peers
-6. Use AI to assist (not replace) grant and research writing, with appropriate disclosure
+2. Build a simple AI agent with system instructions in Google AI Studio
+3. Assess your own professional workflows for AI augmentation potential
+4. Design AI-assisted approaches to realistic urban health challenges
+5. Identify which parts of a workflow should be automated vs. kept human
+6. Present and defend an AI integration strategy to peers
+7. Use AI to assist (not replace) grant and research writing, with appropriate disclosure
 
 ---
 
@@ -109,13 +110,81 @@ The best candidates for AI integration are tasks that are **time-consuming, repe
 
 ---
 
-## Activity 2: Scenario-Based Small Group Work {.activity}
+## Activity 2: Build a Simple AI Agent in Google AI Studio {.activity}
 
 ::: {.activity}
 
-### Activity 2: Scenario-Based Small Group Work
+### Activity 2: Build a Simple AI Agent in Google AI Studio
 ::: {.activity-meta}
-Duration: ~75 minutes | Format: Groups of 3--5 people
+Duration: ~30 minutes | Format: Hands-on (using your free Google AI Studio account)
+:::
+
+**Goal:** Build a simple AI agent with system instructions and structured behavior using Google AI Studio.
+
+:::{.callout-note}
+This activity was previously part of Day 3. It fits naturally here after the workflow assessment --- you have identified tasks that could benefit from AI; now build an agent to address one.
+:::
+
+#### Instructions
+
+1. Go to [Google AI Studio](https://aistudio.google.com)
+2. Click **"Create New"** and select a structured prompt or chat-based prompt
+
+#### Option A: Disease Prediction Agent
+
+Build an agent that helps public health analysts assess disease outbreak risk:
+
+**System Instructions:**
+
+> You are an infectious disease risk assessment assistant for the Philadelphia Department of Public Health. Your role is to help analysts evaluate potential outbreak risks based on surveillance data and environmental factors.
+>
+> When analyzing a potential outbreak:
+> 1. Ask clarifying questions about the data (number of cases, location, time period, demographics affected)
+> 2. Compare to historical baselines
+> 3. Identify potential risk factors
+> 4. Assess the likelihood of sustained transmission
+> 5. Recommend specific response actions based on Philadelphia's outbreak response protocols
+>
+> Always cite the evidence basis for your assessments. Always flag uncertainty. Never provide definitive predictions---use probabilistic language.
+
+Test your agent with scenarios like:
+> "We've seen 15 cases of Legionella in the Kensington area over the past two weeks. The previous baseline for this period is 2-4 cases. What should we be looking at?"
+
+#### Option B: Environmental Health Risk Assessor
+
+Build an agent focused on environmental health:
+
+**System Instructions:**
+
+> You are an environmental health risk assessment assistant. You help public health analysts evaluate environmental exposures and their potential health impacts in Philadelphia neighborhoods.
+>
+> For each assessment:
+> 1. Identify the exposure pathway (air, water, soil, food)
+> 2. Assess the exposed population (size, vulnerability factors)
+> 3. Evaluate exposure duration and intensity
+> 4. Review known health effects from the scientific literature
+> 5. Recommend monitoring, mitigation, and communication strategies
+>
+> Always specify the strength of evidence for health effects. Distinguish between established and emerging science.
+
+#### Reflection
+
+- How does providing system instructions change the AI's behavior?
+- What guardrails did you include? What would you add?
+- How could this be useful in your daily work?
+- What are the risks of relying on such an agent?
+
+:::
+
+---
+
+## Activity 3: Scenario-Based Small Group Work {.activity}
+
+::: {.activity}
+
+### Activity 3: Scenario-Based Small Group Work
+::: {.activity-meta}
+Duration: ~60 minutes | Format: Groups of 3--5 people
 :::
 
 **Goal:** Develop a comprehensive AI-assisted approach to a realistic urban health challenge.
@@ -358,11 +427,11 @@ For your presentation, address:
 
 ---
 
-## Activity 3: Group Presentations & Discussion {.activity}
+## Activity 4: Group Presentations & Discussion {.activity}
 
 ::: {.activity}
 
-### Activity 3: Group Presentations & Discussion
+### Activity 4: Group Presentations & Discussion
 ::: {.activity-meta}
 Duration: ~15 minutes per group + discussion | Format: Whole class
 :::
@@ -400,11 +469,11 @@ Three concrete ways to put agentic AI to work in your own research. Try the chat
 
 ---
 
-## Activity 4: AI for Grant & Research Writing (optional / if time) {.activity}
+## Activity 5: AI for Grant & Research Writing (optional / if time) {.activity}
 
 ::: {.activity}
 
-### Activity 4: AI for Grant & Research Writing *(optional / if time)*
+### Activity 5: AI for Grant & Research Writing *(optional / if time)*
 ::: {.activity-meta}
 Duration: ~15 minutes | Format: Demonstration with brief hands-on practice | **Optional --- if time allows**
 :::

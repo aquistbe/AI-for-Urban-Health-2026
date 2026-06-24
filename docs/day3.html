@@ -202,14 +202,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ollama-run-ai-models-locally" id="toc-ollama-run-ai-models-locally" class="nav-link" data-scroll-target="#ollama-run-ai-models-locally">Ollama (run AI models locally)</a></li>
   <li><a href="#no-installation-needed-browser-only" id="toc-no-installation-needed-browser-only" class="nav-link" data-scroll-target="#no-installation-needed-browser-only">No installation needed (browser only)</a></li>
   </ul></li>
-  <li><a href="#lecture-agents-context-and-tools" id="toc-lecture-agents-context-and-tools" class="nav-link" data-scroll-target="#lecture-agents-context-and-tools">Lecture: Agents, Context, and Tools</a>
+  <li><a href="#lecture-agents-context-tools-multi-agent-systems" id="toc-lecture-agents-context-tools-multi-agent-systems" class="nav-link" data-scroll-target="#lecture-agents-context-tools-multi-agent-systems">Lecture: Agents, Context, Tools &amp; Multi-Agent Systems</a>
   <ul class="collapse">
   <li><a href="#chatbots-vs.-agents" id="toc-chatbots-vs.-agents" class="nav-link" data-scroll-target="#chatbots-vs.-agents">Chatbots vs.&nbsp;Agents</a></li>
+  <li><a href="#agent-architecture-the-five-components" id="toc-agent-architecture-the-five-components" class="nav-link" data-scroll-target="#agent-architecture-the-five-components">Agent Architecture: The Five Components</a></li>
   <li><a href="#context-engineering-the-5-components" id="toc-context-engineering-the-5-components" class="nav-link" data-scroll-target="#context-engineering-the-5-components">Context Engineering: The 5 Components</a></li>
   <li><a href="#model-context-protocol-mcp" id="toc-model-context-protocol-mcp" class="nav-link" data-scroll-target="#model-context-protocol-mcp">Model Context Protocol (MCP)</a></li>
   <li><a href="#agent-skills" id="toc-agent-skills" class="nav-link" data-scroll-target="#agent-skills">Agent Skills</a></li>
+  <li><a href="#configuring-agent-behavior-claude.md-and-system-prompts" id="toc-configuring-agent-behavior-claude.md-and-system-prompts" class="nav-link" data-scroll-target="#configuring-agent-behavior-claude.md-and-system-prompts">Configuring Agent Behavior: CLAUDE.md and System Prompts</a></li>
+  <li><a href="#loops-repeatable-workflows-with-stop-conditions" id="toc-loops-repeatable-workflows-with-stop-conditions" class="nav-link" data-scroll-target="#loops-repeatable-workflows-with-stop-conditions">Loops: Repeatable Workflows with Stop Conditions</a></li>
+  <li><a href="#build-the-loop-not-the-agent" id="toc-build-the-loop-not-the-agent" class="nav-link" data-scroll-target="#build-the-loop-not-the-agent">Build the Loop, Not the Agent</a></li>
+  <li><a href="#multi-agent-systems-and-orchestration-patterns" id="toc-multi-agent-systems-and-orchestration-patterns" class="nav-link" data-scroll-target="#multi-agent-systems-and-orchestration-patterns">Multi-Agent Systems and Orchestration Patterns</a></li>
   <li><a href="#agentic-harnesses-cowork-claude-code-codex-and-more" id="toc-agentic-harnesses-cowork-claude-code-codex-and-more" class="nav-link" data-scroll-target="#agentic-harnesses-cowork-claude-code-codex-and-more">Agentic Harnesses: Cowork, Claude Code, Codex, and More</a></li>
+  <li><a href="#computer-use-agents" id="toc-computer-use-agents" class="nav-link" data-scroll-target="#computer-use-agents">Computer Use Agents</a></li>
   <li><a href="#scheduled-tasks" id="toc-scheduled-tasks" class="nav-link" data-scroll-target="#scheduled-tasks">Scheduled Tasks</a></li>
+  <li><a href="#how-people-actually-work-with-agents" id="toc-how-people-actually-work-with-agents" class="nav-link" data-scroll-target="#how-people-actually-work-with-agents">How People Actually Work with Agents</a></li>
+  <li><a href="#evaluation-beyond-vibes" id="toc-evaluation-beyond-vibes" class="nav-link" data-scroll-target="#evaluation-beyond-vibes">Evaluation: Beyond Vibes</a></li>
+  <li><a href="#guardrails-for-agentic-work" id="toc-guardrails-for-agentic-work" class="nav-link" data-scroll-target="#guardrails-for-agentic-work">Guardrails for Agentic Work</a></li>
   <li><a href="#verification-is-the-bottleneck" id="toc-verification-is-the-bottleneck" class="nav-link" data-scroll-target="#verification-is-the-bottleneck">Verification Is the Bottleneck</a></li>
   </ul></li>
   <li><a href="#activity-1-context-engineering-exercise" id="toc-activity-1-context-engineering-exercise" class="nav-link" data-scroll-target="#activity-1-context-engineering-exercise">Activity 1: Context Engineering Exercise</a>
@@ -220,17 +229,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#activity-2-claude-code-cli-walkthrough-1" id="toc-activity-2-claude-code-cli-walkthrough-1" class="nav-link" data-scroll-target="#activity-2-claude-code-cli-walkthrough-1">Activity 2: Claude Code CLI Walkthrough</a></li>
   </ul></li>
-  <li><a href="#activity-3-brief-tour-of-other-cli-tools-optional-if-time" id="toc-activity-3-brief-tour-of-other-cli-tools-optional-if-time" class="nav-link" data-scroll-target="#activity-3-brief-tour-of-other-cli-tools-optional-if-time">Activity 3: Brief Tour of Other CLI Tools (optional / if time)</a>
+  <li><a href="#activity-3-loops-skills-orchestration" id="toc-activity-3-loops-skills-orchestration" class="nav-link" data-scroll-target="#activity-3-loops-skills-orchestration">Activity 3: Loops, Skills &amp; Orchestration</a>
   <ul class="collapse">
-  <li><a href="#activity-3-brief-tour-of-other-cli-tools-optional-if-time-1" id="toc-activity-3-brief-tour-of-other-cli-tools-optional-if-time-1" class="nav-link" data-scroll-target="#activity-3-brief-tour-of-other-cli-tools-optional-if-time-1">Activity 3: Brief Tour of Other CLI Tools <em>(optional / if time)</em></a></li>
+  <li><a href="#activity-3-loops-skills-orchestration-1" id="toc-activity-3-loops-skills-orchestration-1" class="nav-link" data-scroll-target="#activity-3-loops-skills-orchestration-1">Activity 3: Loops, Skills &amp; Orchestration</a></li>
   </ul></li>
-  <li><a href="#activity-4-google-ai-studio-agent-building" id="toc-activity-4-google-ai-studio-agent-building" class="nav-link" data-scroll-target="#activity-4-google-ai-studio-agent-building">Activity 4: Google AI Studio Agent Building</a>
+  <li><a href="#activity-4-local-ai-with-ollama" id="toc-activity-4-local-ai-with-ollama" class="nav-link" data-scroll-target="#activity-4-local-ai-with-ollama">Activity 4: Local AI with Ollama</a>
   <ul class="collapse">
-  <li><a href="#activity-4-google-ai-studio-agent-building-1" id="toc-activity-4-google-ai-studio-agent-building-1" class="nav-link" data-scroll-target="#activity-4-google-ai-studio-agent-building-1">Activity 4: Google AI Studio Agent Building</a></li>
-  </ul></li>
-  <li><a href="#activity-5-local-ai-with-ollama" id="toc-activity-5-local-ai-with-ollama" class="nav-link" data-scroll-target="#activity-5-local-ai-with-ollama">Activity 5: Local AI with Ollama</a>
-  <ul class="collapse">
-  <li><a href="#activity-5-local-ai-with-ollama-1" id="toc-activity-5-local-ai-with-ollama-1" class="nav-link" data-scroll-target="#activity-5-local-ai-with-ollama-1">Activity 5: Local AI with Ollama</a></li>
+  <li><a href="#activity-4-local-ai-with-ollama-1" id="toc-activity-4-local-ai-with-ollama-1" class="nav-link" data-scroll-target="#activity-4-local-ai-with-ollama-1">Activity 4: Local AI with Ollama</a></li>
   </ul></li>
   <li><a href="#bonus-challenge-exercises" id="toc-bonus-challenge-exercises" class="nav-link" data-scroll-target="#bonus-challenge-exercises">Bonus Challenge Exercises</a></li>
   <li><a href="#todays-readings" id="toc-todays-readings" class="nav-link" data-scroll-target="#todays-readings">Today’s Readings</a></li>
@@ -274,13 +279,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p>By the end of today, you will be able to:</p>
 <ol type="1">
-<li>Distinguish between AI chatbots and AI agents and explain why the difference matters</li>
-<li>Describe the five components of context engineering and why it is critical for effective AI use</li>
-<li>Explain the Model Context Protocol (MCP) and how it enables tool integration</li>
-<li>Describe Agent Skills and compare agentic harnesses (Cowork, Claude Code, Codex, Antigravity, OpenCoworker)</li>
-<li>Use or observe command-line AI tools (Claude Code, Codex CLI)</li>
-<li>Build a simple AI agent using Google AI Studio</li>
-<li>Understand why local AI models matter for sensitive data and how to run them</li>
+<li>Distinguish an AI agent from a chatbot, and describe the agent loop and architecture</li>
+<li>Apply context-engineering principles to design effective agent interactions</li>
+<li>Explain the Model Context Protocol (MCP) and how tools extend a model</li>
+<li>Configure agents with Skills (<code>SKILL.md</code>) and instruction files (<code>CLAUDE.md</code>)</li>
+<li>Use repeatable “loops” with clear stop conditions to get reliable results</li>
+<li>Describe multi-agent patterns and when to use them</li>
+<li>Evaluate agents and set guardrails appropriate for sensitive urban-health work</li>
 </ol>
 <hr>
 </section>
@@ -458,8 +463,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="lecture-agents-context-and-tools" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-agents-context-and-tools">Lecture: Agents, Context, and Tools</h2>
+<section id="lecture-agents-context-tools-multi-agent-systems" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-agents-context-tools-multi-agent-systems">Lecture: Agents, Context, Tools &amp; Multi-Agent Systems</h2>
 <section id="chatbots-vs.-agents" class="level3">
 <h3 class="anchored" data-anchor-id="chatbots-vs.-agents">Chatbots vs.&nbsp;Agents</h3>
 <p>The AI landscape is rapidly moving from <strong>chatbots</strong> (reactive, single-turn, limited to text) to <strong>agents</strong> (proactive, multi-step, tool-using):</p>
@@ -504,11 +509,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<p><strong>The working definition:</strong> an agent is a language model that can use tools in a loop until it completes a task. The agent loop runs: <strong>think/plan → act (use a tool) → observe the result → decide: done or loop again</strong>.</p>
 <p><strong>Why this matters for public health:</strong> Agents can do things like “pull the latest flu surveillance data, compare it to last year, draft a summary report, and email it to the team”—tasks that involve multiple steps, tools, and decision points.</p>
+</section>
+<section id="agent-architecture-the-five-components" class="level3">
+<h3 class="anchored" data-anchor-id="agent-architecture-the-five-components">Agent Architecture: The Five Components</h3>
+<p>Every agent system, regardless of the harness it runs in, is built from the same five components:</p>
+<ol type="1">
+<li><strong>Backbone model:</strong> The LLM that reasons about the task (Claude, GPT, Gemini, etc.)</li>
+<li><strong>Planning module:</strong> How the agent breaks a goal into steps and sequences them</li>
+<li><strong>Tool interface:</strong> The mechanism for calling external tools (function calling, MCP)</li>
+<li><strong>Memory:</strong> The context window for short-term state, plus any long-term storage</li>
+<li><strong>Sandbox / environment:</strong> Where code runs and actions execute safely</li>
+</ol>
+<p>An <strong>orchestration harness</strong> (the agent loop) coordinates all five: the model reasons, the planner sequences steps, tools execute, memory preserves state, and the sandbox keeps execution safe. When something goes wrong, one of these five is usually the culprit. Diagnosing agent failures means asking: did the model misunderstand? did the plan go off-track? did a tool fail? did context get lost? did the sandbox block something?</p>
+<p><em>Adapted from OpenAI, <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">“A Practical Guide to Building Agents”</a> (2025).</em></p>
 </section>
 <section id="context-engineering-the-5-components" class="level3">
 <h3 class="anchored" data-anchor-id="context-engineering-the-5-components">Context Engineering: The 5 Components</h3>
-<p>Context engineering is the practice of designing the information environment that an AI system operates within. It is more fundamental than prompt engineering. The five key components:</p>
+<p>Context engineering is the practice of designing the information environment that an AI system operates within. As work moves from one-shot chats to agents running over many turns, the question changes from “what do I <em>say</em>?” to “what <em>configuration of context</em> makes the right behavior likely?” The five key components:</p>
 <ol type="1">
 <li><strong>System prompt / Instructions:</strong> What the AI should do, its role, its constraints</li>
 <li><strong>User input:</strong> The specific request or query</li>
@@ -516,6 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Tool definitions:</strong> What tools the AI can use and how to use them</li>
 <li><strong>Conversation history / Memory:</strong> What has happened before in the interaction</li>
 </ol>
+<p>Context is a <strong>finite resource</strong> — every token competes for the model’s attention. Managing this state well (compacting, summarizing, pruning) is most of what separates a flaky demo from a reliable agent.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -532,16 +552,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="model-context-protocol-mcp" class="level3">
 <h3 class="anchored" data-anchor-id="model-context-protocol-mcp">Model Context Protocol (MCP)</h3>
-<p>MCP is an emerging open standard (created by Anthropic) that allows AI models to connect with external tools and data sources through a standardized interface. Think of it as a “USB port for AI”—a universal way to plug in capabilities.</p>
-<p>Examples of MCP tools:</p>
-<ul>
-<li>File system access (read/write documents)</li>
-<li>Database queries</li>
-<li>Web search</li>
-<li>Calendar and email integration</li>
-<li>Code execution</li>
-<li>API calls to external services</li>
-</ul>
+<p>MCP is an open standard (created by Anthropic) that allows AI models to connect with external tools and data sources through a standardized interface. Think of it as a “USB port for AI”—a universal way to plug in capabilities. It is now broadly adopted across the major AI providers, with a large ecosystem of ready-made “servers” (connectors).</p>
+<p>The architecture is straightforward: <strong>Model ↔︎ MCP client (the app) ↔︎ MCP server (the connector) ↔︎ your tool/data</strong>. A request flows model → client → server → tool, and the result flows back along the same chain.</p>
+<p>Examples of MCP tools: file system access (read/write documents), database queries, web search, calendar and email integration, code execution, and API calls to external services.</p>
 </section>
 <section id="agent-skills" class="level3">
 <h3 class="anchored" data-anchor-id="agent-skills">Agent Skills</h3>
@@ -549,6 +562,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If MCP is <em>how</em> an agent reaches tools, a Skill is <em>how it knows your way of doing a task</em>. Where a prompt is a one-off instruction, a Skill is durable and reusable: write your de-identification checklist, your report format, or your STROBE/CONSORT reporting steps once, and the agent applies them every time — across chats, Claude Code, and Cowork.</p>
 <p>You can write a <code>SKILL.md</code> by hand, or use the <strong>Skill Creator</strong> (a “skill that builds skills”) — it’s pre-installed in Claude Desktop and Cowork, and installable in Claude Code (<code>/plugin install skill-creator</code>). On claude.ai, upload a zipped skill folder under <strong>Settings → Customize → Skills</strong>.</p>
 <p><em>Public-health skill ideas:</em> a “de-identify before sharing” checklist, a plain-language health-communication rewriter, a grant Specific-Aims formatter, or a data-dictionary generator.</p>
+</section>
+<section id="configuring-agent-behavior-claude.md-and-system-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="configuring-agent-behavior-claude.md-and-system-prompts">Configuring Agent Behavior: CLAUDE.md and System Prompts</h3>
+<p>A <code>CLAUDE.md</code> file is a Markdown file in your project root that the agent reads on every launch. Use it for persistent instructions (“always use Python 3.12”), project conventions (“we use snake_case”), domain context (“this repo handles HIPAA data”), and recurring reminders (“run tests before committing”). Claude Code and Cowork read these automatically.</p>
+<p>For API-based agents and tools like Google AI Studio, the <strong>system prompt</strong> is the equivalent — persistent instructions the model sees before every user message. Same purpose, different delivery mechanism. Think of it as the agent’s standing orders.</p>
+<p>The more specific and domain-aware your configuration, the less you need to repeat yourself — and the fewer mistakes the agent makes.</p>
+</section>
+<section id="loops-repeatable-workflows-with-stop-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="loops-repeatable-workflows-with-stop-conditions">Loops: Repeatable Workflows with Stop Conditions</h3>
+<p>A “loop” is a reusable instruction that tells an agent what to do, how to check its work, and when to stop — turning a one-off prompt into a dependable routine.</p>
+<p>Examples: a docs sweep that reviews the codebase, updates stale docs, verifies, and stops when docs match the code; a refactor loop that refactors, tests, auto-reviews, and commits after each step; an optimization loop that keeps tuning until a target metric is hit. Each has an explicit <strong>VERIFY</strong> step and a <strong>STOP</strong> condition.</p>
+</section>
+<section id="build-the-loop-not-the-agent" class="level3">
+<h3 class="anchored" data-anchor-id="build-the-loop-not-the-agent">Build the Loop, Not the Agent</h3>
+<p>“You are not building an agent. You are building the loop that rebuilds it.” — Forward Future (2025). Three principles:</p>
+<ol type="1">
+<li><strong>Fund the iteration:</strong> The artifact (the report, the code, the analysis) is a side effect. The durable asset is the loop that produces it: plan → execute → evaluate → iterate. Invest in making the loop fast and cheap to run.</li>
+<li><strong>Expect to rebuild:</strong> Models change, tools change, requirements change. An agent built around a brittle, one-time prompt will break. A loop with explicit evaluation criteria can adapt — swap the model, swap the tools, keep the loop.</li>
+<li><strong>Evaluation is the loop:</strong> Without a way to judge whether the output is good enough, there is no loop — just a one-shot generation. The VERIFY step is what closes the circle.</li>
+</ol>
+<p><em>Adapted from Forward Future, <a href="https://www.forwardfuture.ai/p/build-the-loop-not-the-agent">“Build the Loop, Not the Agent”</a> (2025).</em></p>
+</section>
+<section id="multi-agent-systems-and-orchestration-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="multi-agent-systems-and-orchestration-patterns">Multi-Agent Systems and Orchestration Patterns</h3>
+<p>When a task is too complex for one agent, split it across several — each with its own tools, instructions, and expertise. Four common patterns:</p>
+<ul>
+<li><strong>Manager pattern:</strong> One “boss” agent delegates to specialist sub-agents, reviews their work, and synthesizes the final output. Example: a lead analyst that calls a data agent, a writing agent, and a fact-checker.</li>
+<li><strong>Sequential handoff:</strong> Agents hand off in a chain. Agent A finishes, passes output to Agent B, and so on. Example: extract → clean → analyze → report.</li>
+<li><strong>Parallel:</strong> Multiple agents work on different parts simultaneously. A coordinator merges results. Example: three agents each reviewing a different section of a grant.</li>
+<li><strong>Decentralized:</strong> Agents communicate peer-to-peer with no central coordinator. Google’s A2A (Agent-to-Agent) protocol targets this pattern — still early.</li>
+</ul>
+<p>Start with a single agent. Add agents only when you can clearly articulate what each one does that the others cannot.</p>
+<p><em>Adapted from OpenAI, <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">“A Practical Guide to Building Agents”</a> (2025).</em></p>
 </section>
 <section id="agentic-harnesses-cowork-claude-code-codex-and-more" class="level3">
 <h3 class="anchored" data-anchor-id="agentic-harnesses-cowork-claude-code-codex-and-more">Agentic Harnesses: Cowork, Claude Code, Codex, and More</h3>
@@ -588,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Strong Docker sandboxing; OpenAI models</td>
 </tr>
 <tr class="even">
-<td><strong>Google Antigravity</strong></td>
+<td><strong>Antigravity</strong> (Google)</td>
 <td>Agent-first IDE + CLI/SDK</td>
 <td>Orchestrating <em>multiple</em> agents; browser-testing what it builds</td>
 <td>Free public preview; Gemini models (Gemini CLI folded into it)</td>
@@ -603,9 +649,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>The differences that matter for choosing: <strong>surface</strong> (terminal vs.&nbsp;desktop vs.&nbsp;IDE), <strong>autonomy</strong> (one step vs.&nbsp;hours of unattended work), <strong>model lock-in</strong> (vendor-only vs.&nbsp;bring-your-own), and <strong>data control</strong> (cloud vs.&nbsp;fully local). For sensitive public-health data, weigh the last two heavily.</p>
 </section>
+<section id="computer-use-agents" class="level3">
+<h3 class="anchored" data-anchor-id="computer-use-agents">Computer Use Agents</h3>
+<p>A new category of agents can control a mouse and keyboard — navigating apps and websites the way a human would. <strong>Claude Computer Use</strong> (Anthropic) sees screenshots and emits mouse/keyboard actions, working in any app. <strong>OpenAI Operator</strong> (CUA — Computer-Using Agent) navigates web apps, fills forms, and completes multi-step web tasks. <strong>Google Mariner</strong> is a browser agent built on Gemini. These are early-stage but evolving fast. Main use cases: automating repetitive UI tasks, accessibility, and connecting to tools that have no API. Always supervise — they click real buttons.</p>
+</section>
 <section id="scheduled-tasks" class="level3">
 <h3 class="anchored" data-anchor-id="scheduled-tasks">Scheduled Tasks</h3>
 <p>Agentic tools increasingly run on a <strong>schedule</strong>, not just on demand. In Cowork, you describe a task once, pick a cadence (hourly, daily, weekdays, weekly) or an event trigger (a new file, a webhook), and it runs automatically — each run with access to your files, connectors, and Skills. This turns a one-off (“summarize this week’s 311 complaints”) into standing automation (“every Monday, pull the new data, update the chart, and draft the email”). Schedule only work you’d be comfortable having run with a human reviewing the output — not irreversible actions.</p>
+</section>
+<section id="how-people-actually-work-with-agents" class="level3">
+<h3 class="anchored" data-anchor-id="how-people-actually-work-with-agents">How People Actually Work with Agents</h3>
+<p>Anthropic studied thousands of real Claude Code sessions and found a consistent pattern: <strong>70% of planning decisions are made by humans</strong>, while <strong>80% of code execution is done by the agent</strong>. Domain expertise matters more than coding skill — the bottleneck is knowing <em>what</em> to build, not <em>how</em> to build it. Nine distinct work modes were identified, from quick lookups to deep architecture sessions.</p>
+<p>What this means for you: you do not need to be a programmer to direct a coding agent effectively. Public health domain expertise — understanding your data, your workflows, your constraints — is more valuable than coding proficiency when working with these tools.</p>
+<p><em>Source: Anthropic, <a href="https://www.anthropic.com/research/claude-code-expertise">“What we learned from studying how people use Claude Code”</a> (Jun 2025).</em></p>
+</section>
+<section id="evaluation-beyond-vibes" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation-beyond-vibes">Evaluation: Beyond Vibes</h3>
+<p>An agent that shines in a demo can fail “in the wild.” Reliability needs real evaluation, not impressions. Three approaches: work out the <strong>ground truth</strong> (correct answers by hand, then compare), use <strong>LLM-as-judge</strong> (a model grades outputs at scale, calibrated against your ground truth), and <strong>test repeatedly</strong> (track where and how it fails across many cases, not just whether one demo worked). Especially important when wrong answers have real consequences.</p>
+<p><em>Adapted from Nesta, <a href="https://www.nesta.org.uk/report/beyond-vibes/">“Beyond Vibes: How to Actually Evaluate AI Agents”</a> (2025).</em></p>
+</section>
+<section id="guardrails-for-agentic-work" class="level3">
+<h3 class="anchored" data-anchor-id="guardrails-for-agentic-work">Guardrails for Agentic Work</h3>
+<ul>
+<li><strong>Human in the loop:</strong> Approve consequential or irreversible actions</li>
+<li><strong>Least privilege:</strong> Give only the access the task needs; sandbox execution</li>
+<li><strong>Verify outputs:</strong> Check facts, code, and numbers before acting on them</li>
+<li><strong>Protect data:</strong> Keep protected health data out of tools that aren’t approved for it</li>
+</ul>
+<p>Agents act in the world — so the stakes of a mistake are higher than with a chatbot. Scope and supervise accordingly.</p>
 </section>
 <section id="verification-is-the-bottleneck" class="level3">
 <h3 class="anchored" data-anchor-id="verification-is-the-bottleneck">Verification Is the Bottleneck</h3>
@@ -811,145 +882,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <hr>
 </section>
-<section id="activity-3-brief-tour-of-other-cli-tools-optional-if-time" class="level2 activity">
-<h2 class="activity anchored" data-anchor-id="activity-3-brief-tour-of-other-cli-tools-optional-if-time">Activity 3: Brief Tour of Other CLI Tools (optional / if time)</h2>
-<section id="activity-3-brief-tour-of-other-cli-tools-optional-if-time-1" class="level3 activity">
-<h3 class="anchored" data-anchor-id="activity-3-brief-tour-of-other-cli-tools-optional-if-time-1">Activity 3: Brief Tour of Other CLI Tools <em>(optional / if time)</em></h3>
+<section id="activity-3-loops-skills-orchestration" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-3-loops-skills-orchestration">Activity 3: Loops, Skills &amp; Orchestration</h2>
+<section id="activity-3-loops-skills-orchestration-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-3-loops-skills-orchestration-1">Activity 3: Loops, Skills &amp; Orchestration</h3>
 <div class="activity-meta">
-<p>Duration: ~10 minutes | Format: Instructor overview | <strong>Optional — skip if running short</strong></p>
+<p>Duration: ~30 minutes | Format: Hands-on exercise (individual or pairs)</p>
 </div>
-<p><strong>Goal:</strong> Awareness of the broader landscape of command-line AI tools.</p>
-<section id="comparison" class="level4">
-<h4 class="anchored" data-anchor-id="comparison">Comparison</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 20%">
-<col style="width: 32%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Claude Code</th>
-<th>Codex / Codex CLI (OpenAI)</th>
-<th>Antigravity (Google)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Model</td>
-<td>Claude (Anthropic)</td>
-<td>GPT-5.5 when available; otherwise the current default GPT model (OpenAI)</td>
-<td>Gemini (Google)</td>
-</tr>
-<tr class="even">
-<td>Surface</td>
-<td>Terminal</td>
-<td>Terminal</td>
-<td>Agent-first IDE + CLI</td>
-</tr>
-<tr class="odd">
-<td>File access</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr class="even">
-<td>Code execution</td>
-<td>Yes</td>
-<td>Yes (Docker sandbox)</td>
-<td>Yes (and browser-tests builds)</td>
-</tr>
-<tr class="odd">
-<td>Cost</td>
-<td>Claude subscription or API</td>
-<td>API usage</td>
-<td>Free public preview</td>
-</tr>
-<tr class="even">
-<td>Best for</td>
-<td>Analysis, writing, coding in a repo</td>
-<td>Long autonomous “goal mode” runs</td>
-<td>Orchestrating multiple agents</td>
-</tr>
-<tr class="odd">
-<td>Install</td>
-<td><code>npm install -g @anthropic-ai/claude-code</code></td>
-<td><code>npm install -g @openai/codex</code></td>
-<td>Desktop app + Antigravity CLI</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Goal:</strong> Build a reusable loop with explicit stop conditions, write a <code>SKILL.md</code> file, and design a multi-step orchestrated workflow.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Background
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Google’s standalone Gemini CLI was consolidated into <strong>Antigravity</strong> in mid-2026. The instructor will demonstrate; you do not need to install these today unless you want to.</p>
+<p>“You are not building an agent. You are building the loop that rebuilds it.” The durable asset is the loop — the repeatable process of plan → execute → evaluate → iterate — not the one-time output.</p>
 </div>
 </div>
+<section id="part-a-write-a-loop-10-min" class="level4">
+<h4 class="anchored" data-anchor-id="part-a-write-a-loop-10-min">Part A: Write a Loop (10 min)</h4>
+<p>A “loop” is a set of instructions that tells an agent what to do, how to check its work, and when to stop. Write a loop for one of these public health tasks (or choose your own):</p>
+<p><strong>Option 1: Literature review sweep</strong> — Search for recent papers on your topic. For each: extract title, authors, year, key findings, relevance. VERIFY: check that each citation actually exists (search for the DOI). STOP: 15 verified papers or 50 search results exhausted.</p>
+<p><strong>Option 2: Data quality audit</strong> — Load a dataset. Check each column for missing values, outliers, inconsistent formats, duplicates. VERIFY: for flagged issues, show specific rows for human confirmation. STOP: every column checked and all issues logged.</p>
+<p><strong>Option 3: Grant section drafter</strong> — Read a research plan, draft a Significance section (500–800 words) with citations. VERIFY: check every factual claim against the cited source. Iterate to fix flagged issues. STOP: every claim sourced and section under 800 words.</p>
+<p>Write your loop as a plain-text document with these sections: <strong>GOAL</strong>, <strong>STEPS</strong>, <strong>VERIFY</strong>, <strong>STOP CONDITION</strong>, <strong>OUTPUT</strong>.</p>
+</section>
+<section id="part-b-write-a-skill.md-10-min" class="level4">
+<h4 class="anchored" data-anchor-id="part-b-write-a-skill.md-10-min">Part B: Write a SKILL.md (10 min)</h4>
+<p>A Skill is a reusable folder of expertise. Write a <code>SKILL.md</code> for a task you actually do at work:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> [short-kebab-case-name]</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "[One sentence that tells the agent WHEN to load this skill]"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># [Skill Name]</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## When to use</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Describe the trigger conditions</span><span class="co">]</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Step-by-step instructions the agent should follow</span><span class="co">]</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output format</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">What the deliverable should look like</span><span class="co">]</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Guardrails</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">What the agent should NOT do</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Ideas:</em> a de-identification checklist for data before sharing, a plain-language health communication rewriter, a STROBE/CONSORT reporting checklist, a data dictionary generator, a grant Specific Aims formatter.</p>
+</section>
+<section id="part-c-design-a-multi-step-orchestration-10-min" class="level4">
+<h4 class="anchored" data-anchor-id="part-c-design-a-multi-step-orchestration-10-min">Part C: Design a Multi-Step Orchestration (10 min)</h4>
+<p>Design a workflow that uses multiple agents or steps. Example — weekly surveillance report: Agent 1 (Data) pulls and cleans data → Agent 2 (Analysis) compares to previous weeks, generates charts → Agent 3 (Writing) drafts narrative report → Human checkpoint → Agent 4 (Distribution) formats and prepares email draft.</p>
+<p>For your design, specify: (1) overall goal, (2) how many agents/steps, (3) what each does, (4) what is passed between steps, (5) where the human checkpoints are, (6) VERIFY and STOP conditions.</p>
+<p><strong>Share Out:</strong> 2–3 volunteers share their loop, skill, or orchestration design. What makes a good stop condition? What happens when the loop doesn’t converge?</p>
 </section>
 </section>
 <hr>
 </section>
-<section id="activity-4-google-ai-studio-agent-building" class="level2 activity">
-<h2 class="activity anchored" data-anchor-id="activity-4-google-ai-studio-agent-building">Activity 4: Google AI Studio Agent Building</h2>
-<section id="activity-4-google-ai-studio-agent-building-1" class="level3 activity">
-<h3 class="anchored" data-anchor-id="activity-4-google-ai-studio-agent-building-1">Activity 4: Google AI Studio Agent Building</h3>
-<div class="activity-meta">
-<p>Duration: ~30 minutes | Format: Hands-on (using your free Google AI Studio account)</p>
-</div>
-<p><strong>Goal:</strong> Build a simple AI agent with system instructions and structured behavior using Google AI Studio.</p>
-<section id="instructions" class="level4">
-<h4 class="anchored" data-anchor-id="instructions">Instructions</h4>
-<ol type="1">
-<li>Go to <a href="https://aistudio.google.com">Google AI Studio</a></li>
-<li>Click <strong>“Create New”</strong> and select a structured prompt or chat-based prompt</li>
-</ol>
-</section>
-<section id="option-a-disease-prediction-agent" class="level4">
-<h4 class="anchored" data-anchor-id="option-a-disease-prediction-agent">Option A: Disease Prediction Agent</h4>
-<p>Build an agent that helps public health analysts assess disease outbreak risk:</p>
-<p><strong>System Instructions:</strong></p>
-<blockquote class="blockquote">
-<p>You are an infectious disease risk assessment assistant for the Philadelphia Department of Public Health. Your role is to help analysts evaluate potential outbreak risks based on surveillance data and environmental factors.</p>
-<p>When analyzing a potential outbreak: 1. Ask clarifying questions about the data (number of cases, location, time period, demographics affected) 2. Compare to historical baselines 3. Identify potential risk factors 4. Assess the likelihood of sustained transmission 5. Recommend specific response actions based on Philadelphia’s outbreak response protocols</p>
-<p>Always cite the evidence basis for your assessments. Always flag uncertainty. Never provide definitive predictions—use probabilistic language.</p>
-</blockquote>
-<p>Test your agent with scenarios like: &gt; “We’ve seen 15 cases of Legionella in the Kensington area over the past two weeks. The previous baseline for this period is 2-4 cases. What should we be looking at?”</p>
-</section>
-<section id="option-b-environmental-health-risk-assessor" class="level4">
-<h4 class="anchored" data-anchor-id="option-b-environmental-health-risk-assessor">Option B: Environmental Health Risk Assessor</h4>
-<p>Build an agent focused on environmental health:</p>
-<p><strong>System Instructions:</strong></p>
-<blockquote class="blockquote">
-<p>You are an environmental health risk assessment assistant. You help public health analysts evaluate environmental exposures and their potential health impacts in Philadelphia neighborhoods.</p>
-<p>For each assessment: 1. Identify the exposure pathway (air, water, soil, food) 2. Assess the exposed population (size, vulnerability factors) 3. Evaluate exposure duration and intensity 4. Review known health effects from the scientific literature 5. Recommend monitoring, mitigation, and communication strategies</p>
-<p>Always specify the strength of evidence for health effects. Distinguish between established and emerging science.</p>
-</blockquote>
-</section>
-<section id="reflection" class="level4">
-<h4 class="anchored" data-anchor-id="reflection">Reflection</h4>
-<ul>
-<li>How does providing system instructions change the AI’s behavior?</li>
-<li>What guardrails did you include? What would you add?</li>
-<li>How could this be useful in your daily work?</li>
-<li>What are the risks of relying on such an agent?</li>
-</ul>
-</section>
-</section>
-<hr>
-</section>
-<section id="activity-5-local-ai-with-ollama" class="level2 activity">
-<h2 class="activity anchored" data-anchor-id="activity-5-local-ai-with-ollama">Activity 5: Local AI with Ollama</h2>
-<section id="activity-5-local-ai-with-ollama-1" class="level3 activity">
-<h3 class="anchored" data-anchor-id="activity-5-local-ai-with-ollama-1">Activity 5: Local AI with Ollama</h3>
+<section id="activity-4-local-ai-with-ollama" class="level2 activity">
+<h2 class="activity anchored" data-anchor-id="activity-4-local-ai-with-ollama">Activity 4: Local AI with Ollama</h2>
+<section id="activity-4-local-ai-with-ollama-1" class="level3 activity">
+<h3 class="anchored" data-anchor-id="activity-4-local-ai-with-ollama-1">Activity 4: Local AI with Ollama</h3>
 <div class="activity-meta">
 <p>Duration: ~20 minutes | Format: Demonstration + optional hands-on installation</p>
 </div>
@@ -979,17 +976,17 @@ Note
 </section>
 <section id="installation-for-those-who-can-install-software" class="level4">
 <h4 class="anchored" data-anchor-id="installation-for-those-who-can-install-software">Installation (for those who can install software)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model (pick one that fits your laptop)</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3          <span class="co"># strong default; try qwen3:4b on 8 GB laptops</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma4         <span class="co"># Google's efficient option</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model (pick one that fits your laptop)</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3          <span class="co"># strong default; try qwen3:4b on 8 GB laptops</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma4         <span class="co"># Google's efficient option</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>System Requirements:</strong></p>
 <ul>
 <li>At least 8 GB RAM (16 GB recommended)</li>
@@ -1074,7 +1071,7 @@ Note
 <section id="challenge-8-local-vs.-cloud-model-evaluation" class="level4 challenge-card">
 <h4 class="anchored" data-anchor-id="challenge-8-local-vs.-cloud-model-evaluation">Challenge 8: Local vs.&nbsp;Cloud Model Evaluation</h4>
 <div class="challenge-meta">
-<p><strong>Difficulty:</strong> Intermediate | <strong>Time:</strong> 45 min | <strong>Tools:</strong> Ollama (Llama 3.1 8B), Claude or ChatGPT</p>
+<p><strong>Difficulty:</strong> Intermediate | <strong>Time:</strong> 45 min | <strong>Tools:</strong> Ollama (Gemma 4 or Qwen3), Claude or ChatGPT</p>
 </div>
 <p>Create 10 test prompts across five categories (factual knowledge, data interpretation, writing, reasoning, code generation). Run them through both a local Ollama model and a cloud model, score each response, and write a recommendation memo for your department on when to use each.</p>
 <p><a href="./challenges.html#exercise-8">Full instructions →</a></p>
@@ -1096,7 +1093,7 @@ Note
 </section>
 <section id="looking-ahead" class="level2">
 <h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
-<p>Tomorrow we shift from <strong>tools</strong> to <strong>workflows</strong>. You will assess your own work processes, identify where AI can help, and work through realistic urban health scenarios in small groups. Come prepared to think critically about your daily work and where AI fits in.</p>
+<p>Tomorrow we shift from <strong>tools</strong> to <strong>workflows</strong>. You will build a simple agent in Google AI Studio, assess your own work processes for AI augmentation potential, work through realistic urban health scenarios in small groups, and explore AI-assisted grant writing. Come prepared to think critically about your daily work and where AI fits in.</p>
 
 
 </section>
