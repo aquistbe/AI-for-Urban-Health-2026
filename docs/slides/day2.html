@@ -8,8 +8,8 @@
 <style>
 :root {
   --bg-primary: #eaeef5; --bg-slide: #ffffff; --bg-card: #f2f5fb;
-  --accent-blue: #2563eb; --accent-cyan: #0e8fa8; --accent-violet: #7c3aed;
-  --accent-amber: #b07d00; --accent-rose: #e11d48; --accent-emerald: #0e9f6e;
+  --accent-blue: #1d4ed8; --accent-cyan: #0e7490; --accent-violet: #6d28d9;
+  --accent-amber: #a16207; --accent-rose: #be123c; --accent-emerald: #047857;
   --text-primary: #1b2334; --text-secondary: #4a5568; --text-dim: #6b7280; --border: #d2dae8;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,10 +89,10 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   <div class="slide-body" style="gap:12px; justify-content:flex-start;">
     <p class="lead" style="margin:0;">What today's models can see, hear, and make — and how to put existing models to work on your data without becoming an ML engineer.</p>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-      <div style="border-left:3px solid #b07d00; padding:10px 14px; background:rgba(251,191,36,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#b07d00;">Part 1</div><div style="font-size:1.05rem;font-weight:700;">Working with Models</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">How models learn, then building on them: prompting, RAG, fine-tuning, APIs, and open/local models.</div></div>
-      <div style="border-left:3px solid #0e8fa8; padding:10px 14px; background:rgba(34,211,238,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#0e8fa8;">Part 2</div><div style="font-size:1.05rem;font-weight:700;">Images</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">Annotation, computer vision, and image generation — with their ethics.</div></div>
-      <div style="border-left:3px solid #7c3aed; padding:10px 14px; background:rgba(167,139,250,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#7c3aed;">Part 3</div><div style="font-size:1.05rem;font-weight:700;">Video &amp; Audio</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">Video generation, transcription, voice, and NotebookLM for research.</div></div>
-      <div style="border-left:3px solid #0e9f6e; padding:10px 14px; background:rgba(52,211,153,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#0e9f6e;">Part 4</div><div style="font-size:1.05rem;font-weight:700;">AI for Data Analysis</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">Tabular data, code generation, remote sensing — and the caveats.</div></div>
+      <div style="border-left:3px solid #a16207; padding:10px 14px; background:rgba(251,191,36,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#a16207;">Part 1</div><div style="font-size:1.05rem;font-weight:700;">Working with Models</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">How models learn, then building on them: prompting, RAG, fine-tuning, APIs, and open/local models.</div></div>
+      <div style="border-left:3px solid #0e7490; padding:10px 14px; background:rgba(34,211,238,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#0e7490;">Part 2</div><div style="font-size:1.05rem;font-weight:700;">Images</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">Annotation, computer vision, and image generation — with their ethics.</div></div>
+      <div style="border-left:3px solid #6d28d9; padding:10px 14px; background:rgba(167,139,250,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#6d28d9;">Part 3</div><div style="font-size:1.05rem;font-weight:700;">Video &amp; Audio</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">Video generation, transcription, voice, and NotebookLM for research.</div></div>
+      <div style="border-left:3px solid #047857; padding:10px 14px; background:rgba(52,211,153,0.04); border-radius:0 8px 8px 0;"><div class="kv" style="color:#047857;">Part 4</div><div style="font-size:1.05rem;font-weight:700;">AI for Data Analysis</div><div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.45;">Tabular data, code generation, remote sensing — and the caveats.</div></div>
     </div>
   </div>
 </div>
@@ -136,17 +136,17 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
     <div class="two-col" style="grid-template-columns:1.35fr 1fr; align-items:center;">
       <svg viewBox="0 0 560 300" style="width:100%; height:auto;">
         <g font-family="JetBrains Mono, monospace" font-size="15">
-          <circle cx="55" cy="70" r="22" fill="#f2f5fb" stroke="#2563eb" stroke-width="1.5"/><text x="55" y="75" fill="#1b2334" text-anchor="middle">x₁</text>
-          <circle cx="55" cy="150" r="22" fill="#f2f5fb" stroke="#2563eb" stroke-width="1.5"/><text x="55" y="155" fill="#1b2334" text-anchor="middle">x₂</text>
-          <circle cx="55" cy="230" r="22" fill="#f2f5fb" stroke="#2563eb" stroke-width="1.5"/><text x="55" y="235" fill="#1b2334" text-anchor="middle">x₃</text>
-          <line x1="77" y1="70" x2="230" y2="150" stroke="#bcc6d8" stroke-width="1.5"/><text x="150" y="95" fill="#4a5568" font-size="13">w₁</text>
-          <line x1="77" y1="150" x2="230" y2="150" stroke="#bcc6d8" stroke-width="1.5"/><text x="150" y="143" fill="#4a5568" font-size="13">w₂</text>
-          <line x1="77" y1="230" x2="230" y2="150" stroke="#bcc6d8" stroke-width="1.5"/><text x="150" y="215" fill="#4a5568" font-size="13">w₃</text>
-          <circle cx="258" cy="150" r="30" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.8"/><text x="258" y="157" fill="#0e8fa8" text-anchor="middle" font-size="22">Σ</text>
-          <rect x="330" y="120" width="96" height="60" rx="8" fill="#f2f5fb" stroke="#7c3aed" stroke-width="1.8"/><text x="378" y="146" fill="#7c3aed" text-anchor="middle" font-size="13">activation</text><text x="378" y="166" fill="#4a5568" text-anchor="middle" font-size="12">f( · )</text>
-          <line x1="288" y1="150" x2="330" y2="150" stroke="#bcc6d8" stroke-width="1.5" marker-end="url(#ah)"/>
-          <circle cx="492" cy="150" r="22" fill="#f2f5fb" stroke="#0e9f6e" stroke-width="1.8"/><text x="492" y="155" fill="#0e9f6e" text-anchor="middle">y</text>
-          <line x1="426" y1="150" x2="470" y2="150" stroke="#bcc6d8" stroke-width="1.5" marker-end="url(#ah)"/>
+          <circle cx="55" cy="70" r="22" fill="#f2f5fb" stroke="#1d4ed8" stroke-width="1.5"/><text x="55" y="75" fill="#1b2334" text-anchor="middle">x₁</text>
+          <circle cx="55" cy="150" r="22" fill="#f2f5fb" stroke="#1d4ed8" stroke-width="1.5"/><text x="55" y="155" fill="#1b2334" text-anchor="middle">x₂</text>
+          <circle cx="55" cy="230" r="22" fill="#f2f5fb" stroke="#1d4ed8" stroke-width="1.5"/><text x="55" y="235" fill="#1b2334" text-anchor="middle">x₃</text>
+          <line x1="77" y1="70" x2="230" y2="150" stroke="#6f7d94" stroke-width="1.5"/><text x="150" y="95" fill="#4a5568" font-size="13">w₁</text>
+          <line x1="77" y1="150" x2="230" y2="150" stroke="#6f7d94" stroke-width="1.5"/><text x="150" y="143" fill="#4a5568" font-size="13">w₂</text>
+          <line x1="77" y1="230" x2="230" y2="150" stroke="#6f7d94" stroke-width="1.5"/><text x="150" y="215" fill="#4a5568" font-size="13">w₃</text>
+          <circle cx="258" cy="150" r="30" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.8"/><text x="258" y="157" fill="#0e7490" text-anchor="middle" font-size="22">Σ</text>
+          <rect x="330" y="120" width="96" height="60" rx="8" fill="#f2f5fb" stroke="#6d28d9" stroke-width="1.8"/><text x="378" y="146" fill="#6d28d9" text-anchor="middle" font-size="13">activation</text><text x="378" y="166" fill="#4a5568" text-anchor="middle" font-size="12">f( · )</text>
+          <line x1="288" y1="150" x2="330" y2="150" stroke="#6f7d94" stroke-width="1.5" marker-end="url(#ah)"/>
+          <circle cx="492" cy="150" r="22" fill="#f2f5fb" stroke="#047857" stroke-width="1.8"/><text x="492" y="155" fill="#047857" text-anchor="middle">y</text>
+          <line x1="426" y1="150" x2="470" y2="150" stroke="#6f7d94" stroke-width="1.5" marker-end="url(#ah)"/>
           <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6b7280"/></marker></defs>
           <text x="55" y="285" fill="#4a5568" text-anchor="middle" font-size="13">inputs</text>
           <text x="258" y="285" fill="#4a5568" text-anchor="middle" font-size="13">weighted sum</text>
@@ -165,8 +165,8 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   <div class="slide-body">
     <p class="lead" style="margin:0;">Connect neurons into layers. Data flows in one side; each hidden layer builds on the last, learning more abstract features.</p>
     <svg viewBox="0 0 760 300" style="width:100%; max-width:760px; height:auto; margin:0 auto;">
-      <defs><marker id="ah2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#bcc6d8"/></marker></defs>
-      <g stroke="#c8d1e0" stroke-width="1">
+      <defs><marker id="ah2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6f7d94"/></marker></defs>
+      <g stroke="#6f7d94" stroke-width="1">
         <!-- input(3) to h1(4) -->
         <g>
           <line x1="120" y1="80" x2="300" y2="55"/><line x1="120" y1="80" x2="300" y2="120"/><line x1="120" y1="80" x2="300" y2="185"/><line x1="120" y1="80" x2="300" y2="250"/>
@@ -189,10 +189,10 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
         </g>
       </g>
       <g>
-        <circle cx="120" cy="80" r="16" fill="#e7eef8" stroke="#2563eb" stroke-width="1.6"/><circle cx="120" cy="150" r="16" fill="#e7eef8" stroke="#2563eb" stroke-width="1.6"/><circle cx="120" cy="220" r="16" fill="#e7eef8" stroke="#2563eb" stroke-width="1.6"/>
-        <circle cx="300" cy="55" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/><circle cx="300" cy="120" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/><circle cx="300" cy="185" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/><circle cx="300" cy="250" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/>
-        <circle cx="460" cy="55" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/><circle cx="460" cy="120" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/><circle cx="460" cy="185" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/><circle cx="460" cy="250" r="16" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.6"/>
-        <circle cx="640" cy="120" r="16" fill="#e7eef8" stroke="#0e9f6e" stroke-width="1.6"/><circle cx="640" cy="185" r="16" fill="#e7eef8" stroke="#0e9f6e" stroke-width="1.6"/>
+        <circle cx="120" cy="80" r="16" fill="#e7eef8" stroke="#1d4ed8" stroke-width="1.6"/><circle cx="120" cy="150" r="16" fill="#e7eef8" stroke="#1d4ed8" stroke-width="1.6"/><circle cx="120" cy="220" r="16" fill="#e7eef8" stroke="#1d4ed8" stroke-width="1.6"/>
+        <circle cx="300" cy="55" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/><circle cx="300" cy="120" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/><circle cx="300" cy="185" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/><circle cx="300" cy="250" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/>
+        <circle cx="460" cy="55" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/><circle cx="460" cy="120" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/><circle cx="460" cy="185" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/><circle cx="460" cy="250" r="16" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.6"/>
+        <circle cx="640" cy="120" r="16" fill="#e7eef8" stroke="#047857" stroke-width="1.6"/><circle cx="640" cy="185" r="16" fill="#e7eef8" stroke="#047857" stroke-width="1.6"/>
       </g>
       <g font-family="JetBrains Mono, monospace" font-size="14" fill="#4a5568" text-anchor="middle">
         <text x="120" y="290">Input</text><text x="380" y="290">Hidden layers</text><text x="640" y="290">Output</text>
@@ -215,10 +215,10 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
             <text x="78" y="29">Class 1</text><text x="78" y="56">Class 2</text><text x="78" y="83">Class 3</text><text x="78" y="110">Class 4</text>
           </g>
           <g>
-            <rect x="88" y="18" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="18" width="120" height="16" rx="3" fill="#0e8fa8"/><text x="246" y="31" fill="#1b2334">0.78</text>
-            <rect x="88" y="45" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="45" width="24" height="16" rx="3" fill="#2563eb"/><text x="246" y="58" fill="#4a5568">0.12</text>
-            <rect x="88" y="72" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="72" width="12" height="16" rx="3" fill="#2563eb"/><text x="246" y="85" fill="#4a5568">0.07</text>
-            <rect x="88" y="99" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="99" width="6" height="16" rx="3" fill="#2563eb"/><text x="246" y="112" fill="#4a5568">0.03</text>
+            <rect x="88" y="18" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="18" width="120" height="16" rx="3" fill="#0e7490"/><text x="246" y="31" fill="#1b2334">0.78</text>
+            <rect x="88" y="45" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="45" width="24" height="16" rx="3" fill="#1d4ed8"/><text x="246" y="58" fill="#4a5568">0.12</text>
+            <rect x="88" y="72" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="72" width="12" height="16" rx="3" fill="#1d4ed8"/><text x="246" y="85" fill="#4a5568">0.07</text>
+            <rect x="88" y="99" width="150" height="16" rx="3" fill="#d2dae8"/><rect x="88" y="99" width="6" height="16" rx="3" fill="#1d4ed8"/><text x="246" y="112" fill="#4a5568">0.03</text>
           </g>
         </svg>
       </div>
@@ -226,10 +226,10 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
         <h4 class="accent-emerald">Regression</h4>
         <p style="font-size:0.95rem;">The final layer outputs a single continuous number.</p>
         <svg viewBox="0 0 320 130" style="width:100%; height:auto; margin-top:4px;" font-family="JetBrains Mono, monospace">
-          <g stroke="#c8d1e0"><line x1="60" y1="65" x2="150" y2="40"/><line x1="60" y1="65" x2="150" y2="90"/><line x1="150" y1="40" x2="240" y2="65"/><line x1="150" y1="90" x2="240" y2="65"/></g>
-          <circle cx="60" cy="65" r="14" fill="#e7eef8" stroke="#2563eb" stroke-width="1.5"/>
-          <circle cx="150" cy="40" r="14" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.5"/><circle cx="150" cy="90" r="14" fill="#f2f5fb" stroke="#0e8fa8" stroke-width="1.5"/>
-          <circle cx="240" cy="65" r="18" fill="#e7eef8" stroke="#0e9f6e" stroke-width="1.8"/><text x="240" y="70" fill="#0e9f6e" text-anchor="middle" font-size="14">ŷ</text>
+          <g stroke="#6f7d94"><line x1="60" y1="65" x2="150" y2="40"/><line x1="60" y1="65" x2="150" y2="90"/><line x1="150" y1="40" x2="240" y2="65"/><line x1="150" y1="90" x2="240" y2="65"/></g>
+          <circle cx="60" cy="65" r="14" fill="#e7eef8" stroke="#1d4ed8" stroke-width="1.5"/>
+          <circle cx="150" cy="40" r="14" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.5"/><circle cx="150" cy="90" r="14" fill="#f2f5fb" stroke="#0e7490" stroke-width="1.5"/>
+          <circle cx="240" cy="65" r="18" fill="#e7eef8" stroke="#047857" stroke-width="1.8"/><text x="240" y="70" fill="#047857" text-anchor="middle" font-size="14">ŷ</text>
           <text x="240" y="110" fill="#4a5568" text-anchor="middle" font-size="12">numeric prediction</text>
         </svg>
       </div>
@@ -246,16 +246,16 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
     <p class="lead" style="margin:0;">Compare the prediction to the truth, measure the error, then push the weights in the direction that reduces it — over and over.</p>
     <svg viewBox="0 0 880 230" style="width:100%; max-width:880px; height:auto; margin:0 auto;" font-family="DM Sans, sans-serif" font-size="14">
       <defs><marker id="ah3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6b7280"/></marker></defs>
-      <rect x="20" y="40" width="150" height="60" rx="10" fill="#f2f5fb" stroke="#2563eb" stroke-width="1.5"/><text x="95" y="66" fill="#1b2334" text-anchor="middle">Prediction</text><text x="95" y="86" fill="#4a5568" text-anchor="middle" font-family="JetBrains Mono, monospace">0.6</text>
-      <rect x="20" y="130" width="150" height="60" rx="10" fill="#f2f5fb" stroke="#0e9f6e" stroke-width="1.5"/><text x="95" y="156" fill="#1b2334" text-anchor="middle">Ground truth</text><text x="95" y="176" fill="#4a5568" text-anchor="middle" font-family="JetBrains Mono, monospace">0.9</text>
-      <line x1="170" y1="70" x2="250" y2="100" stroke="#bcc6d8" stroke-width="1.5" marker-end="url(#ah3)"/>
-      <line x1="170" y1="160" x2="250" y2="130" stroke="#bcc6d8" stroke-width="1.5" marker-end="url(#ah3)"/>
-      <rect x="250" y="85" width="170" height="60" rx="10" fill="#f2f5fb" stroke="#e11d48" stroke-width="1.6"/><text x="335" y="110" fill="#e11d48" text-anchor="middle">Loss function</text><text x="335" y="130" fill="#4a5568" text-anchor="middle" font-size="12">measures the error</text>
-      <line x1="420" y1="115" x2="500" y2="115" stroke="#bcc6d8" stroke-width="1.5" marker-end="url(#ah3)"/>
-      <rect x="500" y="85" width="170" height="60" rx="10" fill="#f2f5fb" stroke="#b07d00" stroke-width="1.6"/><text x="585" y="110" fill="#b07d00" text-anchor="middle">Gradient</text><text x="585" y="130" fill="#4a5568" text-anchor="middle" font-size="12">which way to adjust</text>
-      <line x1="670" y1="115" x2="750" y2="115" stroke="#bcc6d8" stroke-width="1.5" marker-end="url(#ah3)"/>
-      <rect x="750" y="85" width="115" height="60" rx="10" fill="#f2f5fb" stroke="#7c3aed" stroke-width="1.6"/><text x="807" y="110" fill="#7c3aed" text-anchor="middle">Update</text><text x="807" y="130" fill="#4a5568" text-anchor="middle" font-size="12">weights</text>
-      <path d="M807 145 Q807 210 95 210 Q95 165 95 145" fill="none" stroke="#bcc6d8" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ah3)"/>
+      <rect x="20" y="40" width="150" height="60" rx="10" fill="#f2f5fb" stroke="#1d4ed8" stroke-width="1.5"/><text x="95" y="66" fill="#1b2334" text-anchor="middle">Prediction</text><text x="95" y="86" fill="#4a5568" text-anchor="middle" font-family="JetBrains Mono, monospace">0.6</text>
+      <rect x="20" y="130" width="150" height="60" rx="10" fill="#f2f5fb" stroke="#047857" stroke-width="1.5"/><text x="95" y="156" fill="#1b2334" text-anchor="middle">Ground truth</text><text x="95" y="176" fill="#4a5568" text-anchor="middle" font-family="JetBrains Mono, monospace">0.9</text>
+      <line x1="170" y1="70" x2="250" y2="100" stroke="#6f7d94" stroke-width="1.5" marker-end="url(#ah3)"/>
+      <line x1="170" y1="160" x2="250" y2="130" stroke="#6f7d94" stroke-width="1.5" marker-end="url(#ah3)"/>
+      <rect x="250" y="85" width="170" height="60" rx="10" fill="#f2f5fb" stroke="#be123c" stroke-width="1.6"/><text x="335" y="110" fill="#be123c" text-anchor="middle">Loss function</text><text x="335" y="130" fill="#4a5568" text-anchor="middle" font-size="12">measures the error</text>
+      <line x1="420" y1="115" x2="500" y2="115" stroke="#6f7d94" stroke-width="1.5" marker-end="url(#ah3)"/>
+      <rect x="500" y="85" width="170" height="60" rx="10" fill="#f2f5fb" stroke="#a16207" stroke-width="1.6"/><text x="585" y="110" fill="#a16207" text-anchor="middle">Gradient</text><text x="585" y="130" fill="#4a5568" text-anchor="middle" font-size="12">which way to adjust</text>
+      <line x1="670" y1="115" x2="750" y2="115" stroke="#6f7d94" stroke-width="1.5" marker-end="url(#ah3)"/>
+      <rect x="750" y="85" width="115" height="60" rx="10" fill="#f2f5fb" stroke="#6d28d9" stroke-width="1.6"/><text x="807" y="110" fill="#6d28d9" text-anchor="middle">Update</text><text x="807" y="130" fill="#4a5568" text-anchor="middle" font-size="12">weights</text>
+      <path d="M807 145 Q807 210 95 210 Q95 165 95 145" fill="none" stroke="#6f7d94" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ah3)"/>
       <text x="450" y="205" fill="#6b7280" text-anchor="middle" font-size="12">backpropagation — repeat until the loss stops shrinking (learning rate sets the step size)</text>
     </svg>
   <div class="src">Source: <a href="https://karpathy.ai/zero-to-hero.html">Karpathy — Neural Networks: Zero to Hero</a></div>
@@ -365,7 +365,7 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
     <p class="lead">A multimodal model takes in and produces several data types at once — you can show it an image <em>and</em> ask a question about it in the same prompt.</p>
     <div class="flow" style="justify-content:center; gap:8px;">
       <div class="node accent-cyan">text</div><div class="node accent-cyan">images</div><div class="node accent-cyan">audio</div><div class="node accent-cyan">video</div><div class="node accent-cyan">documents</div>
-      <div class="arrow">→</div><div class="node accent-violet" style="border-color:#7c3aed;">model</div><div class="arrow">→</div>
+      <div class="arrow">→</div><div class="node accent-violet" style="border-color:#6d28d9;">model</div><div class="arrow">→</div>
       <div class="node accent-emerald">text</div><div class="node accent-emerald">images</div><div class="node accent-emerald">audio/video</div><div class="node accent-emerald">code</div>
     </div>
     <p class="note">Today we go deeper on each non-text modality — and how they apply to urban health.</p>
@@ -380,16 +380,16 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
       <figure style="margin:0;"><img src="assets/day2_01.jpg" alt="semantic segmentation of a street" style="width:100%; height:250px; object-fit:cover; border-radius:10px; border:1px solid var(--border);"><figcaption class="note" style="margin-top:6px;">Semantic segmentation — every pixel labeled (road, sidewalk, vehicle, building, sky).</figcaption></figure>
       <div class="four-col" style="grid-template-columns:1fr 1fr; gap:12px;">
         <div class="card" style="padding:12px 14px;"><h4 class="accent-blue" style="font-size:1rem;">Classification</h4>
-          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="rgba(74,158,255,0.06)" stroke="#2563eb"/><rect x="40" y="30" width="50" height="14" rx="2" fill="rgba(74,158,255,0.25)"/><rect x="14" y="10" width="40" height="12" rx="6" fill="#2563eb"/><text x="34" y="19" font-size="8" fill="#eaeef5" text-anchor="middle">"street"</text></svg>
+          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="rgba(74,158,255,0.06)" stroke="#1d4ed8"/><rect x="40" y="30" width="50" height="14" rx="2" fill="rgba(74,158,255,0.25)"/><rect x="14" y="10" width="40" height="12" rx="6" fill="#1d4ed8"/><text x="34" y="19" font-size="8" fill="#eaeef5" text-anchor="middle">"street"</text></svg>
           <p style="font-size:0.9rem;">One label for the whole image.</p></div>
         <div class="card" style="padding:12px 14px;"><h4 class="accent-cyan" style="font-size:1rem;">Bounding boxes</h4>
-          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="rgba(34,211,238,0.05)" stroke="#0e8fa8" stroke-opacity="0.3"/><rect x="18" y="22" width="34" height="22" fill="none" stroke="#0e8fa8" stroke-width="2"/><rect x="74" y="14" width="40" height="30" fill="none" stroke="#0e8fa8" stroke-width="2"/></svg>
+          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="rgba(34,211,238,0.05)" stroke="#0e7490" stroke-opacity="0.3"/><rect x="18" y="22" width="34" height="22" fill="none" stroke="#0e7490" stroke-width="2"/><rect x="74" y="14" width="40" height="30" fill="none" stroke="#0e7490" stroke-width="2"/></svg>
           <p style="font-size:0.9rem;">Rectangles around objects.</p></div>
         <div class="card" style="padding:12px 14px;"><h4 class="accent-violet" style="font-size:1rem;">Segmentation</h4>
-          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-opacity="0.3"/><path d="M4 38 L126 30 L126 50 L4 50 Z" fill="rgba(167,139,250,0.4)"/><path d="M4 8 L126 8 L126 30 L4 38 Z" fill="rgba(74,158,255,0.2)"/><rect x="50" y="20" width="16" height="20" fill="rgba(251,113,133,0.5)"/></svg>
+          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="#ffffff" stroke="#6d28d9" stroke-opacity="0.3"/><path d="M4 38 L126 30 L126 50 L4 50 Z" fill="rgba(167,139,250,0.4)"/><path d="M4 8 L126 8 L126 30 L4 38 Z" fill="rgba(74,158,255,0.2)"/><rect x="50" y="20" width="16" height="20" fill="rgba(251,113,133,0.5)"/></svg>
           <p style="font-size:0.9rem;">Every pixel labeled by region.</p></div>
         <div class="card" style="padding:12px 14px;"><h4 class="accent-emerald" style="font-size:1rem;">Instance</h4>
-          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="rgba(52,211,153,0.05)" stroke="#0e9f6e" stroke-opacity="0.3"/><ellipse cx="34" cy="32" rx="18" ry="13" fill="rgba(74,158,255,0.6)"/><ellipse cx="74" cy="28" rx="16" ry="12" fill="rgba(251,113,133,0.6)"/><ellipse cx="104" cy="34" rx="13" ry="11" fill="rgba(251,191,36,0.6)"/></svg>
+          <svg viewBox="0 0 130 54" style="width:100%;height:48px;"><rect x="4" y="4" width="122" height="46" rx="4" fill="rgba(52,211,153,0.05)" stroke="#047857" stroke-opacity="0.3"/><ellipse cx="34" cy="32" rx="18" ry="13" fill="rgba(74,158,255,0.6)"/><ellipse cx="74" cy="28" rx="16" ry="12" fill="rgba(251,113,133,0.6)"/><ellipse cx="104" cy="34" rx="13" ry="11" fill="rgba(251,191,36,0.6)"/></svg>
           <p style="font-size:0.9rem;">Each object separated individually.</p></div>
       </div>
     </div>
