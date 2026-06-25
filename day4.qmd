@@ -12,7 +12,9 @@ Workflow integration, Microsoft Copilot, scenario-based group work, and Mollick'
 :::
 :::
 
-[📊 Open the Day 4 slides ↗](slides/day4.html){.btn .btn-primary target="_blank" role="button"}
+[📊 Open the Day 4 slides ↗](slides/day4.html){.btn .btn-primary target="_blank" role="button"} [⬇️ Download the PowerPoint lecture](slides/UHC_SI_AI_for_UH_Day4_2026.pptx){.btn .btn-outline-primary role="button"}
+
+*The HTML slides above are the streamlined in-class deck. The downloadable PowerPoint is the full lecture with additional slides (e.g., cognitive offloading, community co-design framework, data-flow and privacy).*
 
 ## Learning Objectives
 
