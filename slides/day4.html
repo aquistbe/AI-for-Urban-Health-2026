@@ -277,6 +277,35 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
   </div>
 </div>
 
+<!-- 16b WORKFLOW VS AGENT -->
+<div class="slide">
+  <div class="slide-header"><span class="tag">Patterns</span><h3>Workflow or Agent?</h3></div>
+  <div class="slide-body">
+    <p class="lead" style="margin:0;">Two different things get called "AI workflows" — and the difference tells you how much oversight a task needs.</p>
+    <div class="two-col">
+      <div class="card" style="border-left:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Fixed-step workflow</h4><p>You (or a template) set the steps; the AI fills each one. Same sequence every time.</p><ul><li>Predictable and easy to verify</li><li>Right default for most daily tasks</li><li>e.g. transcript &rarr; standard minutes</li></ul></div>
+      <div class="card" style="border-left:3px solid var(--accent-violet);"><h4 class="accent-violet">Agent</h4><p>You give a goal; the AI decides its own steps — what to look up, which tools to call, when it's done.</p><ul><li>Handles open-ended work</li><li>Harder to predict; needs guardrails</li><li>e.g. read complaint &rarr; check history &rarr; route to inspector</li></ul></div>
+    </div>
+    <p class="note">Rule of thumb: if you can write down the exact steps, build a workflow. Reach for an agent only when the AI genuinely must decide or pull from multiple sources on its own.</p>
+    <div class="src">Framing adapted from "A Developer's Guide to Building Scalable AI Workflows vs. Agents," Towards Data Science (2025).</div>
+  </div>
+</div>
+
+<!-- 16c DAILY WORKFLOW LIBRARY -->
+<div class="slide">
+  <div class="slide-header"><span class="tag" style="color:var(--accent-blue)">Daily work</span><h3>A Week of Public-Health Workflows</h3></div>
+  <div class="slide-body">
+    <p class="lead" style="margin:0;">The recurring tasks that actually fill a week in a health department — each has a step-by-step recipe in today's handout.</p>
+    <div class="two-col">
+      <div class="card" style="border-top:3px solid var(--accent-emerald);"><h4 class="accent-emerald">Communication</h4><ul><li>Triage the program inbox &amp; draft replies</li><li>Meeting transcript &rarr; minutes + action items</li><li>Plain-language &amp; multilingual rewrites</li></ul></div>
+      <div class="card" style="border-top:3px solid var(--accent-blue);"><h4 class="accent-blue">Reporting &amp; documents</h4><ul><li>Draft the routine recurring report</li><li>Synthesize long guidance into "what applies to us"</li><li>Grant &amp; funder progress reporting</li></ul></div>
+      <div class="card" style="border-top:3px solid var(--accent-violet);"><h4 class="accent-violet">Knowledge &amp; research</h4><ul><li>Internal SOP / policy Q&amp;A assistant</li><li>Rapid evidence brief for leadership</li></ul></div>
+      <div class="card" style="border-top:3px solid var(--accent-amber);"><h4 class="accent-amber">Data</h4><ul><li>Clean &amp; standardize messy data</li><li>Fulfill an internal data request</li></ul></div>
+    </div>
+    <p class="note">Each recipe is tool-agnostic and names its human checkpoints. Never paste PHI/PII into a public tool — use an approved enterprise tool or de-identify first.</p>
+  </div>
+</div>
+
 <!-- 17 AUTOMATE VS HUMAN -->
 <div class="slide">
   <div class="slide-header"><span class="tag">Judgment</span><h3>What to Automate vs. Keep Human</h3></div>
@@ -315,6 +344,70 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
         <div class="card" style="padding:14px 18px;"><h4 class="accent-violet" style="font-size:1.05rem;">Climate &amp; health, Bogotá &amp; Barranquilla</h4><p>Multi-source project combining satellite, cohort, and community data (more on Day 5).</p></div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- 19b COPILOT M365 -->
+<div class="slide">
+  <div class="slide-header"><span class="tag" style="color:var(--accent-blue)">EMBEDDED AI</span><h3>Microsoft Copilot: AI Inside Your Daily Apps</h3></div>
+  <div class="slide-body">
+    <p class="lead">Many of you already have Copilot through your employer's M365 subscription. It works inside the apps you use every day &mdash; no separate tab or login.</p>
+    <div class="three-col" style="grid-template-columns:1fr 1fr 1fr; grid-template-rows:auto auto;">
+      <div class="card" style="border-top:3px solid var(--accent-blue);"><h4 style="color:var(--accent-blue)">Outlook</h4><p>Summarize threads, draft replies, find action items, triage messages with natural language.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-emerald);"><h4 style="color:var(--accent-emerald)">Excel</h4><p>Analyze data, create formulas, generate charts and PivotTables &mdash; all from plain English.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-violet);"><h4 style="color:var(--accent-violet)">Word</h4><p>Draft, rewrite, summarize &mdash; agent mode edits alongside you and explains its reasoning.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-cyan);"><h4 style="color:var(--accent-cyan)">Teams</h4><p>Meeting summaries, action items from transcripts, video recaps, chat history search.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-amber);"><h4 style="color:var(--accent-amber)">PowerPoint</h4><p>Standardize formatting, generate visuals, build decks from Word docs or web pages.</p></div>
+      <div class="card" style="border-top:3px solid var(--accent-rose);"><h4 style="color:var(--accent-rose)">Copilot Studio</h4><p>Build custom agents visually &mdash; connect to SharePoint, Teams, and 1,400+ data sources.</p></div>
+    </div>
+    <div class="src">Copilot for M365 is ~$30/user/month. Many City of Philadelphia and university employees have access through existing enterprise licenses.</div>
+  </div>
+</div>
+
+<!-- 19c COMPARISON TABLE -->
+<div class="slide">
+  <div class="slide-header"><span class="tag" style="color:var(--accent-amber)">COMPARISON</span><h3>Which AI Tool for Which Task?</h3></div>
+  <div class="slide-body">
+    <table class="data">
+      <tr><th>Workflow</th><th>Best tool</th><th>Why</th></tr>
+      <tr><td>Email &amp; meeting summaries</td><td>Copilot</td><td>Embedded in Outlook/Teams; reads org data</td></tr>
+      <tr><td>Doc editing in Word/Excel</td><td>Copilot</td><td>Edits in-place; no copy-paste</td></tr>
+      <tr><td>Complex reasoning &amp; analysis</td><td>Claude</td><td>Strongest multi-step reasoning</td></tr>
+      <tr><td>Coding &amp; technical work</td><td>Claude, ChatGPT</td><td>Better code generation</td></tr>
+      <tr><td>Literature review</td><td>Claude, Perplexity</td><td>Long-document analysis, citations</td></tr>
+      <tr><td>Custom agent building</td><td>AI Studio, Copilot Studio</td><td>Visual builders; Copilot Studio has M365 data</td></tr>
+      <tr><td>Image / video generation</td><td>ChatGPT, Gemini</td><td>Dedicated media models</td></tr>
+    </table>
+    <div class="src">Most professionals benefit from using multiple tools. Copilot for routine in-app tasks; Claude or ChatGPT for deep analytical work.</div>
+  </div>
+</div>
+
+<!-- 19d COPILOT STUDIO -->
+<div class="slide">
+  <div class="slide-header"><span class="tag" style="color:var(--accent-emerald)">NO-CODE</span><h3>Copilot Studio: Custom Agents Without Code</h3></div>
+  <div class="slide-body">
+    <p class="lead">Microsoft's equivalent to Google AI Studio &mdash; but connected to your organization's data.</p>
+    <div class="two-col">
+      <div class="card">
+        <h4 style="color:var(--accent-cyan)">What you can build</h4>
+        <ul>
+          <li>Agents that answer questions from your SharePoint docs</li>
+          <li>Chatbots deployed to Teams for your whole department</li>
+          <li>Automated workflows triggered by natural language</li>
+          <li>Computer-using agents that interact with web apps</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--accent-violet)">How it compares</h4>
+        <ul>
+          <li><strong>Google AI Studio:</strong> free, flexible prompting, best for learning and prototyping</li>
+          <li><strong>Copilot Studio:</strong> enterprise-grade, connects to M365 ecosystem, 1,400+ connectors</li>
+          <li><strong>Both:</strong> no coding required, visual interface</li>
+        </ul>
+      </div>
+    </div>
+    <div class="src">copilotstudio.microsoft.com &mdash; available with M365 enterprise licenses.</div>
   </div>
 </div>
 
@@ -383,7 +476,7 @@ ul.clean li::before { content:'▸'; position:absolute; left:0; color: var(--acc
 </div><!-- /deck -->
 
 <div class="nav-bar">
-  <span class="slide-counter" id="slideCounter">1 / 26</span>
+  <span class="slide-counter" id="slideCounter">1 / 29</span>
   <div class="nav-buttons">
     <button onclick="goToSlide(0)">⏮ Start</button>
     <button onclick="prev()">← Prev</button>

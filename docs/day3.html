@@ -731,6 +731,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>What should the agent remember across conversations?</li>
 <li>What should it forget (for privacy/security)?</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Worked example: a filled-in context package
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A model answer for the Neighborhood Health Assessment AI Assistant. Use it to check your own design — it is <em>a</em> good answer, not the only one.</p>
+<p><strong>1. System Prompt / Instructions</strong></p>
+<blockquote class="blockquote">
+<p>You are a Neighborhood Health Assessment Assistant for the Philadelphia Department of Public Health. You help analysts compare health and demographic indicators across Philadelphia neighborhoods and draft assessment summaries.</p>
+<p>Rules: Report data only at the census-tract or neighborhood level — never individual records. Cite the dataset and year for every number. When an indicator rests on a small sample or wide confidence interval, say so. If asked for a recommendation, ground it in the cited evidence and label it a suggestion for human review. If data is missing or you are unsure, say “I don’t have that” rather than estimating.</p>
+</blockquote>
+<p><strong>2. User Input Examples</strong></p>
+<ol type="1">
+<li>“Compare heat vulnerability and tree canopy for Hunting Park vs.&nbsp;Chestnut Hill, and tell me which has greater need.”</li>
+<li>“Which 10 tracts in North Philadelphia have the highest asthma ED-visit rates, and what built-environment factors correlate?”</li>
+<li>“Draft a one-page heat-vulnerability summary for Hunting Park for a community meeting.”</li>
+</ol>
+<p><strong>3. Retrieved Knowledge</strong></p>
+<ul>
+<li>OpenDataPhilly: Heat Vulnerability Index (2023), tree canopy, 311 service requests</li>
+<li>American Community Survey tract tables (income, age, language, vehicle access) — refresh annually</li>
+<li>PDPH community health assessment indicators; asthma and heat-related ED-visit summaries</li>
+<li>A data dictionary defining each indicator with its source and year</li>
+</ul>
+<p><strong>4. Tool Definitions</strong></p>
+<ul>
+<li><code>query_indicator(area, indicator, year)</code> → returns value + source + confidence interval</li>
+<li><code>make_map(indicator, area)</code> → choropleth map</li>
+<li><code>make_chart(indicators, areas)</code> → comparison bar/line chart</li>
+<li><code>write_brief(findings, audience)</code> → formatted summary draft</li>
+</ul>
+<p><strong>5. Conversation History / Memory</strong></p>
+<ul>
+<li><em>Remember:</em> the analyst’s current focus area and preferred output format, within a session.</li>
+<li><em>Forget:</em> anything containing identifiable data; clear the focus area at session end; never persist queried data beyond the session.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="share-out" class="level4">
 <h4 class="anchored" data-anchor-id="share-out">Share Out</h4>
@@ -777,6 +823,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        compare Philadelphia's rates to the national average,
        create a trend visualization, and draft a weekly
        update email for the department director"</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Worked example: what good output looks like (and a planted error to catch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After <strong>Step 1</strong>, Claude’s data summary should read roughly like:</p>
+<blockquote class="blockquote">
+<p>384 records, one per Philadelphia census tract (2023). Columns include <code>name10</code> (tract ID) and <code>hvi_score</code> (0–4) plus component indicators. No missing <code>hvi_score</code> values; two tracts have null population — likely parks or non-residential land.</p>
+</blockquote>
+<p>After <strong>Step 3</strong>, a good <code>brief.md</code> might open:</p>
+<blockquote class="blockquote">
+<p><strong>Heat Vulnerability in Philadelphia — Council Brief.</strong> Of 384 tracts, the five most heat-vulnerable (HVI = 4) sit in North and lower Northeast Philadelphia. They combine high surface temperature, low tree canopy, and larger shares of older adults living alone…</p>
+</blockquote>
+<p><strong>The teaching moment:</strong> ask Claude for “the average <code>hvi_score</code> across all tracts,” then verify it yourself — open the CSV in Positron and run <code>mean(hvi_score)</code>. If Claude’s prose implies “most tracts are highly vulnerable” but the mean is ≈2.0, that gap between fluent text and the actual numbers <em>is</em> the lesson. Generation is cheap; checking is the job.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="key-takeaways" class="level4">
 <h4 class="anchored">Key Takeaways</h4>
@@ -787,7 +857,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>They require some comfort with the command line (but AI can help with that too)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -796,7 +866,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a step-by-step guide for the instructor to run the demo end-to-end on a real dataset. It uses a small <strong>sample</strong> Heat Vulnerability dataset so every command actually executes. Total live time: ~20–25 minutes. (Verified against Claude Code documentation, 2026; the CLI changes often, so test once the day before.)</p>
 <section id="before-class-15-minutes-once" class="level3">
@@ -910,6 +980,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Option 2: Data quality audit</strong> — Load a dataset. Check each column for missing values, outliers, inconsistent formats, duplicates. VERIFY: for flagged issues, show specific rows for human confirmation. STOP: every column checked and all issues logged.</p>
 <p><strong>Option 3: Grant section drafter</strong> — Read a research plan, draft a Significance section (500–800 words) with citations. VERIFY: check every factual claim against the cited source. Iterate to fix flagged issues. STOP: every claim sourced and section under 800 words.</p>
 <p>Write your loop as a plain-text document with these sections: <strong>GOAL</strong>, <strong>STEPS</strong>, <strong>VERIFY</strong>, <strong>STOP CONDITION</strong>, <strong>OUTPUT</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Worked example: a complete loop (Data quality audit)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>GOAL:</strong> Audit <code>philadelphia_hvi.csv</code> and produce a data-quality report a colleague can act on.</p>
+<p><strong>STEPS:</strong></p>
+<ol type="1">
+<li>Load the file; print the row count and state the unit of analysis.</li>
+<li>For each column: report type, % missing, min/max, and number of distinct values.</li>
+<li>Flag: missing values, out-of-range values (e.g., <code>hvi_score</code> outside 0–4), duplicate tract IDs, and inconsistent formats.</li>
+<li>For each flagged issue, pull 3–5 example rows.</li>
+</ol>
+<p><strong>VERIFY:</strong> For every flagged issue, show the specific rows to a human and wait for confirm/deny before recording it as a real problem. Do not auto-“fix” anything.</p>
+<p><strong>STOP CONDITION:</strong> Every column has been checked AND every flagged issue is confirmed or dismissed. Stop after one full pass — do not re-loop.</p>
+<p><strong>OUTPUT:</strong> <code>data_quality_report.md</code> — a one-line summary per column, a table of confirmed issues with example rows, and a “safe to analyze? yes/no” verdict.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="part-b-write-a-skill.md-10-min" class="level4">
 <h4 class="anchored" data-anchor-id="part-b-write-a-skill.md-10-min">Part B: Write a SKILL.md (10 min)</h4>
@@ -933,11 +1029,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Guardrails</span></span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">What the agent should NOT do</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Ideas:</em> a de-identification checklist for data before sharing, a plain-language health communication rewriter, a STROBE/CONSORT reporting checklist, a data dictionary generator, a grant Specific Aims formatter.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Worked example: a finished SKILL.md (de-identification checklist)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> deidentify-before-sharing</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Use before sharing any dataset or document outside the team, to find identifiers that must be removed or masked."</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># De-identification Checklist</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## When to use</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>Whenever a user is about to export, email, or publish a dataset, table, or</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>document that may contain person-level information.</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Scan for the 18 HIPAA Safe Harbor identifiers (names; geography smaller than</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>   state; all date elements except year; phone; email; MRN; etc.).</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>For each found: flag the field, show 2 example values, and propose an action</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>   (remove, generalize, or hash).</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>For dates, reduce to year unless the user confirms full dates are required</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>   and permitted.</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>For geography, output nothing finer than ZIP3 / census tract without</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>   explicit confirmation.</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Produce a before/after summary of what changed.</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output format</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>A table: field | identifier type | action taken | example before → after.</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>Plus a one-line "cleared for sharing: yes/no."</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Guardrails</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Never echo the original identifiers in the summary.</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Work on a copy; do not delete or overwrite the source file.</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>If unsure whether something is an identifier, flag it for human review</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  rather than passing it through.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="part-c-design-a-multi-step-orchestration-10-min" class="level4">
 <h4 class="anchored" data-anchor-id="part-c-design-a-multi-step-orchestration-10-min">Part C: Design a Multi-Step Orchestration (10 min)</h4>
 <p>Design a workflow that uses multiple agents or steps. Example — weekly surveillance report: Agent 1 (Data) pulls and cleans data → Agent 2 (Analysis) compares to previous weeks, generates charts → Agent 3 (Writing) drafts narrative report → Human checkpoint → Agent 4 (Distribution) formats and prepares email draft.</p>
 <p>For your design, specify: (1) overall goal, (2) how many agents/steps, (3) what each does, (4) what is passed between steps, (5) where the human checkpoints are, (6) VERIFY and STOP conditions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Worked example: a specified orchestration (weekly heat-surveillance report)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Overall goal:</strong> Every Monday, produce a one-page heat-illness surveillance update for the department director.</li>
+<li><strong>Agents/steps:</strong> four agents + one human checkpoint.</li>
+<li><strong>What each does:</strong>
+<ul>
+<li><em>Data agent</em> — pull last week’s ED heat-illness counts and NWS temperatures; clean and join by date.</li>
+<li><em>Analysis agent</em> — compare to the prior 4-week average and the same week last year; flag any tract above threshold; make one trend chart.</li>
+<li><em>Writing agent</em> — draft a plain-language narrative: what changed, where, and the recommended action.</li>
+<li><strong>Human checkpoint</strong> — an epidemiologist reviews the numbers and wording, then approves or edits.</li>
+<li><em>Distribution agent</em> — format the approved brief and prepare (not send) an email draft to the director.</li>
+</ul></li>
+<li><strong>Passed between steps:</strong> Data → a clean joined table; Analysis → table + chart + flags; Writing → draft markdown; Distribution → final brief + email draft.</li>
+<li><strong>Human checkpoints:</strong> one mandatory review before anything is formatted for sending. Nothing auto-sends.</li>
+<li><strong>VERIFY / STOP:</strong> Analysis re-checks each flagged tract’s count against the raw table; STOP when the brief is one page and every number traces to the source table. If a week’s data is missing, stop and alert the human instead of guessing.</li>
+</ol>
+</div>
+</div>
+</div>
 <p><strong>Share Out:</strong> 2–3 volunteers share their loop, skill, or orchestration design. What makes a good stop condition? What happens when the loop doesn’t converge?</p>
 </section>
 </section>
@@ -976,17 +1148,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="installation-for-those-who-can-install-software" class="level4">
 <h4 class="anchored" data-anchor-id="installation-for-those-who-can-install-software">Installation (for those who can install software)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model (pick one that fits your laptop)</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3          <span class="co"># strong default; try qwen3:4b on 8 GB laptops</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma4         <span class="co"># Google's efficient option</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS (Homebrew)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ollama</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or download from https://ollama.com/download</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull and run a model (pick one that fits your laptop)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3          <span class="co"># strong default; try qwen3:4b on 8 GB laptops</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma4         <span class="co"># Google's efficient option</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>System Requirements:</strong></p>
 <ul>
 <li>At least 8 GB RAM (16 GB recommended)</li>
@@ -1012,6 +1184,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Comparing response quality to cloud-based models (trade-offs: speed, quality, privacy)</li>
 <li>When local models are “good enough” vs.&nbsp;when you need cloud models</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Worked example: a 5-minute local-vs-cloud comparison
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A concrete task to run once Ollama is installed. Use <strong>synthetic</strong> text only — never real PHI in a classroom.</p>
+<p><strong>1. Start a local model:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. Paste this de-identification task (synthetic note):</strong></p>
+<blockquote class="blockquote">
+<p>Rewrite the following clinic note to remove all HIPAA identifiers, replacing each with a bracketed tag like <code>[NAME]</code> or <code>[DATE]</code>. Return only the de-identified note.</p>
+<p>“Maria Gonzalez (DOB 03/14/1958), MRN 4471209, was seen on June 2, 2026 at Health Center 4 on W Allegheny Ave for heat exhaustion. Call back at 215-555-0142.”</p>
+</blockquote>
+<p><strong>3. Run the <em>same</em> prompt in a cloud tool</strong> — <a href="https://claude.ai">Claude.ai</a> or <a href="https://aistudio.google.com">Google AI Studio</a>.</p>
+<p><strong>4. Compare on three axes:</strong></p>
+<ul>
+<li><strong>Quality:</strong> Did each catch every identifier (name, DOB, MRN, date, address, phone)? Local models sometimes miss one — note which.</li>
+<li><strong>Speed:</strong> Time each response.</li>
+<li><strong>Privacy:</strong> With Ollama the note never left your laptop; with the cloud tool it was sent to a server — which is decisive if this were real PHI.</li>
+</ul>
+<p><strong>Takeaway:</strong> for a sensitive, well-scoped task like de-identification, a local model that’s “good enough” can be the right call <em>because</em> the data stays put. For open-ended drafting where quality matters most and the data isn’t sensitive, cloud models usually win.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

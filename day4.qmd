@@ -5,7 +5,7 @@ title: "Day 4: AI for Urban Health Workflows"
 ::: {.day-header}
 # Day 4: AI for Urban Health Workflows
 ::: {.day-subtitle}
-Workflow integration, scenario-based group work, and Mollick's rules of co-intelligence
+Workflow integration, Microsoft Copilot, scenario-based group work, and Mollick's rules of co-intelligence
 :::
 ::: {.day-time}
 1:00--4:00 PM EST
@@ -19,12 +19,14 @@ Workflow integration, scenario-based group work, and Mollick's rules of co-intel
 By the end of today, you will be able to:
 
 1. Apply Mollick's Four Rules of Co-Intelligence to evaluate AI integration opportunities
-2. Build a simple AI agent with system instructions in Google AI Studio
-3. Assess your own professional workflows for AI augmentation potential
-4. Design AI-assisted approaches to realistic urban health challenges
-5. Identify which parts of a workflow should be automated vs. kept human
-6. Present and defend an AI integration strategy to peers
-7. Use AI to assist (not replace) grant and research writing, with appropriate disclosure
+2. Distinguish a fixed-step *workflow* from an *agent*, and choose the right pattern for a task
+3. Map your own recurring daily tasks onto concrete, step-by-step AI workflow recipes
+4. Build a simple AI agent with system instructions in Google AI Studio
+5. Assess your own professional workflows for AI augmentation potential, including barriers (IT, PHI, policy)
+6. Design AI-assisted approaches to realistic urban health challenges
+7. Identify which parts of a workflow should be automated vs. kept human
+8. Present and defend an AI integration strategy to peers
+9. Use AI to assist (not replace) grant and research writing, with appropriate disclosure
 
 ---
 
@@ -60,6 +62,48 @@ Not every task benefits from AI. A useful framework:
 | Template generation | Policy decisions |
 | Formatting and copy editing | Ethical judgment calls |
 
+### Microsoft Copilot: AI Embedded in Your Workflow
+
+Many students already have access to Microsoft Copilot through their City of Philadelphia or employer Microsoft 365 subscriptions. Copilot is different from Claude, ChatGPT, and Gemini in one important way: it lives inside the apps you already use daily — Word, Excel, Outlook, Teams, and PowerPoint. You don't need to copy-paste text into a separate browser tab.
+
+**What Copilot can do in each app:**
+
+- **Outlook:** Summarize long email threads, draft replies matching your tone, find action items across your inbox, set up automatic replies using natural language, and triage messages (flag, archive, pin) through conversational commands.
+- **Excel:** Analyze data, create formulas from natural language descriptions, generate charts and PivotTables, and make multi-step edits to spreadsheets — all without leaving the spreadsheet. Agent mode in Excel (2026) can reason through changes and explain what it's doing.
+- **Word:** Draft new content, rewrite existing passages, summarize long documents, and edit in-place. Agent mode in Word works alongside you, actively making changes while explaining its reasoning.
+- **Teams:** Summarize meeting transcripts, extract action items, generate video recaps of meetings, and search across chat history for relevant context.
+- **PowerPoint:** Standardize formatting across slides, generate visuals using multiple image models, and build slide decks from web pages or Word documents as source material.
+
+### Copilot Studio: Building Custom Agents
+
+Copilot Studio is Microsoft's no-code agent builder — comparable to Google AI Studio but integrated with organizational data. Key features:
+
+- **Visual agent builder:** Create custom agents through a guided interface, no coding required
+- **Organizational data access:** Connect agents to SharePoint, Teams, Outlook, and other M365 data sources — something standalone tools cannot do
+- **1,400+ pre-built connectors:** Integrate with external services via REST APIs
+- **Computer-using agents:** As of 2026, Copilot Studio agents can interact directly with websites and desktop applications through the UI
+- **Deploy to Teams:** Publish your agent as a Teams bot that colleagues can chat with
+
+This is particularly valuable for public health organizations that want to build internal tools — for example, an agent that answers questions about your department's standard operating procedures by reading your SharePoint documentation.
+
+### Choosing the Right Tool for the Job
+
+No single AI tool is best for everything. The practical approach is to match the tool to the task:
+
+| Workflow Type | Best Tool(s) | Why |
+|---|---|---|
+| Email triage, meeting summaries | Microsoft Copilot | Embedded in Outlook/Teams; accesses organizational data |
+| Editing docs already open in Word | Microsoft Copilot | Edits in-place; no copy-paste |
+| Spreadsheet analysis in Excel | Microsoft Copilot | Works inside Excel; formulas and charts from natural language |
+| Complex reasoning, multi-step analysis | Claude | Strongest at extended reasoning and nuanced tasks |
+| Coding and technical work | Claude, ChatGPT, Codex | Better code generation and debugging |
+| Literature review, evidence synthesis | Claude, ChatGPT, Perplexity | Better at long-document analysis and citation |
+| Building custom agents (no-code) | Google AI Studio, Copilot Studio | Visual builders; Copilot Studio connects to M365 data |
+| Web search with citations | Perplexity, ChatGPT, Gemini | Purpose-built for sourced answers |
+| Image/video generation | ChatGPT (DALL-E/Sora), Gemini | Dedicated media models |
+
+The key insight: for many routine workplace tasks, Copilot is the right choice because it eliminates context-switching. For deep analytical or creative work, Claude or ChatGPT are typically stronger. Most professionals will benefit from using both.
+
 :::{.callout-important}
 ## The Accountability Principle
 If something goes wrong with an AI-assisted output---a factual error in a report, a biased recommendation, an inappropriate communication---the human who approved and published it is responsible. **AI does not bear accountability.** This is why human oversight is non-negotiable.
@@ -76,36 +120,209 @@ If something goes wrong with an AI-assisted output---a factual error in a report
 Duration: ~20 minutes | Format: Individual reflection + pair discussion
 :::
 
-**Goal:** Identify your biggest time sinks and assess which could benefit from AI assistance.
+**Goal:** Identify your biggest time sinks, assess which could benefit from AI assistance, and map your best candidate onto a concrete workflow recipe from the [Daily Workflow Library](#daily-workflow-library) below.
 
 #### Instructions
 
-1. **List your top 5 most time-consuming recurring work tasks.** Be specific. Examples:
-   - "Writing weekly surveillance reports"
-   - "Reviewing and summarizing community health assessments from partner organizations"
-   - "Cleaning and formatting data exports from our EHR system"
-   - "Drafting communications for community outreach events"
-   - "Responding to data requests from program staff"
+1. **List your top 5 most time-consuming recurring work tasks.** Be specific. Examples drawn from public health agency work:
+   - "Writing the weekly communicable-disease surveillance report"
+   - "Triaging the program inbox and drafting replies to partner and constituent emails"
+   - "Reading new CDC/state guidance and pulling out what applies to our program"
+   - "Taking minutes and tracking action items from interagency coordination calls"
+   - "Cleaning and standardizing data exports before they go into a report"
+   - "Answering recurring public questions (clinic hours, eligibility, inspection results)"
+   - "Drafting quarterly progress reports for our grant funders"
 
 2. **Rate each task** on the following dimensions (1--5 scale):
 
-| Task | Time Spent (hrs/week) | Repetitiveness (1=unique, 5=routine) | AI Potential (1=low, 5=high) | Risk if AI Errors (1=low, 5=high) |
-|------|----------------------|--------------------------------------|------------------------------|----------------------------------|
-| 1. | | | | |
-| 2. | | | | |
-| 3. | | | | |
-| 4. | | | | |
-| 5. | | | | |
+| Task | Time Spent (hrs/week) | Repetitiveness (1=unique, 5=routine) | AI Potential (1=low, 5=high) | Risk if AI Errors (1=low, 5=high) | Main Barrier |
+|------|----------------------|--------------------------------------|------------------------------|----------------------------------|--------------|
+| 1. | | | | | |
+| 2. | | | | | |
+| 3. | | | | | |
+| 4. | | | | | |
+| 5. | | | | | |
 
-3. **Identify your top candidate:** Which task has the best combination of high time, high repetitiveness, high AI potential, and low risk?
+**AI Potential rating scale:**
 
-4. **Pair discussion:** Share your assessment with a partner. Do they agree with your ratings? What did they prioritize differently?
+- **1 — Very low:** requires physical presence or deeply personal judgment
+- **2 — Low:** AI might help marginally; primarily manual
+- **3 — Moderate:** AI could assist with portions; human oversight essential
+- **4 — High:** AI could handle significant portions with human review
+- **5 — Very high:** AI could automate most of the task with spot-checking
+
+**Common barriers to note (especially in government settings):** IT restrictions on which tools are approved, data sensitivity / PHI / PII concerns, lack of training, organizational or records-retention policy, procurement and cost, internet or device limitations, and colleague buy-in. Naming the barrier matters as much as naming the task — a high-potential task you are not *allowed* to send to a public AI tool needs a different solution (an approved enterprise tool, a de-identified workflow, or a human-only step).
+
+3. **Identify your top candidate:** Which task has the best combination of high time, high repetitiveness, high AI potential, and low risk — *and* a barrier you can actually work around?
+
+4. **Map it to a recipe:** Find the closest match in the [Daily Workflow Library](#daily-workflow-library) below. Decide whether your task is a **fixed-step workflow** or an **agent** task (see the framing note before the library), and note the human checkpoints you would keep.
+
+5. **Pair / small-group discussion (10 min):** Share your assessment with 2--3 colleagues. Which tasks did you rate highest? What barriers came up most? What is one task you could start using AI for *this week*?
+
+#### Which Tools Fit Which Tasks?
+
+After rating your tasks, consider which AI tool is the best fit for each. If you have Microsoft Copilot through your employer, many routine tasks (email drafting, meeting summaries, spreadsheet analysis, document editing) may be best handled inside the M365 apps you already use — no separate login required. Reserve Claude, ChatGPT, or other standalone tools for tasks requiring complex reasoning, coding, long-document analysis, or capabilities outside the M365 ecosystem.
 
 :::{.callout-tip}
 ## Sweet Spot for AI Integration
 The best candidates for AI integration are tasks that are **time-consuming, repetitive, and low-risk if errors occur**. Save human attention for tasks that are **high-stakes, novel, or require nuanced judgment**.
 :::
 
+:::
+
+---
+
+## Daily Workflow Library {#daily-workflow-library}
+
+This library translates the broad scenarios later in the day into the concrete, recurring tasks that fill an actual week in a city, county, or state health department. Use it two ways: as a menu you map your self-assessment tasks onto, and as step-by-step recipes you can adapt and try with whatever tool you have access to. The recipes are tool-agnostic — each lists example tools, but the pattern is what matters.
+
+### First decide: workflow or agent?
+
+Two different things get called "AI workflows," and the distinction tells you how much to trust the system and how much oversight it needs.
+
+A **fixed-step workflow** runs the same predefined sequence every time — you (or a template) control the order of steps, and the AI fills in each step. Summarizing a meeting transcript into a standard minutes format is a workflow: the steps don't change. Workflows are predictable, easy to verify, and the right default for most daily tasks.
+
+An **agent** is given a goal and decides its own steps — which tools to call, what to look up, when it is done. A bot that reads an incoming complaint, looks up the establishment's inspection history, checks it against a risk rule, and routes it to the right inspector is acting as an agent. Agents handle more open-ended work but are harder to predict and need tighter guardrails and review.
+
+:::{.callout-note}
+## Rule of thumb
+Start with the simplest thing that works. If you can write down the exact steps, build a **workflow** (a reusable prompt or template). Reach for an **agent** only when the task genuinely requires the AI to make decisions or pull from multiple sources on its own. *(Framing adapted from "A Developer's Guide to Building Scalable AI Workflows vs. Agents," Towards Data Science, 2025.)*
+:::
+
+### How to read each recipe
+
+Each recipe lists: the **recurring task**, whether it is a **workflow or agent** pattern, the **steps**, a **starter prompt** you can paste and adapt, **example tools**, the **human checkpoints** you must keep, and a **data caution** for sensitive information.
+
+:::{.callout-important}
+## Before you paste anything
+Do not paste protected health information (PHI), personally identifiable information (PII), or other restricted data into a public AI tool. Use an approved enterprise tool (e.g., your organization's Microsoft Copilot or a HIPAA-covered deployment), de-identify first, or work from aggregate counts only. When in doubt, check your agency's data-use and acceptable-use policies.
+:::
+
+---
+
+#### Workflow 1 — Triage the program inbox and draft replies
+
+**Recurring task:** Sorting a flood of incoming email (data requests, partner questions, constituent complaints, internal asks) and writing first-draft responses. · **Pattern:** Agent (it decides categories and routing) wrapping a workflow (each reply follows a template).
+
+**Steps:** (1) Paste or connect a batch of messages. (2) Ask the AI to categorize by type and urgency and flag anything needing escalation. (3) For routine categories, have it draft replies in your tone using your standard language. (4) You review, edit, and send.
+
+> **Starter prompt:** "Here are 12 emails from my program inbox. Sort them into: data request, partner coordination, constituent question, internal/admin, and 'needs a human now.' For each, give a one-line summary and a suggested priority (high/medium/low). Then draft a reply for the three routine constituent questions in a warm, plain, professional tone. Do not invent facts — flag anything where you need information I haven't given you."
+
+**Example tools:** Microsoft Copilot in Outlook (reads your inbox directly), Claude or ChatGPT (paste de-identified text), Gemini. · **Human checkpoints:** Every outbound reply; all escalations; anything quoting policy or numbers. · **Data caution:** Constituent emails often contain PII — prefer an approved in-tenant tool, or redact names and identifiers before pasting.
+
+---
+
+#### Workflow 2 — Meeting transcript → minutes + action items
+
+**Recurring task:** Turning interagency calls, program meetings, and coalition meetings into shareable minutes with decisions and assigned follow-ups. · **Pattern:** Fixed-step workflow.
+
+**Steps:** (1) Capture the transcript (Teams/Zoom/Otter). (2) Feed it to the AI with your minutes template. (3) Ask for a summary, list of decisions, and an action table (owner + due date). (4) You correct attributions and circulate.
+
+> **Starter prompt:** "From this meeting transcript, produce: (1) a 5-bullet summary, (2) a list of decisions made, and (3) an action-item table with columns Action | Owner | Due date. Only include action items that were explicitly stated. Note anything left unresolved."
+
+**Example tools:** Microsoft Copilot in Teams (native recap), Otter.ai, Fireflies, Zoom AI Companion; or paste a transcript into Claude/ChatGPT. · **Human checkpoints:** Verify who was assigned what before sending; correct any misattributed statements. · **Data caution:** Confirm participants consented to recording; meeting content may be a public record subject to retention rules.
+
+---
+
+#### Workflow 3 — Draft the routine recurring report
+
+**Recurring task:** The weekly/monthly surveillance report, program activity report, or dashboard narrative that you build from the same data structure every cycle. · **Pattern:** Fixed-step workflow.
+
+**Steps:** (1) Give the AI this cycle's numbers (aggregate counts) plus last cycle's report as a format example. (2) Ask it to draft the narrative, filling the template and flagging notable changes. (3) You verify every number against the source and add interpretation.
+
+> **Starter prompt:** "Here is last month's surveillance report (as a format template) and this month's case counts by disease and ZIP. Draft this month's report in the same structure. Call out any disease where counts rose more than 25% versus last month or versus the 3-month average. Use cautious, non-causal language. Leave a [VERIFY] tag next to any number so I can check it."
+
+**Example tools:** Claude or ChatGPT (narrative), Microsoft Copilot in Word/Excel (drafts in-place, charts from data). · **Human checkpoints:** Every figure; all interpretation and causal language; the final sign-off. · **Data caution:** Work from aggregate counts, not line-level records; watch small-cell suppression rules.
+
+---
+
+#### Workflow 4 — Synthesize long guidance into "what applies to us"
+
+**Recurring task:** A 60–200 page CDC/state guidance document, a new rule, or a grant Notice of Funding Opportunity (NOFO) lands and you need the parts that affect your program, plus deadlines and required actions. · **Pattern:** Fixed-step workflow (one long document in, structured summary out).
+
+**Steps:** (1) Load the document. (2) Ask targeted questions tied to your program. (3) Request a requirements/deadline table with page citations. (4) Spot-check the cited pages.
+
+> **Starter prompt:** "This is the new [program] guidance. Summarize in one page for a program manager. Then list every requirement that involves an action, deadline, or reporting obligation as a table: Requirement | What we must do | Deadline | Page. Quote the exact sentence for any hard deadline."
+
+**Example tools:** Claude or ChatGPT (long-document upload), NotebookLM (grounds answers in the document and cites it), Microsoft Copilot. · **Human checkpoints:** Verify cited pages — models can misattribute; confirm deadlines against the source. · **Data caution:** Public guidance is usually safe to upload; check before uploading internal or pre-decisional drafts.
+
+---
+
+#### Workflow 5 — Plain-language and multilingual rewrites
+
+**Recurring task:** Turning technical health content into materials the public can read, then into the languages your community speaks. · **Pattern:** Fixed-step workflow.
+
+**Steps:** (1) Give the AI the source text and a target reading level. (2) Ask for a plain-language rewrite. (3) Request translations into your priority languages. (4) Have a qualified bilingual staffer or community reviewer check each translation before release.
+
+> **Starter prompt:** "Rewrite this vaccine guidance at a 6th-grade reading level, in a warm and respectful tone, keeping all medical facts accurate. Then translate the rewrite into Spanish and Haitian Creole. Keep sentences short. Flag any term that may not translate cleanly so a human reviewer can confirm."
+
+**Example tools:** Claude, ChatGPT, Gemini; Microsoft Copilot in Word. · **Human checkpoints:** A qualified human must review every translation for accuracy and cultural fit — AI translation is a first draft, not a final product, for health-critical messaging. · **Data caution:** Generally low-risk (public messaging), but verify facts and numbers survived the rewrite.
+
+---
+
+#### Workflow 6 — Internal SOP / policy question-answering assistant
+
+**Recurring task:** Staff repeatedly ask "what's our protocol for X?" — reporting thresholds, outbreak steps, boil-water advisory procedures, who signs off on what. The answers live in scattered SOP PDFs and SharePoint. · **Pattern:** Agent grounded on your documents (retrieval).
+
+**Steps:** (1) Point a grounded assistant at your SOP/policy library. (2) Ask in plain language. (3) Require it to cite the source document and section. (4) Treat answers as pointers to verify, not authority.
+
+> **Starter prompt (when grounded on your docs):** "What is our reporting threshold and timeline for a suspected measles case, and who must be notified? Cite the SOP name and section. If the documents don't clearly say, tell me that instead of guessing."
+
+**Example tools:** Microsoft Copilot Studio (connects to SharePoint/Teams — best fit for internal docs), Google AI Studio / NotebookLM (upload a document set), enterprise Copilot. · **Human checkpoints:** Confirm against the cited SOP before acting; a program lead should own and update the source documents. · **Data caution:** Keep the assistant inside your tenant; SOPs may contain sensitive operational detail. Never let it answer from outside your verified document set.
+
+---
+
+#### Workflow 7 — Rapid evidence brief for leadership
+
+**Recurring task:** Leadership or a council member asks a question ("what does the evidence say about cooling-center placement?") and needs a short, sourced answer fast. · **Pattern:** Agent (searches) or fixed workflow (you supply the sources).
+
+**Steps:** (1) Define the question and scope. (2) Have the AI gather and summarize evidence — or paste the papers you trust. (3) Request a one-page brief: finding, strength of evidence, what's uncertain, implications. (4) You verify each cited source actually says what's claimed.
+
+> **Starter prompt:** "Draft a one-page evidence brief for our health commissioner on whether [intervention] reduces [outcome] in urban populations. Structure: bottom line, key findings with citations, strength/limits of the evidence, and local implications. Use cautious language. List every source so I can verify it."
+
+**Example tools:** Perplexity or ChatGPT/Claude with search (sourced answers), Elicit, NotebookLM. · **Human checkpoints:** Open and confirm every citation — AI can fabricate references; you (the epidemiologist) judge evidence quality. · **Data caution:** Use public literature; don't paste unpublished internal data into public search tools.
+
+---
+
+#### Workflow 8 — Clean and standardize messy data
+
+**Recurring task:** Free-text fields, inconsistent categories, duplicates, and partner spreadsheets that never match your schema — before anything can be analyzed or reported. · **Pattern:** Fixed-step workflow.
+
+**Steps:** (1) Show the AI a sample and your target structure. (2) Ask for a standardization plan (and code, if you use R/Python/Stata). (3) Run it on a copy. (4) Review against the original and keep an audit trail.
+
+> **Starter prompt:** "This spreadsheet has a free-text 'race/ethnicity' column with inconsistent values. Propose a mapping to our standard OMB categories, list every original value and what you'd map it to, and flag anything ambiguous for me to decide. Then write Stata code to apply the mapping. Do not drop or merge categories without flagging it."
+
+**Example tools:** Microsoft Copilot in Excel (in-sheet), Claude or ChatGPT (generate R/Python/Stata code), Claude Code. · **Human checkpoints:** Review every mapping decision; never auto-collapse demographic categories; keep the original data untouched. · **Data caution:** If the file contains PHI/PII, work locally or in an approved tool; consider generating code the AI never sees the data, then running it yourself.
+
+---
+
+#### Workflow 9 — Fulfill an internal data request
+
+**Recurring task:** A program staffer asks, in plain English, for "the numbers on X" and you translate that into a query, a table, and a chart. · **Pattern:** Fixed-step workflow.
+
+**Steps:** (1) Restate the request as a precise spec (population, time frame, breakdowns). (2) Have the AI draft the query/code for your data system. (3) Run it yourself. (4) Have the AI format the result into a clean table and a chart with a plain-language caption.
+
+> **Starter prompt:** "A colleague asked for 'ER visits for heat illness this summer by neighborhood.' Help me turn this into a precise specification (define heat illness codes, date range, geography), then write the SQL/Stata to produce a table and a bar chart. List the assumptions you made so I can confirm them."
+
+**Example tools:** Claude or ChatGPT (query/code), Microsoft Copilot in Excel (PivotTables, charts), your BI tool's AI assistant. · **Human checkpoints:** Confirm definitions and assumptions; run the query yourself; sanity-check totals. · **Data caution:** Generate and run code rather than uploading line-level data; apply small-cell suppression before sharing.
+
+---
+
+#### Workflow 10 — Grant and funder progress reporting
+
+**Recurring task:** The quarterly/annual progress report to NIH, CDC, or a foundation, assembled from activity logs, prior reports, and your work plan. · **Pattern:** Fixed-step workflow.
+
+**Steps:** (1) Give the AI the funder's template, your prior report, and this period's activity notes. (2) Ask it to draft each section against the reporting requirements. (3) You verify accomplishments, numbers, and compliance language. (4) Disclose AI assistance per funder policy.
+
+> **Starter prompt:** "Using this funder progress-report template, our last report, and these bullet notes on this quarter's activities, draft each section. Map our activities to the work-plan aims. Flag any aim where we have no activity to report so I can address it. Keep claims factual and modest."
+
+**Example tools:** Microsoft Copilot in Word (reformat to funder template), Claude or ChatGPT. · **Human checkpoints:** Verify every reported accomplishment and metric; the PI/program director signs off; check current funder AI-disclosure rules. · **Data caution:** Avoid pasting unpublished results or human-subjects details into public tools; see the NIH policy note in Activity 5.
+
+---
+
+:::{.callout-tip}
+## Turn a recipe into a reusable asset
+Once a recipe works for you, save the prompt as a template with `[bracketed placeholders]` for the parts that change each time. That converts a one-off into a workflow your whole team can reuse — and is exactly the goal of [Bonus Challenge 12](challenges.qmd#exercise-12).
 :::
 
 ---
@@ -174,6 +391,19 @@ Build an agent focused on environmental health:
 - How could this be useful in your daily work?
 - What are the risks of relying on such an agent?
 
+#### Copilot Studio Alternative
+
+If you have access to Microsoft Copilot Studio (included in many M365 enterprise licenses):
+
+1. Go to [copilotstudio.microsoft.com](https://copilotstudio.microsoft.com)
+2. Click **"Create"** and select **"New agent"**
+3. Try building the same disease prediction or environmental health agent using Copilot Studio's visual builder
+4. **Compare:** How does the no-code visual builder compare to writing system instructions in Google AI Studio? What are the trade-offs?
+
+:::{.callout-note}
+Copilot Studio agents can connect to SharePoint, Teams, and other M365 data sources — something standalone tools like Google AI Studio cannot do. This makes them especially useful for agents that need to reference your organization's internal documents and data.
+:::
+
 :::
 
 ---
@@ -239,7 +469,7 @@ For your presentation, address:
 - What community voices need to be centered in this work that AI cannot replace?
 - How do you balance urgency with cultural sensitivity?
 
-**Suggested Tools:** ChatGPT, Claude, Google AI Studio, Perplexity for research
+**Suggested Tools:** ChatGPT, Claude, Google AI Studio, Perplexity for research, Microsoft Copilot (drafting outreach materials in Word, briefing decks in PowerPoint)
 
 :::
 
@@ -275,7 +505,7 @@ For your presentation, address:
 - What data would you need to make this work, and what are the privacy considerations?
 - How do you involve community members in validating AI-suggested interventions?
 
-**Suggested Tools:** Claude (data analysis), ChatGPT (content generation), Perplexity (evidence review)
+**Suggested Tools:** Claude (data analysis), ChatGPT (content generation), Perplexity (evidence review), Microsoft Copilot (Excel data analysis, Word document drafting)
 
 :::
 
@@ -311,7 +541,7 @@ For your presentation, address:
 - What real-time data feeds would make an AI-powered heat response system most effective?
 - How do you reach people who are most vulnerable but least connected to digital communications?
 
-**Suggested Tools:** Claude (data analysis of HVI dataset), ChatGPT (communications), Google AI Studio (agent building)
+**Suggested Tools:** Claude (data analysis of HVI dataset), ChatGPT (communications), Google AI Studio (agent building), Microsoft Copilot (Outlook for stakeholder alerts, Excel for data analysis)
 
 :::
 
@@ -347,7 +577,7 @@ For your presentation, address:
 - What are the risks of using AI to prioritize infrastructure investments (potential for bias)?
 - How do you incorporate community knowledge that may not be captured in official data?
 
-**Suggested Tools:** Claude (data analysis), Google AI Studio (image analysis), ChatGPT (content generation)
+**Suggested Tools:** Claude (data analysis), Google AI Studio (image analysis), ChatGPT (content generation), Microsoft Copilot (Excel for crash data analysis, Word for policy briefs)
 
 :::
 
@@ -383,7 +613,7 @@ For your presentation, address:
 - How do you balance speed (AI triage) with accuracy (human review)?
 - What happens if the AI system misses a cluster or generates a false alarm?
 
-**Suggested Tools:** Claude (text analysis of complaints), ChatGPT (document generation), Google AI Studio (classification agent)
+**Suggested Tools:** Claude (text analysis of complaints), ChatGPT (document generation), Google AI Studio (classification agent), Microsoft Copilot (Teams for investigation thread summaries, Word for reports)
 
 :::
 
@@ -452,6 +682,7 @@ Each group presents for 3 minutes:
 - Which scenarios seemed best suited to AI assistance? Least suited?
 - What ethical guardrails would you recommend for AI use in each scenario?
 - How would you implement these ideas in your actual workplace?
+- Did any group use Microsoft Copilot? How did it compare to standalone tools (Claude, ChatGPT) for your specific task?
 
 :::
 
@@ -490,6 +721,7 @@ Duration: ~15 minutes | Format: Demonstration with brief hands-on practice | **O
 | Approach | Methods description, statistical plan template | Study design decisions, feasibility |
 | Budget justification | Template language, calculations | Resource allocation strategy |
 | Biosketches | Formatting, description drafting | Accuracy verification |
+| Formatting & compliance | Copilot in Word: reformat to funder templates, check consistency | Content decisions, scientific framing |
 
 #### Quick Practice
 

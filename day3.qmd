@@ -363,6 +363,43 @@ In your small group, design the **five context components** for this agent:
 - What should the agent remember across conversations?
 - What should it forget (for privacy/security)?
 
+::: {.callout-tip collapse="true"}
+## Worked example: a filled-in context package
+
+A model answer for the Neighborhood Health Assessment AI Assistant. Use it to check your own design — it is *a* good answer, not the only one.
+
+**1. System Prompt / Instructions**
+
+> You are a Neighborhood Health Assessment Assistant for the Philadelphia Department of Public Health. You help analysts compare health and demographic indicators across Philadelphia neighborhoods and draft assessment summaries.
+>
+> Rules: Report data only at the census-tract or neighborhood level — never individual records. Cite the dataset and year for every number. When an indicator rests on a small sample or wide confidence interval, say so. If asked for a recommendation, ground it in the cited evidence and label it a suggestion for human review. If data is missing or you are unsure, say "I don't have that" rather than estimating.
+
+**2. User Input Examples**
+
+1. "Compare heat vulnerability and tree canopy for Hunting Park vs. Chestnut Hill, and tell me which has greater need."
+2. "Which 10 tracts in North Philadelphia have the highest asthma ED-visit rates, and what built-environment factors correlate?"
+3. "Draft a one-page heat-vulnerability summary for Hunting Park for a community meeting."
+
+**3. Retrieved Knowledge**
+
+- OpenDataPhilly: Heat Vulnerability Index (2023), tree canopy, 311 service requests
+- American Community Survey tract tables (income, age, language, vehicle access) — refresh annually
+- PDPH community health assessment indicators; asthma and heat-related ED-visit summaries
+- A data dictionary defining each indicator with its source and year
+
+**4. Tool Definitions**
+
+- `query_indicator(area, indicator, year)` → returns value + source + confidence interval
+- `make_map(indicator, area)` → choropleth map
+- `make_chart(indicators, areas)` → comparison bar/line chart
+- `write_brief(findings, audience)` → formatted summary draft
+
+**5. Conversation History / Memory**
+
+- *Remember:* the analyst's current focus area and preferred output format, within a session.
+- *Forget:* anything containing identifiable data; clear the focus area at session end; never persist queried data beyond the session.
+:::
+
 #### Share Out
 
 Each group presents their context design in 2 minutes. Class discusses: What did groups prioritize differently? What components were hardest to define?
@@ -423,6 +460,20 @@ claude "Download the latest flu surveillance data from CDC,
        create a trend visualization, and draft a weekly
        update email for the department director"
 ```
+
+::: {.callout-tip collapse="true"}
+## Worked example: what good output looks like (and a planted error to catch)
+
+After **Step 1**, Claude's data summary should read roughly like:
+
+> 384 records, one per Philadelphia census tract (2023). Columns include `name10` (tract ID) and `hvi_score` (0–4) plus component indicators. No missing `hvi_score` values; two tracts have null population — likely parks or non-residential land.
+
+After **Step 3**, a good `brief.md` might open:
+
+> **Heat Vulnerability in Philadelphia — Council Brief.** Of 384 tracts, the five most heat-vulnerable (HVI = 4) sit in North and lower Northeast Philadelphia. They combine high surface temperature, low tree canopy, and larger shares of older adults living alone…
+
+**The teaching moment:** ask Claude for "the average `hvi_score` across all tracts," then verify it yourself — open the CSV in Positron and run `mean(hvi_score)`. If Claude's prose implies "most tracts are highly vulnerable" but the mean is ≈2.0, that gap between fluent text and the actual numbers *is* the lesson. Generation is cheap; checking is the job.
+:::
 
 #### Key Takeaways
 
@@ -554,6 +605,25 @@ A "loop" is a set of instructions that tells an agent what to do, how to check i
 
 Write your loop as a plain-text document with these sections: **GOAL**, **STEPS**, **VERIFY**, **STOP CONDITION**, **OUTPUT**.
 
+::: {.callout-tip collapse="true"}
+## Worked example: a complete loop (Data quality audit)
+
+**GOAL:** Audit `philadelphia_hvi.csv` and produce a data-quality report a colleague can act on.
+
+**STEPS:**
+
+1. Load the file; print the row count and state the unit of analysis.
+2. For each column: report type, % missing, min/max, and number of distinct values.
+3. Flag: missing values, out-of-range values (e.g., `hvi_score` outside 0–4), duplicate tract IDs, and inconsistent formats.
+4. For each flagged issue, pull 3–5 example rows.
+
+**VERIFY:** For every flagged issue, show the specific rows to a human and wait for confirm/deny before recording it as a real problem. Do not auto-"fix" anything.
+
+**STOP CONDITION:** Every column has been checked AND every flagged issue is confirmed or dismissed. Stop after one full pass — do not re-loop.
+
+**OUTPUT:** `data_quality_report.md` — a one-line summary per column, a table of confirmed issues with example rows, and a "safe to analyze? yes/no" verdict.
+:::
+
 #### Part B: Write a SKILL.md (10 min)
 
 A Skill is a reusable folder of expertise. Write a `SKILL.md` for a task you actually do at work:
@@ -581,11 +651,65 @@ description: "[One sentence that tells the agent WHEN to load this skill]"
 
 *Ideas:* a de-identification checklist for data before sharing, a plain-language health communication rewriter, a STROBE/CONSORT reporting checklist, a data dictionary generator, a grant Specific Aims formatter.
 
+::: {.callout-tip collapse="true"}
+## Worked example: a finished SKILL.md (de-identification checklist)
+
+````markdown
+---
+name: deidentify-before-sharing
+description: "Use before sharing any dataset or document outside the team, to find identifiers that must be removed or masked."
+---
+
+# De-identification Checklist
+
+## When to use
+Whenever a user is about to export, email, or publish a dataset, table, or
+document that may contain person-level information.
+
+## Instructions
+1. Scan for the 18 HIPAA Safe Harbor identifiers (names; geography smaller than
+   state; all date elements except year; phone; email; MRN; etc.).
+2. For each found: flag the field, show 2 example values, and propose an action
+   (remove, generalize, or hash).
+3. For dates, reduce to year unless the user confirms full dates are required
+   and permitted.
+4. For geography, output nothing finer than ZIP3 / census tract without
+   explicit confirmation.
+5. Produce a before/after summary of what changed.
+
+## Output format
+A table: field | identifier type | action taken | example before → after.
+Plus a one-line "cleared for sharing: yes/no."
+
+## Guardrails
+- Never echo the original identifiers in the summary.
+- Work on a copy; do not delete or overwrite the source file.
+- If unsure whether something is an identifier, flag it for human review
+  rather than passing it through.
+````
+:::
+
 #### Part C: Design a Multi-Step Orchestration (10 min)
 
 Design a workflow that uses multiple agents or steps. Example --- weekly surveillance report: Agent 1 (Data) pulls and cleans data → Agent 2 (Analysis) compares to previous weeks, generates charts → Agent 3 (Writing) drafts narrative report → Human checkpoint → Agent 4 (Distribution) formats and prepares email draft.
 
 For your design, specify: (1) overall goal, (2) how many agents/steps, (3) what each does, (4) what is passed between steps, (5) where the human checkpoints are, (6) VERIFY and STOP conditions.
+
+::: {.callout-tip collapse="true"}
+## Worked example: a specified orchestration (weekly heat-surveillance report)
+
+1. **Overall goal:** Every Monday, produce a one-page heat-illness surveillance update for the department director.
+2. **Agents/steps:** four agents + one human checkpoint.
+3. **What each does:**
+   - *Data agent* — pull last week's ED heat-illness counts and NWS temperatures; clean and join by date.
+   - *Analysis agent* — compare to the prior 4-week average and the same week last year; flag any tract above threshold; make one trend chart.
+   - *Writing agent* — draft a plain-language narrative: what changed, where, and the recommended action.
+   - **Human checkpoint** — an epidemiologist reviews the numbers and wording, then approves or edits.
+   - *Distribution agent* — format the approved brief and prepare (not send) an email draft to the director.
+4. **Passed between steps:** Data → a clean joined table; Analysis → table + chart + flags; Writing → draft markdown; Distribution → final brief + email draft.
+5. **Human checkpoints:** one mandatory review before anything is formatted for sending. Nothing auto-sends.
+6. **VERIFY / STOP:** Analysis re-checks each flagged tract's count against the raw table; STOP when the brief is one page and every number traces to the source table. If a week's data is missing, stop and alert the human instead of guessing.
+:::
 
 **Share Out:** 2--3 volunteers share their loop, skill, or orchestration design. What makes a good stop condition? What happens when the loop doesn't converge?
 
@@ -663,7 +787,35 @@ The instructor will demonstrate:
 1. Installing and running Ollama
 2. Chatting with a local model
 3. Comparing response quality to cloud-based models (trade-offs: speed, quality, privacy)
-4. When local models are "good enough" vs. when you need cloud models
+4. When local models are “good enough” vs. when you need cloud models
+
+::: {.callout-tip collapse="true"}
+## Worked example: a 5-minute local-vs-cloud comparison
+
+A concrete task to run once Ollama is installed. Use **synthetic** text only — never real PHI in a classroom.
+
+**1. Start a local model:**
+
+```bash
+ollama run qwen3
+```
+
+**2. Paste this de-identification task (synthetic note):**
+
+> Rewrite the following clinic note to remove all HIPAA identifiers, replacing each with a bracketed tag like `[NAME]` or `[DATE]`. Return only the de-identified note.
+>
+> "Maria Gonzalez (DOB 03/14/1958), MRN 4471209, was seen on June 2, 2026 at Health Center 4 on W Allegheny Ave for heat exhaustion. Call back at 215-555-0142."
+
+**3. Run the *same* prompt in a cloud tool** — [Claude.ai](https://claude.ai) or [Google AI Studio](https://aistudio.google.com).
+
+**4. Compare on three axes:**
+
+- **Quality:** Did each catch every identifier (name, DOB, MRN, date, address, phone)? Local models sometimes miss one — note which.
+- **Speed:** Time each response.
+- **Privacy:** With Ollama the note never left your laptop; with the cloud tool it was sent to a server — which is decisive if this were real PHI.
+
+**Takeaway:** for a sensitive, well-scoped task like de-identification, a local model that's “good enough” can be the right call *because* the data stays put. For open-ended drafting where quality matters most and the data isn't sensitive, cloud models usually win.
+:::
 
 :::{.callout-tip}
 ## Advanced companion: agentic workflows on a local model (notebook)
