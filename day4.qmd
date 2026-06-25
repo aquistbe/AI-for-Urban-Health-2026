@@ -320,6 +320,29 @@ Do not paste protected health information (PHI), personally identifiable informa
 
 ---
 
+### Tool-by-Task Quick Reference
+
+A fast lookup of current tools by task area. Tools change often — verify the latest version before relying on any platform. Match the tool to the task; for routine in-app work, an embedded assistant (Copilot, Gemini in Workspace) usually beats switching to a separate tab.
+
+| Task Area | Example Tools | Sample Prompts / Use Cases |
+|---|---|---|
+| **Email triage & writing** | Microsoft Copilot (Outlook); Gemini in Gmail (Suggested Replies, Help me write); ChatGPT / Claude | "Draft a professional reply confirming my attendance at the city health equity roundtable." · "Summarize and translate this inbox thread into Spanish." |
+| **Report writing & summarizing** | ChatGPT (custom GPTs); Claude; Elicit; scite Assistant | "Generate a 2-page summary of this surveillance report for policymakers." · "Turn these bullet points into a formatted policy memo." |
+| **Meetings** | Otter.ai; Fireflies.ai; Microsoft Teams Copilot; Zoom AI Companion | "Summarize this stakeholder meeting and list action items." · "Who committed to next steps on vaccine outreach?" |
+| **Community interaction** | Microsoft Copilot Studio / Google AI Studio (no-code bots); Dialogflow; Google Cloud Translation; Sprinklr (sentiment) | "Create a multilingual chatbot to answer FAQs about our diabetes screening program." · "Analyze social media sentiment about our new nutrition policy." |
+| **Planning & project management** | Notion AI; Asana + AI; ChatGPT + Excel/Gantt templates; Airtable + Automations | "Build a timeline for our mobile clinic launch, including risk points." · "Auto-generate project updates from meeting transcripts." |
+| **Intervention development** | Google Vertex AI / AutoML; R + Tidymodels; Python (scikit-learn); ChatGPT for prototyping | "Segment neighborhoods by vulnerability score and vaccination rate." · "Simulate impact of different SMS reminder frequencies." |
+| **Document summarization** | Claude; Microsoft Copilot; NotebookLM | "Summarize this 20-page CDC guideline into key implementation points." |
+| **Translation & accessibility** | DeepL; Google Translate; Whisper (speech-to-text); Azure AI Services (formerly Cognitive Services) | "Translate this HIV outreach flyer into Haitian Creole." · "Transcribe and subtitle this community health meeting recording." |
+| **Literature review** | Elicit; Perplexity; ResearchRabbit; Connected Papers; scite.ai | "Find 10 recent randomized trials of mHealth interventions for hypertension." · "What do systematic reviews say about gamification in behavior change?" |
+| **Survey / text analysis** | KNIME; Orange Data Mining; Azure AI Language or Google Cloud Natural Language; ChatGPT/Claude + Excel | "Categorize free-text responses from a health equity survey." · "Cluster similar concerns in these community feedback forms." |
+| **Ethical & bias auditing** | IBM AI Fairness 360; Fairlearn (Python); Google LIT (and What-If Tool); ChatGPT for checklist review | "Evaluate bias in our asthma risk model by race and income." · "Generate ethical review questions for this AI pilot in maternal health." |
+
+:::{.callout-important}
+## Data caution for this table
+The survey/text-analysis and document tools should only see de-identified data unless they run inside your approved enterprise tenant. Never paste PHI/PII into a public tool.
+:::
+
 :::{.callout-tip}
 ## Turn a recipe into a reusable asset
 Once a recipe works for you, save the prompt as a template with `[bracketed placeholders]` for the parts that change each time. That converts a one-off into a workflow your whole team can reuse — and is exactly the goal of [Bonus Challenge 12](challenges.qmd#exercise-12).

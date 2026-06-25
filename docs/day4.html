@@ -173,6 +173,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#first-decide-workflow-or-agent" id="toc-first-decide-workflow-or-agent" class="nav-link" data-scroll-target="#first-decide-workflow-or-agent">First decide: workflow or agent?</a></li>
   <li><a href="#how-to-read-each-recipe" id="toc-how-to-read-each-recipe" class="nav-link" data-scroll-target="#how-to-read-each-recipe">How to read each recipe</a></li>
+  <li><a href="#tool-by-task-quick-reference" id="toc-tool-by-task-quick-reference" class="nav-link" data-scroll-target="#tool-by-task-quick-reference">Tool-by-Task Quick Reference</a></li>
   </ul></li>
   <li><a href="#activity-2-build-a-simple-ai-agent-in-google-ai-studio" id="toc-activity-2-build-a-simple-ai-agent-in-google-ai-studio" class="nav-link" data-scroll-target="#activity-2-build-a-simple-ai-agent-in-google-ai-studio">Activity 2: Build a Simple AI Agent in Google AI Studio</a>
   <ul class="collapse">
@@ -661,6 +662,95 @@ ul.task-list li input[type="checkbox"] {
 </blockquote>
 <p><strong>Example tools:</strong> Microsoft Copilot in Word (reformat to funder template), Claude or ChatGPT. · <strong>Human checkpoints:</strong> Verify every reported accomplishment and metric; the PI/program director signs off; check current funder AI-disclosure rules. · <strong>Data caution:</strong> Avoid pasting unpublished results or human-subjects details into public tools; see the NIH policy note in Activity 5.</p>
 <hr>
+</section>
+</section>
+<section id="tool-by-task-quick-reference" class="level3">
+<h3 class="anchored" data-anchor-id="tool-by-task-quick-reference">Tool-by-Task Quick Reference</h3>
+<p>A fast lookup of current tools by task area. Tools change often — verify the latest version before relying on any platform. Match the tool to the task; for routine in-app work, an embedded assistant (Copilot, Gemini in Workspace) usually beats switching to a separate tab.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task Area</th>
+<th>Example Tools</th>
+<th>Sample Prompts / Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Email triage &amp; writing</strong></td>
+<td>Microsoft Copilot (Outlook); Gemini in Gmail (Suggested Replies, Help me write); ChatGPT / Claude</td>
+<td>“Draft a professional reply confirming my attendance at the city health equity roundtable.” · “Summarize and translate this inbox thread into Spanish.”</td>
+</tr>
+<tr class="even">
+<td><strong>Report writing &amp; summarizing</strong></td>
+<td>ChatGPT (custom GPTs); Claude; Elicit; scite Assistant</td>
+<td>“Generate a 2-page summary of this surveillance report for policymakers.” · “Turn these bullet points into a formatted policy memo.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Meetings</strong></td>
+<td>Otter.ai; Fireflies.ai; Microsoft Teams Copilot; Zoom AI Companion</td>
+<td>“Summarize this stakeholder meeting and list action items.” · “Who committed to next steps on vaccine outreach?”</td>
+</tr>
+<tr class="even">
+<td><strong>Community interaction</strong></td>
+<td>Microsoft Copilot Studio / Google AI Studio (no-code bots); Dialogflow; Google Cloud Translation; Sprinklr (sentiment)</td>
+<td>“Create a multilingual chatbot to answer FAQs about our diabetes screening program.” · “Analyze social media sentiment about our new nutrition policy.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Planning &amp; project management</strong></td>
+<td>Notion AI; Asana + AI; ChatGPT + Excel/Gantt templates; Airtable + Automations</td>
+<td>“Build a timeline for our mobile clinic launch, including risk points.” · “Auto-generate project updates from meeting transcripts.”</td>
+</tr>
+<tr class="even">
+<td><strong>Intervention development</strong></td>
+<td>Google Vertex AI / AutoML; R + Tidymodels; Python (scikit-learn); ChatGPT for prototyping</td>
+<td>“Segment neighborhoods by vulnerability score and vaccination rate.” · “Simulate impact of different SMS reminder frequencies.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Document summarization</strong></td>
+<td>Claude; Microsoft Copilot; NotebookLM</td>
+<td>“Summarize this 20-page CDC guideline into key implementation points.”</td>
+</tr>
+<tr class="even">
+<td><strong>Translation &amp; accessibility</strong></td>
+<td>DeepL; Google Translate; Whisper (speech-to-text); Azure AI Services (formerly Cognitive Services)</td>
+<td>“Translate this HIV outreach flyer into Haitian Creole.” · “Transcribe and subtitle this community health meeting recording.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Literature review</strong></td>
+<td>Elicit; Perplexity; ResearchRabbit; Connected Papers; scite.ai</td>
+<td>“Find 10 recent randomized trials of mHealth interventions for hypertension.” · “What do systematic reviews say about gamification in behavior change?”</td>
+</tr>
+<tr class="even">
+<td><strong>Survey / text analysis</strong></td>
+<td>KNIME; Orange Data Mining; Azure AI Language or Google Cloud Natural Language; ChatGPT/Claude + Excel</td>
+<td>“Categorize free-text responses from a health equity survey.” · “Cluster similar concerns in these community feedback forms.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Ethical &amp; bias auditing</strong></td>
+<td>IBM AI Fairness 360; Fairlearn (Python); Google LIT (and What-If Tool); ChatGPT for checklist review</td>
+<td>“Evaluate bias in our asthma risk model by race and income.” · “Generate ethical review questions for this AI pilot in maternal health.”</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Data caution for this table
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The survey/text-analysis and document tools should only see de-identified data unless they run inside your approved enterprise tenant. Never paste PHI/PII into a public tool.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -675,7 +765,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-</section>
 </section>
 </section>
 <section id="activity-2-build-a-simple-ai-agent-in-google-ai-studio" class="level2 activity">
